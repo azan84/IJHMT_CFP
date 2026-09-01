@@ -1,0 +1,102 @@
+% =============================================================================
+% Section 5: Dimensionless Framework
+% =============================================================================
+
+\section{Dimensionless framework}
+\label{sec:dimensionless_framework}
+
+The central objective of this work is to formulate a closed, physics-based dimensionless framework that predicts the internal flow partitioning, convective heat transfer enhancement, and hydraulic penalties in bypass-controlled single-phase immersion cooling of server electronics. Rather than relying on arbitrary empirical polynomials, the framework is derived from the governing balance laws of mass and momentum across parallel flow paths.
+
+\subsection{Governing causal chain}
+\label{sec:causal_chain}
+
+The operational behavior of an open-ratio immersion cooling module is described by the deterministic causal sequence:
+\begin{equation}
+\mathrm{OR} \;\longrightarrow\; \frac{R_{\mathrm{hyd,bypass}}}{R_{\mathrm{hyd,active}}} \;\longrightarrow\; \Phi_{\mathrm{bypass}} \;\longrightarrow\; \mathrm{Re}_{\mathrm{active}} \;\longrightarrow\; \mathrm{Nu}(\mathrm{Re}_{\mathrm{active}}, \mathrm{Pr}, \mathrm{Gz}) \;\longrightarrow\; R_{\mathrm{th}}, \; \Delta p, \; W_{\mathrm{pump}}
+\label{eq:causal_chain}
+\end{equation}
+
+\subsection{Parallel hydraulic resistance closure}
+\label{sec:hyd_resistance_closure}
+
+Consider a chassis of total height $H_{\mathrm{chassis}}$ and width $W$, containing a heat sink of base height $H_{\mathrm{base}}$ and fin height $H_{\mathrm{fin}}(\mathrm{OR}) = (H_{\mathrm{chassis}} - H_{\mathrm{base}})(1 - \mathrm{OR})$. The total volumetric coolant flow rate $Q_{\mathrm{total}}$ splits into an active heat-sink channel flow $Q_{\mathrm{active}}$ and an overhead bypass clearance flow $Q_{\mathrm{bypass}}$:
+\begin{equation}
+Q_{\mathrm{total}} = Q_{\mathrm{active}} + Q_{\mathrm{bypass}}
+\label{eq:flow_split_sum}
+\end{equation}
+
+Because both streams share common plenum inlet and outlet manifolds, the static pressure drop across both parallel branches must be equal:
+\begin{equation}
+\Delta p_{\mathrm{active}} = \Delta p_{\mathrm{bypass}} = \Delta p_{\mathrm{chassis}}
+\label{eq:dp_equality}
+\end{equation}
+
+The hydraulic resistance of each stream is defined by $\Delta p = R_{\mathrm{hyd}} \cdot \dot{m}^2 / \rho$. In the laminar developing regime, the Darcy-Weisbach channel friction factor is expressed as $f = C_f / \mathrm{Re}$. The hydraulic resistance of the fin-channel matrix is:
+\begin{equation}
+R_{\mathrm{hyd,active}} = \frac{f_{\mathrm{ch}} L_{\mathrm{sink}}}{2 D_{h,\mathrm{ch}} A_{\mathrm{ch}}^2} + \frac{K_{\mathrm{loss}}}{2 A_{\mathrm{ch}}^2}
+\label{eq:R_active}
+\end{equation}
+where $A_{\mathrm{ch}} = N_{\mathrm{ch}} \cdot s \cdot H_{\mathrm{fin}}(\mathrm{OR})$ is the total free-flow cross-sectional area through the inter-fin passages, $s$ is the fin spacing, and $D_{h,\mathrm{ch}} = 2 s H_{\mathrm{fin}} / (s + H_{\mathrm{fin}})$ is the fin-channel hydraulic diameter.
+
+Similarly, the hydraulic resistance of the overhead clearance bypass passage is:
+\begin{equation}
+R_{\mathrm{hyd,bypass}} = \frac{f_{\mathrm{gap}} L_{\mathrm{sink}}}{2 D_{h,\mathrm{gap}} A_{\mathrm{gap}}(\mathrm{OR})^2} + \frac{K_{\mathrm{gap}}}{2 A_{\mathrm{gap}}(\mathrm{OR})^2}
+\label{eq:R_bypass}
+\end{equation}
+where $A_{\mathrm{gap}}(\mathrm{OR}) = W \cdot c = W \cdot (H_{\mathrm{chassis}} - H_{\mathrm{base}}) \cdot \mathrm{OR}$.
+
+Equating pressure drops yields the bypass mass fraction $\Phi_{\mathrm{bypass}} = \dot{m}_{\mathrm{bypass}} / \dot{m}_{\mathrm{total}}$:
+\begin{equation}
+\Phi_{\mathrm{bypass}} = \frac{1}{1 + \sqrt{\frac{R_{\mathrm{hyd,bypass}}}{R_{\mathrm{hyd,active}}}}} = \frac{1}{1 + C_1 \cdot \left(\frac{1 - \mathrm{OR}}{\mathrm{OR} + \epsilon}\right)^m \cdot \mathrm{Re}_{\mathrm{in}}^n \cdot \mathrm{Pr}^k}
+\label{eq:phi_bypass_closure}
+\end{equation}
+where $\epsilon = 10^{-4}$ ensures numerical boundedness as $\mathrm{OR} \to 0$.
+
+\subsubsection{Limiting physical behavior}
+Equation~(\ref{eq:phi_bypass_closure}) strictly satisfies the physical boundary constraints:
+\begin{align}
+\lim_{\mathrm{OR} \to 0} \Phi_{\mathrm{bypass}}(\mathrm{OR}) &= 0 \quad \text{(Fully shrouded, zero tip-clearance leakage)}, \label{eq:limit_or0} \\
+\lim_{\mathrm{OR} \to 1} \Phi_{\mathrm{bypass}}(\mathrm{OR}) &= 1 \quad \text{(Fins fully recessed, complete fluid bypass)}. \label{eq:limit_or1}
+\end{align}
+
+\subsection{Effective active Reynolds number}
+\label{sec:re_active}
+
+The Reynolds number governing convective transport within the active fin channels is not set by the pump flow rate alone, but by the partitioned active mass flux:
+\begin{equation}
+\mathrm{Re}_{\mathrm{active}} = (1 - \Phi_{\mathrm{bypass}}) \cdot \mathrm{Re}_{\mathrm{in}} \cdot \left(\frac{A_{\mathrm{inlet}}}{A_{\mathrm{ch}}}\right) \cdot \left(\frac{D_{h,\mathrm{ch}}}{D_{h,\mathrm{inlet}}}\right)
+\label{eq:re_active_def}
+\end{equation}
+
+\subsection{Thermally developing Nusselt number closure}
+\label{sec:nu_closure}
+
+Because the dielectric coolants possess high Prandtl numbers ($\mathrm{Pr} = 9.2\text{--}210$), the thermal entrance length $L_{\mathrm{th}} \approx 0.05 \cdot \mathrm{Re}_{\mathrm{active}} \cdot \mathrm{Pr} \cdot D_{h,\mathrm{ch}}$ substantially exceeds the physical length of the heat sink ($L_{\mathrm{sink}} = 80\text{ mm}$). Flow within the fin channels is thermally developing throughout the domain.
+
+The Nusselt number is modeled using an asymptotic composite Graetz formulation:
+\begin{equation}
+\mathrm{Nu} = \left[ \mathrm{Nu}_{\mathrm{fd}}^3 + \left( C_2 \cdot \mathrm{Gz}^{p} \cdot \left(\frac{\mu_b}{\mu_w}\right)^{0.14} \right)^3 \right]^{1/3}
+\label{eq:nu_composite}
+\end{equation}
+where $\mathrm{Gz} = \mathrm{Re}_{\mathrm{active}} \cdot \mathrm{Pr} \cdot (D_{h,\mathrm{ch}} / L_{\mathrm{sink}})$ is the channel Graetz number, $\mathrm{Nu}_{\mathrm{fd}} \approx 3.66\text{--}4.36$ represents the fully developed asymptotic limit, and $(\mu_b / \mu_w)^{0.14}$ accounts for temperature-dependent property variations across the thermal boundary layer.
+
+\subsection{Overall thermal resistance and pumping power}
+\label{sec:rth_and_fom}
+
+The convective heat transfer coefficient is obtained directly from $h = \mathrm{Nu} \cdot k_f / D_{h,\mathrm{ch}}$. The total junction-to-inlet thermal resistance is given by the series sum:
+\begin{equation}
+R_{\mathrm{th}} = \frac{T_{\mathrm{chip,max}} - T_{\mathrm{inlet}}}{P_{\mathrm{TDP}}} = R_{\mathrm{TIM}} + R_{\mathrm{spread}} + \frac{1}{\eta_o h A_{\mathrm{wetted}}}
+\label{eq:rth_sum}
+\end{equation}
+where $\eta_o = 1 - (N_{\mathrm{fin}} A_{\mathrm{fin}} / A_{\mathrm{wetted}})(1 - \eta_{\mathrm{fin}})$ is the overall surface efficiency, with fin efficiency $\eta_{\mathrm{fin}} = \tanh(m_f H_{\mathrm{fin}}) / (m_f H_{\mathrm{fin}})$ and fin parameter $m_f = \sqrt{2 h / (k_{\mathrm{copper}} t_{\mathrm{fin}})}$.
+
+The pumping power required to drive the flow through the 1U chassis is:
+\begin{equation}
+W_{\mathrm{pump}} = Q_{\mathrm{total}} \cdot \Delta p_{\mathrm{chassis}}
+\label{eq:wpump}
+\end{equation}
+leading to the global thermal-hydraulic Figure of Merit (FOM):
+\begin{equation}
+\mathrm{FOM} = \frac{1}{R_{\mathrm{th}} \cdot W_{\mathrm{pump}}} \quad [\mathrm{K}^{-1} \cdot \mathrm{W}^{-1}]
+\label{eq:fom}
+\end{equation}

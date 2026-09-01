@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: elsarticle-num.bst
+Database file #1: references.bib
+Warning--I didn't find a database entry for "zhang2024thermal"
+Warning--I didn't find a database entry for "wu2025novel"
+Warning--I didn't find a database entry for "wang2026"
+You've used 28 entries,
+            2952 wiz_defined-function locations,
+            861 strings with 11583 characters,
+and the built_in function-call counts, 9274 in all, are:
+= -- 920
+> -- 340
+< -- 0
++ -- 132
+- -- 104
+* -- 794
+:= -- 1317
+add.period$ -- 56
+call.type$ -- 28
+change.case$ -- 28
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 222
+empty$ -- 941
+format.name$ -- 130
+if$ -- 2301
+int.to.chr$ -- 0
+int.to.str$ -- 28
+missing$ -- 28
+newline$ -- 120
+num.names$ -- 28
+pop$ -- 110
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 559
+stack$ -- 0
+substring$ -- 592
+swap$ -- 84
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 66
+width$ -- 30
+write$ -- 287
+(There were 3 warnings)

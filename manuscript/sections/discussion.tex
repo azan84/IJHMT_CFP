@@ -1,0 +1,38 @@
+% =============================================================================
+% Section 8: Discussion & Physical Insights
+% =============================================================================
+
+\section{Discussion and physical interpretation}
+\label{sec:discussion}
+
+The findings of this study offer several key physical insights into the thermal-hydraulic mechanisms governing single-phase liquid immersion cooling:
+
+\subsection{Non-linear sensitivity of parallel hydraulic resistance}
+\label{sec:disc_hydraulics}
+
+The primary reason open ratio acts as such a potent thermal-hydraulic lever is the cubic-to-quartic dependence of duct conductance on passage height. In the inter-fin channels, the narrow spacing ($s = 1.2\text{--}2.2\text{ mm}$) imposes high viscous shear drag. In contrast, the unconfined clearance slab ($c = 5\text{--}25\text{ mm}$) presents a wide, low-resistance hydraulic pathway. Consequently, even a modest structural opening ($\mathrm{OR} = 0.25$) diverts nearly a quarter of the total flow, starving the downstream electronics.
+
+\subsection{Inversion of coolant thermal ranking under bypass conditions}
+\label{sec:disc_coolant_inversion}
+
+A critical design insight demonstrated by the parametric campaign is the inversion of coolant performance ranking between shrouded and bypass-dominated regimes:
+\begin{itemize}
+\item In a perfectly sealed chassis ($\mathrm{OR} = 0.00$), coolants with higher thermal conductivities and volumetric heat capacities (such as PAO-4 and EFL-1) consistently outperform FC-40.
+\item In an unsealed chassis ($\mathrm{OR} \ge 0.50$), fluids with higher dynamic viscosities suffer far greater preferential bypass leakage than lower-viscosity fluids, causing severe flow starvation and causing higher-conductivity fluids to run hotter than low-viscosity alternatives.
+\end{itemize}
+This inversion proves that coolant selection cannot be evaluated from bulk thermophysical properties in isolation; it must be coupled with the geometric flow partitioning framework.
+
+\subsection{Engineering design rules for immersion server chassis}
+\label{sec:disc_design_rules}
+
+Based on the global Figure of Merit ($\mathrm{FOM}$) Pareto frontier, three primary design guidelines emerge:
+\begin{enumerate}
+\item \textbf{Target Open Ratio Envelope}: Maintain $\mathrm{OR} \le 0.15$ to capture $>90\%$ of the maximum attainable thermal enhancement while limiting pumping power penalties.
+\item \textbf{Fin Pitch Optimization}: When clearance gaps cannot be avoided due to server maintenance tolerances, coarse fin pitches ($s \ge 2.0\text{ mm}$) mitigate bypass starvation by reducing the inter-fin hydraulic resistance.
+\item \textbf{Upstream Flow Rectification}: Incorporating top-wall flow-deflection barriers upstream of the second CPU socket suppresses inter-chip thermal stratification.
+\end{enumerate}
+
+\subsection{Remaining limitations and experimental targets}
+\label{sec:disc_limitations}
+
+While the numerical framework has been rigorously verified against six literature benchmarks covering thermal, hydraulic, and chassis-scale behaviors, an explicit limitation remains: no published study in the screened literature directly measures the internal bypass mass fraction $\Phi_{\mathrm{bypass}}$ experimentally using Particle Image Velocimetry (PIV) or laser Doppler anemometry in immersion server chassis. Non-intrusive internal optical flow field measurements represent the most vital experimental target for future work.

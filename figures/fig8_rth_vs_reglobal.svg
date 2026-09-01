@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="137.58mm" height="86.43mm" viewBox="0 0 390.00 245.00" font-family="Helvetica, Arial, sans-serif" style="background-color:#ffffff; font-family:Helvetica, Arial, sans-serif;">
+  <ns0:defs>
+    <ns0:style>
+      text, tspan { font-family: Helvetica, Arial, "Nimbus Sans", sans-serif; }
+    </ns0:style>
+    
+    <ns0:pattern id="hatch-active" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-bypass" width="6" height="6" patternUnits="userSpaceOnUse">
+      <ns0:path d="M-1,1 l2,-2 M0,6 l6,-6 M5,7 l2,-2" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-block" width="5" height="5" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,0 l5,5 M5,0 l-5,5" stroke="#000000" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-tip" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="0" y1="2" x2="4" y2="2" stroke="#333333" stroke-width="0.7" stroke-dasharray="1.5,1.5" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-copper" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,4 L4,0" stroke="#333333" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-ram" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#555555" stroke-width="0.6" />
+    </ns0:pattern>
+
+    
+    <ns0:marker id="arrow-black" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#000000" />
+    </ns0:marker>
+    <ns0:marker id="arrow-active" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0072B2" />
+    </ns0:marker>
+    <ns0:marker id="arrow-bypass" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#D55E00" />
+    </ns0:marker>
+    <ns0:marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#333333" />
+    </ns0:marker>
+  </ns0:defs>
+  <ns0:rect width="100%" height="100%" fill="#ffffff" />
+
+<ns0:text x="10" y="13" font-size="8.2" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Fig. 8. Thermal resistance (R_th) vs. global domain Reynolds number (Re_global).</ns0:text>
+
+    <ns0:g transform="translate(10, 20)">
+      <ns0:rect x="0" y="0" width="230" height="215" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="6" y="11" font-size="6.8" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(a) R_th vs. Global Re (Domain Scale)</ns0:text>
+
+      
+      <ns0:line x1="32" y1="180" x2="215" y2="180" stroke="#000000" stroke-width="0.7" />
+      <ns0:line x1="32" y1="180" x2="32" y2="28" stroke="#000000" stroke-width="0.7" />
+
+      
+      <ns0:line x1="32" y1="180" x2="32" y2="183" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="32" y="190" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">200</ns0:text>
+      <ns0:line x1="77.7" y1="180" x2="77.7" y2="183" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="77.7" y="190" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">600</ns0:text>
+      <ns0:line x1="123.5" y1="180" x2="123.5" y2="183" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="123.5" y="190" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">1000</ns0:text>
+      <ns0:line x1="169.2" y1="180" x2="169.2" y2="183" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="169.2" y="190" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">1400</ns0:text>
+      <ns0:line x1="215" y1="180" x2="215" y2="183" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="215" y="190" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">1800</ns0:text>
+      <ns0:text x="123.5" y="200" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Re_global = (ρ·u_in·D_h,in / μ) [-]</ns0:text>
+
+      
+      <ns0:line x1="29" y1="180" x2="32" y2="180" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="182" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0.04</ns0:text>
+      <ns0:line x1="29" y1="142.5" x2="32" y2="142.5" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="144.5" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0.07</ns0:text>
+      <ns0:line x1="29" y1="105" x2="32" y2="105" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="107" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0.10</ns0:text>
+      <ns0:line x1="29" y1="67.5" x2="32" y2="67.5" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="69.5" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0.13</ns0:text>
+      <ns0:line x1="29" y1="30" x2="32" y2="30" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="32" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0.16</ns0:text>
+      <ns0:text x="10" y="105" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 10 105)" font-family="Arial, Helvetica, sans-serif">R_th [K/W]</ns0:text>
+
+      
+      <ns0:line x1="32" y1="142.5" x2="215" y2="142.5" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="2,2" />
+      <ns0:line x1="32" y1="105" x2="215" y2="105" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="2,2" />
+      <ns0:line x1="32" y1="67.5" x2="215" y2="67.5" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="2,2" />
+      <ns0:line x1="32" y1="30" x2="215" y2="30" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="2,2" />
+
+      
+      
+      <ns0:path d="M 32,45 Q 123.5,85 215,108" fill="none" stroke="#D55E00" stroke-width="1.3" />
+      <ns0:circle cx="32" cy="45" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:circle cx="77.7" cy="65" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:circle cx="123.5" cy="85" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:circle cx="169.2" cy="98" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:circle cx="215" cy="108" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:text x="170" y="102" font-size="5.5" font-weight="bold" fill="#D55E00" font-family="Arial, Helvetica, sans-serif">OR 100% (δ=5)</ns0:text>
+
+      
+      <ns0:path d="M 32,70 Q 123.5,115 215,135" fill="none" stroke="#E69F00" stroke-width="1.1" stroke-dasharray="4,2" />
+      <ns0:rect x="30.5" y="68.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:rect x="76.2" y="93.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:rect x="122" y="113.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:rect x="167.7" y="125.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:rect x="213.5" y="133.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:text x="170" y="130" font-size="5.5" font-weight="bold" fill="#E69F00" font-family="Arial, Helvetica, sans-serif">OR 100% (δ=2)</ns0:text>
+
+      
+      <ns0:path d="M 32,95 Q 123.5,138 215,152" fill="none" stroke="#009E73" stroke-width="1.1" stroke-dasharray="6,2,2,2" />
+      <ns0:polygon points="32,93 34,97 30,97" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:polygon points="77.7,118 79.7,122 75.7,122" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:polygon points="123.5,136 125.5,140 121.5,140" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:polygon points="169.2,145 171.2,149 167.2,149" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:polygon points="215,150 217,154 213,154" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:text x="170" y="148" font-size="5.5" font-weight="bold" fill="#009E73" font-family="Arial, Helvetica, sans-serif">OR 50%</ns0:text>
+
+      
+      <ns0:path d="M 32,120 Q 123.5,158 215,170" fill="none" stroke="#0072B2" stroke-width="1.3" />
+      <ns0:polygon points="32,118 34,120 32,122 30,120" fill="#0072B2" />
+      <ns0:polygon points="77.7,143 79.7,145 77.7,147 75.7,145" fill="#0072B2" />
+      <ns0:polygon points="123.5,156 125.5,158 123.5,160 121.5,158" fill="#0072B2" />
+      <ns0:polygon points="169.2,163 171.2,165 169.2,167 167.2,165" fill="#0072B2" />
+      <ns0:polygon points="215,168 217,170 215,172 213,170" fill="#0072B2" />
+      <ns0:text x="170" y="166" font-size="5.5" font-weight="bold" fill="#0072B2" font-family="Arial, Helvetica, sans-serif">OR 0% (Full Baffle)</ns0:text>
+
+      
+    
+    <ns0:g transform="translate(45, 115)">
+      <ns0:rect x="0" y="0" width="140" height="16" fill="#ffffff" stroke="#000000" stroke-width="0.8" />
+      <ns0:text x="70.0" y="10.0" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" letter-spacing="0.2" font-family="Arial, Helvetica, sans-serif">PLACEHOLDER — MOCK DATA, NOT RESULTS</ns0:text>
+    </ns0:g>
+
+    </ns0:g>
+    
+
+    <ns0:g transform="translate(245, 20)">
+      <ns0:rect x="0" y="0" width="135" height="215" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="6" y="11" font-size="6.8" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(b) Global Scale Insights</ns0:text>
+
+      <ns0:g transform="translate(5, 18)">
+        <ns0:rect x="0" y="0" width="125" height="188" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        
+        <ns0:text x="4" y="9" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Convective Starvation:</ns0:text>
+        <ns0:text x="4" y="18" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• At identical pumping flow (Q),</ns0:text>
+        <ns0:text x="4" y="27" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">  unbaffled tank suffers up to</ns0:text>
+        <ns0:text x="4" y="36" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">  2.2× higher R_th penalty</ns0:text>
+        <ns0:text x="4" y="44" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">  due to bypass diversion.</ns0:text>
+
+        <ns0:line x1="4" y1="49" x2="121" y2="49" stroke="#cccccc" stroke-width="0.5" />
+
+        <ns0:text x="4" y="58" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Apparent Non-Universality:</ns0:text>
+        <ns0:text x="4" y="67" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• Curves fan out widely across</ns0:text>
+        <ns0:text x="4" y="76" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">  blockage regimes when plotted</ns0:text>
+        <ns0:text x="4" y="85" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">  against Re_global.</ns0:text>
+        <ns0:text x="4" y="93" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">→ Misleading design metric.</ns0:text>
+
+        <ns0:line x1="4" y1="98" x2="121" y2="98" stroke="#cccccc" stroke-width="0.5" />
+
+        <ns0:text x="4" y="108" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Channel Core Physics:</ns0:text>
+        <ns0:text x="4" y="117" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• True convective resistance is</ns0:text>
+        <ns0:text x="4" y="126" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">  governed strictly by core flow</ns0:text>
+        <ns0:text x="4" y="135" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">  ṁ_active = (1 - Φ_byp) · ṁ_tot</ns0:text>
+        <ns0:text x="4" y="143" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">  (Demonstrated in Fig. 9).</ns0:text>
+
+        <ns0:line x1="4" y1="148" x2="121" y2="148" stroke="#cccccc" stroke-width="0.5" />
+
+        <ns0:text x="4" y="158" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Cross-Reference:</ns0:text>
+        <ns0:text x="4" y="167" font-size="5.5" fill="#333333" font-family="Arial, Helvetica, sans-serif">Manuscript §4.1 / Chun (2026)</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+</ns0:svg>

@@ -24,12 +24,21 @@ def ensure_git_identity(repo_root):
     except Exception:
         pass
 
+def get_current_branch(repo_root):
+    try:
+        res = subprocess.run(["git", "rev-parse", "--abbrev-ref", "HEAD"], cwd=repo_root, capture_output=True, text=True)
+        branch = res.stdout.strip()
+        return branch if branch else "main"
+    except Exception:
+        return "main"
+
 def git_pull(repo_root):
     ensure_git_identity(repo_root)
+    branch = get_current_branch(repo_root)
     try:
-        res = subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=repo_root, capture_output=True, text=True)
+        res = subprocess.run(["git", "pull", "--rebase", "origin", branch], cwd=repo_root, capture_output=True, text=True)
         if res.returncode == 0:
-            print(f"[GIT PULL] Successfully updated local repository from origin/main.")
+            print(f"[GIT PULL] Successfully updated local repository from origin/{branch}.")
             return True
         else:
             print(f"[GIT PULL WARN] {res.stderr.strip()}")
@@ -40,23 +49,24 @@ def git_pull(repo_root):
 
 def git_push_results(repo_root, completed_count, total_count):
     ensure_git_identity(repo_root)
+    branch = get_current_branch(repo_root)
     try:
         # Rebase pull first
-        subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=repo_root, capture_output=True, text=True)
+        subprocess.run(["git", "pull", "--rebase", "origin", branch], cwd=repo_root, capture_output=True, text=True)
         
-        # Stage results folder
-        subprocess.run(["git", "add", "parametric_campaign/results/"], cwd=repo_root, check=True)
+        # Stage results and simulations folder
+        subprocess.run(["git", "add", "parametric_campaign/results/", "simulations/"], cwd=repo_root, check=True)
         
-        status_res = subprocess.run(["git", "status", "--porcelain"], cwd=repo_root, capture_output=True, text=True)
+        status_res = subprocess.run(["git", "status", "--porcelain", "parametric_campaign/results/", "simulations/"], cwd=repo_root, capture_output=True, text=True)
         if not status_res.stdout.strip():
             return True
             
         commit_msg = f"feat(parametric): auto-update DOE campaign results [{completed_count}/{total_count} completed]"
         subprocess.run(["git", "commit", "-m", commit_msg], cwd=repo_root, check=True)
         
-        push_res = subprocess.run(["git", "push", "origin", "main"], cwd=repo_root, capture_output=True, text=True)
+        push_res = subprocess.run(["git", "push", "origin", branch], cwd=repo_root, capture_output=True, text=True)
         if push_res.returncode == 0:
-            print(f"[GIT PUSH SUCCESS] Pushed {completed_count}/{total_count} results to github.com/azan84/IJHMT_CFP.")
+            print(f"[GIT PUSH SUCCESS] Pushed {completed_count}/{total_count} results to origin/{branch}.")
             return True
         else:
             print(f"[GIT PUSH WARN] {push_res.stderr.strip()}")

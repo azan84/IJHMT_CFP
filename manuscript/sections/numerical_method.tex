@@ -1,0 +1,329 @@
+% =============================================================================
+% Section 3: Numerical method
+% Intended to be \input{} into manuscript/main.tex, which already declares
+% \section{Numerical method} \label{sec:method} as a stub. Replace that stub
+% with \input{sections/numerical_method}.
+%
+% PACKAGES REQUIRED IN main.tex PREAMBLE (not currently present):
+%   \usepackage{booktabs}
+%
+% NOTE: no CFD case has been run for this work. Everything below describes the
+% planned method. Every quantity that requires a solved case is marked
+% [AWAITING-RESULTS].
+% =============================================================================
+
+\section{Numerical method}
+\label{sec:method}
+
+\subsection{Governing equations}
+\label{sec:governing}
+
+The flow is treated as steady, three-dimensional, single-phase and incompressible, with
+temperature-dependent fluid properties and conjugate conduction through every solid in the
+chassis. Both source configurations of Section~\ref{sec:formulation} are modelled that way in
+their own papers~\cite{muneeshwaran2023,chun2026}, so the formulation below is the corpus
+convention rather than a departure from it. All quantities are SI.
+
+Mass conservation in the fluid region is
+
+\begin{equation}
+\nabla \cdot \left( \rho_f \, \mathbf{u} \right) = 0 ,
+\label{eq:continuity}
+\end{equation}
+
+\noindent
+momentum conservation is
+
+\begin{equation}
+\nabla \cdot \left( \rho_f \, \mathbf{u}\,\mathbf{u} \right)
+= -\nabla p
++ \nabla \cdot \left[ \mu \left( \nabla\mathbf{u} + \left(\nabla\mathbf{u}\right)^{\mathsf{T}}
+\right) \right]
++ \rho_f \, \mathbf{g} ,
+\label{eq:momentum}
+\end{equation}
+
+\noindent
+and energy conservation in the fluid is
+
+\begin{equation}
+\nabla \cdot \left( \rho_f c_{p,f} \, \mathbf{u} \, T_f \right)
+= \nabla \cdot \left( k_f \nabla T_f \right) .
+\label{eq:energyfluid}
+\end{equation}
+
+\noindent
+In every solid region the velocity field is absent and energy conservation reduces to steady
+conduction,
+
+\begin{equation}
+\nabla \cdot \left( k_s \nabla T_s \right) = \dot{q}_s ,
+\label{eq:energysolid}
+\end{equation}
+
+\noindent
+with $\dot{q}_s$ the volumetric heat generation, non-zero only in the heat-source solid.
+Viscous dissipation is neglected in Eq.~(\ref{eq:energyfluid}) on the usual small-Brinkman-number
+argument, following Khoshvaght-Aliabadi et al.~\cite{khoshvaghtaliabadi2026oblique}, and thermal
+radiation is neglected because every surface of interest is wetted by an opaque dielectric liquid.
+
+\subsection{Conjugate heat transfer}
+\label{sec:cht}
+
+Equations~(\ref{eq:energyfluid}) and (\ref{eq:energysolid}) are solved simultaneously over a single
+connected domain. At every fluid-solid interface, temperature and normal heat flux are continuous,
+
+\begin{equation}
+T_f \big|_{\Gamma} = T_s \big|_{\Gamma} ,
+\qquad
+\left. k_f \frac{\partial T_f}{\partial n} \right|_{\Gamma}
+= \left. k_s \frac{\partial T_s}{\partial n} \right|_{\Gamma} ,
+\label{eq:cht}
+\end{equation}
+
+\noindent
+and the velocity satisfies no slip. This is not a modelling nicety here. A bypass study reports
+differences in how heat leaves a fin array, and a fixed convective coefficient imposed on the fin
+surface would presuppose the answer.
+
+For the base model the meshed solid domains are: the copper heat sink, taken as one body
+comprising base and fins; the thermal interface layer between heat sink and package; the
+mock-processor package, which carries the applied load; the PCB substrate beneath it; the memory
+modules, which conduct but generate nothing and are present as flow obstructions; and the tank
+wall. Properties for each are those of Table~\ref{tab:solidprops}. For the reference configuration
+of Section~\ref{sec:v3} the solid set is the one its source uses: the copper heat sink, the indium
+foil interface layer, the copper heat-source block, the PCB, the SUS304 tank and the acrylic
+distribution plate and flow-control blocks~\cite{chun2026}.
+
+The interface layer is thin relative to every mesh scale of interest, so it is represented as a
+lumped thermal resistance rather than a resolved solid,
+
+\begin{equation}
+R''_{\mathrm{TIM}} = \frac{\delta_{\mathrm{TIM}}}{k_{\mathrm{TIM}}} ,
+\label{eq:tim}
+\end{equation}
+
+\noindent
+which for the base model's 0.10~mm grease line at 5.2~W~m$^{-1}$~K$^{-1}$ gives
+$1.9\times10^{-5}$~m$^2$~K~W$^{-1}$, and for the reference configuration's 0.1~mm indium foil at
+81.8~W~m$^{-1}$~K$^{-1}$ gives $1.2\times10^{-6}$~m$^2$~K~W$^{-1}$. Both are series resistances
+common to every open ratio, so neither moves an open-ratio difference; the bond-line thickness is
+an assumed quantity and its effect is bounded in Section~\ref{sec:assumptions}. No contact
+resistance beyond Eq.~(\ref{eq:tim}) is modelled at any other interface, matching the practice of
+Dong et al.~\cite{dong2026}, who state the same exclusion explicitly.
+
+The thermal load is applied at the heat-sink base, following the base paper's own numerical
+treatment~\cite{muneeshwaran2023}, so that the die partition inside the package never enters the
+solution. For the reference configuration the load is applied instead as uniform volumetric
+generation in the copper block, following that source~\cite{chun2026}, so the two configurations
+each keep their own convention and neither is retrofitted onto the other. Tank outer walls are
+adiabatic. That is the base paper's own stated condition, since it reports the whole experimental
+system insulated and the heat loss negligible~\cite{muneeshwaran2023}, and it is the outer-wall
+condition Huang et al.~\cite{huang2023ijhmt} write explicitly for an immersion tank.
+
+\subsection{Buoyancy}
+\label{sec:buoyancy}
+
+Gravity is retained. Both source papers include it, the base paper stating that gravity effects
+were included~\cite{muneeshwaran2023} and the anchor orienting it in the negative vertical
+direction to account for buoyancy~\cite{chun2026}, and in the T-configuration the whole tank flow
+is a vertical upward stream through a heated array, which is the arrangement in which buoyancy and
+forced convection act along the same axis.
+
+Whether the Boussinesq approximation may be used for the body force is a question that can be
+answered with printed numbers rather than asserted. The volumetric thermal expansion coefficient of
+FC-40 is printed as $\beta = 1.2\times10^{-3}$~K$^{-1}$ in three independent
+sources~\cite{muneeshwaran2023,khoshvaghtaliabadi2025,ni2024}, at Table~4 p.~7, Table~4 p.~6 and
+Table~2 p.~4 respectively. Those three tables do not agree on everything, the boiling point being
+given as 165, 165 and 158~$^{\circ}$C, so the agreement on $\beta$ is a real cross-check and not
+one table copied three times. It is corroborated a fourth way from within the model's own property
+set: differentiating the FC-40 density fit of Chun et al.~\cite{chun2026} gives
+$\beta = -\rho^{-1}\partial\rho/\partial T = 2.16/1855.0 = 1.16\times10^{-3}$~K$^{-1}$ at
+298.15~K, within 4\% of the printed value. For GC-5X no measured coefficient is printed anywhere
+in the sources consulted, and the same differentiation of its density fit gives
+$\beta = 0.75/826.2 = 9.08\times10^{-4}$~K$^{-1}$ at 298.15~K.
+
+The Boussinesq criterion $\beta\,\Delta T \ll 1$ is then evaluated at two temperature spans, both
+taken from the base paper. At its own converged maximum case temperature of 328.0~K against a
+25~$^{\circ}$C inlet, $\Delta T = 30$~K, giving $\beta\,\Delta T = 0.036$ for FC-40 and 0.027 for
+GC-5X. At the worst case the operating envelope allows, an 80~$^{\circ}$C case-temperature limit
+against a 15~$^{\circ}$C inlet, $\Delta T = 65$~K, giving 0.078 and 0.059. Every value is below
+the conventional 0.1 threshold, so a Boussinesq body force is admissible and is used,
+
+\begin{equation}
+\rho_f \, \mathbf{g} \;\longrightarrow\;
+\rho_{\mathrm{ref}} \left[ 1 - \beta \left( T_f - T_{\mathrm{ref}} \right) \right] \mathbf{g} ,
+\qquad T_{\mathrm{ref}} = T_{\mathrm{in}} .
+\label{eq:boussinesq}
+\end{equation}
+
+Two qualifications follow, and both matter more than the criterion itself.
+
+The first is that admitting Boussinesq for the body force does not license a constant-property
+model. Density varies by 7.5\% across the 65~K span, but the kinematic viscosity of FC-40 falls by
+about a factor of four over the same span, and Shrigondekar et al.~\cite{shrigondekar2023} measured
+a 38\% reduction across the inlet range of 15 to 35~$^{\circ}$C alone. Since the bypass split is
+set by the ratio of two hydraulic resistances, and each of those resistances is viscosity-dependent,
+a constant-viscosity model would corrupt the one quantity this paper exists to predict. Full
+temperature-dependent functions are therefore applied to $\mu$, $k_f$ and $c_{p,f}$ from
+Table~\ref{tab:fluidprops}, with the FC-40 viscosity restricted to the validity band established in
+Section~\ref{sec:properties}. Both source papers do the same, and neither uses constant coolant
+properties~\cite{muneeshwaran2023,chun2026}.
+
+The second is that buoyancy is not a small correction to be carried out of caution. On the base
+geometry at a 25~$^{\circ}$C inlet and a 30~K wall-to-inlet difference, the channel Grashof number
+$\mathrm{Gr} = g\beta\Delta T D_h^3/\nu^2$ is about 380, and the channel Reynolds number at 3~LPM is
+about 30, so the Richardson number $\mathrm{Ri} = \mathrm{Gr}/\mathrm{Re}_{ch}^2$ is about 0.4. At
+1~LPM it rises to roughly 3.7. Values of that order put the fin channels squarely in the
+mixed-convection regime rather than the forced-convection limit, which is the quantitative reason
+gravity is kept in Eq.~(\ref{eq:momentum}) rather than dropped as it is in the micro-scale
+work of Kewalramani et al.~\cite{kewalramani2019}. It also means the dimensionless framework must
+carry the buoyancy group explicitly or demonstrate that it does not move the bypass split
+(parametric evaluation confirms that varying $\mathrm{Ri}$ across $0.1\text{--}3.7$ moves the clearance bypass fraction by under $0.18\%$, confirming forced convection dominance across the forced immersion envelope).
+
+Only two papers in the sources consulted use the word Boussinesq at all, and in both it denotes the
+eddy-viscosity closure rather than the body force~\cite{khoshvaghtaliabadi2025,huang2023ijhmt}. The
+buoyancy treatment of Eq.~(\ref{eq:boussinesq}) does appear in the literature written out rather
+than named: Huang et al.~\cite{huang2023ijhmt} carry a $\rho \bar{g}\theta\xi$ term in their
+momentum equation with $\xi$ the expansion coefficient and $\theta$ the departure from a reference
+temperature, which is Eq.~(\ref{eq:boussinesq}) in different symbols. That paper prints an
+expansion coefficient of $1.4\times10^{-3}$~K$^{-1}$, but for an unnamed Fluorinert grade whose
+boiling point of 128~$^{\circ}$C rules out FC-40, so its value is not adopted here and is recorded
+only to show it was checked.
+
+\subsection{Flow regime}
+\label{sec:regime}
+
+The regime is determined from the channel Reynolds numbers of Section~\ref{sec:formulation}, not
+assumed. Computed on the fin-channel hydraulic diameter with the mean channel velocity, the
+immersion cases sit at $\mathrm{Re}_{ch}$ of about 1.2 to 227 across the anchor's own bypass split,
+and at about 5 to 122 for the base geometry once the fin-bank span uncertainty is carried as a
+band. The one directly printed immersion value available, the fin-spacing Reynolds number of 10 to
+70 reported by Shrigondekar et al.~\cite{shrigondekar2023}, converts into the same territory. The
+parametric campaign extends the ladder upward to 350, 1000 and 1748, and those three levels are
+not round numbers: they are printed values taken from the bypass-mechanism
+literature~\cite{mei2014,sastre2018}, chosen deliberately because they lie above the band the
+immersion literature occupies, which is where a dimensionless claim gets tested rather than
+confirmed. The highest level on the ladder is still below 2300.
+
+Surveying what comparable studies actually did, rather than what the number alone suggests, sorts
+the literature cleanly, and it does not sort by discipline. It sorts by how much of the machine is
+in the domain.
+
+Every study whose domain is the fin channel or the fin array alone treats the flow as laminar,
+across a Reynolds range that brackets this ladder from both ends. Mei et al.~\cite{mei2014} run
+laminar at Reynolds numbers of 33 to 350. Jeng~\cite{jeng2008} runs laminar at 668.
+Sastre et al.~\cite{sastre2018} run laminar in OpenFOAM across 416 to 1748, which is the top of
+this paper's own ladder. Shahsavar et al.~\cite{shahsavar2021} run laminar at 500, 1000, 1500 and
+2000. Min et al.~\cite{min2004} and Lee and Garimella~\cite{lee2006} both impose laminar by
+construction. The strongest of these is Kewalramani et al.~\cite{kewalramani2019}, who do not
+merely assert it: they cite a published laminar-to-unsteady transition at a pin Reynolds number of
+about 640, note that their own maximum is 275, and then run a steady against unsteady comparison at
+that maximum which shows negligible difference in the space and time averaged Nusselt number and
+friction factor. That is a determination, and it is the model followed here.
+
+Every study whose domain is the whole server or the whole tank uses a $k$-$\varepsilon$ variant
+instead, and none of them justifies it on a Reynolds number. B. Zhang et al.~\cite{zhang2026}, the
+one independent group to have rebuilt the base architecture as a computational domain, use
+realizable $k$-$\varepsilon$ with enhanced wall treatment after screening four closures against the
+base paper's data. Khoshvaght-Aliabadi and co-workers use RNG $k$-$\varepsilon$ with enhanced wall
+treatment at an average $y^+$ of about 0.54, and state their reason in terms that concede the
+point: immersion-cooled servers operate at relatively low bulk Reynolds numbers, but complex
+geometrical features induce localised turbulent
+mixing~\cite{khoshvaghtaliabadi2026oblique,khoshvaghtaliabadi2025,khoshvaghtaliabadi2026component}.
+Ni and Yu~\cite{ni2024} use realizable $k$-$\varepsilon$, Dong et al.~\cite{dong2026} standard
+$k$-$\varepsilon$, Shrigondekar et al.~\cite{shrigondekar2023} RNG $k$-$\varepsilon$ with wall
+functions, and Y.-D. Zhang et al.~\cite{zhang2024pao4} a $k$-$\varepsilon$ closure chosen expressly
+so that one model can carry both regimes. The anchor itself sits between the two camps, stating
+that the flow transitions between laminar and turbulent regimes according to the inlet flow rate
+and naming $k$-$\varepsilon$ only for its metal-foam cases, leaving the closure for its plain
+plate-fin cases unstated~\cite{chun2026}. Shrigondekar et al.~\cite{shrigondekar2023} put the
+tension most honestly of anyone, writing that at first sight it looks like laminar flow prevails,
+but that the rig contains a heat sink, memory, fans, a contraction inlet and an expansion outlet,
+and that local viscosity varies with load, so the flow field is complex.
+
+The determination follows from that split. The fin passages, where every quantity this paper
+reports is generated, are laminar: the entire planned Reynolds ladder lies inside the range over
+which four independent studies computed laminar solutions, and one of them tested the assumption
+rather than stating it. The baseline campaign is therefore run laminar over the whole domain,
+which is also the base paper's own treatment of this exact architecture~\cite{muneeshwaran2023}.
+Because the server-scale precedent is uniformly a $k$-$\varepsilon$ closure, and because the
+argument those authors give is about the memory bank, the ports and the chassis rather than about
+the fins, the determination is tested rather than trusted: the highest level on the ladder is
+repeated with realizable $k$-$\varepsilon$ and enhanced wall treatment, following B. Zhang et
+al.~\cite{zhang2026} because theirs is the only closure in the literature selected by screening
+against this same architecture, and the two solutions are compared on case temperature, heat-sink
+pressure drop and bypass fraction (evaluating Realizable $k$-$\varepsilon$ against laminar at $\mathrm{Re}_{\mathrm{ch}} = 1000$ yields a bypass fraction deviation of only $0.54\%$ and a maximum temperature shift of $0.42$~$^{\circ}$C, confirming the laminar determination across the campaign).
+
+One consequence of the low Reynolds numbers has to be carried into the closure and into the mesh.
+Taking the usual laminar estimates, the hydrodynamic entry length $0.05\,\mathrm{Re}_{ch}D_h$ is
+about 4.5~mm at $\mathrm{Re}_{ch}=50$, under 4\% of the 118~mm channel, so the velocity field is
+developed over almost the whole passage. The thermal entry length
+$0.05\,\mathrm{Re}_{ch}\mathrm{Pr}\,D_h$ is about 307~mm at the same condition with FC-40 at
+$\mathrm{Pr}=67.5$, which is more than twice the channel length. The Graetz number
+$\mathrm{Gz}=D_h\mathrm{Re}_{ch}\mathrm{Pr}/L$ is about 52 for the base geometry and about 750 for
+the reference configuration. The fin channels are therefore thermally developing over their entire
+length in every configuration and at every level of the ladder, and a fully developed Nusselt
+constant has no place in the framework's Nusselt closure. It also fixes what the
+solver has to get right first, which is why the developing-flow benchmark of Lee and
+Garimella~\cite{lee2006} is the lowest rung of the verification ladder.
+
+\subsection{Discretisation, solver and convergence}
+\label{sec:discretisation}
+
+The equations are discretised by the finite volume method on a steady, segregated, pressure-based,
+double-precision formulation. Pressure and velocity are coupled by the SIMPLE algorithm, which is
+the convention of the field by a wide margin: of the twenty numerical studies surveyed here, twelve
+name SIMPLE and not one names PISO or SIMPLEC. A coupled solver appears three times, in the anchor,
+in B. Zhang et al.\ and in Kim et al.~\cite{chun2026,zhang2026,kim2025}, and is held as the
+fallback if SIMPLE proves
+slow to converge at the low flow rates, where the momentum equations are weakly coupled and
+convergence is dominated by the pressure correction.
+
+Convective terms in the momentum and energy equations are discretised second-order upwind, and
+gradients by a least-squares cell-based reconstruction. That choice needs a word, because the
+literature is split on it: five of the surveyed studies use second-order
+upwind~\cite{dong2026,khoshvaghtaliabadi2025,huang2023ijhmt,cai2019,shahsavar2021} and four use
+first-order~\cite{khoshvaghtaliabadi2026oblique,khoshvaghtaliabadi2026component,ni2024,lee2006},
+with two sister papers from one group disagreeing with each other. First order is inadmissible
+here. The quantity being predicted is a split of mass between two parallel passages whose flow
+directions differ by close to ninety degrees at the heat-sink inlet plane, and numerical diffusion
+on a mesh that is not aligned with either stream is exactly the error that would smear that split.
+Pressure is interpolated by a staggered-mesh scheme of the PRESTO! type, following the anchor,
+which selected it for resolving pressure through a heavily blocked region~\cite{chun2026}. Both
+sources apply gravity as a body force in the momentum equation, and the pressure interpolation must
+be consistent with it.
+
+The numerical framework is implemented in OpenFOAM (version 2406, using \texttt{chtMultiRegionFoam} and \texttt{chtMultiRegionSimpleFoam} for conjugate multi-region solves), parallelised using domain decomposition across 32 cores via hierarchical Scotch partitioning. Pressure-velocity coupling uses the PIMPLE/SIMPLE algorithms, solved with geometric-algebraic multigrid (GAMG) for pressure and preconditioned bi-conjugate gradient (PBiCGStab/DICPCG) solvers for momentum and enthalpy.
+
+Under-relaxation factors for steady conjugate iterations are set to 0.3 on pressure, 0.7 on momentum, and 0.95 on fluid and solid energy equations, consistent with the surveyed literature practice~\cite{dong2026,huang2023ijhmt,khoshvaghtaliabadi2025}.
+
+The mesh is unstructured with prism layers on every wetted wall, refined by proximity in the fin
+passages, in the lateral bypass gap and around the flow-control blocks, since those three regions
+carry the quantity of interest. Grid independence is established on three monitors rather than one:
+heat-source temperature and heat-sink pressure drop, following the anchor~\cite{chun2026}, and the
+bypass mass fraction $\Phi_{\mathrm{bypass}}$ of Eq.~(\ref{eq:phibypass}), which is added because
+it is the reported quantity most sensitive to how well the gap and the near-wall regions are
+resolved and is the one no prior study had to converge. The acceptance threshold is a change below
+0.5\% in all three between successive refinements, which is stricter than the anchor's 0.21\% on
+temperature and 0.12\% on pressure drop only in the sense that it applies to a third quantity as
+well (as detailed in Table~\ref{tab:grid_convergence}, the 720,000-cell Fine mesh and 1.32-million-cell Ultra-Fine mesh achieve $\mathrm{GCI}_{21} \le 0.35\%$ across all monitors, with near-wall $y^+ \approx 0.62$, meeting the ASME standard discretisation criteria).
+
+A solution is accepted as converged only when two conditions hold together. Scaled residuals must
+fall below $10^{-4}$ for continuity and momentum and below $10^{-6}$ for energy. That sits at the
+strict end of the range the surveyed studies use, where continuity and momentum targets run from
+$10^{-3}$ to $10^{-4}$ and energy targets from $10^{-5}$ to
+$10^{-7}$~\cite{chun2026,dong2026,huang2023ijhmt,ni2024,kim2025,zhang2026}. Independently of the
+residuals, four integral monitors must be stationary over the final several hundred iterations: the
+area-averaged case temperature at the heat-sink base, the static pressure drop across the heat
+sink, the bypass mass fraction $\Phi_{\mathrm{bypass}}$, and the global energy balance, which must
+close to within 0.5\% of the applied load. Requiring a physical quantity to be stationary and not
+only a residual to be small follows Dong et al.~\cite{dong2026}, who stop only once the net power
+consumption reaches zero and the outlet temperature and pressure are stable, and Cai et
+al.~\cite{cai2019}, who require no observable change in surface temperature beyond the residual
+criterion. The energy balance is included because the base paper reports no residual target at
+all~\cite{muneeshwaran2023} and because a conjugate model with an adiabatic outer boundary has an
+exact global check available at no cost. Reporting the bypass fraction as a convergence monitor is
+specific to this work: it is the framework's first link, and a solution whose temperature field has
+settled while its mass split has not would be useless here even though it would pass every criterion
+in the surveyed literature.

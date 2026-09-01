@@ -1,0 +1,207 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{chun2026}
+I.~Chun, H.~Choi, Y.~Jun, S.~Lee, H.~Lee, High heat flux immersion cooling in
+  data centers: Quantitative bypass control and fluid-structure compatibility
+  across dielectric fluids and heat sink designs, Energy 361 (2026) 141967.
+\newblock \href {https://doi.org/10.1016/j.energy.2026.141967}
+  {\path{doi:10.1016/j.energy.2026.141967}}.
+
+\bibitem{huang2024energy}
+Y.~Huang, B.~Liu, S.~Xu, C.~Bao, Y.~Zhong, C.~Zhang, Experimental study on the
+  immersion liquid cooling performance of high-power data center servers,
+  Energy 297 (2024) 131195.
+\newblock \href {https://doi.org/10.1016/j.energy.2024.131195}
+  {\path{doi:10.1016/j.energy.2024.131195}}.
+
+\bibitem{kim2025}
+J.~Kim, H.~Choi, S.~Lee, H.~Lee, Computational study of single-phase immersion
+  cooling for high-energy density server rack for data centers, Applied Thermal
+  Engineering 264 (2025) 125476.
+\newblock \href {https://doi.org/10.1016/j.applthermaleng.2025.125476}
+  {\path{doi:10.1016/j.applthermaleng.2025.125476}}.
+
+\bibitem{sun2025}
+X.~Sun, Z.~Liu, S.~Ji, K.~Yuan, Experimental study on thermal performance of a
+  single-phase immersion cooling unit for high-density computing power data
+  center, International Journal of Heat and Fluid Flow 112 (2025) 109735.
+\newblock \href {https://doi.org/10.1016/j.ijheatfluidflow.2024.109735}
+  {\path{doi:10.1016/j.ijheatfluidflow.2024.109735}}.
+
+\bibitem{shrigondekar2023}
+H.~Shrigondekar, Y.-C. Lin, C.-C. Wang, Investigations on performance of
+  single-phase immersion cooling system, International Journal of Heat and Mass
+  Transfer 206 (2023) 123961.
+\newblock \href {https://doi.org/10.1016/j.ijheatmasstransfer.2023.123961}
+  {\path{doi:10.1016/j.ijheatmasstransfer.2023.123961}}.
+
+\bibitem{zhang2024pao4}
+Y.-D. Zhang, Y.-C. Lin, C.-C. Wang, Investigation of the single-phase immersion
+  cold plate amid {PAO-4} and {Noah@3000A}: An experimental approach and its
+  numerical verification, International Communications in Heat and Mass
+  Transfer 155 (2024) 107509.
+\newblock \href {https://doi.org/10.1016/j.icheatmasstransfer.2024.107509}
+  {\path{doi:10.1016/j.icheatmasstransfer.2024.107509}}.
+
+\bibitem{zhang2026}
+B.~Zhang, H.~Li, T.~Xu, L.~Wang, L.~Chen, Z.~Li, Integrated {CFD} modeling and
+  experimental validation of single-phase immersion cooling for data center
+  thermal management, Energy 347 (2026) 140315.
+\newblock \href {https://doi.org/10.1016/j.energy.2026.140315}
+  {\path{doi:10.1016/j.energy.2026.140315}}.
+
+\bibitem{khoshvaghtaliabadi2025}
+M.~Khoshvaght-Aliabadi, P.~Ghodrati, A.~Nasrolahzadeh, Y.~T. Kang, Optimization
+  of heat sinks for data center server {CPUs} cooled via single-phase immersion
+  cooling, Applied Thermal Engineering 280 (2025) 127790.
+\newblock \href {https://doi.org/10.1016/j.applthermaleng.2025.127790}
+  {\path{doi:10.1016/j.applthermaleng.2025.127790}}.
+
+\bibitem{khoshvaghtaliabadi2026oblique}
+M.~Khoshvaght-Aliabadi, A.~Nasrolahzadeh, P.~Ghodrati, Y.~T. Kang, Oblique-fin
+  heat sink design for uniform {CPU} cooling in immersion-cooled servers,
+  Applied Thermal Engineering 288 (2026) 129628.
+\newblock \href {https://doi.org/10.1016/j.applthermaleng.2025.129628}
+  {\path{doi:10.1016/j.applthermaleng.2025.129628}}.
+
+\bibitem{khoshvaghtaliabadi2026component}
+M.~Khoshvaght-Aliabadi, F.~Hojjati, S.~Hassani, Influence of component
+  arrangement on thermal management in immersion-cooled server boards, Energy
+  347 (2026) 140323.
+\newblock \href {https://doi.org/10.1016/j.energy.2026.140323}
+  {\path{doi:10.1016/j.energy.2026.140323}}.
+
+\bibitem{ni2024}
+D.~Ni, F.~Yu, {CFD} simulation study of flow equalisation plate model in
+  single-phase immersion liquid cooling for servers, Thermal Science and
+  Engineering Progress 47 (2024) 102268.
+\newblock \href {https://doi.org/10.1016/j.tsep.2023.102268}
+  {\path{doi:10.1016/j.tsep.2023.102268}}.
+
+\bibitem{dong2026}
+Q.~Dong, S.~Xu, S.~Wu, C.~Zhang, Q.~Wang, Thermal management architecture
+  optimization for single-phase immersion liquid cooling, Applied Thermal
+  Engineering 298 (2026) 130997.
+\newblock \href {https://doi.org/10.1016/j.applthermaleng.2026.130997}
+  {\path{doi:10.1016/j.applthermaleng.2026.130997}}.
+
+\bibitem{liu2024tank}
+S.~Liu, Z.~Xu, Z.~Wang, X.~Li, H.~Sun, X.~Zhang, H.~Zhang, Optimization and
+  comprehensive evaluation of liquid cooling tank for single-phase immersion
+  cooling data center, Applied Thermal Engineering 245 (2024) 122864.
+\newblock \href {https://doi.org/10.1016/j.applthermaleng.2024.122864}
+  {\path{doi:10.1016/j.applthermaleng.2024.122864}}.
+
+\bibitem{muneeshwaran2023}
+M.~Muneeshwaran, Y.-C. Lin, C.-C. Wang, Performance analysis of single-phase
+  immersion cooling system of data center using {FC-40} dielectric fluid,
+  International Communications in Heat and Mass Transfer 145 (2023) 106843.
+\newblock \href {https://doi.org/10.1016/j.icheatmasstransfer.2023.106843}
+  {\path{doi:10.1016/j.icheatmasstransfer.2023.106843}}.
+
+\bibitem{jeng2008}
+T.-M. Jeng, A porous model for the square pin-fin heat sink situated in a
+  rectangular channel with laminar side-bypass flow, International Journal of
+  Heat and Mass Transfer 51 (2008) 2214--2226.
+\newblock \href {https://doi.org/10.1016/j.ijheatmasstransfer.2007.11.018}
+  {\path{doi:10.1016/j.ijheatmasstransfer.2007.11.018}}.
+
+\bibitem{li2009shield}
+H.-Y. Li, G.-L. Tsai, M.-H. Chiang, J.-Y. Lin, Effect of a shield on the
+  hydraulic and thermal performance of a plate-fin heat sink, International
+  Communications in Heat and Mass Transfer 36 (2009) 233--240.
+\newblock \href {https://doi.org/10.1016/j.icheatmasstransfer.2008.11.012}
+  {\path{doi:10.1016/j.icheatmasstransfer.2008.11.012}}.
+
+\bibitem{cai2019}
+H.~Cai, L.~Su, Y.~Liao, Z.~Weng, Numerical and experimental study on the
+  influence of top bypass flow on the performance of plate fin heat exchanger,
+  Applied Thermal Engineering 146 (2019) 356--363.
+\newblock \href {https://doi.org/10.1016/j.applthermaleng.2018.10.007}
+  {\path{doi:10.1016/j.applthermaleng.2018.10.007}}.
+
+\bibitem{min2004}
+J.~Y. Min, S.~P. Jang, S.~J. Kim, Effect of tip clearance on the cooling
+  performance of a microchannel heat sink, International Journal of Heat and
+  Mass Transfer 47 (2004) 1099--1103.
+\newblock \href {https://doi.org/10.1016/j.ijheatmasstransfer.2003.08.020}
+  {\path{doi:10.1016/j.ijheatmasstransfer.2003.08.020}}.
+
+\bibitem{sastre2018}
+F.~Sastre, A.~Valeije, E.~Martin, A.~Velazquez, Experimental and numerical
+  study on the flow topology of finned heat sinks with tip clearance,
+  International Journal of Thermal Sciences 132 (2018) 146--160.
+\newblock \href {https://doi.org/10.1016/j.ijthermalsci.2018.05.036}
+  {\path{doi:10.1016/j.ijthermalsci.2018.05.036}}.
+
+\bibitem{mei2014}
+D.~Mei, X.~Lou, M.~Qian, Z.~Yao, L.~Liang, Z.~Chen, Effect of tip clearance on
+  the heat transfer and pressure drop performance in the micro-reactor with
+  micro-pin-fin arrays at low {Reynolds} number, International Journal of Heat
+  and Mass Transfer 70 (2014) 709--718.
+\newblock \href {https://doi.org/10.1016/j.ijheatmasstransfer.2013.11.060}
+  {\path{doi:10.1016/j.ijheatmasstransfer.2013.11.060}}.
+
+\bibitem{shahsavar2021}
+A.~Shahsavar, M.~Shahmohammadi, I.~B. Askari, {CFD} simulation of the impact of
+  tip clearance on the hydrothermal performance and entropy generation of a
+  water-cooled pin-fin heat sink, International Communications in Heat and Mass
+  Transfer 126 (2021) 105400.
+\newblock \href {https://doi.org/10.1016/j.icheatmasstransfer.2021.105400}
+  {\path{doi:10.1016/j.icheatmasstransfer.2021.105400}}.
+
+\bibitem{huang2023ijhmt}
+Y.~Huang, J.~Ge, Y.~Chen, C.~Zhang, Natural and forced convection heat transfer
+  characteristics of single-phase immersion cooling systems for data centers,
+  International Journal of Heat and Mass Transfer 207 (2023) 124023.
+\newblock \href {https://doi.org/10.1016/j.ijheatmasstransfer.2023.124023}
+  {\path{doi:10.1016/j.ijheatmasstransfer.2023.124023}}.
+
+\bibitem{kewalramani2019}
+G.~V. Kewalramani, G.~Hedau, S.~K. Saha, A.~Agrawal, Study of laminar single
+  phase frictional factor and {Nusselt} number in in-line micro pin-fin heat
+  sink for electronic cooling applications, International Journal of Heat and
+  Mass Transfer 138 (2019) 796--808.
+\newblock \href {https://doi.org/10.1016/j.ijheatmasstransfer.2019.04.118}
+  {\path{doi:10.1016/j.ijheatmasstransfer.2019.04.118}}.
+
+\bibitem{lee2006}
+P.-S. Lee, S.~V. Garimella, Thermally developing flow and heat transfer in
+  rectangular microchannels of different aspect ratios, International Journal
+  of Heat and Mass Transfer 49 (2006) 3060--3067.
+\newblock \href {https://doi.org/10.1016/j.ijheatmasstransfer.2006.02.011}
+  {\path{doi:10.1016/j.ijheatmasstransfer.2006.02.011}}.
+
+\bibitem{cheng2020}
+C.-C. Cheng, P.-C. Chang, H.-C. Li, F.-I. Hsu, Design of a single-phase
+  immersion cooling system through experimental and numerical analysis,
+  International Journal of Heat and Mass Transfer 160 (2020) 120203.
+\newblock \href {https://doi.org/10.1016/j.ijheatmasstransfer.2020.120203}
+  {\path{doi:10.1016/j.ijheatmasstransfer.2020.120203}}.
+
+\bibitem{vagiakis2025}
+A.~Vagiakis, D.~N. Korres, C.~Tzivanidis, Simulation of natural convection heat
+  transfer in dielectric liquids for single-phase immersion cooling rack
+  server, Applied Thermal Engineering 274 (2025) 126595.
+\newblock \href {https://doi.org/10.1016/j.applthermaleng.2025.126595}
+  {\path{doi:10.1016/j.applthermaleng.2025.126595}}.
+
+\bibitem{eca2014}
+L.~E\c{c}a, M.~Hoekstra, A procedure for the estimation of the numerical
+  uncertainty of {CFD} calculations based on grid refinement studies, Journal
+  of Computational Physics 262 (2014) 104--130.
+\newblock \href {https://doi.org/10.1016/j.jcp.2014.01.006}
+  {\path{doi:10.1016/j.jcp.2014.01.006}}.
+
+\bibitem{roache1997}
+P.~J. Roache, Quantification of uncertainty in computational fluid dynamics,
+  Annual Review of Fluid Mechanics 29 (1997) 123--160.
+\newblock \href {https://doi.org/10.1146/annurev.fluid.29.1.123}
+  {\path{doi:10.1146/annurev.fluid.29.1.123}}.
+
+\end{thebibliography}

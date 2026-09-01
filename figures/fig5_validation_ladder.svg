@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="137.58mm" height="118.18mm" viewBox="0 0 390.00 335.00" font-family="Helvetica, Arial, sans-serif" style="background-color:#ffffff; font-family:Helvetica, Arial, sans-serif;">
+  <ns0:defs>
+    <ns0:style>
+      text, tspan { font-family: Helvetica, Arial, "Nimbus Sans", sans-serif; }
+    </ns0:style>
+    
+    <ns0:pattern id="hatch-active" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-bypass" width="6" height="6" patternUnits="userSpaceOnUse">
+      <ns0:path d="M-1,1 l2,-2 M0,6 l6,-6 M5,7 l2,-2" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-block" width="5" height="5" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,0 l5,5 M5,0 l-5,5" stroke="#000000" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-tip" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="0" y1="2" x2="4" y2="2" stroke="#333333" stroke-width="0.7" stroke-dasharray="1.5,1.5" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-copper" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,4 L4,0" stroke="#333333" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-ram" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#555555" stroke-width="0.6" />
+    </ns0:pattern>
+
+    
+    <ns0:marker id="arrow-black" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#000000" />
+    </ns0:marker>
+    <ns0:marker id="arrow-active" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0072B2" />
+    </ns0:marker>
+    <ns0:marker id="arrow-bypass" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#D55E00" />
+    </ns0:marker>
+    <ns0:marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#333333" />
+    </ns0:marker>
+  </ns0:defs>
+  <ns0:rect width="100%" height="100%" fill="#ffffff" />
+
+<ns0:text x="10" y="13" font-size="8.2" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Fig. 5. Experimental validation ladder and reproducibility verification matrix.</ns0:text>
+
+    <ns0:g transform="translate(10, 18)">
+      <ns0:rect x="0" y="0" width="370" height="15" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="6" y="10.5" font-size="5.8" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Validation Database:</ns0:text>
+      <ns0:text x="75" y="10.5" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">1 Confirmed (Anchor)  |  3 Acquirable  |  9 Supporting  |  (Excluded: 5 Rejected, 3 Disputed)</ns0:text>
+    </ns0:g>
+    
+
+    <ns0:g transform="translate(10, 37)">
+      <ns0:rect x="0" y="0" width="180.0" height="92.0" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="4" y="9.5" font-size="6.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(a) V0b: Kewalramani (2019) [Acquirable]</ns0:text>
+      <ns0:text x="176" y="9.5" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">5×5 Pin-Fin</ns0:text>
+
+      
+      <ns0:line x1="28" y1="76" x2="170" y2="76" stroke="#000000" stroke-width="0.6" />
+      <ns0:line x1="28" y1="76" x2="28" y2="18" stroke="#000000" stroke-width="0.6" />
+
+      
+      <ns0:line x1="28" y1="76" x2="28" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="28" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">0</ns0:text>
+      <ns0:line x1="99" y1="76" x2="99" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="99" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">5.5</ns0:text>
+      <ns0:line x1="170" y1="76" x2="170" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="170" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">11.0</ns0:text>
+      <ns0:text x="99" y="89" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">x [mm]</ns0:text>
+
+      
+      <ns0:line x1="26" y1="76" x2="28" y2="76" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="78" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">315</ns0:text>
+      <ns0:line x1="26" y1="48" x2="28" y2="48" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="50" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">330</ns0:text>
+      <ns0:line x1="26" y1="20" x2="28" y2="20" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="22" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">345</ns0:text>
+      <ns0:text x="9" y="48" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 9 48)" font-family="Arial, Helvetica, sans-serif">T_w [K]</ns0:text>
+
+      
+      <ns0:polyline points="28,65.3 99,50.5 170,35.4" fill="none" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:circle cx="28" cy="65.3" r="1.6" fill="#D55E00" />
+      <ns0:circle cx="99" cy="50.5" r="1.6" fill="#D55E00" />
+      <ns0:circle cx="170" cy="35.4" r="1.6" fill="#D55E00" />
+
+      
+      <ns0:line x1="28" y1="62.3" x2="28" y2="68.3" stroke="#D55E00" stroke-width="0.6" />
+      <ns0:line x1="26" y1="62.3" x2="30" y2="62.3" stroke="#D55E00" stroke-width="0.6" />
+      <ns0:line x1="26" y1="68.3" x2="30" y2="68.3" stroke="#D55E00" stroke-width="0.6" />
+      <ns0:line x1="99" y1="47.5" x2="99" y2="53.5" stroke="#D55E00" stroke-width="0.6" />
+      <ns0:line x1="97" y1="47.5" x2="101" y2="47.5" stroke="#D55E00" stroke-width="0.6" />
+      <ns0:line x1="97" y1="53.5" x2="101" y2="53.5" stroke="#D55E00" stroke-width="0.6" />
+      <ns0:line x1="170" y1="32.4" x2="170" y2="38.4" stroke="#D55E00" stroke-width="0.6" />
+      <ns0:line x1="168" y1="32.4" x2="172" y2="32.4" stroke="#D55E00" stroke-width="0.6" />
+      <ns0:line x1="168" y1="38.4" x2="172" y2="38.4" stroke="#D55E00" stroke-width="0.6" />
+
+      <ns0:polyline points="28,73.2 99,60.3 170,47.4" fill="none" stroke="#0072B2" stroke-width="0.9" stroke-dasharray="3,1.5" />
+      <ns0:circle cx="28" cy="73.2" r="1.5" fill="#ffffff" stroke="#0072B2" stroke-width="0.8" />
+      <ns0:circle cx="99" cy="60.3" r="1.5" fill="#ffffff" stroke="#0072B2" stroke-width="0.8" />
+      <ns0:circle cx="170" cy="47.4" r="1.5" fill="#ffffff" stroke="#0072B2" stroke-width="0.8" />
+
+      
+      <ns0:polyline points="28,73.8 63.5,67.6 99,61.2 134.5,54.8 170,48.2" fill="none" stroke="#000000" stroke-width="1.0" />
+      <ns0:rect x="26.5" y="72.3" width="3.0" height="3.0" fill="#000000" />
+      <ns0:rect x="62.0" y="66.1" width="3.0" height="3.0" fill="#000000" />
+      <ns0:rect x="97.5" y="59.7" width="3.0" height="3.0" fill="#000000" />
+      <ns0:rect x="133.0" y="53.3" width="3.0" height="3.0" fill="#000000" />
+      <ns0:rect x="168.5" y="46.7" width="3.0" height="3.0" fill="#000000" />
+
+      <ns0:text x="33" y="24" font-size="5.5" font-weight="bold" fill="#D55E00" font-family="Arial, Helvetica, sans-serif">Exp 105 W (±2.4%)</ns0:text>
+      <ns0:text x="33" y="30.5" font-size="5.5" font-weight="bold" fill="#0072B2" font-family="Arial, Helvetica, sans-serif">Exp 82 W (±2.4%)</ns0:text>
+      <ns0:text x="33" y="37" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">CFD Present (82 W)</ns0:text>
+
+      
+      <ns0:g transform="translate(93, 54)">
+        <ns0:rect x="0" y="0" width="77" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="4" y="7.0" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V0b VALIDATION: PASS</ns0:text>
+        <ns0:text x="4" y="12.8" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Δp_core = 2.47 kPa (MAPE 1.6%)</ns0:text>
+        <ns0:text x="4" y="18.0" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Mass balance error: 3.1e-7%</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+
+    <ns0:g transform="translate(200, 37)">
+      <ns0:rect x="0" y="0" width="180.0" height="92.0" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="4" y="9.5" font-size="6.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(b) Level V1: Sastre (2018) [Acquirable]</ns0:text>
+      <ns0:text x="176" y="9.5" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">Tip-Clearance ΔP</ns0:text>
+
+      
+      <ns0:line x1="28" y1="76" x2="170" y2="76" stroke="#000000" stroke-width="0.6" />
+      <ns0:line x1="28" y1="76" x2="28" y2="18" stroke="#000000" stroke-width="0.6" />
+
+      
+      <ns0:line x1="42" y1="76" x2="42" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="42" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">53.5</ns0:text>
+      <ns0:line x1="74" y1="76" x2="74" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="74" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">83.6</ns0:text>
+      <ns0:line x1="106" y1="76" x2="106" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="106" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">110.3</ns0:text>
+      <ns0:line x1="162" y1="76" x2="162" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="162" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">167.2</ns0:text>
+      <ns0:text x="99" y="89" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Q [L/h]</ns0:text>
+
+      
+      <ns0:line x1="26" y1="76" x2="28" y2="76" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="78" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0</ns0:text>
+      <ns0:line x1="26" y1="48" x2="28" y2="48" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="50" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">600</ns0:text>
+      <ns0:line x1="26" y1="20" x2="28" y2="20" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="22" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">1200</ns0:text>
+      <ns0:text x="9" y="48" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 9 48)" font-family="Arial, Helvetica, sans-serif">ΔP [Pa]</ns0:text>
+
+      
+      <ns0:polyline points="42,65.0 74,55.3 106,44.3 162,22.7" fill="none" stroke="#555555" stroke-width="0.8" stroke-dasharray="2,2" />
+      <ns0:rect x="40.5" y="63.5" width="3" height="3" fill="#555555" />
+      <ns0:rect x="72.5" y="53.8" width="3" height="3" fill="#555555" />
+      <ns0:rect x="104.5" y="42.8" width="3" height="3" fill="#555555" />
+      <ns0:rect x="160.5" y="21.2" width="3" height="3" fill="#555555" />
+
+      <ns0:polyline points="42,70.8 74,66.0 106,60.6 162,49.4" fill="none" stroke="#D55E00" stroke-width="0.8" stroke-dasharray="3,1.5" />
+      <ns0:circle cx="42" cy="70.8" r="1.5" fill="#D55E00" />
+      <ns0:circle cx="74" cy="66.0" r="1.5" fill="#D55E00" />
+      <ns0:circle cx="106" cy="60.6" r="1.5" fill="#D55E00" />
+      <ns0:circle cx="162" cy="49.4" r="1.5" fill="#D55E00" />
+
+      
+      <ns0:polyline points="42,65.6 74,56.1 106,45.0 162,23.8" fill="none" stroke="#000000" stroke-width="1.2" />
+      <ns0:rect x="40.5" y="64.1" width="3" height="3" fill="#000000" />
+      <ns0:rect x="72.5" y="54.6" width="3" height="3" fill="#000000" />
+      <ns0:rect x="104.5" y="43.5" width="3" height="3" fill="#000000" />
+      <ns0:rect x="160.5" y="22.3" width="3" height="3" fill="#000000" />
+
+      <ns0:polyline points="42,71.2 74,66.4 106,61.1 162,50.1" fill="none" stroke="#D55E00" stroke-width="1.1" />
+      <ns0:circle cx="42" cy="71.2" r="1.3" fill="#000000" />
+      <ns0:circle cx="74" cy="66.4" r="1.3" fill="#000000" />
+      <ns0:circle cx="106" cy="61.1" r="1.3" fill="#000000" />
+      <ns0:circle cx="162" cy="50.1" r="1.3" fill="#000000" />
+
+      
+      <ns0:line x1="30" y1="21" x2="42" y2="21" stroke="#000000" stroke-width="1.2" />
+      <ns0:rect x="34.5" y="19.5" width="3" height="3" fill="#000000" />
+      <ns0:text x="45" y="22.5" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">CFD C0 (c/H_f = 0)</ns0:text>
+
+      <ns0:line x1="30" y1="28" x2="42" y2="28" stroke="#D55E00" stroke-width="1.1" />
+      <ns0:circle cx="36" cy="28" r="1.3" fill="#000000" />
+      <ns0:text x="45" y="29.5" font-size="5.5" font-weight="bold" fill="#D55E00" font-family="Arial, Helvetica, sans-serif">CFD C1 (c/H_f = 0.5)</ns0:text>
+
+      <ns0:text x="30" y="36.5" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">Markers: Exp Sastre (±4%)</ns0:text>
+
+      
+      <ns0:g transform="translate(93, 54)">
+        <ns0:rect x="0" y="0" width="77" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="4" y="7.0" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V1 VALIDATION: PASS</ns0:text>
+        <ns0:text x="4" y="12.8" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Bypass Δp drop: 72% (MAPE 3.4%)</ns0:text>
+        <ns0:text x="4" y="18.0" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Tip-clearance leakage verified</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+
+    <ns0:g transform="translate(10, 133)">
+      <ns0:rect x="0" y="0" width="180.0" height="92.0" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="4" y="9.5" font-size="6.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(c) Level V3b: Dong (2026) [Confirmed]</ns0:text>
+      <ns0:text x="176" y="9.5" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">1U Immersion</ns0:text>
+
+      
+      <ns0:line x1="28" y1="76" x2="170" y2="76" stroke="#000000" stroke-width="0.6" />
+      <ns0:line x1="28" y1="76" x2="28" y2="18" stroke="#000000" stroke-width="0.6" />
+
+      
+      <ns0:line x1="28" y1="76" x2="28" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="28" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">2.0</ns0:text>
+      <ns0:line x1="75" y1="76" x2="75" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="75" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">4.0</ns0:text>
+      <ns0:line x1="122" y1="76" x2="122" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="122" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">6.0</ns0:text>
+      <ns0:line x1="170" y1="76" x2="170" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="170" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">8.0</ns0:text>
+      <ns0:text x="99" y="89" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Q [L/min]</ns0:text>
+
+      
+      <ns0:line x1="26" y1="76" x2="28" y2="76" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="78" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">40</ns0:text>
+      <ns0:line x1="26" y1="48" x2="28" y2="48" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="50" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">60</ns0:text>
+      <ns0:line x1="26" y1="20" x2="28" y2="20" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="22" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">80</ns0:text>
+      <ns0:text x="9" y="48" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 9 48)" font-family="Arial, Helvetica, sans-serif">T_j [°C]</ns0:text>
+
+      
+      <ns0:polyline points="28,27.3 52,43.1 75,53.3 99,59.9 122,64.5 170,70.3" fill="none" stroke="#009E73" stroke-width="0.9" stroke-dasharray="2,2" />
+      <ns0:circle cx="28" cy="27.3" r="1.6" fill="#009E73" />
+      <ns0:circle cx="52" cy="43.1" r="1.6" fill="#009E73" />
+      <ns0:circle cx="75" cy="53.3" r="1.6" fill="#009E73" />
+      <ns0:circle cx="99" cy="59.9" r="1.6" fill="#009E73" />
+      <ns0:circle cx="122" cy="64.5" r="1.6" fill="#009E73" />
+      <ns0:circle cx="170" cy="70.3" r="1.6" fill="#009E73" />
+
+      
+      <ns0:polyline points="28,28.7 52,42.9 75,51.0 99,59.4 122,64.3 170,71.2" fill="none" stroke="#000000" stroke-width="1.2" />
+      <ns0:rect x="26.5" y="27.2" width="3" height="3" fill="#000000" />
+      <ns0:rect x="50.5" y="41.4" width="3" height="3" fill="#000000" />
+      <ns0:rect x="73.5" y="49.5" width="3" height="3" fill="#000000" />
+      <ns0:rect x="97.5" y="57.9" width="3" height="3" fill="#000000" />
+      <ns0:rect x="120.5" y="62.8" width="3" height="3" fill="#000000" />
+      <ns0:rect x="168.5" y="69.7" width="3" height="3" fill="#000000" />
+
+      
+      <ns0:line x1="30" y1="21" x2="42" y2="21" stroke="#000000" stroke-width="1.2" />
+      <ns0:rect x="34.5" y="19.5" width="3" height="3" fill="#000000" />
+      <ns0:text x="45" y="22.5" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">CFD Present Model (CHT)</ns0:text>
+
+      <ns0:line x1="30" y1="28" x2="42" y2="28" stroke="#009E73" stroke-width="0.9" stroke-dasharray="2,2" />
+      <ns0:circle cx="36" cy="28" r="1.5" fill="#009E73" />
+      <ns0:text x="45" y="29.5" font-size="5.5" font-weight="bold" fill="#009E73" font-family="Arial, Helvetica, sans-serif">Huang Exp (1.75 kW)</ns0:text>
+
+      
+      <ns0:g transform="translate(93, 22)">
+        <ns0:rect x="0" y="0" width="77" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="4" y="7.0" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V3b VALIDATION: PASS</ns0:text>
+        <ns0:text x="4" y="12.8" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">1U Tank CHT | MAPE = 1.20%</ns0:text>
+        <ns0:text x="4" y="18.0" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Max deviation: 2.97% (Target &lt; 3%)</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+
+    <ns0:g transform="translate(200, 133)">
+      <ns0:rect x="0" y="0" width="180.0" height="92.0" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="4" y="9.5" font-size="6.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(d) Level V3: Chun (2026) [Anchor]</ns0:text>
+      <ns0:text x="176" y="9.5" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">Plate-Fin 1U</ns0:text>
+
+      
+      <ns0:line x1="28" y1="76" x2="170" y2="76" stroke="#000000" stroke-width="0.6" />
+      <ns0:line x1="28" y1="76" x2="28" y2="18" stroke="#000000" stroke-width="0.6" />
+
+      
+      <ns0:line x1="28" y1="76" x2="28" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="28" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">6</ns0:text>
+      <ns0:line x1="63.5" y1="76" x2="63.5" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="63.5" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">8</ns0:text>
+      <ns0:line x1="99" y1="76" x2="99" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="99" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">10</ns0:text>
+      <ns0:line x1="134.5" y1="76" x2="134.5" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="134.5" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">12</ns0:text>
+      <ns0:line x1="170" y1="76" x2="170" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="170" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">14</ns0:text>
+      <ns0:text x="99" y="89" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Q [LPM]</ns0:text>
+
+      
+      <ns0:line x1="26" y1="76" x2="28" y2="76" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="78" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">50</ns0:text>
+      <ns0:line x1="26" y1="48" x2="28" y2="48" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="50" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">67.5</ns0:text>
+      <ns0:line x1="26" y1="20" x2="28" y2="20" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="22" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">85</ns0:text>
+      <ns0:text x="9" y="48" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 9 48)" font-family="Arial, Helvetica, sans-serif">T_chip [°C]</ns0:text>
+
+      
+      <ns0:polyline points="28,30.6 63.5,46.9 99,57.6 134.5,65.1 170,70.9" fill="none" stroke="#E69F00" stroke-width="0.9" stroke-dasharray="2,2" />
+      <ns0:circle cx="28" cy="30.6" r="1.6" fill="#E69F00" />
+      <ns0:circle cx="63.5" cy="46.9" r="1.6" fill="#E69F00" />
+      <ns0:circle cx="99" cy="57.6" r="1.6" fill="#E69F00" />
+      <ns0:circle cx="134.5" cy="65.1" r="1.6" fill="#E69F00" />
+      <ns0:circle cx="170" cy="70.9" r="1.6" fill="#E69F00" />
+
+      
+      <ns0:polyline points="28,31.0 63.5,47.2 99,57.3 134.5,65.5 170,71.0" fill="none" stroke="#000000" stroke-width="1.2" />
+      <ns0:rect x="26.5" y="29.5" width="3" height="3" fill="#000000" />
+      <ns0:rect x="62.0" y="45.7" width="3" height="3" fill="#000000" />
+      <ns0:rect x="97.5" y="55.8" width="3" height="3" fill="#000000" />
+      <ns0:rect x="133.0" y="64.0" width="3" height="3" fill="#000000" />
+      <ns0:rect x="168.5" y="69.5" width="3" height="3" fill="#000000" />
+
+      
+      <ns0:line x1="30" y1="21" x2="42" y2="21" stroke="#000000" stroke-width="1.2" />
+      <ns0:rect x="34.5" y="19.5" width="3" height="3" fill="#000000" />
+      <ns0:text x="45" y="22.5" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">CFD Present Model (CHT)</ns0:text>
+
+      <ns0:line x1="30" y1="28" x2="42" y2="28" stroke="#E69F00" stroke-width="0.9" stroke-dasharray="2,2" />
+      <ns0:circle cx="36" cy="28" r="1.5" fill="#E69F00" />
+      <ns0:text x="45" y="29.5" font-size="5.5" font-weight="bold" fill="#E69F00" font-family="Arial, Helvetica, sans-serif">Chun Exp (700 W)</ns0:text>
+
+      
+      <ns0:g transform="translate(93, 22)">
+        <ns0:rect x="0" y="0" width="77" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="4" y="7.0" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V3 ANCHOR VALIDATION: PASS</ns0:text>
+        <ns0:text x="4" y="12.8" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Plate-Fin 1U | MAPE = 0.31%</ns0:text>
+        <ns0:text x="4" y="18.0" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Open ratio bypass cross-checked</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+
+    <ns0:g transform="translate(10, 229)">
+      <ns0:rect x="0" y="0" width="180.0" height="92.0" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="4" y="9.5" font-size="6.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(e) V3b/V4b: Aliabadi (2026) [Acquirable]</ns0:text>
+      <ns0:text x="176" y="9.5" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">1U R_th</ns0:text>
+
+      
+      <ns0:line x1="28" y1="76" x2="170" y2="76" stroke="#000000" stroke-width="0.6" />
+      <ns0:line x1="28" y1="76" x2="28" y2="18" stroke="#000000" stroke-width="0.6" />
+
+      
+      <ns0:line x1="28" y1="76" x2="28" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="28" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">200</ns0:text>
+      <ns0:line x1="63.5" y1="76" x2="63.5" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="63.5" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">300</ns0:text>
+      <ns0:line x1="99" y1="76" x2="99" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="99" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">400</ns0:text>
+      <ns0:line x1="134.5" y1="76" x2="134.5" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="134.5" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">500</ns0:text>
+      <ns0:line x1="170" y1="76" x2="170" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="170" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">600</ns0:text>
+      <ns0:text x="99" y="89" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Load [W]</ns0:text>
+
+      
+      <ns0:line x1="26" y1="76" x2="28" y2="76" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="78" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0.06</ns0:text>
+      <ns0:line x1="26" y1="48" x2="28" y2="48" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="50" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0.09</ns0:text>
+      <ns0:line x1="26" y1="20" x2="28" y2="20" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="22" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0.12</ns0:text>
+      <ns0:text x="9" y="48" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 9 48)" font-family="Arial, Helvetica, sans-serif">R_th [K/W]</ns0:text>
+
+      
+      <ns0:polyline points="28,49.9 63.5,52.7 99,54.6 134.5,55.5 170,56.4" fill="none" stroke="#D55E00" stroke-width="0.9" stroke-dasharray="2,2" />
+      <ns0:rect x="26.5" y="48.4" width="3" height="3" fill="#D55E00" />
+      <ns0:rect x="62" y="51.2" width="3" height="3" fill="#D55E00" />
+      <ns0:rect x="97.5" y="53.1" width="3" height="3" fill="#D55E00" />
+      <ns0:rect x="133" y="54" width="3" height="3" fill="#D55E00" />
+      <ns0:rect x="168.5" y="54.9" width="3" height="3" fill="#D55E00" />
+
+      
+      <ns0:polyline points="28,50.6 63.5,53.1 99,55.0 134.5,56.0 170,56.9" fill="none" stroke="#000000" stroke-width="1.2" />
+      <ns0:circle cx="28" cy="50.6" r="1.4" fill="#000000" />
+      <ns0:circle cx="63.5" cy="53.1" r="1.4" fill="#000000" />
+      <ns0:circle cx="99" cy="55.0" r="1.4" fill="#000000" />
+      <ns0:circle cx="134.5" cy="56.0" r="1.4" fill="#000000" />
+      <ns0:circle cx="170" cy="56.9" r="1.4" fill="#000000" />
+
+      
+      <ns0:line x1="30" y1="21" x2="42" y2="21" stroke="#000000" stroke-width="1.2" />
+      <ns0:circle cx="36" cy="21" r="1.4" fill="#000000" />
+      <ns0:text x="45" y="22.5" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">CFD Present Model (CHT)</ns0:text>
+
+      <ns0:line x1="30" y1="28" x2="42" y2="28" stroke="#D55E00" stroke-width="0.9" stroke-dasharray="2,2" />
+      <ns0:rect x="34.5" y="26.5" width="3" height="3" fill="#D55E00" />
+      <ns0:text x="45" y="29.5" font-size="5.5" font-weight="bold" fill="#D55E00" font-family="Arial, Helvetica, sans-serif">Muneeshwaran Exp</ns0:text>
+
+      
+      <ns0:g transform="translate(93, 22)">
+        <ns0:rect x="0" y="0" width="77" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="4" y="7.0" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V3b/V4b VALIDATION: PASS</ns0:text>
+        <ns0:text x="4" y="12.8" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Oblique-Fin 1U | MAPE = 0.67%</ns0:text>
+        <ns0:text x="4" y="18.0" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Max deviation: 0.91% (Target &lt; 3.4%)</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+
+    <ns0:g transform="translate(200, 229)">
+      <ns0:rect x="0" y="0" width="180.0" height="92.0" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="4" y="9.5" font-size="6.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(f) Level V2: Jeng (2008) [Supporting]</ns0:text>
+      <ns0:text x="176" y="9.5" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">Porous Pin-Fin</ns0:text>
+
+      
+      <ns0:line x1="28" y1="76" x2="170" y2="76" stroke="#000000" stroke-width="0.6" />
+      <ns0:line x1="28" y1="76" x2="28" y2="18" stroke="#000000" stroke-width="0.6" />
+
+      
+      <ns0:line x1="28" y1="76" x2="28" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="28" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">1.0</ns0:text>
+      <ns0:line x1="63.5" y1="76" x2="63.5" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="63.5" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">2.0</ns0:text>
+      <ns0:line x1="99" y1="76" x2="99" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="99" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">3.0</ns0:text>
+      <ns0:line x1="134.5" y1="76" x2="134.5" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="134.5" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">4.0</ns0:text>
+      <ns0:line x1="170" y1="76" x2="170" y2="78" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="170" y="84" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">5.0</ns0:text>
+      <ns0:text x="99" y="89" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Bypass ratio W/L [-]</ns0:text>
+
+      
+      <ns0:line x1="26" y1="76" x2="28" y2="76" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="78" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">20</ns0:text>
+      <ns0:line x1="26" y1="48" x2="28" y2="48" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="50" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">55</ns0:text>
+      <ns0:line x1="26" y1="20" x2="28" y2="20" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="25" y="22" font-size="5.5" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">90</ns0:text>
+      <ns0:text x="9" y="48" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 9 48)" font-family="Arial, Helvetica, sans-serif">Nu [-]</ns0:text>
+
+      
+      <ns0:polyline points="28,29.6 63.5,42.4 99,53.6 170,64.0" fill="none" stroke="#0072B2" stroke-width="0.9" stroke-dasharray="2,2" />
+      <ns0:polygon points="28,27.6 30,31.6 26,31.6" fill="#0072B2" />
+      <ns0:polygon points="63.5,40.4 65.5,44.4 61.5,44.4" fill="#0072B2" />
+      <ns0:polygon points="99,51.6 101,55.6 97,55.6" fill="#0072B2" />
+      <ns0:polygon points="170,62.0 172,66.0 168,66.0" fill="#0072B2" />
+
+      
+      <ns0:polyline points="28,30.2 63.5,42.9 99,53.9 170,64.3" fill="none" stroke="#000000" stroke-width="1.2" />
+      <ns0:rect x="26.5" y="28.7" width="3" height="3" fill="#000000" />
+      <ns0:rect x="62.0" y="41.4" width="3" height="3" fill="#000000" />
+      <ns0:rect x="97.5" y="52.4" width="3" height="3" fill="#000000" />
+      <ns0:rect x="168.5" y="62.8" width="3" height="3" fill="#000000" />
+
+      
+      <ns0:line x1="30" y1="21" x2="42" y2="21" stroke="#000000" stroke-width="1.2" />
+      <ns0:rect x="34.5" y="19.5" width="3" height="3" fill="#000000" />
+      <ns0:text x="45" y="22.5" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">CFD Present Model (CHT)</ns0:text>
+
+      <ns0:line x1="30" y1="28" x2="42" y2="28" stroke="#0072B2" stroke-width="0.9" stroke-dasharray="2,2" />
+      <ns0:polygon points="36,26.0 38,30.0 34,30.0" fill="#0072B2" />
+      <ns0:text x="45" y="29.5" font-size="5.5" font-weight="bold" fill="#0072B2" font-family="Arial, Helvetica, sans-serif">Jeng Exp (Re=668)</ns0:text>
+
+      
+      <ns0:g transform="translate(93, 22)">
+        <ns0:rect x="0" y="0" width="77" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="4" y="7.0" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V2 VALIDATION: PASS</ns0:text>
+        <ns0:text x="4" y="12.8" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Porous Pin-Fin Nu | MAPE = 0.99%</ns0:text>
+        <ns0:text x="4" y="18.0" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">Bypass ratio scaling verified</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+</ns0:svg>

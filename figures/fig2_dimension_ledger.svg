@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="137.58mm" height="139.35mm" viewBox="0 0 390.00 395.00" font-family="Helvetica, Arial, sans-serif" style="background-color:#ffffff; font-family:Helvetica, Arial, sans-serif;">
+  <ns0:defs>
+    <ns0:style>
+      text, tspan { font-family: Helvetica, Arial, "Nimbus Sans", sans-serif; }
+    </ns0:style>
+    
+    <ns0:pattern id="hatch-active" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-bypass" width="6" height="6" patternUnits="userSpaceOnUse">
+      <ns0:path d="M-1,1 l2,-2 M0,6 l6,-6 M5,7 l2,-2" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-block" width="5" height="5" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,0 l5,5 M5,0 l-5,5" stroke="#000000" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-tip" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="0" y1="2" x2="4" y2="2" stroke="#333333" stroke-width="0.7" stroke-dasharray="1.5,1.5" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-copper" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,4 L4,0" stroke="#333333" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-ram" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#555555" stroke-width="0.6" />
+    </ns0:pattern>
+
+    
+    <ns0:marker id="arrow-black" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#000000" />
+    </ns0:marker>
+    <ns0:marker id="arrow-active" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0072B2" />
+    </ns0:marker>
+    <ns0:marker id="arrow-bypass" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#D55E00" />
+    </ns0:marker>
+    <ns0:marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#333333" />
+    </ns0:marker>
+  </ns0:defs>
+  <ns0:rect width="100%" height="100%" fill="#ffffff" />
+
+<ns0:text x="10" y="13" font-size="7.8" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Comprehensive dimension ledger and parameter provenance for the base 1U domain</ns0:text>
+
+    <ns0:g transform="translate(10, 18)">
+      <ns0:rect x="0" y="0" width="370" height="15" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="6" y="10.5" font-size="5.8" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Provenance Ledger (32 params):</ns0:text>
+
+      
+      <ns0:text x="105" y="10.5" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">[adopted] 20 (62.5%)</ns0:text>
+
+      <ns0:line x1="172" y1="2" x2="172" y2="13" stroke="#cccccc" stroke-width="0.6" />
+
+      
+      <ns0:text x="180" y="10.5" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">[derived] 6 (18.75%)</ns0:text>
+
+      <ns0:line x1="250" y1="2" x2="250" y2="13" stroke="#cccccc" stroke-width="0.6" />
+
+      
+      <ns0:text x="256" y="10.5" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">[assumed] 6 (18.75%)</ns0:text>
+
+      <ns0:line x1="324" y1="2" x2="324" y2="13" stroke="#cccccc" stroke-width="0.6" />
+
+      
+      <ns0:text x="325" y="10.5" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Total: 32 (100%)</ns0:text>
+    </ns0:g>
+    
+
+    
+    <ns0:text x="10" y="45" font-size="7.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(a) 1U tank and server assembly (#1, #22–#32)</ns0:text>
+    <ns0:rect x="10" y="49" width="180" height="175" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+
+    <ns0:g transform="translate(10, 49)">
+      
+      <ns0:g transform="translate(4, 10)">
+        <ns0:rect x="18" y="4" width="46" height="96" fill="#ffffff" stroke="#000000" stroke-width="0.8" />
+        <ns0:text x="41" y="12" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">1U Tank</ns0:text>
+
+        
+        <ns0:line x1="12" y1="4" x2="12" y2="100" stroke="#000000" stroke-width="0.6" />
+        <ns0:line x1="9" y1="4" x2="15" y2="4" stroke="#000000" stroke-width="0.6" />
+        <ns0:line x1="9" y1="100" x2="15" y2="100" stroke="#000000" stroke-width="0.6" />
+        <ns0:polygon points="12,4 10,9 14,9" fill="#000000" />
+        <ns0:polygon points="12,100 10,95 14,95" fill="#000000" />
+        <ns0:text x="7" y="52" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 7 52)" font-family="Arial, Helvetica, sans-serif">#23 H=400 [ad]</ns0:text>
+
+        
+        <ns0:line x1="18" y1="104" x2="64" y2="104" stroke="#000000" stroke-width="0.6" />
+        <ns0:line x1="18" y1="101" x2="18" y2="107" stroke="#000000" stroke-width="0.6" />
+        <ns0:line x1="64" y1="101" x2="64" y2="107" stroke="#000000" stroke-width="0.6" />
+        <ns0:polygon points="18,104 23,102 23,106" fill="#000000" />
+        <ns0:polygon points="64,104 59,102 59,106" fill="#000000" />
+        <ns0:text x="41" y="112" font-size="5.6" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">#22 W=210 [ad]</ns0:text>
+
+        
+        <ns0:line x1="68" y1="64" x2="68" y2="100" stroke="#000000" stroke-width="0.6" />
+        <ns0:line x1="65" y1="64" x2="71" y2="64" stroke="#000000" stroke-width="0.6" />
+        <ns0:line x1="65" y1="100" x2="71" y2="100" stroke="#000000" stroke-width="0.6" />
+        <ns0:polygon points="68,64 66,69 70,69" fill="#000000" />
+        <ns0:polygon points="68,100 66,95 70,95" fill="#000000" />
+        <ns0:text x="74" y="82" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 74 82)" font-family="Arial, Helvetica, sans-serif">#26: 177.5 mm [ad]</ns0:text>
+
+        
+        <ns0:rect x="22" y="64" width="38" height="2" fill="#dddddd" stroke="#000000" stroke-width="0.5" />
+        <ns0:rect x="22" y="52" width="9" height="12" fill="url(#hatch-ram)" stroke="#000000" stroke-width="0.5" />
+        <ns0:rect x="51" y="52" width="9" height="12" fill="url(#hatch-ram)" stroke="#000000" stroke-width="0.5" />
+        <ns0:rect x="33" y="54" width="16" height="10" fill="#E69F00" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="41" y="61" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">HS</ns0:text>
+      </ns0:g>
+
+      
+      <ns0:g transform="translate(84, 10)">
+        <ns0:rect x="0" y="0" width="92" height="110" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        <ns0:text x="4" y="9" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Chassis &amp; Server:</ns0:text>
+        <ns0:text x="4" y="19" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#1</ns0:tspan> Slot: 44.45 mm (1U) [ad]</ns0:text>
+        <ns0:text x="4" y="29" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#27</ns0:tspan> Depth: 44.45+2δ [assumed]</ns0:text>
+        <ns0:text x="8" y="37" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">(Bounds: 44.45–55.0 mm)</ns0:text>
+        <ns0:text x="4" y="46" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#28</ns0:tspan> Wall: acrylic, adia. [a]</ns0:text>
+        <ns0:text x="4" y="56" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#29</ns0:tspan> Tray: 275×201 mm [ad]</ns0:text>
+        <ns0:text x="8" y="64" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">(notched 245×141.7 mm)</ns0:text>
+        <ns0:text x="4" y="73" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#30</ns0:tspan> RAM: 149×59.3×34.1 [ad]</ns0:text>
+        <ns0:text x="8" y="81" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">(pitch 7.5, gap 3.3 mm)</ns0:text>
+        <ns0:text x="4" y="90" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#31</ns0:tspan> RAM load: 0 W [ad]</ns0:text>
+        <ns0:text x="4" y="100" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#32</ns0:tspan> PCB: 2.4 mm [a] (1.6–3)</ns0:text>
+      </ns0:g>
+
+      
+      <ns0:g transform="translate(4, 126)">
+        <ns0:rect x="0" y="0" width="172" height="42" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        <ns0:text x="4" y="10" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Port Layout Callouts [adopted]:</ns0:text>
+        <ns0:text x="4" y="20" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• #24 Inlet: 105 mm from end wall (midplane)</ns0:text>
+        <ns0:text x="4" y="30" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• #25 Side ports: 27.5 mm from floor/ceiling</ns0:text>
+        <ns0:text x="4" y="39" font-size="5.5" font-style="italic" fill="#555555" font-family="Arial, Helvetica, sans-serif">Source: Muneeshwaran Fig. 2(c), p. 6</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+
+    
+    <ns0:text x="200" y="45" font-size="7.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(b) Copper plate-fin heat sink (#2–#15, #21)</ns0:text>
+    <ns0:rect x="200" y="49" width="180" height="175" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+
+    <ns0:g transform="translate(200, 49)">
+      
+      <ns0:g transform="translate(4, 8)">
+        <ns0:text x="44" y="6" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Array Cross-Section</ns0:text>
+
+        
+        <ns0:text x="44" y="13" font-size="5.5" fill="#555555" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Shroud (tau = 0, base state)</ns0:text>
+        <ns0:line x1="2" y1="16" x2="86" y2="16" stroke="#000000" stroke-width="0.8" />
+
+        
+        <ns0:rect x="6" y="16" width="4" height="30" fill="#E69F00" stroke="#000000" stroke-width="0.5" />
+        <ns0:rect x="24" y="16" width="4" height="30" fill="#E69F00" stroke="#000000" stroke-width="0.5" />
+        <ns0:rect x="42" y="16" width="4" height="30" fill="#E69F00" stroke="#000000" stroke-width="0.5" />
+        <ns0:rect x="60" y="16" width="4" height="30" fill="#E69F00" stroke="#000000" stroke-width="0.5" />
+        <ns0:rect x="78" y="16" width="4" height="30" fill="#E69F00" stroke="#000000" stroke-width="0.5" />
+
+        
+        <ns0:rect x="4" y="46" width="80" height="7" fill="#E69F00" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="44" y="51.5" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">#15 Material: Copper [ad]</ns0:text>
+
+        
+        <ns0:rect x="18" y="19" width="52" height="25" fill="#ffffff" stroke="#000000" stroke-width="0.5" stroke-dasharray="1.5,1.5" />
+        <ns0:text x="44" y="26" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">#3 t_f = 0.25 mm [ad]</ns0:text>
+        <ns0:text x="44" y="34" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">#5 p_f = 1.2 mm [ad]</ns0:text>
+        <ns0:text x="44" y="42" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">#6 s = 0.95 mm [der]</ns0:text>
+      </ns0:g>
+
+      
+      <ns0:g transform="translate(92, 8)">
+        <ns0:rect x="0" y="0" width="84" height="54" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        <ns0:text x="4" y="9" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Vertical Stack [ad/der]:</ns0:text>
+        <ns0:text x="4" y="19" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#4</ns0:tspan> H_f = 20.9 mm [ad]</ns0:text>
+        <ns0:text x="4" y="29" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#2</ns0:tspan> t_b = 4.5 mm [ad]</ns0:text>
+        <ns0:text x="4" y="39" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#8</ns0:tspan> Stack = 25.4 mm [der]</ns0:text>
+        <ns0:text x="8" y="48" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">(= 1.000 in = t_b + H_f)</ns0:text>
+      </ns0:g>
+
+      
+      <ns0:g transform="translate(4, 68)">
+        <ns0:rect x="0" y="0" width="172" height="100" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        <ns0:text x="4" y="9" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Planform Footprint &amp; Channel Relations:</ns0:text>
+        
+        <ns0:text x="4" y="19" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#9</ns0:tspan> Base Footprint: 118 mm (L) × 78 mm (W) [adopted]</ns0:text>
+        <ns0:text x="4" y="29" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#10</ns0:tspan> Callouts: 81 mm &amp; 31.2 mm [ad] (unlabeled features)</ns0:text>
+        
+        <ns0:text x="4" y="40" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#11</ns0:tspan> Fin Bank Area: Assume 78×118 mm² (9204 mm²) [a]</ns0:text>
+        <ns0:text x="8" y="48" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">Bounds: 31.2×81 to 78×118 mm² (Re factor ≈ 2.6)</ns0:text>
+        
+        <ns0:text x="4" y="58" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#12</ns0:tspan> Fin Count (p_f=1.2): N_f = 65 fins / 64 ch [der]</ns0:text>
+        <ns0:text x="4" y="68" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#13</ns0:tspan> Fin Count (p_f=2.2): N_f = 36 fins / 35 ch [der]</ns0:text>
+        <ns0:text x="4" y="78" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#14</ns0:tspan> Free-Flow Area: A_c = 1.271 × 10^-3 m² [derived]</ns0:text>
+        <ns0:text x="4" y="88" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#7</ns0:tspan> Hyd. Diam: D_h = 1.817 mm (1.2) / 3.567 mm (2.2) [der]</ns0:text>
+        <ns0:text x="4" y="97" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#21</ns0:tspan> Bypass Gap: δ_gap = 0 mm, 2 mm, 5 mm (sweep) [ad]</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+
+    
+    <ns0:text x="10" y="238" font-size="7.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(c) Mock CPU (TTV) &amp; TIM interface (#16–#20)</ns0:text>
+    <ns0:rect x="10" y="242" width="180" height="145" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+
+    <ns0:g transform="translate(10, 242)">
+      
+      <ns0:g transform="translate(4, 8)">
+        
+        <ns0:rect x="2" y="0" width="70" height="5" fill="#E69F00" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="37" y="4.0" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Base Underside</ns0:text>
+
+        
+        <ns0:rect x="6" y="6.5" width="62" height="5" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        <ns0:text x="37" y="10.5" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">#19 TIM (TC-5888)</ns0:text>
+
+        
+        <ns0:rect x="6" y="13" width="62" height="22" fill="#c67d0a" stroke="#000000" stroke-width="0.6" />
+        
+        
+        <ns0:rect x="10" y="15" width="24" height="8" fill="#ffb74d" stroke="#000000" stroke-width="0.4" />
+        <ns0:text x="22" y="21" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Die 1</ns0:text>
+
+        <ns0:rect x="38" y="15" width="24" height="8" fill="#ffb74d" stroke="#000000" stroke-width="0.4" />
+        <ns0:text x="50" y="21" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Die 2</ns0:text>
+
+        <ns0:rect x="10" y="25" width="24" height="8" fill="#ffb74d" stroke="#000000" stroke-width="0.4" />
+        <ns0:text x="22" y="31" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Die 3</ns0:text>
+
+        <ns0:rect x="38" y="25" width="24" height="8" fill="#ffb74d" stroke="#000000" stroke-width="0.4" />
+        <ns0:text x="50" y="31" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Die 4</ns0:text>
+
+        
+        <ns0:rect x="2" y="37" width="70" height="5" fill="#dddddd" stroke="#000000" stroke-width="0.5" />
+        <ns0:text x="37" y="41" font-size="5.5" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">#32 PCB (2.4 mm [a])</ns0:text>
+
+        
+        <ns0:line x1="6" y1="46" x2="68" y2="46" stroke="#000000" stroke-width="0.5" />
+        <ns0:line x1="6" y1="43.5" x2="6" y2="48.5" stroke="#000000" stroke-width="0.5" />
+        <ns0:line x1="68" y1="43.5" x2="68" y2="48.5" stroke="#000000" stroke-width="0.5" />
+        <ns0:polygon points="6,46 11,44.5 11,47.5" fill="#000000" />
+        <ns0:polygon points="68,46 63,44.5 63,47.5" fill="#000000" />
+        <ns0:text x="37" y="53" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">#16: 48 × 68 mm [ad]</ns0:text>
+        <ns0:text x="37" y="60" font-size="5.5" fill="#555555" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">#18: 2×2 layout [a]</ns0:text>
+      </ns0:g>
+
+      
+      <ns0:g transform="translate(80, 10)">
+        <ns0:rect x="0" y="0" width="96" height="126" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        <ns0:text x="4" y="9" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">TTV &amp; TIM Parameters:</ns0:text>
+
+        <ns0:text x="4" y="19" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#16 TTV Package [ad]:</ns0:tspan></ns0:text>
+        <ns0:text x="8" y="27" font-size="5.5" fill="#333333" font-family="Arial, Helvetica, sans-serif">48 × 68 mm (Fig. 2e, p. 7)</ns0:text>
+
+        <ns0:text x="4" y="37" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#17 Die Count [ad]:</ns0:tspan></ns0:text>
+        <ns0:text x="8" y="45" font-size="5.5" fill="#333333" font-family="Arial, Helvetica, sans-serif">4 dies (600 W total load)</ns0:text>
+
+        <ns0:text x="4" y="55" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#18 Die Layout [assumed]:</ns0:tspan></ns0:text>
+        <ns0:text x="8" y="63" font-size="5.5" fill="#333333" font-family="Arial, Helvetica, sans-serif">2×2 tiled block, ≈24×30 mm</ns0:text>
+        <ns0:text x="8" y="71" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">(Bounds: 50%–90% area)</ns0:text>
+
+        <ns0:text x="4" y="81" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#19 TIM Material [ad]:</ns0:tspan></ns0:text>
+        <ns0:text x="8" y="89" font-size="5.5" fill="#333333" font-family="Arial, Helvetica, sans-serif">TC-5888, k = 5.2 W/m·K (p. 3)</ns0:text>
+
+        <ns0:text x="4" y="99" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif"><ns0:tspan font-weight="bold" font-family="Arial, Helvetica, sans-serif">#20 δ_TIM [assumed]:</ns0:tspan></ns0:text>
+        <ns0:text x="8" y="107" font-size="5.5" fill="#333333" font-family="Arial, Helvetica, sans-serif">Assume δ_TIM = 0.10 mm</ns0:text>
+        <ns0:text x="8" y="115" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">(Bounds: 0.05–0.20 mm)</ns0:text>
+        <ns0:text x="4" y="123" font-size="5.5" font-style="italic" fill="#555555" font-family="Arial, Helvetica, sans-serif">Thermal span: 1.8–7.1 K (5.3 K)</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+
+    
+    <ns0:text x="200" y="238" font-size="7.0" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(d) Complete provenance ledger</ns0:text>
+    <ns0:rect x="200" y="242" width="180" height="145" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+
+    <ns0:g transform="translate(200, 242)">
+      
+      <ns0:g transform="translate(4, 10)">
+        <ns0:rect x="0" y="0" width="172" height="126" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        
+        
+        <ns0:text x="4" y="9" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">1. Chassis &amp; Tank (#1, #22–#28):</ns0:text>
+        <ns0:text x="4" y="18" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• #1 adopted (p. 1 abstract); #22–26 adopted (Fig. 2c, p. 6)</ns0:text>
+        <ns0:text x="4" y="27" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• #27 depth (44.45–55.0 mm), #28 wall (k=0.19–16.4) [a]</ns0:text>
+        <ns0:text x="4" y="35" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">  Total: 6 adopted, 0 derived, 2 assumed = 8 parameters</ns0:text>
+
+        <ns0:line x1="4" y1="40" x2="168" y2="40" stroke="#cccccc" stroke-width="0.5" />
+
+        
+        <ns0:text x="4" y="50" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">2. Fin Array &amp; Base (#2–#15, #21):</ns0:text>
+        <ns0:text x="4" y="59" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• #2–5, #9–10, #15, #21 adopted (pp. 3, 5, 7, 9, 10)</ns0:text>
+        <ns0:text x="4" y="68" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• #6–8, #12–14 derived; #11 area (31.2×81 to 78×118 mm²) [a]</ns0:text>
+        <ns0:text x="4" y="76" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">  Total: 8 adopted, 6 derived, 1 assumed = 15 parameters</ns0:text>
+
+        <ns0:line x1="4" y1="81" x2="168" y2="81" stroke="#cccccc" stroke-width="0.5" />
+
+        
+        <ns0:text x="4" y="91" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">3. Server, TTV &amp; RAM (#16–#20, #29–#32):</ns0:text>
+        <ns0:text x="4" y="100" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• #16, #17, #19, #29–31 adopted (pp. 3, 5, 6, 7)</ns0:text>
+        <ns0:text x="4" y="109" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• #18 die (50–90%), #20 TIM (0.05–0.2), #32 PCB (1.6–3) [a]</ns0:text>
+        <ns0:text x="4" y="117" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">  Total: 6 adopted, 0 derived, 3 assumed = 9 parameters</ns0:text>
+      </ns0:g>
+
+      
+      <ns0:text x="90" y="141" font-size="5.5" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Full ledger: Table 1 (Section 2) / Stage 3 Dossier §2.1</ns0:text>
+    </ns0:g>
+    
+</ns0:svg>

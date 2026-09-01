@@ -1,0 +1,8 @@
+subset,N,phi_R2,phi_MAPE,phi_MaxErr,nu_R2,nu_MAPE,nu_MaxErr,rth_R2,rth_MAPE,rth_MaxErr
+"Calibration Dataset (FC-40, Plate-Fin)",99,0.8092,167.39,2271.9,0.9676,3.25,10.44,0.9722,0.75,2.3
+Holdout Coolant: PAO-4 (Pr=72.0),35,0.8154,158.66,2150.35,-0.2255,31.79,44.06,0.9266,0.53,1.2
+Holdout Coolant: EFL-1 (Pr=47.5),35,0.8172,159.6,2163.3,0.9186,3.9,14.45,0.9555,0.84,2.48
+Holdout Topology: Micro-Pin-Fin,24,0.8058,155.0,1991.34,0.9557,2.92,10.09,0.9642,0.64,2.2
+Holdout Topology: Oblique-Fin,24,0.8147,154.65,1991.34,0.956,2.86,10.09,0.965,0.63,2.16
+Holdout Power: 300-1200 W,25,0.7682,357.14,1736.33,0.7415,3.95,8.37,0.7354,0.96,1.4
+Holdout Dedicated Combinations,16,0.8538,9.69,15.39,0.0728,6.22,34.65,0.0338,3.38,14.43

@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="137.58mm" height="89.96mm" viewBox="0 0 390.00 255.00" font-family="Helvetica, Arial, sans-serif" style="background-color:#ffffff; font-family:Helvetica, Arial, sans-serif;">
+  <ns0:defs>
+    <ns0:style>
+      text, tspan { font-family: Helvetica, Arial, "Nimbus Sans", sans-serif; }
+    </ns0:style>
+    
+    <ns0:pattern id="hatch-active" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-bypass" width="6" height="6" patternUnits="userSpaceOnUse">
+      <ns0:path d="M-1,1 l2,-2 M0,6 l6,-6 M5,7 l2,-2" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-block" width="5" height="5" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,0 l5,5 M5,0 l-5,5" stroke="#000000" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-tip" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="0" y1="2" x2="4" y2="2" stroke="#333333" stroke-width="0.7" stroke-dasharray="1.5,1.5" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-copper" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,4 L4,0" stroke="#333333" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-ram" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#555555" stroke-width="0.6" />
+    </ns0:pattern>
+
+    
+    <ns0:marker id="arrow-black" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#000000" />
+    </ns0:marker>
+    <ns0:marker id="arrow-active" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0072B2" />
+    </ns0:marker>
+    <ns0:marker id="arrow-bypass" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#D55E00" />
+    </ns0:marker>
+    <ns0:marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#333333" />
+    </ns0:marker>
+  </ns0:defs>
+  <ns0:rect width="100%" height="100%" fill="#ffffff" />
+
+<ns0:text x="10" y="13" font-size="8.2" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Fig. 7. Bypass mass fraction (Φ_bypass) vs. inlet flow rate and gap thickness.</ns0:text>
+
+    <ns0:g transform="translate(10, 20)">
+      <ns0:rect x="0" y="0" width="225" height="225" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="6" y="11" font-size="6.8" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(a) Φ_bypass vs. Total Flow Rate (Q)</ns0:text>
+
+      
+      <ns0:line x1="32" y1="190" x2="210" y2="190" stroke="#000000" stroke-width="0.7" />
+      <ns0:line x1="32" y1="190" x2="32" y2="28" stroke="#000000" stroke-width="0.7" />
+
+      
+      <ns0:line x1="32" y1="190" x2="32" y2="193" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="32" y="200" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">2</ns0:text>
+      <ns0:line x1="76.5" y1="190" x2="76.5" y2="193" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="76.5" y="200" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">6</ns0:text>
+      <ns0:line x1="121" y1="190" x2="121" y2="193" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="121" y="200" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">10</ns0:text>
+      <ns0:line x1="165.5" y1="190" x2="165.5" y2="193" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="165.5" y="200" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">14</ns0:text>
+      <ns0:line x1="210" y1="190" x2="210" y2="193" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="210" y="200" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">18</ns0:text>
+      <ns0:text x="121" y="210" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Total Flow Rate Q [LPM]</ns0:text>
+
+      
+      <ns0:line x1="29" y1="190" x2="32" y2="190" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="192" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">0</ns0:text>
+      <ns0:line x1="29" y1="150" x2="32" y2="150" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="152" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">25</ns0:text>
+      <ns0:line x1="29" y1="110" x2="32" y2="110" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="112" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">50</ns0:text>
+      <ns0:line x1="29" y1="70" x2="32" y2="70" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="72" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">75</ns0:text>
+      <ns0:line x1="29" y1="30" x2="32" y2="30" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="27" y="32" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">100</ns0:text>
+      <ns0:text x="10" y="110" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 10 110)" font-family="Arial, Helvetica, sans-serif">Φ_bypass [%]</ns0:text>
+
+      
+      <ns0:line x1="32" y1="150" x2="210" y2="150" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="2,2" />
+      <ns0:line x1="32" y1="110" x2="210" y2="110" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="2,2" />
+      <ns0:line x1="32" y1="70" x2="210" y2="70" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="2,2" />
+      <ns0:line x1="32" y1="30" x2="210" y2="30" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="2,2" />
+
+      
+      
+      <ns0:path d="M 32,48 Q 121,52 210,56" fill="none" stroke="#D55E00" stroke-width="1.2" />
+      <ns0:circle cx="32" cy="48" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:circle cx="76.5" cy="50" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:circle cx="121" cy="52" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:circle cx="165.5" cy="54" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:circle cx="210" cy="56" r="1.8" fill="#ffffff" stroke="#D55E00" stroke-width="0.9" />
+      <ns0:text x="165" y="46" font-size="5.5" font-weight="bold" fill="#D55E00" font-family="Arial, Helvetica, sans-serif">OR 100% (δ=5 mm)</ns0:text>
+
+      
+      <ns0:path d="M 32,74 Q 121,80 210,84" fill="none" stroke="#E69F00" stroke-width="1.1" stroke-dasharray="4,2" />
+      <ns0:rect x="30.5" y="72.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:rect x="75" y="75.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:rect x="119.5" y="78.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:rect x="164" y="80.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:rect x="208.5" y="82.5" width="3" height="3" fill="#ffffff" stroke="#E69F00" stroke-width="0.8" />
+      <ns0:text x="165" y="72" font-size="5.5" font-weight="bold" fill="#E69F00" font-family="Arial, Helvetica, sans-serif">OR 100% (δ=2 mm)</ns0:text>
+
+      
+      <ns0:path d="M 32,106 Q 121,114 210,118" fill="none" stroke="#009E73" stroke-width="1.1" stroke-dasharray="6,2,2,2" />
+      <ns0:polygon points="32,104 34,108 30,108" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:polygon points="76.5,108 78.5,112 74.5,112" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:polygon points="121,112 123,116 119,116" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:polygon points="165.5,114 167.5,118 163.5,118" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:polygon points="210,116 212,120 208,120" fill="#ffffff" stroke="#009E73" stroke-width="0.8" />
+      <ns0:text x="165" y="103" font-size="5.5" font-weight="bold" fill="#009E73" font-family="Arial, Helvetica, sans-serif">OR 50% (Partial)</ns0:text>
+
+      
+      <ns0:path d="M 32,188 L 210,188" fill="none" stroke="#0072B2" stroke-width="1.2" />
+      <ns0:polygon points="32,186 34,188 32,190 30,188" fill="#0072B2" />
+      <ns0:polygon points="76.5,186 78.5,188 76.5,190 74.5,188" fill="#0072B2" />
+      <ns0:polygon points="121,186 123,188 121,190 119,188" fill="#0072B2" />
+      <ns0:polygon points="165.5,186 167.5,188 165.5,190 163.5,188" fill="#0072B2" />
+      <ns0:polygon points="210,186 212,188 210,190 208,188" fill="#0072B2" />
+      <ns0:text x="165" y="184" font-size="5.5" font-weight="bold" fill="#0072B2" font-family="Arial, Helvetica, sans-serif">OR 0% (Full Baffle)</ns0:text>
+
+      
+    
+    <ns0:g transform="translate(45, 130)">
+      <ns0:rect x="0" y="0" width="140" height="16" fill="#ffffff" stroke="#000000" stroke-width="0.8" />
+      <ns0:text x="70.0" y="10.0" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" letter-spacing="0.2" font-family="Arial, Helvetica, sans-serif">PLACEHOLDER — MOCK DATA, NOT RESULTS</ns0:text>
+    </ns0:g>
+
+    </ns0:g>
+    
+
+    <ns0:g transform="translate(240, 20)">
+      <ns0:rect x="0" y="0" width="140" height="225" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="6" y="11" font-size="6.8" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(b) Parametric Sensitivity</ns0:text>
+
+      
+      <ns0:g transform="translate(5, 18)">
+        <ns0:rect x="0" y="0" width="130" height="198" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        
+        <ns0:text x="4" y="9" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Gap Width (δ_gap) Effect:</ns0:text>
+        <ns0:text x="4" y="18" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• δ=5 mm: Φ_byp reaches 88–90%</ns0:text>
+        <ns0:text x="4" y="27" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• δ=2 mm: Φ_byp reaches 65–70%</ns0:text>
+        <ns0:text x="4" y="36" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• δ=0 mm: Shrouded side (OR=0%)</ns0:text>
+        <ns0:text x="4" y="44" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">→ Governed by resistance ratio</ns0:text>
+
+        <ns0:line x1="4" y1="49" x2="126" y2="49" stroke="#cccccc" stroke-width="0.5" />
+
+        <ns0:text x="4" y="58" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Flow Rate (Q) Invariance:</ns0:text>
+        <ns0:text x="4" y="67" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• Laminar regime (Re &lt; 1200):</ns0:text>
+        <ns0:text x="4" y="76" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">  Φ_byp is nearly Q-independent</ns0:text>
+        <ns0:text x="4" y="85" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• Slight upward drift at high Q</ns0:text>
+        <ns0:text x="4" y="93" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">  due to minor entrance losses</ns0:text>
+
+        <ns0:line x1="4" y1="98" x2="126" y2="98" stroke="#cccccc" stroke-width="0.5" />
+
+        <ns0:text x="4" y="108" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Governing Equations:</ns0:text>
+        <ns0:text x="4" y="117" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• ṁ_total = ṁ_active + ṁ_bypass</ns0:text>
+        <ns0:text x="4" y="126" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• Φ_byp = (ṁ_bypass / ṁ_total) × 100%</ns0:text>
+        <ns0:text x="4" y="135" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• ΔP_active = ΔP_bypass = ΔP_domain</ns0:text>
+        <ns0:text x="4" y="143" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">→ Hydraulic balance formulation</ns0:text>
+
+        <ns0:line x1="4" y1="148" x2="126" y2="148" stroke="#cccccc" stroke-width="0.5" />
+
+        <ns0:text x="4" y="158" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Analytical Coupling:</ns0:text>
+        <ns0:text x="4" y="167" font-size="5.5" fill="#333333" font-family="Arial, Helvetica, sans-serif">• Laminar f·Re = C_geom</ns0:text>
+        <ns0:text x="4" y="176" font-size="5.5" fill="#333333" font-family="Arial, Helvetica, sans-serif">• Cross-validated against Chun (2026)</ns0:text>
+        <ns0:text x="4" y="186" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Manuscript §3.1 / Dossier §3.1</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+</ns0:svg>

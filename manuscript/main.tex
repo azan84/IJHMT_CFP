@@ -1,0 +1,266 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{graphicx}
+
+\journal{International Journal of Heat and Mass Transfer}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Dimensionless framework for bypass-controlled single-phase immersion cooling of server heat sinks}
+
+\author{[AUTHOR LIST TBD]}
+\address{[AFFILIATION TBD]}
+
+\begin{abstract}
+Single-phase liquid immersion cooling is rapidly emerging as a primary thermal management architecture for high-density artificial intelligence servers dissipating chip heat loads exceeding 700--1000~W. However, geometric clearances above heat sinks create severe fluid bypass that degrades cooling performance and distorts coolant selection. This study develops a closed, physics-based dimensionless framework that deterministically predicts internal bypass flow partitioning, convective heat transfer enhancement, and hydraulic penalties across varying structural open ratios ($\mathrm{OR} = 0.0\text{--}1.0$), channel Reynolds numbers ($\mathrm{Re}_{\mathrm{ch}} = 25\text{--}1000$), and dielectric coolants ($\mathrm{Pr} = 9.2\text{--}210$). The numerical framework is systematically verified against a multi-tier reproducibility ladder spanning six literature benchmarks and an ASME standard four-grid E\c{c}a--Hoekstra / Roache Grid Convergence Index (GCI) evaluation ($\mathrm{GCI}_{21} \le 1.76\%$). A comprehensive 250-case parametric simulation campaign was executed and partitioned into calibration and genuine out-of-sample holdout datasets. Non-linear regression on the calibration set yielded closed-form relations for bypass mass fraction ($\Phi_{\mathrm{bypass}}$) and developing Nusselt number ($\mathrm{Nu}$) with goodness-of-fit $R^2 > 0.991$ and Mean Absolute Percentage Errors (MAPE) bounded at $1.82\%$ and $2.14\%$, respectively. When applied to withheld dielectric coolants (EFL-1, PAO-4) and non-uniform fin topologies (Micro-Pin-Fin, Oblique-Fin) without parameter refitting, the framework demonstrated robust out-of-sample generalizability with prediction errors bounded below $2.65\%$ in bypass fraction and $2.15\%$ in thermal resistance. Global Figure of Merit optimization identifies $\mathrm{OR} \le 0.15$ as the optimal design window, capturing over $90\%$ of maximum thermal enhancement while avoiding severe hydraulic pumping penalties.
+\end{abstract}
+
+\begin{keyword}
+single-phase immersion cooling \sep bypass \sep open ratio \sep dimensionless framework \sep server heat sink
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Rack power density has outrun what moving air can carry away. Chun et al.~\cite{chun2026} observe
+that high-density artificial intelligence workloads have driven escalating heat fluxes in data
+centres, and they test chip-level loads above 700~W per chip. Their survey of prior single-phase
+immersion work puts it below 30~W/cm$^2$~\cite{chun2026}. The experimental record in this corpus
+tracks the same climb. Huang et al.~\cite{huang2024energy} instrumented a blade-style
+demonstration server dissipating 1.75~kW of chip power in a single immersion cabinet. Kim et
+al.~\cite{kim2025} modelled a four-server rack and found immersion holding CPU temperature
+22.9~$^{\circ}$C below a hybrid cold-plate arrangement at matched pump and fan power. Sun et
+al.~\cite{sun2025} measured a 20~kW cabinet-scale unit and recorded a cooling PUE of 1.08 to 1.09.
+Across this corpus, single-phase immersion draws the most sustained attention. The dielectric
+liquid wets the package directly, and one tank carries the CPU, memory and regulator loads with
+no phase change to manage.
+
+What that attention has produced falls into three groups. The first is fluid comparison.
+Shrigondekar et al.~\cite{shrigondekar2023} ran FC-40 against PAO-6 in a 1U server. Y.-D. Zhang et
+al.~\cite{zhang2024pao4} compared PAO-4 with Noah@3000A across three cold-plate designs. B. Zhang
+et al.~\cite{zhang2026} measured SS110 against silicone oil and, more usefully for what follows,
+tabulated the properties and Prandtl number of seventeen candidate coolants. The second group
+optimises heat-sink geometry. Khoshvaght-Aliabadi et al.~\cite{khoshvaghtaliabadi2025} swept fin
+length, height, thickness and spacing through a 54-run Box-Behnken numerical design, then traded
+straight fins for oblique fins to attack temperature non-uniformity~\cite{khoshvaghtaliabadi2026oblique}
+and reorganised the CPU and memory layout on the board~\cite{khoshvaghtaliabadi2026component}. The
+third group works at tank scale. Ni and Yu~\cite{ni2024} swept the hole radius and count of a flow
+equalisation plate to even out server-to-server temperature. Dong et al.~\cite{dong2026} compared
+Z-shaped, S-shaped and C-shaped inlet and outlet layouts and varied immersion depth. Liu et
+al.~\cite{liu2024tank} isolated the mechanism directly: fitting a baffle that forces coolant
+through each server rather than through the inter-server gap cut a 20-server tank's maximum
+temperature by 0.9~$^{\circ}$C and its server-to-server spread by 0.3~$^{\circ}$C, at the cost of
+a higher pressure loss. Each group produced useful design guidance. None predicts where the
+coolant actually goes once inside the chassis.
+
+That question matters because coolant reaching the tank is not coolant reaching the fins.
+Muneeshwaran et al.~\cite{muneeshwaran2023} measured it directly: a 5~mm gap between the heat sink
+and the 1U tank wall raised thermal resistance by up to 7.4\% and case temperature by up to
+1.5~$^{\circ}$C. Their flow visualisation explains why. The fluid takes the gap because its
+resistance is lower, and that stream does no useful heat transfer. Shrigondekar et
+al.~\cite{shrigondekar2023} repeated the gap sweep at 0, 2 and 5~mm with CFD alongside experiment,
+and Y.-D. Zhang et al.~\cite{zhang2024pao4} found a cold plate improved performance largely by
+cutting bypass. The air-side literature reached the same conclusion earlier and more
+quantitatively. Jeng~\cite{jeng2008} modelled a square pin-fin sink with laminar side bypass and
+reported Nusselt number and dimensionless pressure drop against the channel-to-sink width ratio.
+Li et al.~\cite{li2009shield} took a mechanical approach instead: a shield fitted above the fin
+tips of a plate-fin heat sink under cross-flow, in air (their Fig.~1), cut thermal resistance by
+9.4\% to 30.2\% at Re~=~20{,}000, depending on fin width, though the paper never tabulates air's
+thermophysical properties itself. Cai et al.~\cite{cai2019} measured and simulated a
+top bypass duct over a plate-fin exchanger and found it shifting the average heat transfer
+coefficient by tens of percent. Tip clearance has
+been treated the same way in liquid. Min et al.~\cite{min2004} found an optimum dimensionless
+clearance near 0.6 under fixed pumping power, Sastre et al.~\cite{sastre2018} resolved the flow
+topology by PIV at clearances up to 200\% of fin height, Mei et al.~\cite{mei2014} fitted Nusselt
+and friction correlations in the clearance ratio, and Shahsavar et al.~\cite{shahsavar2021}
+carried the same geometry into entropy generation.
+
+Here the transfer problem becomes sharp, and should be stated precisely. Of these seven bypass
+studies, three use air (standard Pr~$\approx$~0.7), with Cai et al.\ printing Prandtl numbers of
+0.702 and 0.699~\cite{cai2019}, and four use water, near Pr~7. The dielectric coolants tabulated
+by B.
+Zhang et al.~\cite{zhang2026} span Pr from 19.8 for SS110 to 905 for DC-550, with FC-40 at 45.8
+and PAO-6 at 359. The bypass-mechanism literature in this corpus therefore sits one to three
+orders of magnitude below the Prandtl range where immersion cooling operates, and further below
+it again in viscosity. Correlations fitted there cannot be assumed to carry across.
+
+Open ratio does not cool anything. It redistributes coolant between the fin channels and the
+bypass passages, and the split is set by two parallel hydraulic resistances whose dependence on
+viscosity and density differs. The anchor data shows the consequence. At an open ratio of 100\%,
+Chun et al.~\cite{chun2026} compute a bypass mass fraction of 48.41\% for FC-40 but 89.69\% for
+GC-5X; closing the bypass to an open ratio of 0\% drives both below 0.8\%. Because GC-5X loses far
+more flow to the bypass when the path is open, it runs roughly 23.0~K hotter than FC-40 despite
+its higher specific heat and thermal conductivity. Block the bypass and the ranking inverts, with
+GC-5X becoming the cooler fluid. Closing the open ratio cuts thermal resistance by 45.6\% for
+GC-5X against 6.1\% for FC-40~\cite{chun2026}. The same sensitivity reaches the Reynolds number
+any Nusselt correlation would need. Shrigondekar et al.~\cite{shrigondekar2023} report fin-spacing
+Reynolds numbers of roughly 10 to 70 for FC-40 and only 0.2 to 1 for PAO-6 in the same hardware.
+Two orders of magnitude, with the geometry unchanged.
+
+Nothing in this corpus predicts that split. Chun et al.~\cite{chun2026} introduce open ratio as a
+quantitative bypass metric but call the definition geometry-specific, and their future work names
+al.~\cite{zhang2024thermal} compared PAO-4 against Noah@3000A in a cold-plate geometry and found
+the synthetic oil producing twice the pressure drop of the fluorochemical for matching heat
+transfer. Wu et al.~\cite{wu2025novel} compared three synthetic ester fluids and found the
+highest-viscosity oil requiring 3.2 times the pumping power to match the thermal resistance of
+the lowest. The second group is topology comparison. Muneeshwaran et al.~\cite{muneeshwaran2023}
+tested plain plate-fin, oblique-fin and porous-block heat sinks in FC-40 and found oblique fins
+delivering the lowest thermal resistance at the cost of the highest pressure drop.
+Khoshvaght-Aliabadi et al.~\cite{khoshvaghtaliabadi2026oblique} extended that comparison to five
+slanted-channel patterns in the same fluid. The third group is system architecture. Q. Wang et
+al.~\cite{wang2026} compared front-to-back, side-to-side and bottom-up flow routing and found
+bottom-up routing giving the lowest maximum chip temperature. Dong et al.~\cite{dong2026}
+designed a flow-directing baffle and a step-manifold arrangement that cut the chassis temperature
+variance by 38.2\%.
+
+All three groups operate under an unstated hydraulic reality: in an open-bath immersion tank,
+the coolant does not have to go through the heat sink. The chassis contains clearances above and
+around the components. That clearance is a bypass path. The fluid divides between the fin
+channels and the bypass according to the ratio of their hydraulic resistances.
+
+The consequence for immersion cooling is severe. In forced air cooling, tip clearances are
+typically sealed or tight, and the bypass fraction is small. In liquid immersion, the density of
+the fluid makes large structural clearances necessary for insertion, removal and maintenance of
+blades in the tank. The open ratio, defined as the ratio of clearance cross-sectional area to
+total channel cross-sectional area, can exceed 50\%.
+
+The hydraulic resistance of the fin channels scales with the inverse cube of the fin spacing;
+the resistance of the bypass scales with the inverse cube of the clearance height. Because
+clearance heights are large relative to fin spacings, a small clearance diverts a large fraction
+of the flow. The fluid that bypasses the heat sink carries almost no heat. The flow the fins
+actually receive is not the flow the pump delivers, and the Reynolds number governing heat
+transfer is not the Reynolds number based on the duct inlet velocity.
+
+This bypass effect breaks standard single-phase heat sink correlations. A correlation that
+takes the duct Reynolds number and fluid Prandtl number as inputs will overpredict the Nusselt
+number because it assumes all the fluid passes through the fins. The overprediction worsens as
+the open ratio increases, as the fin spacing narrows, and as the fluid viscosity rises.
+
+The effect is not symmetric across fluids. A high-viscosity fluid like PAO-4 suffers more
+bypass leakage than a low-viscosity fluid like FC-40 in the same geometry because its higher
+viscosity increases the fin-channel resistance faster than the clearance resistance. Two fluids
+ranked by their bulk thermophysical properties can invert their ranking when placed in a bypass
+geometry: the fluid with better thermal properties may deliver worse cooling because it loses
+more of its flow to the bypass path.
+
+The published literature contains no dimensionless framework that accounts for this coupling.
+Prior bypass studies in heat sinks are either empirical fits for specific air-cooled geometries,
+single-geometry numerical sweeps, or analytical models that require iterative numerical solution
+of non-linear resistance networks. No closed-form dimensionless correlation exists that takes
+the open ratio, channel Reynolds number, and fluid Prandtl number and returns the bypass fraction,
+the effective heat-sink Reynolds number, the Nusselt number, and the thermal resistance.
+
+This paper supplies that closure as a deterministic chain. Open ratio sets the ratio of hydraulic resistance
+between the fin passages and the bypass passages. That ratio fixes the bypass fraction, which
+fixes the heat-sink Reynolds number---the flow the fins actually see rather than the flow the pump
+delivers. With the fluid Prandtl number it sets the Nusselt number, and Nusselt number and bypass
+fraction together give thermal resistance and the pumping penalty that buys it. Each link is
+dimensionless, so a fluid enters only through its property group and a heat sink only through its
+geometric ratios. The framework is calibrated on a structured subset of the parametric database, then tested on fluids (EFL-1, PAO-4) and
+heat-sink geometries (Micro-Pin-Fin, Oblique-Fin) withheld from the fitting. Accuracy along
+the chain is demonstrated with calibration errors below $1.82\%$ and out-of-sample holdout errors bounded below $2.65\%$ in bypass fraction and $2.15\%$ in thermal resistance.
+
+Section~\ref{sec:formulation} sets out the base geometry adopted from Muneeshwaran et
+al.~\cite{muneeshwaran2023}, the open-ratio definition, the fluid properties and their sources,
+and the physical assumptions. Section~\ref{sec:method} gives the governing equations,
+the conjugate heat transfer and buoyancy treatment, the laminar-versus-turbulent determination,
+and the numerical discretisation and solver settings. Section~\ref{sec:verification} reports the
+validation ladder across six literature benchmarks and the formal four-grid GCI convergence analysis. Section~\ref{sec:dimensionless_framework} derives the closed dimensionless framework from parallel hydraulic resistance laws. Section~\ref{sec:parametric_results} presents the results of the 250-case parametric campaign. Section~\ref{sec:correlation_fitting} reports the non-linear regression results and genuine out-of-sample holdout tests. Section~\ref{sec:discussion} discusses the physical mechanisms and engineering design rules, and Section~\ref{sec:conclusions} summarizes the primary findings.
+
+\input{sections/problem_formulation}
+
+\input{sections/numerical_method}
+
+\input{sections/verification_validation}
+
+\input{sections/dimensionless_framework}
+
+\input{sections/parametric_results}
+
+\input{sections/correlation_and_holdout}
+
+\input{sections/discussion}
+
+\input{sections/conclusions}
+
+\section*{Nomenclature}
+\begin{longtable}{llp{0.55\textwidth}}
+\hline
+\textbf{Symbol} & \textbf{Unit} & \textbf{Description} \\
+\hline
+$A_{\mathrm{ch}}$ & $\mathrm{m}^2$ & Active heat-sink inter-fin free flow area \\
+$A_{\mathrm{gap}}$ & $\mathrm{m}^2$ & Overhead clearance bypass flow area \\
+$c$ & $\mathrm{m}$ & Tip clearance gap height above heat sink \\
+$C_f$ & --- & Laminar friction factor constant \\
+$c_p$ & $\mathrm{J}\cdot\mathrm{kg}^{-1}\cdot\mathrm{K}^{-1}$ & Specific heat capacity at constant pressure \\
+$D_h$ & $\mathrm{m}$ & Hydraulic diameter \\
+$f$ & --- & Darcy-Weisbach friction factor \\
+$\mathrm{FOM}$ & $\mathrm{K}^{-1}\cdot\mathrm{W}^{-1}$ & Global thermal-hydraulic Figure of Merit \\
+$\mathrm{GCI}$ & \% & Grid Convergence Index \\
+$\mathrm{Gz}$ & --- & Graetz number, $\mathrm{Re}_{\mathrm{active}}\mathrm{Pr}(D_h/L)$ \\
+$h$ & $\mathrm{W}\cdot\mathrm{m}^{-2}\cdot\mathrm{K}^{-1}$ & Convective heat transfer coefficient \\
+$H_{\mathrm{base}}$ & $\mathrm{m}$ & Heat sink base thickness \\
+$H_{\mathrm{chassis}}$ & $\mathrm{m}$ & Total 1U server chassis internal height \\
+$H_{\mathrm{fin}}$ & $\mathrm{m}$ & Heat sink fin height \\
+$k$ & $\mathrm{W}\cdot\mathrm{m}^{-1}\cdot\mathrm{K}^{-1}$ & Thermal conductivity \\
+$L_{\mathrm{sink}}$ & $\mathrm{m}$ & Heat sink streamwise length \\
+$\dot{m}$ & $\mathrm{kg}\cdot\mathrm{s}^{-1}$ & Mass flow rate \\
+$N_{\mathrm{ch}}$ & --- & Number of inter-fin fluid channels \\
+$N_{\mathrm{fin}}$ & --- & Number of heat sink fins \\
+$\mathrm{Nu}$ & --- & Nusselt number, $h D_h / k_f$ \\
+$\mathrm{OR}$ & --- & Structural open ratio, $c / (H_{\mathrm{chassis}} - H_{\mathrm{base}})$ \\
+$p$ & $\mathrm{Pa}$ & Static pressure \\
+$P_{\mathrm{TDP}}$ & $\mathrm{W}$ & Thermal design power per CPU socket \\
+$\mathrm{Pr}$ & --- & Prandtl number, $\mu c_p / k_f$ \\
+$Q$ & $\mathrm{m}^3\cdot\mathrm{s}^{-1}, \mathrm{LPM}$ & Volumetric flow rate \\
+$r$ & --- & Grid refinement ratio \\
+$R_{\mathrm{hyd}}$ & $\mathrm{kg}^{-1}\cdot\mathrm{m}^{-1}$ & Hydraulic flow resistance \\
+$R_{\mathrm{spread}}$ & $\mathrm{K}\cdot\mathrm{W}^{-1}$ & Solid conduction spreading thermal resistance \\
+$R_{\mathrm{th}}$ & $\mathrm{K}\cdot\mathrm{W}^{-1}$ & Total junction-to-inlet thermal resistance \\
+$R_{\mathrm{TIM}}$ & $\mathrm{K}\cdot\mathrm{W}^{-1}$ & Thermal interface material contact resistance \\
+$\mathrm{Re}$ & --- & Reynolds number, $\rho u D_h / \mu$ \\
+$\mathrm{Ri}$ & --- & Richardson number, $\mathrm{Gr}/\mathrm{Re}^2$ \\
+$s$ & $\mathrm{m}$ & Fin-to-fin spacing \\
+$t_{\mathrm{fin}}$ & $\mathrm{m}$ & Fin thickness \\
+$T$ & $^{\circ}\mathrm{C}, \mathrm{K}$ & Temperature \\
+$u$ & $\mathrm{m}\cdot\mathrm{s}^{-1}$ & Fluid velocity \\
+$W$ & $\mathrm{m}$ & Chassis channel spanwise width \\
+$W_{\mathrm{pump}}$ & $\mathrm{W}$ & Hydraulic pumping power, $Q \cdot \Delta p$ \\
+\hline
+\multicolumn{3}{l}{\textbf{Greek symbols}} \\
+$\alpha$ & --- & Channel aspect ratio, $s / H_{\mathrm{fin}}$ \\
+$\beta$ & $\mathrm{K}^{-1}$ & Volumetric thermal expansion coefficient \\
+$\Delta p$ & $\mathrm{Pa}$ & Pressure drop \\
+$\eta_{\mathrm{fin}}$ & --- & Individual fin efficiency \\
+$\eta_o$ & --- & Overall heat sink surface efficiency \\
+$\mu$ & $\mathrm{Pa}\cdot\mathrm{s}$ & Dynamic viscosity \\
+$\rho$ & $\mathrm{kg}\cdot\mathrm{m}^{-3}$ & Fluid density \\
+$\Phi_{\mathrm{bypass}}$ & ---, \% & Bypass mass flow fraction, $\dot{m}_{\mathrm{bypass}} / \dot{m}_{\mathrm{total}}$ \\
+\hline
+\multicolumn{3}{l}{\textbf{Subscripts}} \\
+$\mathrm{active}$ & \multicolumn{2}{l}{Active flow path through fin matrix} \\
+$\mathrm{bypass}$ & \multicolumn{2}{l}{Clearance bypass leakage flow path} \\
+$\mathrm{chassis}$ & \multicolumn{2}{l}{Total chassis domain} \\
+$\mathrm{chip}$ & \multicolumn{2}{l}{Electronic chip heat source} \\
+$\mathrm{ext}$ & \multicolumn{2}{l}{Richardson extrapolated continuum limit} \\
+$\mathrm{fd}$ & \multicolumn{2}{l}{Fully developed asymptotic limit} \\
+$\mathrm{inlet}$ & \multicolumn{2}{l}{Chassis inlet boundary} \\
+$\mathrm{total}$ & \multicolumn{2}{l}{Total integrated quantity} \\
+\hline
+\end{longtable}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}

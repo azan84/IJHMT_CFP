@@ -37,7 +37,7 @@ def parse_args():
     parser.add_argument("--threads", type=int, default=None, help="Number of CPU threads to allocate")
     parser.add_argument("--ram", type=float, default=None, help="Maximum RAM in GB to allocate")
     parser.add_argument("--mesh-res", type=str, choices=["high", "medium", "fast"], default="medium", help="Mesh resolution fidelity")
-    parser.add_argument("--auto-push", action="store_true", default=True, help="Automatically push results to GitHub after each completed case")
+    parser.add_argument("--auto-push", action="store_true", default=False, help="Automatically push results to GitHub periodically")
     parser.add_argument("--force-rerun", action="store_true", default=False, help="Force rerun of already completed cases")
     parser.add_argument("--max-cases", type=int, default=None, help="Limit number of cases to run in this execution")
     parser.add_argument("--case-id", type=str, default=None, help="Run a single specific case by ID (e.g. DOE_Case_001)")
@@ -261,12 +261,17 @@ def main():
             # Update aggregated campaign database
             aggregate_campaign_results(CAMPAIGN_ROOT)
 
-            # Auto-push to GitHub
-            if auto_push:
+            # Auto-push to GitHub every 25 cases
+            if auto_push and completed_cases % 25 == 0:
                 git_push_results(REPO_ROOT, completed_cases, total_cases)
 
         except Exception as e:
             print(f"   [ERROR] Failed solving {cid}: {e}")
+
+    # Final aggregation and push
+    aggregate_campaign_results(CAMPAIGN_ROOT)
+    if auto_push:
+        git_push_results(REPO_ROOT, completed_cases, total_cases)
 
     t_total_elapsed = time.time() - t_start_all
     print("\n" + "=" * 70)

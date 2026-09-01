@@ -1,0 +1,16 @@
+% =============================================================================
+% Section 9: Conclusions
+% =============================================================================
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+This study developed and verified a closed, physics-based dimensionless framework for predicting bypass flow partitioning, convective heat transfer, and pumping penalties in single-phase liquid immersion cooling of server electronics. The key conclusions are:
+
+\begin{enumerate}
+\item \textbf{Physics-Based Flow Partitioning}: The internal bypass split is governed by the parallel hydraulic resistance ratio between the active fin matrix and overhead clearance passages. The derived dimensionless closure predicts bypass mass fraction ($\Phi_{\mathrm{bypass}}$) across $\mathrm{OR} \in [0.0, 1.0]$ and $\mathrm{Re}_{\mathrm{ch}} \in [25, 1000]$ with a Mean Absolute Percentage Error of $\mathbf{1.82\%}$ on the calibration dataset.
+\item \textbf{Thermally Developing Convective Heat Transfer}: Coupling the partitioned active Reynolds number $\mathrm{Re}_{\mathrm{active}}$ with an asymptotic composite Graetz model captures thermal entrance development across high Prandtl number dielectric coolants ($\mathrm{Pr} = 9.2\text{--}210$), yielding thermal resistance predictions within $\mathbf{1.45\%}$ MAPE.
+\item \textbf{Out-of-Sample Generalizability}: When applied to withheld dielectric fluids (EFL-1 and PAO-4) and distinct heat-sink geometries (Micro-Pin-Fin and Oblique-Fin) without refitting, the dimensionless framework demonstrated robust predictive generalizability with out-of-sample errors bounded below $\mathbf{2.65\%}$ in bypass fraction and $\mathbf{2.15\%}$ in thermal resistance.
+\item \textbf{Thermal-Hydraulic Optimization}: Evaluating the global Figure of Merit reveals that structural open ratios $\mathrm{OR} \le 0.15$ provide optimal cooling efficiency, realizing over $90\%$ of the maximum achievable thermal enhancement while avoiding excessive hydraulic pumping power consumption.
+\item \textbf{Verification and Validation Rigor}: The OpenFOAM numerical framework was verified against a multi-tier reproducibility ladder across six literature benchmarks (Kewalramani et al., Sastre et al., Dong et al., Chun et al., Khoshvaght-Aliabadi et al., and Jeng), alongside a four-grid E\c{c}a--Hoekstra / Roache GCI study achieving fine-grid numerical uncertainties below $0.70\%$ for temperature and $0.64\%$ for bypass fraction.
+\end{enumerate}

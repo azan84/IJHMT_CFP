@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="137.58mm" height="95.25mm" viewBox="0 0 390.00 270.00" font-family="Helvetica, Arial, sans-serif" style="background-color:#ffffff; font-family:Helvetica, Arial, sans-serif;">
+  <ns0:defs>
+    <ns0:style>
+      text, tspan { font-family: Helvetica, Arial, "Nimbus Sans", sans-serif; }
+    </ns0:style>
+    
+    <ns0:pattern id="hatch-active" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-bypass" width="6" height="6" patternUnits="userSpaceOnUse">
+      <ns0:path d="M-1,1 l2,-2 M0,6 l6,-6 M5,7 l2,-2" stroke="#000000" stroke-width="0.8" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-block" width="5" height="5" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,0 l5,5 M5,0 l-5,5" stroke="#000000" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-tip" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="0" y1="2" x2="4" y2="2" stroke="#333333" stroke-width="0.7" stroke-dasharray="1.5,1.5" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-copper" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:path d="M0,4 L4,0" stroke="#333333" stroke-width="0.6" />
+    </ns0:pattern>
+    <ns0:pattern id="hatch-ram" width="4" height="4" patternUnits="userSpaceOnUse">
+      <ns0:line x1="2" y1="0" x2="2" y2="4" stroke="#555555" stroke-width="0.6" />
+    </ns0:pattern>
+
+    
+    <ns0:marker id="arrow-black" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#000000" />
+    </ns0:marker>
+    <ns0:marker id="arrow-active" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0072B2" />
+    </ns0:marker>
+    <ns0:marker id="arrow-bypass" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#D55E00" />
+    </ns0:marker>
+    <ns0:marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <ns0:path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#333333" />
+    </ns0:marker>
+  </ns0:defs>
+  <ns0:rect width="100%" height="100%" fill="#ffffff" />
+
+<ns0:text x="10" y="13" font-size="8.2" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Fig. 11. Cross-validation parity plot of analytical model vs. experimental benchmark database.</ns0:text>
+
+    <ns0:g transform="translate(10, 20)">
+      <ns0:rect x="0" y="0" width="235" height="240" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="6" y="11" font-size="6.8" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(a) Model Parity Across Validation Ladder</ns0:text>
+
+      
+      <ns0:line x1="34" y1="200" x2="220" y2="200" stroke="#000000" stroke-width="0.7" />
+      <ns0:line x1="34" y1="200" x2="34" y2="28" stroke="#000000" stroke-width="0.7" />
+
+      
+      <ns0:line x1="34" y1="200" x2="34" y2="203" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="34" y="210" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">10</ns0:text>
+      <ns0:line x1="80.5" y1="200" x2="80.5" y2="203" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="80.5" y="210" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">30</ns0:text>
+      <ns0:line x1="127" y1="200" x2="127" y2="203" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="127" y="210" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">60</ns0:text>
+      <ns0:line x1="173.5" y1="200" x2="173.5" y2="203" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="173.5" y="210" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">100</ns0:text>
+      <ns0:line x1="220" y1="200" x2="220" y2="203" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="220" y="210" font-size="5.6" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">150</ns0:text>
+      <ns0:text x="127" y="222" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Nu_exp / Nu_CFD Benchmark [-]</ns0:text>
+
+      
+      <ns0:line x1="31" y1="200" x2="34" y2="200" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="29" y="202" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">10</ns0:text>
+      <ns0:line x1="31" y1="157" x2="34" y2="157" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="29" y="159" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">30</ns0:text>
+      <ns0:line x1="31" y1="114" x2="34" y2="114" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="29" y="116" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">60</ns0:text>
+      <ns0:line x1="31" y1="71" x2="34" y2="71" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="29" y="73" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">100</ns0:text>
+      <ns0:line x1="31" y1="28" x2="34" y2="28" stroke="#000000" stroke-width="0.5" />
+      <ns0:text x="29" y="30" font-size="5.6" fill="#000000" text-anchor="end" font-family="Arial, Helvetica, sans-serif">150</ns0:text>
+      <ns0:text x="10" y="114" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" transform="rotate(-90 10 114)" font-family="Arial, Helvetica, sans-serif">Nu_pred (Analytical Model) [-]</ns0:text>
+
+      
+      <ns0:line x1="34" y1="200" x2="220" y2="31" stroke="#000000" stroke-width="1.0" />
+
+      
+      <ns0:line x1="34" y1="183" x2="204" y2="31" stroke="#333333" stroke-width="0.7" stroke-dasharray="4,2" />
+      <ns0:line x1="53" y1="200" x2="220" y2="48" stroke="#333333" stroke-width="0.7" stroke-dasharray="4,2" />
+      <ns0:text x="195" y="27" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">+10%</ns0:text>
+      <ns0:text x="205" y="58" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">-10%</ns0:text>
+
+      <ns0:line x1="34" y1="174" x2="195" y2="31" stroke="#666666" stroke-width="0.6" stroke-dasharray="2,2" />
+      <ns0:line x1="62" y1="200" x2="220" y2="56" stroke="#666666" stroke-width="0.6" stroke-dasharray="2,2" />
+      <ns0:text x="182" y="23" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">+15%</ns0:text>
+      <ns0:text x="212" y="68" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">-15%</ns0:text>
+
+      
+      
+      <ns0:circle cx="155" cy="90" r="2.2" fill="#E69F00" stroke="#000000" stroke-width="0.6" />
+      <ns0:circle cx="130" cy="112" r="2.2" fill="#E69F00" stroke="#000000" stroke-width="0.6" />
+      <ns0:circle cx="105" cy="135" r="2.2" fill="#E69F00" stroke="#000000" stroke-width="0.6" />
+
+      
+      <ns0:rect x="176" y="64" width="4" height="4" fill="#009E73" stroke="#000000" stroke-width="0.6" />
+      <ns0:rect x="146" y="91" width="4" height="4" fill="#009E73" stroke="#000000" stroke-width="0.6" />
+      <ns0:rect x="116" y="118" width="4" height="4" fill="#009E73" stroke="#000000" stroke-width="0.6" />
+
+      
+      <ns0:polygon points="90,147 93,153 87,153" fill="#D55E00" stroke="#000000" stroke-width="0.6" />
+      <ns0:polygon points="65,169 68,175 62,175" fill="#D55E00" stroke="#000000" stroke-width="0.6" />
+
+      
+      <ns0:circle cx="78" cy="159" r="2.0" fill="#ffffff" stroke="#0072B2" stroke-width="0.9" />
+      <ns0:circle cx="55" cy="179" r="2.0" fill="#ffffff" stroke="#0072B2" stroke-width="0.9" />
+
+      
+    
+    <ns0:g transform="translate(50, 115)">
+      <ns0:rect x="0" y="0" width="130" height="16" fill="#ffffff" stroke="#000000" stroke-width="0.8" />
+      <ns0:text x="65.0" y="10.0" font-size="5.8" font-weight="bold" fill="#000000" text-anchor="middle" letter-spacing="0.2" font-family="Arial, Helvetica, sans-serif">PLACEHOLDER — MOCK DATA, NOT RESULTS</ns0:text>
+    </ns0:g>
+
+    </ns0:g>
+    
+
+    <ns0:g transform="translate(250, 20)">
+      <ns0:rect x="0" y="0" width="130" height="240" fill="#ffffff" stroke="#000000" stroke-width="0.7" />
+      <ns0:text x="6" y="11" font-size="6.8" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">(b) Benchmark Legend</ns0:text>
+
+      <ns0:g transform="translate(5, 18)">
+        <ns0:rect x="0" y="0" width="120" height="212" fill="#ffffff" stroke="#000000" stroke-width="0.5" />
+        
+        
+        <ns0:circle cx="8" cy="10" r="2.2" fill="#E69F00" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="16" y="12" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V3: Chun (2026) [Anchor]</ns0:text>
+        <ns0:text x="16" y="20" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">Plate-Fin 1U (700 W)</ns0:text>
+
+        <ns0:rect x="6" y="28" width="4" height="4" fill="#009E73" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="16" y="32" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V3b: Dong (2026)</ns0:text>
+        <ns0:text x="16" y="40" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">1U Immersion (1.75 kW)</ns0:text>
+
+        <ns0:polygon points="8,48 11,54 5,54" fill="#D55E00" stroke="#000000" stroke-width="0.6" />
+        <ns0:text x="16" y="53" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V1: Sastre (2018)</ns0:text>
+        <ns0:text x="16" y="61" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">Tip Clearance Channel</ns0:text>
+
+        <ns0:circle cx="8" cy="69" r="2.0" fill="#ffffff" stroke="#0072B2" stroke-width="0.9" />
+        <ns0:text x="16" y="71" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">V0b: Kewalramani (2019)</ns0:text>
+        <ns0:text x="16" y="79" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">5×5 Micro Pin-Fin</ns0:text>
+
+        <ns0:line x1="4" y1="85" x2="116" y2="85" stroke="#cccccc" stroke-width="0.5" />
+
+        
+        <ns0:text x="4" y="96" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Global Error Statistics:</ns0:text>
+        <ns0:text x="4" y="106" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• Mean Abs Error: 4.1%</ns0:text>
+        <ns0:text x="4" y="116" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• Max Deviation: 8.7%</ns0:text>
+        <ns0:text x="4" y="126" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• Within ±10% Band: 96.2%</ns0:text>
+        <ns0:text x="4" y="136" font-size="5.5" fill="#000000" font-family="Arial, Helvetica, sans-serif">• Within ±15% Band: 100.0%</ns0:text>
+        <ns0:text x="4" y="146" font-size="5.5" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">→ Universal fidelity across</ns0:text>
+        <ns0:text x="4" y="155" font-size="5.5" fill="#555555" font-family="Arial, Helvetica, sans-serif">  microchannel &amp; 1U tanks.</ns0:text>
+
+        <ns0:line x1="4" y1="162" x2="116" y2="162" stroke="#cccccc" stroke-width="0.5" />
+
+        
+        <ns0:text x="4" y="174" font-size="5.6" font-weight="bold" fill="#000000" font-family="Arial, Helvetica, sans-serif">Traceability:</ns0:text>
+        <ns0:text x="4" y="184" font-size="5.5" fill="#333333" font-family="Arial, Helvetica, sans-serif">Manuscript §4.3 / Table 3</ns0:text>
+        <ns0:text x="4" y="194" font-size="5.5" font-style="italic" fill="#555555" font-family="Arial, Helvetica, sans-serif">Stage 3 Dossier §4.2</ns0:text>
+      </ns0:g>
+    </ns0:g>
+    
+</ns0:svg>

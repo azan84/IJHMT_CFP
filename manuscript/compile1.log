@@ -1,0 +1,620 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21>
+(/usr/share/texlive/texmf-dist/tex/latex/elsarticle/elsarticle.cls
+Document Class: elsarticle 2020/11/20, 3.3: Elsevier Ltd
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def))
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def))) (./main.spl
+) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texmf/tex/latex/lm/lmodern.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd) (./main.aux)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texmf/tex/latex/lm/omllmm.fd)
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd)
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+Overfull \hbox (2.61107pt too wide) has occurred while \output is active
+[] 
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+(./sections/problem_formulation.tex [4]
+(/usr/share/texmf/tex/latex/lm/ot1lmtt.fd) [5 <../figures/fig1_domain.png (PNG 
+copy)>] (/usr/share/texmf/tex/latex/lm/ts1lmr.fd) [6] [7] [8] [9 <../figures/fi
+g2_dimension_ledger.png (PNG copy)>] [10] [11] [12] [13] [14] [15] [16]
+[17] [18]) [19] (./sections/numerical_method.tex
+(/usr/share/texmf/tex/latex/lm/ot1lmss.fd) [20] [21] [22] [23] [24] [25]
+Overfull \hbox (0.97427pt too wide) in paragraph at lines 307--311
+\OT1/lmr/bx/n/12 run con-fig-u-ra-tion rather than in ad-vance.] [AWAITING-RESU
+LTS:
+[26]) (./sections/verification_validation.tex [27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+[]|\OT1/lmr/m/n/10 V3b
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+\OT1/lmr/m/n/10 (pro-
+
+Overfull \hbox (5.26773pt too wide) in paragraph at lines 75--75
+\OT1/lmr/m/n/10 posed)| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+[]|\OT1/lmr/m/n/10 ANCHOR-
+
+Overfull \hbox (3.16193pt too wide) in paragraph at lines 75--75
+\OT1/lmr/m/n/10 CONFIRMED| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+[]|\OT1/lmr/m/n/10 ANCHOR-
+
+Overfull \hbox (7.88315pt too wide) in paragraph at lines 79--79
+\OT1/lmr/m/n/10 ACQUIRABLE| 
+
+Underfull \hbox (badness 2478) in paragraph at lines 79--83
+\OT1/lmr/m/n/10 sults and com-par-i-son quan-tity all
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+[]|\OT1/lmr/m/n/10 ANCHOR-
+
+Overfull \hbox (7.88315pt too wide) in paragraph at lines 83--83
+\OT1/lmr/m/n/10 ACQUIRABLE| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+[]|\OT1/lmr/m/n/10 Khoshvaght-
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+\OT1/lmr/m/n/10 Aliabadi et
+
+Overfull \hbox (17.71194pt too wide) in paragraph at lines 87--87
+[]|\OT1/lmr/m/n/10 V3b/V4b
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+\OT1/lmr/m/n/10 (pro-
+
+Overfull \hbox (5.26773pt too wide) in paragraph at lines 87--87
+\OT1/lmr/m/n/10 posed)| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+[]|\OT1/lmr/m/n/10 ANCHOR-
+
+Overfull \hbox (7.88315pt too wide) in paragraph at lines 88--88
+\OT1/lmr/m/n/10 ACQUIRABLE| 
+
+Underfull \hbox (badness 1721) in paragraph at lines 88--92
+\OT1/lmr/m/n/10 with a quan-ti-fied check against a
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
+[]|\OT1/lmr/m/n/10 V3
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
+\OT1/lmr/m/n/10 (an-
+
+Overfull \hbox (6.70259pt too wide) in paragraph at lines 92--92
+[]|\OT1/lmr/m/n/10 SUPPORTING| 
+
+Underfull \hbox (badness 7963) in paragraph at lines 92--96
+[]|\OT1/lmr/m/n/10 Results and com-par-i-son quan-tity
+
+Overfull \hbox (6.70259pt too wide) in paragraph at lines 96--96
+[]|\OT1/lmr/m/n/10 SUPPORTING| 
+
+Underfull \hbox (badness 2181) in paragraph at lines 96--99
+\OT1/lmr/m/n/10 fluid or solid prop-erty val-ues are
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--99
+[]|\OT1/lmr/m/n/10 Shahsavar et
+
+Overfull \hbox (6.70259pt too wide) in paragraph at lines 99--99
+[]|\OT1/lmr/m/n/10 SUPPORTING| 
+
+Underfull \hbox (badness 2846) in paragraph at lines 99--102
+[]|\OT1/lmr/m/n/10 Geometry, re-sults and com-par-i-son
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--102
+[]|\OT1/lmr/m/n/10 V1
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--102
+\OT1/lmr/m/n/10 (ad-
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--102
+\OT1/lmr/m/n/10 ja-
+
+Overfull \hbox (6.70259pt too wide) in paragraph at lines 102--102
+[]|\OT1/lmr/m/n/10 SUPPORTING| 
+
+Underfull \hbox (badness 7963) in paragraph at lines 102--106
+[]|\OT1/lmr/m/n/10 Results and com-par-i-son quan-tity
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+[]|\OT1/lmr/m/n/10 Not
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+\OT1/lmr/m/n/10 as-
+
+Overfull \hbox (3.8787pt too wide) in paragraph at lines 106--106
+\OT1/lmr/m/n/10 signed| 
+
+Overfull \hbox (6.70259pt too wide) in paragraph at lines 106--106
+[]|\OT1/lmr/m/n/10 SUPPORTING| 
+
+Underfull \hbox (badness 1502) in paragraph at lines 106--110
+\OT1/lmr/m/n/10 the stated tem-per-a-ture and out-let
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]|\OT1/lmr/m/n/10 B. Zhang et
+
+Overfull \hbox (6.70259pt too wide) in paragraph at lines 110--110
+[]|\OT1/lmr/m/n/10 SUPPORTING| 
+
+Underfull \hbox (badness 7963) in paragraph at lines 110--114
+[]|\OT1/lmr/m/n/10 Results and com-par-i-son quan-tity
+
+Overfull \hbox (6.70259pt too wide) in paragraph at lines 114--114
+[]|\OT1/lmr/m/n/10 SUPPORTING| 
+
+Underfull \hbox (badness 7963) in paragraph at lines 114--118
+[]|\OT1/lmr/m/n/10 Results and com-par-i-son quan-tity
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--118
+[]|\OT1/lmr/m/n/10 Khoshvaght-
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--118
+\OT1/lmr/m/n/10 Aliabadi et
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--118
+[]|\OT1/lmr/m/n/10 Not
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--118
+\OT1/lmr/m/n/10 as-
+
+Overfull \hbox (3.8787pt too wide) in paragraph at lines 118--118
+\OT1/lmr/m/n/10 signed| 
+
+Overfull \hbox (6.70259pt too wide) in paragraph at lines 118--118
+[]|\OT1/lmr/m/n/10 SUPPORTING| 
+
+Underfull \hbox (badness 2478) in paragraph at lines 119--122
+\OT1/lmr/m/n/10 sults and com-par-i-son quan-tity all
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
+[]|\OT1/lmr/m/n/10 Not
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
+\OT1/lmr/m/n/10 as-
+
+Overfull \hbox (3.8787pt too wide) in paragraph at lines 122--122
+\OT1/lmr/m/n/10 signed| 
+
+Overfull \hbox (6.70259pt too wide) in paragraph at lines 122--122
+[]|\OT1/lmr/m/n/10 SUPPORTING| 
+
+Underfull \hbox (badness 5696) in paragraph at lines 122--126
+[]|\OT1/lmr/m/n/10 Comparison quan-tity PASS. Four
+[29] [30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
+[]|\OT1/lmr/m/n/10 Vagiakis et
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
+[]|\OT1/lmr/m/n/10 Not
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
+\OT1/lmr/m/n/10 as-
+
+Overfull \hbox (3.8787pt too wide) in paragraph at lines 158--158
+\OT1/lmr/m/n/10 signed| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+[]|\OT1/lmr/m/n/10 Not
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+\OT1/lmr/m/n/10 as-
+
+Overfull \hbox (3.8787pt too wide) in paragraph at lines 162--162
+\OT1/lmr/m/n/10 signed| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
+[]|\OT1/lmr/m/n/10 V3b
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
+\OT1/lmr/m/n/10 (pro-
+
+Overfull \hbox (5.26773pt too wide) in paragraph at lines 166--166
+\OT1/lmr/m/n/10 posed)| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
+[]|\OT1/lmr/m/n/10 Lee and
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+[]|\OT1/lmr/m/n/10 Khoshvaght-
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+\OT1/lmr/m/n/10 Aliabadi et
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+[]|\OT1/lmr/m/n/10 Not
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+\OT1/lmr/m/n/10 as-
+
+Overfull \hbox (3.8787pt too wide) in paragraph at lines 179--179
+\OT1/lmr/m/n/10 signed| 
+[32] [33] [34] [35] [36]
+Overfull \hbox (10.75256pt too wide) in paragraph at lines 303--304
+[]\OT1/lmr/bx/n/12 [AWAITING-RESULTS: mass-split im-bal-ance and energy-balance
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--333
+[]|\OT1/lmr/m/n/10 Deviation of the
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
+[]|\OT1/lmr/m/n/10 Dong et
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
+\OT1/lmr/m/n/10 al. [[]]
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
+\OT1/lmr/m/n/10 (ANCHOR-
+
+Overfull \hbox (9.00284pt too wide) in paragraph at lines 334--334
+\OT1/lmr/m/n/10 CONFIRMED)| 
+
+Underfull \hbox (badness 2368) in paragraph at lines 334--335
+[]|\OT1/lmr/m/n/10 CPU junc-tion tem-
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--337
+[]|\OT1/lmr/bx/n/10 [AWAITING-
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--337
+\OT1/lmr/bx/n/10 RESULTS: from
+
+Underfull \hbox (badness 2799) in paragraph at lines 336--337
+\OT1/lmr/bx/n/10 the V3b repli-ca-
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--337
+[]|\OT1/lmr/m/n/10 Kewalramani
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--337
+\OT1/lmr/m/n/10 et al. [[]]
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--337
+\OT1/lmr/m/n/10 (ANCHOR-
+
+Overfull \hbox (13.72406pt too wide) in paragraph at lines 337--337
+\OT1/lmr/m/n/10 ACQUIRABLE)| 
+
+Underfull \hbox (badness 5008) in paragraph at lines 337--339
+\OT1/lmr/m/n/10 a-ture and pres-sure
+
+Underfull \hbox (badness 1874) in paragraph at lines 337--339
+\OT1/lmr/m/n/10 drop for a five by
+
+Underfull \hbox (badness 6348) in paragraph at lines 339--339
+[]|\OT1/lmr/m/n/10 About 3% max-i-
+
+Underfull \hbox (badness 1107) in paragraph at lines 339--339
+\OT1/lmr/m/n/10 mum on tem-per-a-
+
+Underfull \hbox (badness 1596) in paragraph at lines 339--339
+\OT1/lmr/m/n/10 ture; 2.41% max-
+
+Underfull \hbox (badness 1448) in paragraph at lines 339--339
+\OT1/lmr/m/n/10 i-mum on pres-sure
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+[]| \OT1/lmr/bx/n/10 [AWAITING-
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+\OT1/lmr/bx/n/10 RESULTS: from
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+\OT1/lmr/bx/n/10 the V0b fun-da-
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
+[]|\OT1/lmr/m/n/10 Sastre et
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
+\OT1/lmr/m/n/10 al. [[]]
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
+\OT1/lmr/m/n/10 (ANCHOR-
+
+Overfull \hbox (13.72406pt too wide) in paragraph at lines 341--341
+\OT1/lmr/m/n/10 ACQUIRABLE)| 
+
+Underfull \hbox (badness 7116) in paragraph at lines 341--342
+[]|\OT1/lmr/m/n/10 Pressure drop and
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
+[]|\OT1/lmr/m/n/10 3.6%, 5.4% and
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
+\OT1/lmr/m/n/10 7.7% mea-sured
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
+\OT1/lmr/m/n/10 against nu-mer-i-cal
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+[]|\OT1/lmr/bx/n/10 [AWAITING-
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+\OT1/lmr/bx/n/10 RESULTS: from
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+\OT1/lmr/bx/n/10 the V1 tip-
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--344
+[]|\OT1/lmr/m/n/10 Khoshvaght-
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--344
+\OT1/lmr/m/n/10 Aliabadi
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--344
+\OT1/lmr/m/n/10 et al. [[]]
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--344
+\OT1/lmr/m/n/10 (ANCHOR-
+
+Overfull \hbox (13.72406pt too wide) in paragraph at lines 344--344
+\OT1/lmr/m/n/10 ACQUIRABLE)| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+[]|\OT1/lmr/m/n/10 Thermal re-sis-tance
+
+Underfull \hbox (badness 2781) in paragraph at lines 344--345
+\OT1/lmr/m/n/10 and CPU tem-per-a-
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--347
+[]|\OT1/lmr/m/n/10 Below 3.4% on
+
+Underfull \hbox (badness 5105) in paragraph at lines 345--347
+\OT1/lmr/m/n/10 ther-mal re-sis-tance
+
+Underfull \hbox (badness 1960) in paragraph at lines 345--347
+\OT1/lmr/m/n/10 CPU tem-per-a-ture;
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--347
+\OT1/lmr/m/n/10 the un-der-ly-ing
+
+Underfull \hbox (badness 3058) in paragraph at lines 345--347
+\OT1/lmr/m/n/10 max-i-mum ther-mal
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--347
+\OT1/lmr/m/n/10 re-sis-tance un-cer-
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
+[]|\OT1/lmr/bx/n/10 [AWAITING-
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
+\OT1/lmr/bx/n/10 RESULTS: from
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
+\OT1/lmr/bx/n/10 the im-mer-sion
+
+Underfull \hbox (badness 4279) in paragraph at lines 348--349
+\OT1/lmr/bx/n/10 heat-sink repli-ca-
+
+Underfull \hbox (badness 5133) in paragraph at lines 362--362
+[]|\OT1/lmr/m/n/10 Source's own re-ported
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--362
+[]|\OT1/lmr/m/n/10 Comparator
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--364
+[]|\OT1/lmr/m/n/10 Deviation of
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--364
+\OT1/lmr/m/n/10 the present
+
+Overfull \hbox (2.21388pt too wide) in paragraph at lines 366--367
+[]|\OT1/lmr/bx/n/10 [AWAITING-
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
+\OT1/lmr/bx/n/10 RESULTS:
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
+\OT1/lmr/bx/n/10 from the
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
+\OT1/lmr/bx/n/10 V3 an-chor
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
+\OT1/lmr/bx/n/10 cross-check
+
+Underfull \hbox (badness 1371) in paragraph at lines 367--367
+[]|\OT1/lmr/m/n/10 Component pres-sure
+
+Overfull \hbox (2.21388pt too wide) in paragraph at lines 368--369
+[]|\OT1/lmr/bx/n/10 [AWAITING-
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
+\OT1/lmr/bx/n/10 RESULTS:
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
+\OT1/lmr/bx/n/10 from the
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
+\OT1/lmr/bx/n/10 V3 an-chor
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
+\OT1/lmr/bx/n/10 cross-check
+
+Overfull \hbox (2.21388pt too wide) in paragraph at lines 370--371
+[]|\OT1/lmr/bx/n/10 [AWAITING-
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
+\OT1/lmr/bx/n/10 RESULTS:
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
+\OT1/lmr/bx/n/10 from the
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
+\OT1/lmr/bx/n/10 V3 an-chor
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
+\OT1/lmr/bx/n/10 cross-check
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--371
+[]|\OT1/lmr/m/n/10 Thermal re-sis-tance
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--372
+[]|\OT1/lmr/m/n/10 None; com-
+
+Overfull \hbox (2.21388pt too wide) in paragraph at lines 373--374
+[]|\OT1/lmr/bx/n/10 [AWAITING-
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+\OT1/lmr/bx/n/10 RESULTS:
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+\OT1/lmr/bx/n/10 from the
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+\OT1/lmr/bx/n/10 V3 an-chor
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+\OT1/lmr/bx/n/10 cross-check
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
+[]|\OT1/lmr/m/n/10 None; com-
+
+Overfull \hbox (2.21388pt too wide) in paragraph at lines 375--376
+[]|\OT1/lmr/bx/n/10 [AWAITING-
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
+\OT1/lmr/bx/n/10 RESULTS:
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
+\OT1/lmr/bx/n/10 from the
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
+\OT1/lmr/bx/n/10 V3 an-chor
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
+\OT1/lmr/bx/n/10 cross-check
+[37] [38] [39]
+Overfull \hbox (2.12834pt too wide) in paragraph at lines 405--409
+[]\OT1/lmr/m/it/12 Boussinesq against vari-able den-sity. \OT1/lmr/m/n/12 Im-me
+r-sion tanks are tall, the coolants
+[40]) (./main.bbl
+Underfull \hbox (badness 1286) in paragraph at lines 16--21
+[]\OT1/lmr/m/n/12 Y. Huang, B. Liu, S. Xu, C. Bao, Y. Zhong, C. Zhang, Ex-
+
+Underfull \hbox (badness 3503) in paragraph at lines 16--21
+\OT1/lmr/m/n/12 per-i-men-tal study on the im-mer-sion liq-uid cool-ing per-for
+-mance
+
+Underfull \hbox (badness 3250) in paragraph at lines 16--21
+\OT1/lmr/m/n/12 of high-power data cen-ter servers, En-ergy 297 (2024) 131195.
+
+Underfull \hbox (badness 1721) in paragraph at lines 23--28
+\OT1/lmr/m/n/12 phase im-mer-sion cool-ing for high-energy den-sity server rack
+ for
+
+Underfull \hbox (badness 2799) in paragraph at lines 23--28
+\OT1/lmr/m/n/12 data cen-ters, Ap-plied Ther-mal En-gi-neer-ing 264 (2025) 1254
+76.
+[41]
+Underfull \hbox (badness 7595) in paragraph at lines 37--42
+[]\OT1/lmr/m/n/12 H. Shrigondekar, Y.-C. Lin, C.-C. Wang, In-ves-ti-ga-tions on
+
+
+Underfull \hbox (badness 3343) in paragraph at lines 37--42
+\OT1/lmr/m/n/12 per-for-mance of single-phase im-mer-sion cool-ing sys-tem, In-
+ter-na-
+
+Underfull \hbox (badness 2635) in paragraph at lines 37--42
+\OT1/lmr/m/n/12 tional Jour-nal of Heat and Mass Trans-fer 206 (2023) 123961.
+
+Underfull \hbox (badness 1721) in paragraph at lines 44--50
+\OT1/lmr/m/n/12 phase im-mer-sion cold plate amid PAO-4 and Noah@3000A: An
+
+Underfull \hbox (badness 1448) in paragraph at lines 44--50
+\OT1/lmr/m/n/12 Com-mu-ni-ca-tions in Heat and Mass Trans-fer 155 (2024) 107509
+.
+
+Underfull \hbox (badness 1442) in paragraph at lines 66--71
+\OT1/lmr/m/n/12 cooled servers, Ap-plied Ther-mal En-gi-neer-ing 288 (2026) 129
+628.
+
+Underfull \hbox (badness 1478) in paragraph at lines 87--92
+[]\OT1/lmr/m/n/12 Q. Dong, S. Xu, S. Wu, C. Zhang, Q. Wang, Ther-mal man-
+
+Underfull \hbox (badness 1472) in paragraph at lines 87--92
+\OT1/lmr/m/n/12 age-ment ar-chi-tec-ture op-ti-miza-tion for single-phase im-me
+r-sion liq-
+
+Underfull \hbox (badness 4120) in paragraph at lines 87--92
+\OT1/lmr/m/n/12 uid cool-ing, Ap-plied Ther-mal En-gi-neer-ing 298 (2026) 13099
+7.
+[42]
+Underfull \hbox (badness 1365) in paragraph at lines 115--120
+[]\OT1/lmr/m/n/12 J. Y. Min, S. P. Jang, S. J. Kim, Ef-fect of tip clear-ance o
+n
+
+Underfull \hbox (badness 2653) in paragraph at lines 115--120
+\OT1/lmr/m/n/12 the cool-ing per-for-mance of a mi-crochan-nel heat sink, In-te
+r-na-
+
+Underfull \hbox (badness 1231) in paragraph at lines 115--120
+\OT1/lmr/m/n/12 tional Jour-nal of Heat and Mass Trans-fer 47 (2004) 1099--1103
+.
+[43]
+Underfull \hbox (badness 1067) in paragraph at lines 160--165
+[]\OT1/lmr/m/n/12 P.-S. Lee, S. V. Garimella, Ther-mally de-vel-op-ing flow and
+ heat
+
+Underfull \hbox (badness 2547) in paragraph at lines 181--186
+\OT1/lmr/m/n/12 stud-ies, Jour-nal of Com-pu-ta-tional Physics 262 (2014) 104--
+130.
+) [44] (./main.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information){/usr/share/texmf/fonts/enc
+/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/sh
+are/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm
+/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texm
+f/fonts/enc/dvips/lm/lm-rmtt.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmtt12.pfb>
+Output written on main.pdf (44 pages, 2386922 bytes).
+Transcript written on main.log.
