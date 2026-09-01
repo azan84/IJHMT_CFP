@@ -4,7 +4,7 @@ DOE_Case_002,Baseline_OpenRatio_Reynolds,0.0,50,FC-40,Plate-Fin,700.0,0.522,0.78
 DOE_Case_003,Baseline_OpenRatio_Reynolds,0.0,100,FC-40,Plate-Fin,700.0,1.044,0.78,0.26345,240.34,0.041,5.2,1e-06,37958.4,COMPLETED_CONVERGED
 DOE_Case_004,Baseline_OpenRatio_Reynolds,0.0,150,FC-40,Plate-Fin,700.0,1.566,0.78,0.23959,213.33,0.071,5.78,2e-06,41737.3,COMPLETED_CONVERGED
 DOE_Case_005,Baseline_OpenRatio_Reynolds,0.0,250,FC-40,Plate-Fin,700.0,2.61,0.78,0.20866,183.43,0.153,6.76,7e-06,47924.7,COMPLETED_CONVERGED
-DOE_Case_006,Baseline_OpenRatio_Reynolds,0.0,350,FC-40,Plate-Fin,700.0,3.654,,,,,,,,PENDING
+DOE_Case_006,Baseline_OpenRatio_Reynolds,0.0,350,FC-40,Plate-Fin,700.0,3.654,0.78,0.18891,166.07,0.261,7.58,1.6e-05,52935.7,COMPLETED_CONVERGED
 DOE_Case_007,Baseline_OpenRatio_Reynolds,0.0,500,FC-40,Plate-Fin,700.0,5.22,,,,,,,,PENDING
 DOE_Case_008,Baseline_OpenRatio_Reynolds,0.0,750,FC-40,Plate-Fin,700.0,7.83,,,,,,,,PENDING
 DOE_Case_009,Baseline_OpenRatio_Reynolds,0.0,1000,FC-40,Plate-Fin,700.0,10.441,,,,,,,,PENDING
