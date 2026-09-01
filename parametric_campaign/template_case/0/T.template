@@ -1,0 +1,37 @@
+FoamFile
+{
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+dimensions      [0 0 0 1 0 0 0];
+internalField   uniform __T_INLET_K__;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform __T_INLET_K__;
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    walls
+    {
+        type            zeroGradient;
+    }
+    heat_sink_surfaces
+    {
+        type            zeroGradient;
+    }
+    chip_bases
+    {
+        type            externalWallHeatFluxTemperature;
+        mode            flux;
+        q               uniform __HEAT_FLUX_W_M2__;
+        value           uniform __T_INLET_K__;
+        kappaMethod     fluidThermo;
+    }
+}
