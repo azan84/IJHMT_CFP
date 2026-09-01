@@ -1,0 +1,17 @@
+# PDF Files
+*.pdf
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# OpenFOAM processor directories & mesh logs
+processor*
+log.*
+*.foam
+
+# OS artifacts
+.DS_Store
+Thumbs.db
