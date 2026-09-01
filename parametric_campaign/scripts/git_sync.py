@@ -2,16 +2,31 @@
 """
 Automated Git Synchronization Engine for IJHMT_CFP.
 Performs:
-1. Pull updates from origin/main.
-2. Stage results and postprocessing outputs.
-3. Commit and push updates to github.com/azan84/IJHMT_CFP.
+1. Ensure git user.name and user.email are set (sets fallback if unconfigured).
+2. Pull updates from origin/main.
+3. Stage results and postprocessing outputs.
+4. Commit and push updates to github.com/azan84/IJHMT_CFP.
 """
 
 import os
 import sys
 import subprocess
 
+def ensure_git_identity(repo_root):
+    try:
+        # Check if user.name is set
+        name_check = subprocess.run(["git", "config", "user.name"], cwd=repo_root, capture_output=True, text=True)
+        if not name_check.stdout.strip():
+            subprocess.run(["git", "config", "user.name", "azan84"], cwd=repo_root, check=True)
+            
+        email_check = subprocess.run(["git", "config", "user.email"], cwd=repo_root, capture_output=True, text=True)
+        if not email_check.stdout.strip():
+            subprocess.run(["git", "config", "user.email", "azan84@users.noreply.github.com"], cwd=repo_root, check=True)
+    except Exception as e:
+        pass
+
 def git_pull(repo_root):
+    ensure_git_identity(repo_root)
     try:
         res = subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=repo_root, capture_output=True, text=True)
         if res.returncode == 0:
@@ -25,6 +40,7 @@ def git_pull(repo_root):
         return False
 
 def git_push_results(repo_root, completed_count, total_count):
+    ensure_git_identity(repo_root)
     try:
         # Stage results folder and case summaries
         subprocess.run(["git", "add", "parametric_campaign/results/"], cwd=repo_root, check=True)

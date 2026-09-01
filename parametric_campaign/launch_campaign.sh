@@ -44,6 +44,15 @@ else
     REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 fi
 
+# Ensure Git user configuration exists on this machine
+cd "$REPO_DIR"
+if [ -z "$(git config user.name)" ]; then
+    git config user.name "azan84"
+fi
+if [ -z "$(git config user.email)" ]; then
+    git config user.email "azan84@users.noreply.github.com"
+fi
+
 # 2. Software & Environment Check (OpenFOAM v2406, MPI, Python3, Git)
 echo -e "\n${BLUE}[*] Phase 1: Checking Required Software & Solvers...${NC}"
 
