@@ -15,3 +15,8 @@ log.*
 # OS artifacts
 .DS_Store
 Thumbs.db
+
+# OpenFOAM heavy mesh & field directories in case runs
+parametric_campaign/cases/*/constant/polyMesh/
+parametric_campaign/cases/*/[0-9]*/
+parametric_campaign/cases/*/postProcessing/
