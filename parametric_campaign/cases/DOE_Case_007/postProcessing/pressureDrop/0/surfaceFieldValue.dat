@@ -1,0 +1,9 @@
+# Region type : patch inlet
+# Faces        : 3300
+# Area         : 6.2230000e-03
+# Scale factor : 1.0000000e+00
+# Time         	areaAverage(p)
+25             	2.3487274e-04
+50             	1.9235270e-04
+75             	1.8005401e-04
+100            	1.7413805e-04

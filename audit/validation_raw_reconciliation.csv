@@ -1,0 +1,35 @@
+rung,paper,metric,comparator_type,ref_val,cfd_val,abs_err,rel_err_pct
+V0b,Kewalramani et al. (2019),T_wall [K] at x=0 mm (82 W),EXPERIMENT,316.5,317.0,0.5,0.158
+V0b,Kewalramani et al. (2019),T_wall [K] at x=5.5 mm (82 W),EXPERIMENT,323.0,323.5,0.5,0.155
+V0b,Kewalramani et al. (2019),T_wall [K] at x=11.0 mm (82 W),EXPERIMENT,329.8,330.2,0.4,0.121
+V0b,Kewalramani et al. (2019),"dp_core [kPa] (82 W, 0.5 g/s)",ANALYTICAL_DARCY,2.42,2.47,0.05,2.066
+V1,Sastre et al. (2018),dp_C1/dp_C0 ratio (Q1=53.5 L/h),PUBLISHED_CFD_CORE,0.3706,0.3096,0.061,16.47
+V1,Sastre et al. (2018),dp_C1/dp_C0 ratio (Q2=83.6 L/h),PUBLISHED_CFD_CORE,0.3691,0.2902,0.0789,21.38
+V1,Sastre et al. (2018),dp_C1/dp_C0 ratio (Q3=110.3 L/h),PUBLISHED_CFD_CORE,0.3428,0.2763,0.0665,19.4
+V1,Sastre et al. (2018),dp_C1/dp_C0 ratio (Q4=167.2 L/h),PUBLISHED_CFD_CORE,0.3582,0.2535,0.1047,29.23
+V3b,Dong et al. (2026) / Huang (2024),"T_j [C] at Q=2 LPM (1.75 kW, EFL-1)",EXPERIMENT,74.8,73.76,1.04,1.39
+V3b,Dong et al. (2026) / Huang (2024),"T_j [C] at Q=3 LPM (1.75 kW, EFL-1)",EXPERIMENT,63.5,63.63,0.13,0.2
+V3b,Dong et al. (2026) / Huang (2024),"T_j [C] at Q=4 LPM (1.75 kW, EFL-1)",EXPERIMENT,56.2,57.87,1.67,2.97
+V3b,Dong et al. (2026) / Huang (2024),"T_j [C] at Q=5 LPM (1.75 kW, EFL-1)",EXPERIMENT,51.5,51.88,0.38,0.74
+V3b,Dong et al. (2026) / Huang (2024),"T_j [C] at Q=6 LPM (1.75 kW, EFL-1)",EXPERIMENT,48.2,48.36,0.16,0.33
+V3b,Dong et al. (2026) / Huang (2024),"T_j [C] at Q=8 LPM (1.75 kW, EFL-1)",EXPERIMENT,44.1,43.42,0.68,1.54
+V3,Chun et al. (2026),"T_chip [C] at Q=6 LPM (700 W, FC-40)",EXPERIMENT,78.4,78.12,0.28,0.357
+V3,Chun et al. (2026),"T_chip [C] at Q=8 LPM (700 W, FC-40)",EXPERIMENT,68.2,68.01,0.19,0.279
+V3,Chun et al. (2026),"T_chip [C] at Q=10 LPM (700 W, FC-40)",EXPERIMENT,61.5,61.68,0.18,0.293
+V3,Chun et al. (2026),"T_chip [C] at Q=12 LPM (700 W, FC-40)",EXPERIMENT,56.8,56.54,0.26,0.458
+V3,Chun et al. (2026),"T_chip [C] at Q=14 LPM (700 W, FC-40)",EXPERIMENT,53.2,53.11,0.09,0.169
+V3,Chun et al. (2026),R_th [K/W] at OR=100%,PUBLISHED_CFD_MODEL,0.0736,0.0731,0.0005,0.679
+V3,Chun et al. (2026),R_th [K/W] at OR=50%,PUBLISHED_CFD_MODEL,0.0717,0.0712,0.0005,0.697
+V3,Chun et al. (2026),R_th [K/W] at OR=0%,PUBLISHED_CFD_MODEL,0.0691,0.0688,0.0003,0.434
+V3,Chun et al. (2026),Phi_bypass [%] at OR=100%,PUBLISHED_CFD_MODEL,48.41,47.92,0.49,1.012
+V3,Chun et al. (2026),Phi_bypass [%] at OR=50%,PUBLISHED_CFD_MODEL,36.65,36.21,0.44,1.201
+V3,Chun et al. (2026),Phi_bypass [%] at OR=0%,PUBLISHED_CFD_MODEL,0.78,0.79,0.01,1.282
+V3b/V4b,Khoshvaght-Aliabadi (2026) / Muneeshwaran (2023),R_th [K/W] at P=200 W (FC-40),EXPERIMENT,0.088,0.0872,0.0008,0.909
+V3b/V4b,Khoshvaght-Aliabadi (2026) / Muneeshwaran (2023),R_th [K/W] at P=300 W (FC-40),EXPERIMENT,0.085,0.0845,0.0005,0.588
+V3b/V4b,Khoshvaght-Aliabadi (2026) / Muneeshwaran (2023),R_th [K/W] at P=400 W (FC-40),EXPERIMENT,0.0829,0.0825,0.0004,0.483
+V3b/V4b,Khoshvaght-Aliabadi (2026) / Muneeshwaran (2023),R_th [K/W] at P=500 W (FC-40),EXPERIMENT,0.082,0.0814,0.0006,0.732
+V3b/V4b,Khoshvaght-Aliabadi (2026) / Muneeshwaran (2023),R_th [K/W] at P=600 W (FC-40),EXPERIMENT,0.081,0.0805,0.0005,0.617
+V2/V0a,Jeng (2008),Nu [-] at W/L=1.0 (Re=668),EXPERIMENT,78.0,77.2,0.8,1.026
+V2/V0a,Jeng (2008),Nu [-] at W/L=2.0 (Re=668),EXPERIMENT,62.0,61.4,0.6,0.968
+V2/V0a,Jeng (2008),Nu [-] at W/L=3.0 (Re=668),EXPERIMENT,48.0,47.6,0.4,0.833
+V2/V0a,Jeng (2008),Nu [-] at W/L=5.0 (Re=668),EXPERIMENT,35.0,34.6,0.4,1.143
