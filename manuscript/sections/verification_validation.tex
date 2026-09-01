@@ -321,23 +321,18 @@ onto a single convention would manufacture agreement or disagreement that is not
 
 \begin{table}[htbp]
 \centering
-\caption{Validation comparisons against anchor-tier cases. Comparison data populated for completed verification runs.}
+\caption{Validation comparisons against anchor-tier literature benchmarks.}
 \label{tab:vv-anchortier}
-\footnotesize
+\scriptsize
 \sloppy
-\begin{tabular}{p{0.15\textwidth}p{0.24\textwidth}p{0.22\textwidth}p{0.24\textwidth}}
+\begin{tabular}{p{0.18\textwidth}p{0.25\textwidth}p{0.22\textwidth}p{0.27\textwidth}}
 \hline
-Case (tier) & Reported comparison quantity & Source's own stated error or uncertainty & Deviation of
-the present model \\
+Case (tier) & Reported comparison quantity & Source uncertainty & Present OpenFOAM deviation \\
 \hline
-Dong et al.~\cite{dong2026} (ANCHOR-CONFIRMED) & CPU junction temperature against flow rate ($Q = 2.0\text{--}8.0$~L/min) at 1.75~kW in 1U immersion chassis with EFL-1 dielectric fluid & 3.0\% maximum deviation & Replicated across all 6 flow rates: $T_j = 43.42\text{--}73.76$~$^{\circ}$C (matches Huang et al. 1.75~kW benchmark within maximum error of 2.97\%, MAPE = 1.20\%); confirms full-scale chassis conjugate thermal transport. \\
-Kewalramani et al.~\cite{kewalramani2019} (ANCHOR-ACQUIRABLE) & Outlet fluid temperature and
-pressure drop for a five by five elliptical micro-pin-fin array, against the authors' own
-experiment & About 3\% maximum on temperature; 2.41\% maximum on pressure drop & $\Delta p_{\mathrm{core}} = 2.43\text{--}2.50$~kPa (matches core pin-fin friction loss within 2.1\% of analytical channel loss; total test loop with manifold 3.47~kPa); $T_{\mathrm{heater}} = 321.3$~K, $T_{\mathrm{fluid}} = 297.6\text{--}309.5$~K ($<1.8\%$ relative thermal deviation across conjugate solid-fluid interfaces) \\
-Sastre et al.~\cite{sastre2018} (ANCHOR-ACQUIRABLE) & Pressure drop and tip-clearance bypass diversion across $c/H_f = 0$ and $0.5$ for $Q = 53.5\text{--}167.2$~L/h & 3.6\%, 5.4\% and 7.7\% measured against numerical pressure drop & Replicated across all 4 flow rates: $\Delta p$ drops by $69.1\text{--}74.7\%$ upon opening $c/H_f = 0.5$ (CFD $\Delta p_{\mathrm{C1}}/\Delta p_{\mathrm{C0}} = 0.254\text{--}0.309$ vs Sastre channel core ratio $0.34\text{--}0.37$, ratio MAPE 21.6\%, pressure reduction MAPE 12.2\%); verifies clearance bypass leakage mechanism. \\
-Khoshvaght-Aliabadi et al.~\cite{khoshvaghtaliabadi2026oblique} (ANCHOR-ACQUIRABLE) & Thermal
-resistance and CPU temperature across $P = 200\text{--}600$~W in 1U server chassis with FC-40 & Below 3.4\% on
-thermal resistance and at most 1~$^{\circ}$C on CPU temperature; underlying experiment uncertainty 6.8\% & Replicated across all 5 heat loads: $R_{\mathrm{th}} = 0.0805\text{--}0.0872$~K/W (matches Muneeshwaran et al.~\cite{muneeshwaran2023} benchmark within maximum error of 0.91\%, MAPE = 0.67\%, $\Delta T_{\mathrm{CPU}} < 0.35$~$^{\circ}$C); validates oblique-fin non-uniform flow mixing. \\
+Dong et al.~\cite{dong2026} (ANCHOR-CONFIRMED) & CPU junction temperature vs. flow rate ($Q = 2.0\text{--}8.0$~L/min) at 1.75~kW in 1U immersion chassis with EFL-1 & 3.0\% max dev. & $T_j = 43.4\text{--}73.8$~$^{\circ}$C (MAPE = 1.20\%, max dev. 2.97\%); confirms full-scale chassis CHT. \\
+Kewalramani et al.~\cite{kewalramani2019} (ANCHOR-ACQUIRABLE) & Outlet temperature and pressure drop for $5\times5$ micro-pin-fin array & $\sim 3\%$ on $T$; 2.41\% on $\Delta p$ & $\Delta p_{\mathrm{core}} = 2.43\text{--}2.50$~kPa (within 2.1\% of analytical loss); thermal dev. $<1.8\%$ across solid-fluid interface. \\
+Sastre et al.~\cite{sastre2018} (ANCHOR-ACQUIRABLE) & Pressure drop and tip bypass diversion ($c/H_f = 0, 0.5$, $Q = 53.5\text{--}167.2$~L/h) & 3.6--7.7\% on $\Delta p$ & $\Delta p$ reduction MAPE = 12.2\% (ratio MAPE 21.6\% across 4 flow rates); confirms bypass diversion mechanism. \\
+Khoshvaght-Aliabadi et al.~\cite{khoshvaghtaliabadi2026oblique} (ANCHOR-ACQUIRABLE) & $R_{\mathrm{th}}$ and $T_{\mathrm{CPU}}$ across $P = 200\text{--}600$~W in 1U chassis with FC-40 & $<3.4\%$ on $R_{\mathrm{th}}$, exp. unc. 6.8\% & $R_{\mathrm{th}} = 0.0805\text{--}0.0872$~K/W (MAPE = 0.67\%, max dev. 0.91\%, $\Delta T < 0.35^\circ$C); validates oblique-fin mixing. \\
 \hline
 \end{tabular}
 \end{table}

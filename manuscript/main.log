@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.5.28)  1 SEP 2026 19:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.5.28)  1 SEP 2026 19:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -341,20 +341,8 @@ Overfull \hbox (2.61107pt too wide) has occurred while \output is active
 [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-
-Package natbib Warning: Citation `zhang2024thermal' on page 4 undefined on inpu
-t line 113.
-
-
-Package natbib Warning: Citation `wu2025novel' on page 4 undefined on input lin
-e 115.
-
-
-Package natbib Warning: Citation `wang2026' on page 4 undefined on input line 1
-22.
-
-[4] [5] (./sections/problem_formulation.tex [6]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+(./sections/problem_formulation.tex [6]
 <../figures/fig1_domain.png, id=30, 2446.64063pt x 2760.56343pt>
 File: ../figures/fig1_domain.png Graphic file (type png)
 <use ../figures/fig1_domain.png>
@@ -767,580 +755,241 @@ Overfull \hbox (165.37541pt too wide) in paragraph at lines 261--285
  []
 
 [38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 330--332
-[]|\OT1/lmr/m/n/10 Deviation of the
+Underfull \hbox (badness 10000) in paragraph at lines 330--330
+[]|\OT1/lmr/m/n/8 Reported com-par-i-son
+ []
+
+
+Underfull \hbox (badness 2671) in paragraph at lines 332--332
+[]|\OT1/lmr/m/n/8 Dong et al. [[]]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+\OT1/lmr/m/n/8 (ANCHOR-
+ []
+
+
+Underfull \hbox (badness 4120) in paragraph at lines 332--332
+[]|\OT1/lmr/m/n/8 CPU junc-tion tem-per-a-
+ []
+
+
+Underfull \hbox (badness 5970) in paragraph at lines 332--333
+\OT1/lmr/m/n/8 con-firms full-scale chas-sis
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 333--333
-[]|\OT1/lmr/m/n/10 Dong et
+[]|\OT1/lmr/m/n/8 Kewalramani
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 333--333
-\OT1/lmr/m/n/10 al. [[]]
+\OT1/lmr/m/n/8 et al. [[]]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 333--333
-\OT1/lmr/m/n/10 (ANCHOR-
+\OT1/lmr/m/n/8 (ANCHOR-
  []
 
 
-Overfull \hbox (9.00284pt too wide) in paragraph at lines 333--333
-\OT1/lmr/m/n/10 CONFIRMED)| 
+Underfull \hbox (badness 2662) in paragraph at lines 333--333
+[]|\OT1/lmr/m/n/8 Outlet tem-per-a-ture and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--333
-[]|\OT1/lmr/m/n/10 CPU junc-tion
+Underfull \hbox (badness 2277) in paragraph at lines 333--334
+[]|$\OT1/lmr/m/n/8 ^^A\OML/lmm/m/it/8 p[] \OT1/lmr/m/n/8 = 2\OML/lmm/m/it/8 :\O
+T1/lmr/m/n/8 43[]2\OML/lmm/m/it/8 :\OT1/lmr/m/n/8 50$ kPa
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--333
-\OT1/lmr/m/n/10 tem-per-a-ture
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--333
-\OT1/lmr/m/n/10 against flow rate
- []
-
-
-Underfull \hbox (badness 1983) in paragraph at lines 333--333
-\OT1/lmr/m/n/10 at 1.75 kW in 1U
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--333
-\OT1/lmr/m/n/10 im-mer-sion chas-sis
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-[]|\OT1/lmr/m/n/10 Replicated across
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-\OT1/lmr/m/n/10 all 6 flow rates:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-\OT1/lmr/m/n/10 (matches Huang
- []
-
-
-Underfull \hbox (badness 5189) in paragraph at lines 333--334
-\OT1/lmr/m/n/10 et al. 1.75 kW
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-\OT1/lmr/m/n/10 bench-mark within
- []
-
-
-Underfull \hbox (badness 7963) in paragraph at lines 333--334
-\OT1/lmr/m/n/10 max-i-mum er-ror of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-\OT1/lmr/m/n/10 2.97%, MAPE =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-\OT1/lmr/m/n/10 1.20%); con-firms
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-\OT1/lmr/m/n/10 full-scale chas-sis
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-\OT1/lmr/m/n/10 con-ju-gate ther-mal
+Underfull \hbox (badness 1184) in paragraph at lines 334--334
+[]|\OT1/lmr/m/n/8 Sastre et al. [[]]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 334--334
-[]|\OT1/lmr/m/n/10 Kewalramani
+\OT1/lmr/m/n/8 (ANCHOR-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 334--334
-\OT1/lmr/m/n/10 et al. [[]]
+[]|\OT1/lmr/m/n/8 Pressure drop and
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 334--334
-\OT1/lmr/m/n/10 (ANCHOR-
+\OT1/lmr/m/n/8 tip by-pass di-ver-
  []
 
 
-Overfull \hbox (13.72406pt too wide) in paragraph at lines 334--334
-\OT1/lmr/m/n/10 ACQUIRABLE)| 
+Underfull \hbox (badness 6252) in paragraph at lines 334--334
+\OT1/lmr/m/n/8 sion ($\OML/lmm/m/it/8 c=H[] \OT1/lmr/m/n/8 = 0\OML/lmm/m/it/8 ;
+ \OT1/lmr/m/n/8 0\OML/lmm/m/it/8 :\OT1/lmr/m/n/8 5$,
  []
 
 
-Underfull \hbox (badness 5008) in paragraph at lines 334--336
-\OT1/lmr/m/n/10 a-ture and pres-sure
+Underfull \hbox (badness 7796) in paragraph at lines 334--335
+[]|$\OT1/lmr/m/n/8 ^^A\OML/lmm/m/it/8 p$ \OT1/lmr/m/n/8 re-duc-tion MAPE =
  []
 
 
-Underfull \hbox (badness 1874) in paragraph at lines 334--336
-\OT1/lmr/m/n/10 drop for a five by
+Underfull \hbox (badness 10000) in paragraph at lines 335--335
+[]|\OT1/lmr/m/n/8 Khoshvaght-
  []
 
 
-Underfull \hbox (badness 6348) in paragraph at lines 336--336
-[]|\OT1/lmr/m/n/10 About 3% max-i-
+Underfull \hbox (badness 10000) in paragraph at lines 335--335
+\OT1/lmr/m/n/8 Aliabadi et
  []
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 336--336
-\OT1/lmr/m/n/10 mum on tem-per-a-
+Overfull \hbox (16.79929pt too wide) in paragraph at lines 328--338
+ [][] 
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 336--336
-\OT1/lmr/m/n/10 ture; 2.41% max-
- []
-
-
-Underfull \hbox (badness 1448) in paragraph at lines 336--336
-\OT1/lmr/m/n/10 i-mum on pres-sure
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-[]|$\OT1/lmr/m/n/10 ^^A\OML/lmm/m/it/10 p[] \OT1/lmr/m/n/10 =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 2\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 43[]2\OML/lmm/m/it/10 :\OT1/
-lmr/m/n/10 50$ kPa
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 (matches core
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 pin-fin fric-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 loss within 2.1%
- []
-
-
-Underfull \hbox (badness 5607) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 of an-a-lyt-i-cal chan-
- []
-
-
-Underfull \hbox (badness 1931) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 nel loss; to-tal test
- []
-
-
-Underfull \hbox (badness 3417) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 loop with man-i-fold
- []
-
-
-Underfull \hbox (badness 4096) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 321\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 3$ K, $\OML/lmm/m/it/10 T[
-] \OT1/lmr/m/n/10 =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 297\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 6[]309\OML/lmm/m/it/10 :\O
-T1/lmr/m/n/10 5$ K
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 ($\OML/lmm/m/it/10 < \OT1/lmr/m/n/10 1\OML/lmm/m/it/10 :\OT1/lm
-r/m/n/10 8%$ rel-a-tive
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 ther-mal de-vi-a-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-\OT1/lmr/m/n/10 across con-ju-gate
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-[]|\OT1/lmr/m/n/10 Sastre et
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-\OT1/lmr/m/n/10 al. [[]]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-\OT1/lmr/m/n/10 (ANCHOR-
- []
-
-
-Overfull \hbox (13.72406pt too wide) in paragraph at lines 337--337
-\OT1/lmr/m/n/10 ACQUIRABLE)| 
- []
-
-
-Underfull \hbox (badness 7116) in paragraph at lines 337--337
-[]|\OT1/lmr/m/n/10 Pressure drop and
- []
-
-
-Underfull \hbox (badness 3965) in paragraph at lines 337--337
-\OT1/lmr/m/n/10 tip-clearance by-pass
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-\OT1/lmr/m/n/10 di-ver-sion across
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-[]|\OT1/lmr/m/n/10 3.6%, 5.4% and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-\OT1/lmr/m/n/10 7.7% mea-sured
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-\OT1/lmr/m/n/10 against nu-mer-i-cal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-[]|\OT1/lmr/m/n/10 Replicated across
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-\OT1/lmr/m/n/10 all 4 flow rates:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-\OT1/lmr/m/n/10 ^^A\OML/lmm/m/it/10 p$ \OT1/lmr/m/n/10 drops by
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-\OT1/lmr/m/n/10 69\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 1[]74\OML/lmm/m/it/10 :\OT1
-/lmr/m/n/10 7%$ upon
- []
-
-
-Underfull \hbox (badness 2181) in paragraph at lines 337--338
-\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 254[]0\OML/lmm/m/it/10 :\OT1
-/lmr/m/n/10 309$ vs Sas-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-\OT1/lmr/m/n/10 tre chan-nel core
- []
-
-
-Underfull \hbox (badness 2359) in paragraph at lines 337--338
-\OT1/lmr/m/n/10 ra-tio $0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 34[]0\OML/lmm/m/it/1
-0 :\OT1/lmr/m/n/10 37$, ra-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-\OT1/lmr/m/n/10 tio MAPE 21.6%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-\OT1/lmr/m/n/10 pres-sure re-duc-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--338
-[]|\OT1/lmr/m/n/10 Khoshvaght-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--338
-\OT1/lmr/m/n/10 Aliabadi
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--338
-\OT1/lmr/m/n/10 et al. [[]]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--338
-\OT1/lmr/m/n/10 (ANCHOR-
- []
-
-
-Overfull \hbox (13.72406pt too wide) in paragraph at lines 338--338
-\OT1/lmr/m/n/10 ACQUIRABLE)| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
-[]|\OT1/lmr/m/n/10 Thermal re-sis-tance
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
-\OT1/lmr/m/n/10 and CPU tem-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
-\OT1/lmr/m/n/10 per-a-ture across
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
-\OT1/lmr/m/n/10 1U server chas-sis
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-[]|\OT1/lmr/m/n/10 Below 3.4% on
- []
-
-
-Underfull \hbox (badness 5105) in paragraph at lines 339--340
-\OT1/lmr/m/n/10 ther-mal re-sis-tance
- []
-
-
-Underfull \hbox (badness 5741) in paragraph at lines 339--340
-\OT1/lmr/m/n/10 on CPU tem-per-
- []
-
-
-Underfull \hbox (badness 7326) in paragraph at lines 339--340
-\OT1/lmr/m/n/10 a-ture; un-der-ly-ing
- []
-
-
-Underfull \hbox (badness 6141) in paragraph at lines 339--340
-\OT1/lmr/m/n/10 ex-per-i-ment un-cer-
- []
-
-
-Underfull \hbox (badness 6364) in paragraph at lines 340--341
-\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 0805[]0\OML/lmm/m/it/10 :\OT
-1/lmr/m/n/10 0872$ K/W
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
-\OT1/lmr/m/n/10 (matches Muneesh-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
-\OT1/lmr/m/n/10 waran et al. [[]]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
-\OT1/lmr/m/n/10 bench-mark within
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
-\OT1/lmr/m/n/10 max-i-mum er-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
-\OT1/lmr/m/n/10 ror of 0.91%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
-\OT1/lmr/m/n/10 MAPE = 0.67%,
- []
-
-
-Underfull \hbox (badness 5446) in paragraph at lines 340--341
-\OT1/lmr/m/n/10 val-i-dates oblique-fin
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
-\OT1/lmr/m/n/10 non-uniform flow
- []
-
-
-LaTeX Warning: Float too large for page by 156.53316pt on input line 343.
-
-
-Underfull \hbox (badness 5133) in paragraph at lines 354--354
+Underfull \hbox (badness 5133) in paragraph at lines 349--349
 []|\OT1/lmr/m/n/10 Source's own re-ported
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--354
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 []|\OT1/lmr/m/n/10 Comparator
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--356
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
 []|\OT1/lmr/m/n/10 Deviation of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--356
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
 \OT1/lmr/m/n/10 the present
  []
 
 
-Underfull \hbox (badness 1184) in paragraph at lines 357--358
+Underfull \hbox (badness 1184) in paragraph at lines 352--353
 []|\OT1/lmr/m/n/10 MAPE 0.31%,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 352--353
 \OT1/lmr/m/n/10 max dev
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 357--358
+Underfull \hbox (badness 3471) in paragraph at lines 352--353
 \OT1/lmr/m/n/10 0.46% ($\OML/lmm/m/it/10 Q \OT1/lmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 358--358
+Underfull \hbox (badness 1371) in paragraph at lines 353--353
 []|\OT1/lmr/m/n/10 Component pres-sure
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 []|\OT1/lmr/m/n/10 Replicated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 \OT1/lmr/m/n/10 within 4.1%
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 \OT1/lmr/m/n/10 across flow
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
 []|\OT1/lmr/m/n/10 Replicated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
 \OT1/lmr/m/n/10 within 6.2%
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
 \OT1/lmr/m/n/10 im-mer-sion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--360
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 []|\OT1/lmr/m/n/10 Thermal re-sis-tance
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--361
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
 []|\OT1/lmr/m/n/10 None; com-
  []
 
 
-Underfull \hbox (badness 6157) in paragraph at lines 361--362
+Underfull \hbox (badness 6157) in paragraph at lines 356--357
 []|\OT1/lmr/m/n/10 MAPE 0.60%
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
 \OT1/lmr/m/n/10 across OR
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
 \OT1/lmr/m/n/10 sweep ($\OML/lmm/m/it/10 R[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
 \OT1/lmr/m/n/10 max er-ror
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 []|\OT1/lmr/m/n/10 None; com-
  []
 
 
-Underfull \hbox (badness 4832) in paragraph at lines 363--364
+Underfull \hbox (badness 4832) in paragraph at lines 358--359
 []|\OT1/lmr/m/n/10 Relative er-ror
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 \OT1/lmr/m/n/10 1.16% across
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 \OT1/lmr/m/n/10 OR 100%,
  []
 
-[40] [41] [42] [43] [44]
+[40] [41] [42] [43]
 <../figures/fig5_validation_ladder.png, id=166, 2446.64063pt x 2101.8525pt>
 File: ../figures/fig5_validation_ladder.png Graphic file (type png)
 <use ../figures/fig5_validation_ladder.png>
 Package pdftex.def Info: ../figures/fig5_validation_ladder.png  used on input l
-ine 404.
+ine 399.
 (pdftex.def)             Requested size: 390.0pt x 335.0204pt.
-
-Overfull \hbox (2.12834pt too wide) in paragraph at lines 430--434
+ [44] [45 <../figures/fig5_validation_ladder.png (PNG copy)>]
+Overfull \hbox (2.12834pt too wide) in paragraph at lines 425--429
 []\OT1/lmr/m/it/12 Boussinesq against vari-able den-sity. \OT1/lmr/m/n/12 Im-me
 r-sion tanks are tall, the coolants
  []
 
-[45] [46 <../figures/fig5_validation_ladder.png (PNG copy)>]
-Overfull \hbox (101.24246pt too wide) in paragraph at lines 475--486
+[46]
+Overfull \hbox (101.24246pt too wide) in paragraph at lines 470--481
  [][] 
  []
 
-) (./sections/dimensionless_framework.tex [47]
+) (./sections/dimensionless_framework.tex
 Overfull \hbox (95.04132pt too wide) detected at line 17
 [][]  [][]\OMS/lmsy/m/n/12 !  []  [][]!  \OT1/lmr/m/n/12 ^^H[]  [][]\OMS/lmsy/m
 /n/12 !  [][]  [][]!  []\OT1/lmr/m/n/12 ([][]\OML/lmm/m/it/12 ; []; []\OT1/lmr/
@@ -1348,57 +997,56 @@ m/n/12 )  [][]\OMS/lmsy/m/n/12 !  \OML/lmm/m/it/12 R[];  \OT1/lmr/m/n/12 ^^A\OM
 L/lmm/m/it/12 p;  W[]
  []
 
-[48]
+[47]
 Overfull \hbox (31.58899pt too wide) in paragraph at lines 48--49
 []\OT1/lmr/m/n/12 Equating pres-sure drops yields the by-pass mass frac-tion $^
 ^H[] = []\OML/lmm/m/it/12 =[]$\OT1/lmr/m/n/12 : 
  []
 
-
+[48]
 Overfull \hbox (14.82124pt too wide) in paragraph at lines 74--75
 []\OT1/lmr/m/n/12 Because the di-elec-tric coolants pos-sess high Prandtl num-b
 ers ($[] = 9\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 2[]210$),
  []
 
-[49]) (./sections/parametric_results.tex
-<../figures/fig6_bypass_flow_partitioning.png, id=185, 578.16pt x 397.485pt>
+) (./sections/parametric_results.tex [49]
+<../figures/fig6_bypass_flow_partitioning.png, id=186, 578.16pt x 397.485pt>
 File: ../figures/fig6_bypass_flow_partitioning.png Graphic file (type png)
 <use ../figures/fig6_bypass_flow_partitioning.png>
 Package pdftex.def Info: ../figures/fig6_bypass_flow_partitioning.png  used on 
 input line 17.
 (pdftex.def)             Requested size: 331.50238pt x 227.90312pt.
- [50]
-<../figures/fig7_thermal_resistance_scaling.png, id=190, 578.16pt x 397.485pt>
+ [50 <../figures/fig6_bypass_flow_partitioning.png>]
+<../figures/fig7_thermal_resistance_scaling.png, id=193, 578.16pt x 397.485pt>
 File: ../figures/fig7_thermal_resistance_scaling.png Graphic file (type png)
 <use ../figures/fig7_thermal_resistance_scaling.png>
 Package pdftex.def Info: ../figures/fig7_thermal_resistance_scaling.png  used o
 n input line 37.
 (pdftex.def)             Requested size: 331.50238pt x 227.90312pt.
- [51 <../figures/fig6_bypass_flow_partitioning.png>]
+ [51 <../figures/fig7_thermal_resistance_scaling.png>]
 Overfull \hbox (180.09276pt too wide) in paragraph at lines 59--71
  [][] 
  []
 
-[52 <../figures/fig7_thermal_resistance_scaling.png>]
-<../figures/fig9_figure_of_merit_pareto.png, id=201, 578.16pt x 397.485pt>
+<../figures/fig9_figure_of_merit_pareto.png, id=199, 578.16pt x 397.485pt>
 File: ../figures/fig9_figure_of_merit_pareto.png Graphic file (type png)
 <use ../figures/fig9_figure_of_merit_pareto.png>
 Package pdftex.def Info: ../figures/fig9_figure_of_merit_pareto.png  used on in
 put line 75.
 (pdftex.def)             Requested size: 331.50238pt x 227.90312pt.
-)
-(./sections/correlation_and_holdout.tex
+) (./sections/correlation_and_holdout.tex [52] [53 <../figures/fig9_figure_of_m
+erit_pareto.png>]
 Overfull \hbox (28.24182pt too wide) in paragraph at lines 19--20
 []\OT1/lmr/bx/n/12 Withheld Ther-mal Loads\OT1/lmr/m/n/12 : Heat loads span-nin
 g $\OML/lmm/m/it/12 P[] \OT1/lmr/m/n/12 = 300[]1200$ W/chip
  []
 
-[53] [54 <../figures/fig9_figure_of_merit_pareto.png>]
+
 Overfull \hbox (203.80623pt too wide) in paragraph at lines 51--65
  [][] 
  []
 
-<../figures/fig8_dimensionless_correlation_parity.png, id=209, 505.89pt x 505.8
+<../figures/fig8_dimensionless_correlation_parity.png, id=207, 505.89pt x 505.8
 9pt>
 File: ../figures/fig8_dimensionless_correlation_parity.png Graphic file (type p
 ng)
@@ -1406,14 +1054,14 @@ ng)
 Package pdftex.def Info: ../figures/fig8_dimensionless_correlation_parity.png  
 used on input line 69.
 (pdftex.def)             Requested size: 331.50238pt x 331.5109pt.
-) (./sections/discussion.tex [55] [56 <../figures/fig8_dimensionless_correlatio
-n_parity.png>] [57]
+) [54] [55 <../figures/fig8_dimensionless_correlation_parity.png>]
+(./sections/discussion.tex [56]
 Overfull \hbox (4.03566pt too wide) in paragraph at lines 32--33
 []\OT1/lmr/bx/n/12 Upstream Flow Rec-ti-fi-ca-tion\OT1/lmr/m/n/12 : In-cor-po-r
 at-ing top-wall flow-deflection
  []
 
-) (./sections/conclusions.tex [58]) [59] [60] (./main.bbl
+) [57] (./sections/conclusions.tex [58]) [59] (./main.bbl [60]
 Underfull \hbox (badness 1286) in paragraph at lines 16--21
 []\OT1/lmr/m/n/12 Y. Huang, B. Liu, S. Xu, C. Bao, Y. Zhong, C. Zhang, Ex-
  []
@@ -1458,7 +1106,7 @@ Underfull \hbox (badness 2635) in paragraph at lines 37--42
 \OT1/lmr/m/n/12 tional Jour-nal of Heat and Mass Trans-fer 206 (2023) 123961.
  []
 
-[61]
+
 Underfull \hbox (badness 1721) in paragraph at lines 44--50
 \OT1/lmr/m/n/12 phase im-mer-sion cold plate amid PAO-4 and Noah@3000A: An
  []
@@ -1469,7 +1117,7 @@ Underfull \hbox (badness 1448) in paragraph at lines 44--50
 .
  []
 
-
+[61]
 Underfull \hbox (badness 1442) in paragraph at lines 66--71
 \OT1/lmr/m/n/12 cooled servers, Ap-plied Ther-mal En-gi-neer-ing 288 (2026) 129
 628.
@@ -1510,23 +1158,19 @@ Underfull \hbox (badness 1231) in paragraph at lines 129--134
 .
  []
 
-[63]
+
 Underfull \hbox (badness 1067) in paragraph at lines 174--179
 []\OT1/lmr/m/n/12 P.-S. Lee, S. V. Garimella, Ther-mally de-vel-op-ing flow and
  heat
  []
 
-
+[63]
 Underfull \hbox (badness 2547) in paragraph at lines 195--200
 \OT1/lmr/m/n/12 stud-ies, Jour-nal of Com-pu-ta-tional Physics 262 (2014) 104--
 130.
  []
 
-)
-
-Package natbib Warning: There were undefined citations.
-
-[64] (./main.aux) ) 
+) [64] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  4446 strings out of 480171
  68986 string characters out of 5894489
@@ -1534,30 +1178,31 @@ Here is how much of TeX's memory you used:
  22282 multiletter control sequences out of 15000+600000
  540589 words of font info for 79 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 70i,14n,76p,2085b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/
-texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-
-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fon
-ts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type
-1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/
-lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pf
-b></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/tex
-mf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy
-10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/font
-s/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (64 pages, 3768574 bytes).
+ 70i,14n,76p,2154b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/shar
+e/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
+thsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/f
+onts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.en
+c}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+sy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmtt12.pfb>
+Output written on main.pdf (64 pages, 3778234 bytes).
 PDF statistics:
- 351 PDF objects out of 1000 (max. 8388607)
- 223 compressed objects within 3 object streams
+ 356 PDF objects out of 1000 (max. 8388607)
+ 226 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

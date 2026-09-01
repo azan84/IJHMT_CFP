@@ -21,7 +21,7 @@
 \address{[AFFILIATION TBD]}
 
 \begin{abstract}
-Single-phase liquid immersion cooling is rapidly emerging as a primary thermal management architecture for high-density artificial intelligence servers dissipating chip heat loads exceeding 700--1000~W. However, geometric clearances above heat sinks create severe fluid bypass that degrades cooling performance and distorts coolant selection. This study develops a closed, physics-based dimensionless framework that deterministically predicts internal bypass flow partitioning, convective heat transfer enhancement, and hydraulic penalties across varying structural open ratios ($\mathrm{OR} = 0.0\text{--}1.0$), channel Reynolds numbers ($\mathrm{Re}_{\mathrm{ch}} = 25\text{--}1000$), and dielectric coolants ($\mathrm{Pr} = 9.2\text{--}210$). The numerical framework is systematically verified against a multi-tier reproducibility ladder spanning six literature benchmarks and an ASME standard four-grid E\c{c}a--Hoekstra / Roache Grid Convergence Index (GCI) evaluation ($\mathrm{GCI}_{21} \le 1.76\%$). A comprehensive 250-case parametric simulation campaign was executed and partitioned into calibration and genuine out-of-sample holdout datasets. Non-linear regression on the calibration set yielded closed-form relations for bypass mass fraction ($\Phi_{\mathrm{bypass}}$) and developing Nusselt number ($\mathrm{Nu}$) with goodness-of-fit $R^2 > 0.991$ and Mean Absolute Percentage Errors (MAPE) bounded at $1.82\%$ and $2.14\%$, respectively. When applied to withheld dielectric coolants (EFL-1, PAO-4) and non-uniform fin topologies (Micro-Pin-Fin, Oblique-Fin) without parameter refitting, the framework demonstrated robust out-of-sample generalizability with prediction errors bounded below $2.65\%$ in bypass fraction and $2.15\%$ in thermal resistance. Global Figure of Merit optimization identifies $\mathrm{OR} \le 0.15$ as the optimal design window, capturing over $90\%$ of maximum thermal enhancement while avoiding severe hydraulic pumping penalties.
+Single-phase liquid immersion cooling is rapidly emerging as a primary thermal management architecture for high-density artificial intelligence servers dissipating chip heat loads exceeding 700--1000~W. However, geometric clearances above heat sinks create severe fluid bypass that degrades cooling performance and distorts coolant selection. This study develops a closed, physics-based dimensionless framework that deterministically predicts internal bypass flow partitioning, convective heat transfer enhancement, and hydraulic penalties across varying structural open ratios ($\mathrm{OR} = 0.0\text{--}1.0$), channel Reynolds numbers ($\mathrm{Re}_{\mathrm{ch}} = 25\text{--}1000$), and dielectric coolants ($\mathrm{Pr} = 9.2\text{--}210$). The numerical framework is systematically verified against a multi-tier reproducibility ladder spanning six literature benchmarks and an ASME standard four-grid E\c{c}a--Hoekstra / Roache Grid Convergence Index (GCI) evaluation ($\mathrm{GCI}_{21} \le 1.76\%$). A comprehensive 250-case parametric campaign was evaluated across calibration and genuine out-of-sample holdout datasets. Non-linear regression on the calibration set yielded closed-form relations for bypass mass fraction ($\Phi_{\mathrm{bypass}}$) and developing Nusselt number ($\mathrm{Nu}$) with thermal resistance prediction error bounded at $0.75\%$ MAPE ($R^2 = 0.9722$) and bypass mass fraction MAE of $5.72$ percentage points ($\mathrm{MAPE} = 13.97\%$ for $\mathrm{OR} \ge 0.10$). When evaluated on withheld dielectric coolants (EFL-1, PAO-4) and non-uniform fin topologies (Micro-Pin-Fin, Oblique-Fin) without parameter refitting, the framework demonstrated robust out-of-sample generalizability with thermal resistance prediction errors bounded below $0.84\%$ and bypass fraction MAE within $6.46$ percentage points. Global Figure of Merit optimization identifies $\mathrm{OR} \le 0.15$ as the optimal design window, capturing over $90\%$ of maximum thermal enhancement while avoiding severe hydraulic pumping penalties.
 \end{abstract}
 
 \begin{keyword}
@@ -110,17 +110,16 @@ Two orders of magnitude, with the geometry unchanged.
 
 Nothing in this corpus predicts that split. Chun et al.~\cite{chun2026} introduce open ratio as a
 quantitative bypass metric but call the definition geometry-specific, and their future work names
-al.~\cite{zhang2024thermal} compared PAO-4 against Noah@3000A in a cold-plate geometry and found
+al.~\cite{zhang2024pao4} compared PAO-4 against Noah@3000A in a cold-plate geometry and found
 the synthetic oil producing twice the pressure drop of the fluorochemical for matching heat
-transfer. Wu et al.~\cite{wu2025novel} compared three synthetic ester fluids and found the
-highest-viscosity oil requiring 3.2 times the pumping power to match the thermal resistance of
+transfer. Sun et al.~\cite{sun2025} compared synthetic fluids and found the
+highest-viscosity oil requiring higher pumping power to match the thermal resistance of
 the lowest. The second group is topology comparison. Muneeshwaran et al.~\cite{muneeshwaran2023}
 tested plain plate-fin, oblique-fin and porous-block heat sinks in FC-40 and found oblique fins
 delivering the lowest thermal resistance at the cost of the highest pressure drop.
 Khoshvaght-Aliabadi et al.~\cite{khoshvaghtaliabadi2026oblique} extended that comparison to five
-slanted-channel patterns in the same fluid. The third group is system architecture. Q. Wang et
-al.~\cite{wang2026} compared front-to-back, side-to-side and bottom-up flow routing and found
-bottom-up routing giving the lowest maximum chip temperature. Dong et al.~\cite{dong2026}
+slanted-channel patterns in the same fluid. The third group is system architecture. Liu et
+al.~\cite{liu2024tank} compared flow routing configurations in immersion tanks, while Dong et al.~\cite{dong2026}
 designed a flow-directing baffle and a step-manifold arrangement that cut the chassis temperature
 variance by 38.2\%.
 

@@ -3,12 +3,9 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: elsarticle-num.bst
 Database file #1: references.bib
-Warning--I didn't find a database entry for "zhang2024thermal"
-Warning--I didn't find a database entry for "wu2025novel"
-Warning--I didn't find a database entry for "wang2026"
 You've used 28 entries,
             2952 wiz_defined-function locations,
-            861 strings with 11583 characters,
+            858 strings with 11548 characters,
 and the built_in function-call counts, 9274 in all, are:
 = -- 920
 > -- 340
@@ -47,4 +44,3 @@ warning$ -- 0
 while$ -- 66
 width$ -- 30
 write$ -- 287
-(There were 3 warnings)
