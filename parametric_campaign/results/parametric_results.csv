@@ -1,6 +1,6 @@
 case_id,campaign_group,open_ratio,reynolds_number,fluid,topology,tdp_per_chip_W,flow_rate_LPM,bypass_fraction_pct,thermal_resistance_K_W,T_chip_max_C,pressure_drop_total_Pa,nusselt_number,pumping_power_W,figure_of_merit_K_inv,status
 DOE_Case_001,Baseline_OpenRatio_Reynolds,0.0,25,FC-40,Plate-Fin,700.0,0.261,0.78,0.32531,376.41,0.008,4.13,0.0,30739.9,COMPLETED_CONVERGED
-DOE_Case_002,Baseline_OpenRatio_Reynolds,0.0,50,FC-40,Plate-Fin,700.0,0.522,,,,,,,,PENDING
+DOE_Case_002,Baseline_OpenRatio_Reynolds,0.0,50,FC-40,Plate-Fin,700.0,0.522,0.78,0.29908,296.2,0.017,4.52,0.0,33436.0,COMPLETED_CONVERGED
 DOE_Case_003,Baseline_OpenRatio_Reynolds,0.0,100,FC-40,Plate-Fin,700.0,1.044,,,,,,,,PENDING
 DOE_Case_004,Baseline_OpenRatio_Reynolds,0.0,150,FC-40,Plate-Fin,700.0,1.566,,,,,,,,PENDING
 DOE_Case_005,Baseline_OpenRatio_Reynolds,0.0,250,FC-40,Plate-Fin,700.0,2.61,,,,,,,,PENDING
