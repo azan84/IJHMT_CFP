@@ -2,7 +2,7 @@
 **Design of Experiments (DOE) Thermal-Hydraulic Results**
 
 - **Total Design Points:** 250
-- **Completed Simulations:** 2 / 250 (0.8%)
+- **Completed Simulations:** 3 / 250 (1.2%)
 - **Status:** IN PROGRESS
 
 ---
@@ -13,7 +13,7 @@
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **DOE_Case_001** | Baseline_OpenRatio_Reynolds | FC-40 | Plate-Fin | 0.00 | 25 | 700 | **0.8%** | **0.3253** | **376.4** | 0.0 | 30739.9 |
 | **DOE_Case_002** | Baseline_OpenRatio_Reynolds | FC-40 | Plate-Fin | 0.00 | 50 | 700 | **0.8%** | **0.2991** | **296.2** | 0.0 | 33436.0 |
-| **DOE_Case_003** | Baseline_OpenRatio_Reynolds | FC-40 | Plate-Fin | 0.00 | 100 | 700 | *Pending* | *Pending* | *Pending* | *Pending* | *Pending* |
+| **DOE_Case_003** | Baseline_OpenRatio_Reynolds | FC-40 | Plate-Fin | 0.00 | 100 | 700 | **0.8%** | **0.2635** | **240.3** | 0.0 | 37958.4 |
 | **DOE_Case_004** | Baseline_OpenRatio_Reynolds | FC-40 | Plate-Fin | 0.00 | 150 | 700 | *Pending* | *Pending* | *Pending* | *Pending* | *Pending* |
 | **DOE_Case_005** | Baseline_OpenRatio_Reynolds | FC-40 | Plate-Fin | 0.00 | 250 | 700 | *Pending* | *Pending* | *Pending* | *Pending* | *Pending* |
 | **DOE_Case_006** | Baseline_OpenRatio_Reynolds | FC-40 | Plate-Fin | 0.00 | 350 | 700 | *Pending* | *Pending* | *Pending* | *Pending* | *Pending* |
