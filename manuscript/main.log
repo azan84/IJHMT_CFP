@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.5.28)  1 SEP 2026 19:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.5.28)  1 SEP 2026 20:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -334,6 +334,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+Overfull \hbox (9.68962pt too wide) in paragraph at lines 23--25
+\OT1/lmr/m/n/12 Reynolds num-bers ($[][] = 25[]1000$), and di-elec-tric coolant
+s ($[] = 47\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 5[]219\OML/lmm/m/it/12 :\OT1/lmr/m
+/n/12 5$).
+ []
+
+
 Overfull \hbox (2.61107pt too wide) has occurred while \output is active
 [] 
  []
@@ -1009,59 +1016,109 @@ Overfull \hbox (14.82124pt too wide) in paragraph at lines 74--75
 ers ($[] = 9\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 2[]210$),
  []
 
-) (./sections/parametric_results.tex [49]
-<../figures/fig6_bypass_flow_partitioning.png, id=186, 578.16pt x 397.485pt>
+) (./sections/parametric_results.tex
+Overfull \hbox (6.88698pt too wide) in paragraph at lines 8--9
+\OT1/lmr/m/n/12 en-ve-lope of single-phase im-mer-sion cool-ing across struc-tu
+ral open ra-tios ($[] =
+ []
+
+
+Overfull \hbox (3.2381pt too wide) in paragraph at lines 8--9
+\OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 0[]1\OML/lmm/m/it/12 :\OT1/l
+mr/m/n/12 0$), chan-nel Reynolds num-bers ($[][] = 25[]1000$), ther-mal loads (
+$\OML/lmm/m/it/12 P[] \OT1/lmr/m/n/12 =
+ []
+
+[49]
+<../figures/fig6_bypass_flow_partitioning.png, id=186, 542.025pt x 375.804pt>
 File: ../figures/fig6_bypass_flow_partitioning.png Graphic file (type png)
 <use ../figures/fig6_bypass_flow_partitioning.png>
 Package pdftex.def Info: ../figures/fig6_bypass_flow_partitioning.png  used on 
 input line 17.
-(pdftex.def)             Requested size: 331.50238pt x 227.90312pt.
+(pdftex.def)             Requested size: 331.50238pt x 229.84795pt.
  [50 <../figures/fig6_bypass_flow_partitioning.png>]
-<../figures/fig7_thermal_resistance_scaling.png, id=193, 578.16pt x 397.485pt>
+<../figures/fig8_physics_flowfield_causal_chain.png, id=193, 1084.05pt x 542.02
+5pt>
+File: ../figures/fig8_physics_flowfield_causal_chain.png Graphic file (type png
+)
+<use ../figures/fig8_physics_flowfield_causal_chain.png>
+Package pdftex.def Info: ../figures/fig8_physics_flowfield_causal_chain.png  us
+ed on input line 37.
+(pdftex.def)             Requested size: 382.19833pt x 191.10104pt.
+ [51 <../figures/fig8_physics_flowfield_causal_chain.png>]
+<../figures/fig7_thermal_resistance_scaling.png, id=199, 794.97pt x 614.295pt>
 File: ../figures/fig7_thermal_resistance_scaling.png Graphic file (type png)
 <use ../figures/fig7_thermal_resistance_scaling.png>
 Package pdftex.def Info: ../figures/fig7_thermal_resistance_scaling.png  used o
-n input line 37.
-(pdftex.def)             Requested size: 331.50238pt x 227.90312pt.
- [51 <../figures/fig7_thermal_resistance_scaling.png>]
-Overfull \hbox (180.09276pt too wide) in paragraph at lines 59--71
+n input line 51.
+(pdftex.def)             Requested size: 358.79929pt x 277.26442pt.
+ [52 <../figures/fig7_thermal_resistance_scaling.png>]
+Overfull \hbox (155.84799pt too wide) in paragraph at lines 73--85
  [][] 
  []
 
-<../figures/fig9_figure_of_merit_pareto.png, id=199, 578.16pt x 397.485pt>
+<../figures/fig9_figure_of_merit_pareto.png, id=204, 939.51pt x 397.485pt>
 File: ../figures/fig9_figure_of_merit_pareto.png Graphic file (type png)
 <use ../figures/fig9_figure_of_merit_pareto.png>
 Package pdftex.def Info: ../figures/fig9_figure_of_merit_pareto.png  used on in
-put line 75.
-(pdftex.def)             Requested size: 331.50238pt x 227.90312pt.
-) (./sections/correlation_and_holdout.tex [52] [53 <../figures/fig9_figure_of_m
-erit_pareto.png>]
+put line 89.
+(pdftex.def)             Requested size: 358.79929pt x 151.79794pt.
+) (./sections/correlation_and_holdout.tex [53]
 Overfull \hbox (28.24182pt too wide) in paragraph at lines 19--20
 []\OT1/lmr/bx/n/12 Withheld Ther-mal Loads\OT1/lmr/m/n/12 : Heat loads span-nin
 g $\OML/lmm/m/it/12 P[] \OT1/lmr/m/n/12 = 300[]1200$ W/chip
  []
 
+[54 <../figures/fig9_figure_of_merit_pareto.png>]
+Overfull \hbox (63.705pt too wide) in paragraph at lines 32--34
+\OT1/lmr/m/n/12 Equation (24[]) strictly sat-is-fies the phys-i-cal lim-it-ing 
+asymp-totic bounds: $[][] ^^H[] =
+ []
 
-Overfull \hbox (203.80623pt too wide) in paragraph at lines 51--65
+
+Overfull \hbox (186.82693pt too wide) in paragraph at lines 61--75
  [][] 
  []
 
-<../figures/fig8_dimensionless_correlation_parity.png, id=207, 505.89pt x 505.8
-9pt>
+<../figures/fig8_dimensionless_correlation_parity.png, id=212, 867.24pt x 397.4
+85pt>
 File: ../figures/fig8_dimensionless_correlation_parity.png Graphic file (type p
 ng)
 <use ../figures/fig8_dimensionless_correlation_parity.png>
 Package pdftex.def Info: ../figures/fig8_dimensionless_correlation_parity.png  
-used on input line 69.
-(pdftex.def)             Requested size: 331.50238pt x 331.5109pt.
-) [54] [55 <../figures/fig8_dimensionless_correlation_parity.png>]
-(./sections/discussion.tex [56]
-Overfull \hbox (4.03566pt too wide) in paragraph at lines 32--33
+used on input line 79.
+(pdftex.def)             Requested size: 358.79929pt x 164.44978pt.
+[55] [56 <../figures/fig8_dimensionless_correlation_parity.png>])
+(./sections/discussion.tex
+<../figures/fig11_fluid_comparison_fair_bases.png, id=221, 1084.05pt x 346.896p
+t>
+File: ../figures/fig11_fluid_comparison_fair_bases.png Graphic file (type png)
+<use ../figures/fig11_fluid_comparison_fair_bases.png>
+Package pdftex.def Info: ../figures/fig11_fluid_comparison_fair_bases.png  used
+ on input line 22.
+(pdftex.def)             Requested size: 382.19833pt x 122.30467pt.
+
+Overfull \hbox (35.28636pt too wide) in paragraph at lines 29--30
+\OT1/lmr/m/n/12 EFL-1 achieve sig-nif-i-cantly lower ther-mal re-sis-tance ($\O
+ML/lmm/m/it/12 R[] \OT1/lmr/m/n/12 = 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 125[]0\
+OML/lmm/m/it/12 :\OT1/lmr/m/n/12 158[]$)
+ []
+
+
+Overfull \hbox (22.1054pt too wide) in paragraph at lines 29--30
+\OT1/lmr/m/n/12 and lower chip junc-tion tem-per-a-tures than FC-40 ($\OML/lmm/
+m/it/12 R[] \OT1/lmr/m/n/12 = 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 209[]0\OML/lmm
+/m/it/12 :\OT1/lmr/m/n/12 262[]$)
+ []
+
+[57]
+Overfull \hbox (4.03566pt too wide) in paragraph at lines 40--41
 []\OT1/lmr/bx/n/12 Upstream Flow Rec-ti-fi-ca-tion\OT1/lmr/m/n/12 : In-cor-po-r
 at-ing top-wall flow-deflection
  []
 
-) [57] (./sections/conclusions.tex [58]) [59] (./main.bbl [60]
+[58 <../figures/fig11_fluid_comparison_fair_bases.png>])
+(./sections/conclusions.tex [59]) [60] (./main.bbl [61]
 Underfull \hbox (badness 1286) in paragraph at lines 16--21
 []\OT1/lmr/m/n/12 Y. Huang, B. Liu, S. Xu, C. Bao, Y. Zhong, C. Zhang, Ex-
  []
@@ -1117,7 +1174,7 @@ Underfull \hbox (badness 1448) in paragraph at lines 44--50
 .
  []
 
-[61]
+[62]
 Underfull \hbox (badness 1442) in paragraph at lines 66--71
 \OT1/lmr/m/n/12 cooled servers, Ap-plied Ther-mal En-gi-neer-ing 288 (2026) 129
 628.
@@ -1140,7 +1197,7 @@ Underfull \hbox (badness 4120) in paragraph at lines 87--92
 7.
  []
 
-[62]
+[63]
 Underfull \hbox (badness 1365) in paragraph at lines 129--134
 []\OT1/lmr/m/n/12 J. Y. Min, S. P. Jang, S. J. Kim, Ef-fect of tip clear-ance o
 n
@@ -1164,21 +1221,21 @@ Underfull \hbox (badness 1067) in paragraph at lines 174--179
  heat
  []
 
-[63]
+[64]
 Underfull \hbox (badness 2547) in paragraph at lines 195--200
 \OT1/lmr/m/n/12 stud-ies, Jour-nal of Com-pu-ta-tional Physics 262 (2014) 104--
 130.
  []
 
-) [64] (./main.aux) ) 
+) [65] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 4446 strings out of 480171
- 68986 string characters out of 5894489
- 379671 words of memory out of 5000000
- 22282 multiletter control sequences out of 15000+600000
+ 4465 strings out of 480171
+ 69859 string characters out of 5894489
+ 379721 words of memory out of 5000000
+ 22299 multiletter control sequences out of 15000+600000
  540589 words of font info for 79 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 70i,14n,76p,2154b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,14n,76p,2156b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/shar
 e/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
 thsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/f
@@ -1199,10 +1256,10 @@ sy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/typ
 e1/public/lm/lmtt12.pfb>
-Output written on main.pdf (64 pages, 3778234 bytes).
+Output written on main.pdf (65 pages, 5150347 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 226 compressed objects within 3 object streams
+ 363 PDF objects out of 1000 (max. 8388607)
+ 228 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

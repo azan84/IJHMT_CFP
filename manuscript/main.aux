@@ -345,50 +345,59 @@
 \newlabel{eq:rth_sum}{{21}{49}}
 \newlabel{eq:wpump}{{22}{49}}
 \newlabel{eq:fom}{{23}{49}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Parametric campaign results}{50}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Parametric results and flow-physics analysis}{50}{}\protected@file@percent }
 \newlabel{sec:parametric_results}{{6}{50}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Bypass flow partitioning across open ratio and Reynolds number}{50}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Flow-partitioning mechanism and active channel starvation}{50}{}\protected@file@percent }
 \newlabel{sec:res_bypass_split}{{6.1}{50}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Bypass mass flow fraction ($\Phi _{\mathrm  {bypass}}$) as a function of structural open ratio ($\mathrm  {OR}$) across channel Reynolds numbers ($\mathrm  {Re}_{\mathrm  {ch}} = 25\text  {--}1000$) in FC-40 dielectric fluid. Solid lines with markers represent 3D CFD simulation results; dashed lines represent predictions from the derived dimensionless closure.}}{50}{}\protected@file@percent }
-\newlabel{fig:bypass_contour_map}{{4}{50}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Convective thermal resistance and chip temperature response}{51}{}\protected@file@percent }
-\newlabel{sec:res_thermal_resistance}{{6.2}{51}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Total thermal resistance ($R_{\mathrm  {th}}$) as a function of structural open ratio ($\mathrm  {OR}$) across Reynolds numbers ($\mathrm  {Re}_{\mathrm  {ch}} = 25\text  {--}1000$) for the baseline plate-fin immersion chassis at $700$\nobreakspace  {}W/chip in FC-40.}}{51}{}\protected@file@percent }
-\newlabel{fig:rth_vs_or_re}{{5}{51}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Hydraulic pressure drop and Figure of Merit (FOM)}{52}{}\protected@file@percent }
-\newlabel{sec:res_hydraulics_fom}{{6.3}{52}}
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Thermal-hydraulic trade-off, pressure drop, pumping power, and Figure of Merit ($\mathrm  {FOM}$) across structural open ratios at $\mathrm  {Re}_{\mathrm  {ch}} = 250$ ($Q = 2.61$\nobreakspace  {}LPM, $P_{\mathrm  {TDP}} = 700$\nobreakspace  {}W/chip in FC-40).}}{52}{}\protected@file@percent }
-\newlabel{tab:fom_summary}{{11}{52}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Correlation fitting and out-of-sample validation}{52}{}\protected@file@percent }
-\newlabel{sec:correlation_fitting}{{7}{52}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Partitioning and holdout strategy}{52}{}\protected@file@percent }
-\newlabel{sec:holdout_strategy}{{7.1}{52}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Global thermal-hydraulic Figure of Merit ($\mathrm  {FOM} = 1 / (R_{\mathrm  {th}} \cdot W_{\mathrm  {pump}})$) as a function of open ratio ($\mathrm  {OR}$). The shaded band highlights the optimal engineering design envelope ($\mathrm  {OR} \le 0.15$), capturing over $90\%$ of peak convective heat transfer capability with moderate hydraulic losses.}}{53}{}\protected@file@percent }
-\newlabel{fig:fom_pareto}{{6}{53}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Fitted dimensionless closures}{54}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Internal bypass mass flow fraction ($\Phi _{\mathrm  {bypass}}$) as a function of structural open ratio ($\mathrm  {OR}$) across channel Reynolds numbers ($\mathrm  {Re}_{\mathrm  {ch}} = 25\text  {--}1000$) in FC-40. Solid lines with markers indicate numerical simulation data; dashed lines represent predictions from the derived dimensionless closure.}}{50}{}\protected@file@percent }
+\newlabel{fig:bypass_flow_partitioning}{{4}{50}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Physical causal chain: multi-regime velocity and temperature flowfields}{51}{}\protected@file@percent }
+\newlabel{sec:res_causal_chain}{{6.2}{51}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Cross-sectional velocity magnitude (top row) and temperature distribution (bottom row) along the 1U server immersion chassis at $\mathrm  {Re}_{\mathrm  {ch}} = 250$ for four representative clearance configurations: (a) $\mathrm  {OR}=0.00$ (sealed), (b) $\mathrm  {OR}=0.20$ (tight clearance), (c) $\mathrm  {OR}=0.50$ (moderate clearance), and (d) $\mathrm  {OR}=1.00$ (fully recessed). Demonstrates the direct physical causal chain: clearance expansion $\rightarrow $ overhead jet acceleration $\rightarrow $ active core starvation $\rightarrow $ substrate thermal hotspotting.}}{51}{}\protected@file@percent }
+\newlabel{fig:causal_chain_fields}{{5}{51}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Convective thermal resistance and feasible operating envelope}{52}{}\protected@file@percent }
+\newlabel{sec:res_thermal_resistance}{{6.3}{52}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 2D response surfaces across the complete $(\mathrm  {OR}, \mathrm  {Re}_{\mathrm  {ch}})$ space: (a) bypass mass fraction $\Phi _{\mathrm  {bypass}}$, (b) component thermal resistance $R_{\mathrm  {th}}$, (c) maximum chip junction temperature $T_{\mathrm  {chip,max}}$ with feasible safe operating boundaries ($T \le 85^\circ \text  {C}$) and throttling limits ($T \le 115^\circ \text  {C}$), and (d) total chassis pressure drop $\Delta p_{\mathrm  {total}}$.}}{52}{}\protected@file@percent }
+\newlabel{fig:thermal_response_surfaces}{{6}{52}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Hydraulic pressure drop, pumping power, and Figure of Merit}{53}{}\protected@file@percent }
+\newlabel{sec:res_hydraulics_fom}{{6.4}{53}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Thermal-hydraulic trade-off, pressure drop, exact SI pumping power, and Figure of Merit ($\mathrm  {FOM} = 1 / (R_{\mathrm  {th}} \cdot W_{\mathrm  {pump}})$) across structural open ratios at $\mathrm  {Re}_{\mathrm  {ch}} = 250$ ($Q = 2.61$\nobreakspace  {}LPM, $P_{\mathrm  {TDP}} = 700$\nobreakspace  {}W/chip in FC-40).}}{53}{}\protected@file@percent }
+\newlabel{tab:fom_summary}{{11}{53}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Correlation fitting and out-of-sample validation}{53}{}\protected@file@percent }
+\newlabel{sec:correlation_fitting}{{7}{53}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Thermal-hydraulic optimization: (a) Pareto trade-off frontier of thermal resistance ($R_{\mathrm  {th}}$) versus pumping power ($W_{\mathrm  {pump}}$) across open ratios, and (b) global Figure of Merit ($\mathrm  {FOM}$) showing the optimal engineering design envelope ($\mathrm  {OR} \le 0.15$).}}{54}{}\protected@file@percent }
+\newlabel{fig:fom_pareto}{{7}{54}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Partitioning and holdout strategy}{54}{}\protected@file@percent }
+\newlabel{sec:holdout_strategy}{{7.1}{54}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Fitted physics-constrained dimensionless closures}{54}{}\protected@file@percent }
 \newlabel{sec:fitted_equations}{{7.2}{54}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}Bypass mass fraction closure $\Phi _{\mathrm  {bypass}}$}{54}{}\protected@file@percent }
-\newlabel{eq:fitted_phi}{{24}{54}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2}Thermally developing Nusselt number closure $\mathrm  {Nu}$}{54}{}\protected@file@percent }
-\newlabel{eq:fitted_nu}{{25}{54}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Dimensionless framework parity comparison against the full 250-case database. Predicted bypass mass fraction $\Phi _{\mathrm  {bypass}}$ is plotted against CFD-calibrated values across the calibration baseline ($N=99$, blue circles), withheld coolants PAO-4 ($N=35$, orange squares) and EFL-1 ($N=35$, green triangles), and withheld topologies Micro-Pin-Fin and Oblique-Fin ($N=48$, red diamonds). All predictions fall within bounded physical confidence intervals.}}{55}{}\protected@file@percent }
-\newlabel{fig:correlation_parity}{{7}{55}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}Bypass mass fraction closure $\Phi _{\mathrm  {bypass}}$}{55}{}\protected@file@percent }
+\newlabel{eq:fitted_phi}{{24}{55}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2}Thermally developing Nusselt number closure $\mathrm  {Nu}$}{55}{}\protected@file@percent }
+\newlabel{eq:fitted_nu}{{25}{55}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Conjugate thermal resistance decomposition}{55}{}\protected@file@percent }
+\newlabel{sec:thermal_decomposition}{{7.3}{55}}
+\newlabel{eq:thermal_decomposition}{{26}{55}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Statistical accuracy and out-of-sample prediction performance}{55}{}\protected@file@percent }
+\newlabel{sec:accuracy_evaluation}{{7.4}{55}}
 \@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Statistical goodness of fit ($R^2$), Mean Absolute Error (MAE), unsealed Mean Absolute Percentage Error (MAPE for $\mathrm  {OR} \ge 0.10$), and thermal resistance prediction error evaluated on calibration and genuine out-of-sample holdout datasets ($N=250$ total cases).}}{56}{}\protected@file@percent }
 \newlabel{tab:correlation_accuracy}{{12}{56}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Statistical accuracy and out-of-sample prediction performance}{56}{}\protected@file@percent }
-\newlabel{sec:accuracy_evaluation}{{7.3}{56}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion and physical interpretation}{56}{}\protected@file@percent }
-\newlabel{sec:discussion}{{8}{56}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Non-linear sensitivity of parallel hydraulic resistance}{56}{}\protected@file@percent }
-\newlabel{sec:disc_hydraulics}{{8.1}{56}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Inversion of coolant thermal ranking under bypass conditions}{57}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Dimensionless framework parity comparison against the full 250-case database: (a) bypass mass flow fraction $\Phi _{\mathrm  {bypass}}$ parity, and (b) component thermal resistance $R_{\mathrm  {th}}$ parity across calibration and holdout sets. Bounded physical confidence intervals demonstrate strong model generalizability.}}{56}{}\protected@file@percent }
+\newlabel{fig:correlation_parity}{{8}{56}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion and physical interpretation}{57}{}\protected@file@percent }
+\newlabel{sec:discussion}{{8}{57}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Non-linear sensitivity of parallel hydraulic resistance}{57}{}\protected@file@percent }
+\newlabel{sec:disc_hydraulics}{{8.1}{57}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Comparative evaluation of dielectric coolants across fair engineering bases}{57}{}\protected@file@percent }
 \newlabel{sec:disc_coolant_inversion}{{8.2}{57}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Engineering design rules for immersion server chassis}{57}{}\protected@file@percent }
-\newlabel{sec:disc_design_rules}{{8.3}{57}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Remaining limitations and experimental targets}{58}{}\protected@file@percent }
-\newlabel{sec:disc_limitations}{{8.4}{58}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusions}{58}{}\protected@file@percent }
-\newlabel{sec:conclusions}{{9}{58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Comparative performance of dielectric coolants across structural open ratios ($\mathrm  {OR} = 0.0\text  {--}1.0$) evaluated on three distinct engineering comparison bases: (a) Basis 1: Matched channel Reynolds number ($\mathrm  {Re}_{\mathrm  {ch}} = 250$), (b) Basis 2: Matched volumetric flow rate ($Q \approx 2.61$\nobreakspace  {}LPM), and (c) Basis 3: Matched auxiliary pumping power consumption ($W_{\mathrm  {pump}}$).}}{58}{}\protected@file@percent }
+\newlabel{fig:fluid_comparison_bases}{{9}{58}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Engineering design rules for immersion server chassis}{58}{}\protected@file@percent }
+\newlabel{sec:disc_design_rules}{{8.3}{58}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Remaining limitations and experimental targets}{59}{}\protected@file@percent }
+\newlabel{sec:disc_limitations}{{8.4}{59}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusions}{59}{}\protected@file@percent }
+\newlabel{sec:conclusions}{{9}{59}}
 \gdef \LT@v {\LT@entry 
     {1}{55.89035pt}\LT@entry 
     {1}{83.22926pt}\LT@entry 
@@ -424,4 +433,4 @@
 \bibcite{eca2014}{{27}{}{{}}{{}}}
 \bibcite{roache1997}{{28}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\gdef \@abspage@last{64}
+\gdef \@abspage@last{65}
