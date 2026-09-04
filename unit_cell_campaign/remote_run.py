@@ -15,7 +15,8 @@ Usage: python3 remote_run.py [--list run_list_remote.txt] [--cores N] [--no-push
   --test-push). Each case uses 8 MPI ranks (fixed by the audited decomposeParDict)."""
 import os, sys, re, json, time, shutil, argparse, subprocess, threading, tarfile, glob
 ROOT=os.path.dirname(os.path.abspath(__file__)); REPO=os.path.dirname(ROOT)
-LOG=open(os.path.join(ROOT,"remote_run.log"),"a")
+LOGNAME="remote_run_%s.log"%os.uname().nodename.split(".")[0]   # one log per machine, so that two machines sharing the list never edit the same file
+LOG=open(os.path.join(ROOT,LOGNAME),"a")
 def log(msg):
     line="%s %s"%(time.strftime("%F %T"),msg); print(line,flush=True); LOG.write(line+"\n"); LOG.flush()
 def sh(cmd,cwd=None,logfile=None,env=None):
@@ -84,7 +85,7 @@ def push(msg,nopush):
     if nopush: return
     rel=os.path.relpath(ROOT,REPO)
     with PUSH_LOCK:
-        steps=["git add -A %s/results %s/remote_run.log"%(rel,rel),"git diff --cached --quiet || git commit -q -m '%s'"%msg.replace("'",""),"git pull -q --rebase origin main","git push -q origin HEAD:main"]
+        steps=["git add -A %s/results %s/%s"%(rel,rel,LOGNAME),"git diff --cached --quiet || git commit -q -m '%s'"%msg.replace("'",""),"git pull -q --rebase origin main","git push -q origin HEAD:main"]
         for st in steps:
             rc=sh(st,cwd=REPO,logfile=os.path.join(ROOT,"git_push.log"))
             if rc!=0: log("PUSH FAILED at '%s' (rc %d, see git_push.log); results stay in %s/results and are pushed with the next case"%(st.split()[1],rc,rel)); return False
