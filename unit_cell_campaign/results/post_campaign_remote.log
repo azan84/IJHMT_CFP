@@ -1,3 +1,4 @@
-wrote /mnt/e/ijhmt-cfp/Paper-5/cfd/IJHMT_CFP_runner/unit_cell_campaign/results/ledger_remote.csv 2 rows
+wrote /mnt/e/ijhmt-cfp/Paper-5/cfd/IJHMT_CFP_runner/unit_cell_campaign/results/ledger_remote.csv 3 rows
+F001 OR 0.0 Re 40 | dp 305.5 Pa Phi_in 0.0000 Phi_mid 0.0000 | split 0% energy 0.0689% | Tbase max 35.71 C wall max 35.27 C | Nu 8.822 h 316.4 | R_base 0.01529 | it 1800 res_met True stat True acc True
 F003 OR 0.3236245954692557 Re 40 | dp 12.02 Pa Phi_in 0.6780 Phi_mid 0.9563 | split 1.96e-06% energy 10.1% | Tbase max 71.29 C wall max 70.91 C | Nu 7.261 h 257.3 | R_base 0.06613 | it 4008 res_met False stat False acc False
 F004 OR 0.4768460575719651 Re 40 | dp 2.975 Pa Phi_in 0.8426 Phi_mid 0.9921 | split 2.18e-07% energy 1.46% | Tbase max 103.83 C wall max 103.43 C | Nu 6.206 h 216.7 | R_base 0.11261 | it 4078 res_met False stat False acc False
