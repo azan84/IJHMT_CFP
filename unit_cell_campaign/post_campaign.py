@@ -15,7 +15,7 @@ Per case, from the runtime monitors (postProcessing/*/<name>/<time>/*.dat, last 
   acceptance: residual targets met (solverInfo), stationarity of the four monitors over the last 500 iterations
   (0.5 %), mass split 0.5 %, energy 0.5 %, envelope wall <= 70 C and chip <= 165 C.
 Output: dataset_ledger_unitcell.csv with the columns figures/src/refit_closures.py and solve_eq22.py expect."""
-import os, sys, json, glob, math, csv
+import os, sys, json, glob, math, csv, re
 import numpy as np
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); import unit_cell as u
 ROOT=os.path.dirname(os.path.abspath(__file__))
@@ -100,15 +100,24 @@ def process(case):
             hi=(Qb[i]/A[i])/dT[i] if dT[i]>0 else float("nan"); out["Nu_B%d"%i]=hi*meta["D_h_m"]/pf["k"]; out["dT_B%d_K"%i]=dT[i]
         for i in range(NB+1):
             chp=abs(Z.get("phi_chanX%d_kg_s"%i,0.0)); clp=abs(Z.get("phi_clearX%d_kg_s"%i,0.0)); out["Phi_X%d"%i]=clp/(chp+clp) if (chp+clp)>0 else float("nan")
+        # effective bypass fraction for the caloric term: the channel loses mass along the sink, so the bulk rise follows
+        # int dx/(m_ch(x) cp); Phi_eff = 1 - 1/<1/(1-Phi(x))> with the trapezoidal mean over the six stations (Phi_eff >= Phi_X0)
+        ph=[out["Phi_X%d"%i] for i in range(NB+1)]
+        if all(v==v for v in ph) and all(v<1 for v in ph):
+            inv=[1/(1-v) for v in ph]; mean_inv=sum(0.5*(inv[i]+inv[i+1]) for i in range(NB))/NB; out["Phi_eff"]=1-1/mean_inv
+        else: out["Phi_eff"]=float("nan")
     else:
         out["h_W_m2K"]=float("nan"); out["Nu"]=float("nan"); out["dT_wall_bulk_bins_K"]=float("nan")
         for i in range(NB): out["Nu_B%d"%i]=float("nan"); out["dT_B%d_K"%i]=float("nan")
         for i in range(NB+1): out["Phi_X%d"%i]=float("nan")
+        out["Phi_eff"]=float("nan")
     out["h_lmtd_W_m2K"]=q/lmtd if lmtd==lmtd and lmtd>0 else float("nan"); out["Nu_lmtd"]=out["h_lmtd_W_m2K"]*meta["D_h_m"]/pf["k"]
     pin_=u.FLUIDS[meta["fluid"]](T_in); out["Pr_inlet"]=pin_["mu"]*pin_["cp"]/pin_["k"]
     out["Re_active"]=meta["Re_ch"]*(1-out["Phi_in"]) if not math.isnan(out["Phi_in"]) else float("nan")
     P=meta["P_sink_W"]; out["R_base_K_W"]=(out["T_base_max_K"]-T_in)/P; out["R_th_K_W"]=out["R_base_K_W"]+R_TIM; out["R_TIM_K_W"]=R_TIM; out["R_spread_K_W"]="MISSING"
     out["W_pump_W"]=meta["Q_half_m3_s"]*2*u.NFIN_SPAN*out["dp_sink_Pa"]   # full 140 mm span
+    out["N_fin"]=u.NFIN_SPAN; out["m_full_kg_s"]=m_in*2*u.NFIN_SPAN; out["cp_inlet"]=pin_["cp"]; out["A_fin_full_m2"]=2*Hf*u.L*u.NFIN_SPAN   # Eq. (rth_sum): caloric term and overall surface efficiency
+    out["solver_rc"]=int(re.search(r"rc=(-?\d+)",out["run"]).group(1)) if re.search(r"rc=(-?\d+)",out["run"]) else -1
     # residuals: last row of solverInfo (columns: U_converged at index 11, h_converged, p_rgh_converged flags are 'true/false' strings)
     sol=sorted(glob.glob(os.path.join(case,"postProcessing/fluid/residuals/*/solverInfo.dat")),key=lambda f: float(os.path.basename(os.path.dirname(f))))
     res={}
@@ -141,7 +150,7 @@ if __name__=="__main__":
         r=process(c); r["partitions"]=parts.get(r["case_id"],"pilot"); rows.append(r)
     # ledger columns for the refit scripts
     for r in rows:
-        r.update(dict(Re_recomputed_ch_Eq1_140mm=r["Re_ch"],Pr=r["Pr_inlet"],phi_field=r["Phi_in"],Nu_field=r["Nu"],Rth_field=r["R_th_K_W"],k=r["k_film"],D_h=r["D_h_m"],A_wetted=r["A_wetted_full_m2"],t_fin=u.TF,H_fin=r["H_fin_m"],
+        r.update(dict(Re_recomputed_ch_Eq1_140mm=r["Re_ch"],Pr=r["Pr_inlet"],phi_field=r["Phi_in"],phi_eff_field=r.get("Phi_eff",float("nan")),Nu_field=r["Nu"],Rth_field=r["R_th_K_W"],k=r["k_film"],D_h=r["D_h_m"],A_wetted=r["A_wetted_full_m2"],t_fin=u.TF,H_fin=r["H_fin_m"],
                       D_h_over_L=r["D_h_m"]/u.L,Re_label=r["Re_ch"],geometry_label="Plate-Fin",P_TDP=r["P_sink_W"],Tchip_field=r["T_chip_max_C"],dp_field=r["dp_sink_Pa"],Q_LPM=r["Q_full_sink_LPM"],
                       thermal_data_source="chtMultiRegionSimpleFoam unit cell (this campaign)"))
     out=os.environ.get("POST_OUT") or (os.path.join(ROOT,"dataset_ledger_unitcell.csv") if len(sys.argv)<2 else os.path.join(ROOT,"pilot_results.csv"))   # POST_OUT overrides the output path
