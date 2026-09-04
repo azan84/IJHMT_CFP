@@ -1,11 +1,11 @@
-# Whole campaign: running summary (2026-09-05 03:05:01)
+# Whole campaign: running summary (2026-09-05 03:26:44)
 
-cases finished 115 of 177 | inside envelope 37 | converged 36 | accepted 36
+cases finished 118 of 177 | inside envelope 38 | converged 37 | accepted 37
 
 | partition | finished | inside envelope | converged | accepted |
 |---|---|---|---|---|
 | calibration | 99 | 34 | 34 | 34 |
-| cross_combinations | 7 | 1 | 0 | 0 |
+| cross_combinations | 10 | 2 | 1 | 1 |
 | fixed_fin_sweep | 4 | 2 | 2 | 2 |
 | holdout_EFL-1 | 5 | 1 | 0 | 0 |
 | holdout_thermal_load | 2 | 0 | 0 | 0 |
