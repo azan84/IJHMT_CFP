@@ -124,6 +124,21 @@ def run_case(cid,a,endtime=None):
     stop="converged" if os.path.exists(os.path.join(d,"CONVERGED_STOP")) else ("envelope" if os.path.exists(os.path.join(d,"ENVELOPE_STOP")) else "cap")
     log("%s done rc=%s %s iterations, %s stop, %.0f s"%(cid,rc,its,stop,time.time()-t0))
     pack(cid); running_ledger(a); push("results: %s (%s, %s iterations)"%(cid,stop,its),a.no_push)
+def refresh_extraction(a):
+    """Re-run the zone extraction for finished cases whose posthoc_zoneT.json predates the current extraction version, repack and push."""
+    import json
+    stale=[]
+    for c in sorted(os.listdir(os.path.join(ROOT,"cases"))):
+        d=os.path.join(ROOT,"cases",c); pz=os.path.join(d,"posthoc_zoneT.json")
+        if not os.path.exists(os.path.join(d,"DONE")): continue
+        try: v=json.load(open(pz)).get("version",1) if os.path.exists(pz) else 0
+        except Exception: v=0
+        if v<2: stale.append(d)
+    if not stale: return
+    log("re-extracting %d finished cases with the version-2 stations and bins"%len(stale))
+    for d in stale:
+        sh(PRE+"python3 posthoc_zone_T.py %s"%d,cwd=ROOT,logfile=os.path.join(d,"log.posthoc")); pack(os.path.basename(d))
+    running_ledger(a); push("results: extraction refreshed for %d cases"%len(stale),a.no_push)
 def run_all(ids,a,conc,endtime=None):
     import concurrent.futures as cf
     with cf.ThreadPoolExecutor(max_workers=conc) as ex: list(ex.map(lambda c: run_case(c,a,endtime),ids))
@@ -165,8 +180,9 @@ if __name__=="__main__":
     if free_gb<0.15*cores: sys.exit("not enough RAM: %.1f GB available for %d ranks"%(free_gb,cores))
     log("using %d cores: %d concurrent cases x %d ranks"%(cores,conc,a.ranks))
     build(ids,workers=min(8,max(1,conc)))
+    if not a.test: refresh_extraction(a)
     run_all(ids,a,conc,endtime=60 if a.test else None)
-    if not a.test: continuation(a,conc); push("results: continuation pass complete",a.no_push); log("REMOTE_LIST_COMPLETE")
+    if not a.test: continuation(a,conc); refresh_extraction(a); push("results: continuation pass complete",a.no_push); log("REMOTE_LIST_COMPLETE")
     else:
         d=os.path.join(ROOT,"cases",ids[0]); ok=os.path.exists(os.path.join(d,"posthoc_zoneT.json")) and os.path.exists(os.path.join(ROOT,"results",ids[0]+".tar.gz"))
         log("TEST %s: build, verify, decompose, solve, reconstruct, zone extraction (%s) and packing (%s); inspect cases/%s and results/%s.tar.gz"%("PASSED" if ok else "FAILED","posthoc_zoneT.json present" if os.path.exists(os.path.join(d,"posthoc_zoneT.json")) else "posthoc_zoneT.json MISSING: see cases/%s/log.posthoc"%ids[0],"tar present" if os.path.exists(os.path.join(ROOT,"results",ids[0]+".tar.gz")) else "tar missing",ids[0],ids[0]))

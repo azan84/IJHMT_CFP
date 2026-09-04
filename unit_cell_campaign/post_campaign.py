@@ -6,10 +6,11 @@ Per case, from the runtime monitors (postProcessing/*/<name>/<time>/*.dat, last 
   mass_split_closure_pct = |(chan + clear) - inlet| / inlet at x = 0                [manuscript Sec. 4.4, 0.5 %]
   energy_balance_pct     = |Q_in - (H_out - H_in)| / Q_in, Q_in = heated integral, H = sum(phi h)   [Sec. 3.5, 0.5 %]
   T_base_max/mean (heated patch), T_wall_max (fluid_to_solid max), T_out_bulk (mass-weighted)
-  q_wall = -integral(wallHeatFlux, fluid_to_solid) / A_wetted_cell ; dT = T_wall_mean - (T_ch_in + T_ch_out)/2 with the mass-flux-
-  weighted channel-stream temperatures at the sink leading and trailing edges (posthoc_zone_T.py; arithmetic-mean bulk,
-  uniform-flux form) ; h = q_wall / dT ; Nu = h D_h / k(T_film). Also Nu_cell (cell-mixed bulk at the domain inlet/outlet)
-  and Nu_lmtd (isothermal-wall log-mean form, undefined at Re_ch <= 10); Phi_out from the trailing-edge zone fluxes ; Re_ch (design) ; Re_active = Re_ch (1 - Phi_in)
+  Nu (ledger): length-averaged form from five streamwise interface bins (posthoc_zone_T.py version 2): h_m = q''_mean / dT_mean,
+  q''_mean = sum Q_i / sum A_i, dT_mean = area-weighted mean of (bin-mean interface T - mean channel bulk T at the bin ends,
+  mass-flux weighted at the six stations); Nu = h_m D_h / k(T_film); Nu_B0..B4 local per bin; Phi_X0..X5 clearance share
+  at the six stations. Also Nu_edge (leading/trailing-edge channel bulk, version 1), Nu_cell (cell-mixed bulk) and
+  Nu_lmtd (isothermal-wall log-mean form, undefined at Re_ch <= 10) ; Re_ch (design) ; Re_active = Re_ch (1 - Phi_in)
   R_base = (T_base_max - T_in) / P_sink ; R_th = R_base + R_TIM (Eq. tim: 6e-3 K/W over 48 x 68 mm; R_spread MISSING)
   acceptance: residual targets met (solverInfo), stationarity of the four monitors over the last 500 iterations
   (0.5 %), mass split 0.5 %, energy 0.5 %, envelope wall <= 70 C and chip <= 165 C.
@@ -82,7 +83,27 @@ def process(case):
     Tfilm=0.5*(out["T_wall_mean_K"]+0.5*(T_in+out["T_out_bulk_K"])); pf=u.FLUIDS[meta["fluid"]](min(max(Tfilm,293.15),333.15))
     out["dT_wall_chbulk_K"]=dT_ch
     out["h_cell_W_m2K"]=q/dT_am if dT_am>0 else float("nan"); out["Nu_cell"]=out["h_cell_W_m2K"]*meta["D_h_m"]/pf["k"]
-    out["h_W_m2K"]=q/dT_ch if dT_ch==dT_ch and dT_ch>0 else float("nan"); out["Nu"]=out["h_W_m2K"]*meta["D_h_m"]/pf["k"]; out["k_film"]=pf["k"]; out["Pr_film"]=pf["mu"]*pf["cp"]/pf["k"]   # ledger Nu: channel-stream bulk
+    out["h_edge_W_m2K"]=q/dT_ch if dT_ch==dT_ch and dT_ch>0 else float("nan"); out["Nu_edge"]=out["h_edge_W_m2K"]*meta["D_h_m"]/pf["k"]   # version-1 form: leading/trailing-edge channel bulk
+    out["k_film"]=pf["k"]; out["Pr_film"]=pf["mu"]*pf["cp"]/pf["k"]
+    # Ledger Nu (version 2): length-averaged form from five streamwise interface bins. Per bin i: wall heat flux Q_i / A_i,
+    # bin-mean interface temperature Tw_i, channel bulk at the bin ends from the mass-flux-weighted station temperatures.
+    # h_m = q''_mean / dT_mean with q''_mean = sum Q_i / sum A_i and dT_mean the area-weighted mean of (Tw_i - Tb_i);
+    # Nu_B<i> are the local values per bin (thermal development along the sink). Decision: audit/decisions.md, 5 September 2026.
+    NB=5; ok=Z.get("version",1)>=2 and all(("Tw_wallB%d_K"%i) in Z for i in range(NB)) and all(("T_chanX%d_K"%i) in Z for i in range(NB+1))
+    if ok:
+        A=[Z["A_wallB%d_m2"%i] for i in range(NB)]; Tw=[Z["Tw_wallB%d_K"%i] for i in range(NB)]; Qb=[abs(Z["Q_wallB%d_W"%i]) for i in range(NB)]
+        Tb=[0.5*(Z["T_chanX%d_K"%i]+Z["T_chanX%d_K"%(i+1)]) for i in range(NB)]; dT=[Tw[i]-Tb[i] for i in range(NB)]
+        dT_mean=sum(A[i]*dT[i] for i in range(NB))/sum(A); q_mean=sum(Qb)/sum(A)
+        out["dT_wall_bulk_bins_K"]=dT_mean; out["Q_bins_sum_W"]=sum(Qb); out["A_bins_sum_m2"]=sum(A)
+        out["h_W_m2K"]=q_mean/dT_mean if dT_mean>0 else float("nan"); out["Nu"]=out["h_W_m2K"]*meta["D_h_m"]/pf["k"]
+        for i in range(NB):
+            hi=(Qb[i]/A[i])/dT[i] if dT[i]>0 else float("nan"); out["Nu_B%d"%i]=hi*meta["D_h_m"]/pf["k"]; out["dT_B%d_K"%i]=dT[i]
+        for i in range(NB+1):
+            chp=abs(Z.get("phi_chanX%d_kg_s"%i,0.0)); clp=abs(Z.get("phi_clearX%d_kg_s"%i,0.0)); out["Phi_X%d"%i]=clp/(chp+clp) if (chp+clp)>0 else float("nan")
+    else:
+        out["h_W_m2K"]=float("nan"); out["Nu"]=float("nan"); out["dT_wall_bulk_bins_K"]=float("nan")
+        for i in range(NB): out["Nu_B%d"%i]=float("nan"); out["dT_B%d_K"%i]=float("nan")
+        for i in range(NB+1): out["Phi_X%d"%i]=float("nan")
     out["h_lmtd_W_m2K"]=q/lmtd if lmtd==lmtd and lmtd>0 else float("nan"); out["Nu_lmtd"]=out["h_lmtd_W_m2K"]*meta["D_h_m"]/pf["k"]
     pin_=u.FLUIDS[meta["fluid"]](T_in); out["Pr_inlet"]=pin_["mu"]*pin_["cp"]/pin_["k"]
     out["Re_active"]=meta["Re_ch"]*(1-out["Phi_in"]) if not math.isnan(out["Phi_in"]) else float("nan")
