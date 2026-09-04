@@ -17,12 +17,12 @@ The remaining 90 cases run on the originating workstation.
 | Envelope stop | at or after 4000 iterations when the maximum interface temperature exceeds 70 C (such a case cannot enter the dataset) | `converge_watchdog.py` |
 | Continuation pass | cases short of the acceptance residuals (U, p_rgh < 1e-4; h < 1e-6) or stopped before 1200 iterations are continued from their latest time to 12,000 | `select_continuations.py`, `remote_run.py` |
 | Post-hoc zone extraction | fin-channel and clearance face zones at the sink leading and trailing edges: mass-flux-weighted temperature and mass flux from the final fields (the channel Nusselt number uses them) | `posthoc_zone_T.py` |
-| Build verification | every dictionary and field file of each built case is compared by SHA-256 with the audited local build before any solve (`manifest_local_build.json`) | `make_manifest.py` |
+| Build verification | every dictionary and field file of each built case is compared by SHA-256 with the audited local build before any solve; floating-point text (case_meta.json, property tables) may differ within 1e-9 relative between machines and is then reported as numeric-equivalent (`manifest_local_build.json`) | `make_manifest.py` |
 
 ## Requirements on the remote machine
 
 - Linux, OpenFOAM v2406 (ESI; `chtMultiRegionSimpleFoam`, `blockMesh`, `splitMeshRegions`, `topoSet`, `decomposePar`,
-  `reconstructPar`, `postProcess`), MPI (`mpirun`), Python 3.8+ with numpy (the builder's property fits), git with push access to
+  `reconstructPar`, `postProcess`), MPI (`mpirun`), Python 3.8+ (standard library only), git with push access to
   this repository (SSH key or token) so that results return automatically.
 - About 0.1 GB RAM per MPI rank and about 30 MB of disk per case (the final fields stay on the remote machine;
   only monitors, logs and the zone extraction are pushed, about 1 MB per case).

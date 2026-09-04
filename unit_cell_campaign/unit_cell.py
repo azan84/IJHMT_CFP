@@ -19,14 +19,14 @@ GRIDS={"coarse":dict(ny_ch=3,ny_fin=1,nz_base=4,nz_fin=24,nz_cl=8,nx_in=20,nx_si
 # --- fluids (manuscript Table 3; T in kelvin) ---
 def fc40(T):   # Chun et al. 2026, Table 3, p. 7 (fits); rho, mu, k, cp
     return dict(rho=2499-2.16*T, mu=0.0429-0.162e-3*T+1.08e-7*T**2, k=0.086-6.90e-5*T, cp=590+1.55*T)
-def quad_fit(xs,ys):   # exact quadratic through three points (for the EFL-1 tabulated k and mu at 20, 40, 60 C)
-    import numpy as np
-    return np.polyfit(xs,ys,2)[::-1]   # a0 + a1 T + a2 T^2
+def quad_fit(xs,ys):   # exact quadratic through three points (for the EFL-1 tabulated k and mu at 20, 40, 60 C): Lagrange form,
+    # plain IEEE-double arithmetic in a fixed order so that every machine produces the same bits (numpy.polyfit did not)
+    (x0,x1,x2),(y0,y1,y2)=xs,ys
+    return lambda T: y0*((T-x1)*(T-x2))/((x0-x1)*(x0-x2))+y1*((T-x0)*(T-x2))/((x1-x0)*(x1-x2))+y2*((T-x0)*(T-x1))/((x2-x0)*(x2-x1))
 EFL1_T=[293.15,313.15,333.15]; EFL1_MU=[6.31e-3,2.77e-3,1.72e-3]; EFL1_K=[0.062,0.068,0.072]   # Huang et al. 2024, Table 2
 EFL1_RHO=1889.0; EFL1_CP=1165.0                                                                # Huang et al. 2024, Table 2 (single values)
 def efl1(T):
-    import numpy as np
-    mu=np.polyval(quad_fit(EFL1_T,EFL1_MU)[::-1],T); k=np.polyval(quad_fit(EFL1_T,EFL1_K)[::-1],T)
+    mu=quad_fit(EFL1_T,EFL1_MU)(T); k=quad_fit(EFL1_T,EFL1_K)(T)
     return dict(rho=EFL1_RHO,mu=float(mu),k=float(k),cp=EFL1_CP)
 FLUIDS={"FC-40":fc40,"EFL-1":efl1}
 SOLID=dict(rho=8978.0,cp=381.0,k=387.6)   # copper, Chun et al. Table 2, p. 6 (manuscript solid-property table)

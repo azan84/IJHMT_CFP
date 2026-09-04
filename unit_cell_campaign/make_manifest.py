@@ -27,12 +27,29 @@ def case_digests(cid):
     return out
 mode,man,lst=sys.argv[1],sys.argv[2],sys.argv[3]; ids=[l.strip() for l in open(lst) if l.strip()]
 if mode=="write":
-    json.dump({cid:case_digests(cid) for cid in ids},open(man,"w"),indent=1); print("manifest written for",len(ids),"cases")
+    man_d={cid:case_digests(cid) for cid in ids}
+    man_d["_text"]={cid:{f:open(os.path.join(ROOT,"cases",cid,f)).read() for f in ("case_meta.json","constant/fluid/thermophysicalProperties") if os.path.exists(os.path.join(ROOT,"cases",cid,f))} for cid in ids}   # kept for the numeric-equivalence check
+    json.dump(man_d,open(man,"w"),indent=1); print("manifest written for",len(ids),"cases")
 else:
-    M=json.load(open(man)); bad=0
+    M=json.load(open(man)); bad=0; numeq=0
+    NUMTOL=1e-9   # numeric tolerance (relative) for files whose text carries floating-point values that another machine may round differently in the last bits
+    def numeric_equivalent(cid,f):
+        """Text equal apart from floating-point numbers that agree to NUMTOL: the two files describe the same case."""
+        a=open(os.path.join(ROOT,"cases",cid,f)).read(); b=M.get("_text",{}).get(cid,{}).get(f)
+        if b is None: return False
+        ta=re.split(r"(-?\d+\.?\d*(?:[eE][-+]?\d+)?)",a); tb=re.split(r"(-?\d+\.?\d*(?:[eE][-+]?\d+)?)",b)
+        if len(ta)!=len(tb): return False
+        for x,y in zip(ta,tb):
+            if x==y: continue
+            try: fx,fy=float(x),float(y)
+            except ValueError: return False
+            if abs(fx-fy)>NUMTOL*max(abs(fx),abs(fy),1e-300): return False
+        return True
     for cid in ids:
         got=case_digests(cid); exp=M.get(cid)
         if exp is None: print(cid,"NOT IN MANIFEST"); bad+=1; continue
         diff=[k for k in exp if exp[k]!=got.get(k)]
-        if diff: print(cid,"MISMATCH",diff); bad+=1
-    print("checked",len(ids),"cases;",bad,"with differences"); sys.exit(1 if bad else 0)
+        hard=[k for k in diff if not (k in ("case_meta.json","constant/fluid/thermophysicalProperties") and numeric_equivalent(cid,k))]
+        if hard: print(cid,"MISMATCH",hard); bad+=1
+        elif diff: numeq+=1; print(cid,"numeric-equivalent (floating-point text differs within %g relative):"%NUMTOL,diff)
+    print("checked",len(ids),"cases;",bad,"with differences;",numeq,"numeric-equivalent"); sys.exit(1 if bad else 0)

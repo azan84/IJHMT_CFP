@@ -39,8 +39,6 @@ def check_env():
     for tool in ("blockMesh","splitMeshRegions","topoSet","decomposePar","chtMultiRegionSimpleFoam","reconstructPar","postProcess","mpirun"):
         if not out(PRE+"which "+tool).strip(): sys.exit("missing tool: %s"%tool)
     if not shutil.which("git"): sys.exit("git is required")
-    try: import numpy
-    except ImportError: sys.exit("python3 numpy is required by the builder (pip install numpy)")
     log("environment: OpenFOAM %s; mpirun %s"%(ver or "(version string unavailable)",out(PRE+"mpirun --version 2>&1 | head -1").strip()))
     if "2406" not in ver: log("WARNING: the campaign was audited on OpenFOAM v2406; this machine reports '%s'"%ver)
 # ---------- 1 resources ----------
