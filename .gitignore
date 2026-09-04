@@ -15,3 +15,10 @@ log.*
 # OS artifacts
 .DS_Store
 Thumbs.db
+
+# unit-cell campaign: built cases and run-time files stay on the machine that runs them
+unit_cell_campaign/cases/
+unit_cell_campaign/build_list.txt
+unit_cell_campaign/run_list_continue.txt
+unit_cell_campaign/*.log
+!unit_cell_campaign/remote_run.log
