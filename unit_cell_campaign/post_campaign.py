@@ -137,6 +137,8 @@ def process(case):
     out["T_chip_max_C"]=out["T_base_max_K"]-273.15+P*R_TIM   # base maximum plus the TIM drop (spreading MISSING)
     out["passed_validity_envelope"]="y" if (out["T_wall_max_K"]-273.15<=70.0 and out["T_chip_max_C"]<=165.0) else "n"
     out["converged"]=bool(out["residuals_met"] and out["stationary"] and out["passed_mass_split"] and out["passed_energy"])
+    # how the run ended: converged (watchdog residual stop), envelope (watchdog envelope stop), diverged (solver exit code != 0), cap (ran to endTime)
+    out["stop_type"]="converged" if os.path.exists(os.path.join(case,"CONVERGED_STOP")) else ("envelope" if os.path.exists(os.path.join(case,"ENVELOPE_STOP")) else ("diverged" if out["solver_rc"]!=0 else "cap"))
     out["accepted"]=bool(out["converged"] and out["passed_validity_envelope"]=="y")   # acceptance = closure checks and the validity envelope (manuscript Secs. 3.5, 4.4, 6.2)
     return out
 if __name__=="__main__":

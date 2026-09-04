@@ -46,6 +46,8 @@ python3 remote_run.py --test
 python3 remote_run.py
 ```
 
+Two machines may share the list: each checks the repository before every case and skips cases whose results
+another machine has already pushed; run one of them with `--reverse` so that they meet in the middle.
 `remote_run.py` detects physical cores, available RAM and the current load and proposes a default; each case uses
 8 MPI ranks (fixed by the audited `decomposeParDict`), so the number of concurrent cases is cores / 8. On the originating 16-core workstation the
 throughput optimum was three concurrent cases (1.5 ranks per physical core). Pass `--cores N` to skip the prompt,

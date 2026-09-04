@@ -106,9 +106,16 @@ def running_ledger(a):
             lines.append("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |"%(r["case_id"],r["fluid"],r["OR"],r["Re_ch"],r["P_sink_W"],r["iterations"],stop,"%.1f"%(float(r["T_wall_max_K"])-273.15),f("Phi_in"),f("Phi_out"),f("Nu"),f("R_th_K_W"),f("dp_field",4),f("energy_balance_pct",2),r["accepted"]))
         open(os.path.join(ROOT,"results","summary_remote.md"),"w").write("\n".join(lines)+"\n")
     except Exception as e: log("running summary failed: %s"%e)
+def done_elsewhere(cid,a):
+    """True when another machine has already pushed results/<cid>.tar.gz (the list can be shared between machines running
+    it in opposite orders); a quick fetch keeps the check current. Never true in --test mode or with --no-push."""
+    if a.no_push: return False
+    with PUSH_LOCK: sh("git pull -q --rebase origin main >/dev/null 2>&1 || git fetch -q origin main >/dev/null 2>&1",cwd=REPO)
+    return os.path.exists(os.path.join(ROOT,"results",cid+".tar.gz")) and not os.path.exists(os.path.join(ROOT,"cases",cid,"DONE"))
 def run_case(cid,a,endtime=None):
     d=os.path.join(ROOT,"cases",cid)
     if os.path.exists(os.path.join(d,"DONE")): log("%s skip (done)"%cid); return
+    if done_elsewhere(cid,a): log("%s skip (results already in the repository from another machine)"%cid); return
     if endtime:
         cd=os.path.join(d,"system/controlDict"); s=open(cd).read(); s=re.sub(r"endTime\s+\d+;","endTime %d;"%endtime,s,count=1); s=re.sub(r"writeInterval\s+\d+;","writeInterval %d;"%endtime,s,count=1); open(cd,"w").write(s)   # test mode: write the fields at the (short) end time
     t0=time.time(); log("%s start"%cid)
@@ -169,10 +176,11 @@ def continuation(a,conc):
     with cf.ThreadPoolExecutor(max_workers=conc) as ex: list(ex.map(cont,sel))
 # ---------- main ----------
 if __name__=="__main__":
-    ap=argparse.ArgumentParser(); ap.add_argument("--list",default=os.path.join(ROOT,"run_list_remote.txt")); ap.add_argument("--cores",type=int); ap.add_argument("--test-push",action="store_true",help="in --test mode also exercise the commit/push to origin")
+    ap=argparse.ArgumentParser(); ap.add_argument("--list",default=os.path.join(ROOT,"run_list_remote.txt")); ap.add_argument("--cores",type=int); ap.add_argument("--test-push",action="store_true",help="in --test mode also exercise the commit/push to origin"); ap.add_argument("--reverse",action="store_true",help="run the list in reverse order (a second machine sharing the same list runs it forward; each skips cases the other has pushed)")
     ap.add_argument("--no-push",action="store_true"); ap.add_argument("--test",action="store_true"); a=ap.parse_args()
     check_env(); phys,logical,free_gb,load=resources(); log("resources: %d physical cores, %d logical, %.1f GB available, load %.1f"%(phys,logical,free_gb,load))
     ids=[l.strip() for l in open(a.list) if l.strip() and not l.startswith("#")]; ids_all=list(ids)
+    if a.reverse: ids=ids[::-1]
     if a.test: ids=ids[:1]; a.no_push=not a.test_push; log("TEST MODE: %s for 60 iterations, %s"%(ids[0],"push exercised" if a.test_push else "no push"))
     a.ranks=8   # fixed: system/decomposeParDict of every audited case has numberOfSubdomains 8
     if a.test and not a.cores: a.cores=8
