@@ -107,6 +107,24 @@ def done_elsewhere(cid,a):
     with PUSH_LOCK:
         git_repair(); sh("git fetch -q origin main >/dev/null 2>&1 && (git rebase -q origin/main >/dev/null 2>&1 || git rebase --abort >/dev/null 2>&1); true",cwd=REPO)
     return os.path.exists(os.path.join(ROOT,"results",cid+".tar.gz")) and not os.path.exists(os.path.join(ROOT,"cases",cid,"DONE"))
+def running_ledger(a):
+    """Post-process every finished case of this machine into results/ledger_remote.csv and a short summary (pushed with the case)."""
+    done=[os.path.join(ROOT,"cases",c) for c in sorted(os.listdir(os.path.join(ROOT,"cases"))) if os.path.exists(os.path.join(ROOT,"cases",c,"DONE"))]
+    if not done: return
+    os.makedirs(os.path.join(ROOT,"results"),exist_ok=True)
+    env=dict(os.environ,POST_OUT=os.path.join(ROOT,"results","ledger_%s.csv"%os.uname().nodename.split(".")[0]))
+    rc=sh(PRE+"python3 post_campaign.py "+" ".join(done),cwd=ROOT,logfile=os.path.join(ROOT,"results","post_campaign_%s.log"%os.uname().nodename.split(".")[0]),env=env)
+    try:
+        import csv; rows=list(csv.DictReader(open(os.path.join(ROOT,"results","ledger_%s.csv"%os.uname().nodename.split(".")[0]))))
+        acc=sum(r.get("accepted")=="True" for r in rows); conv=sum(r.get("converged")=="True" for r in rows); env_=sum(r.get("passed_validity_envelope")=="y" for r in rows)
+        lines=["# Remote share: running summary (%s, host %s)"%(time.strftime("%F %T"),os.uname().nodename),"","cases finished on this machine %d of the %d listed | inside envelope %d | converged %d | accepted %d"%(len(rows),len(ids_all),env_,conv,acc),"",
+               "| case | fluid | OR | Re_ch | P [W] | it. | stop | wall max [C] | Phi_in | Phi_out | Nu | R_th [K/W] | dp [Pa] | energy [%] | accepted |","|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+        for r in rows:
+            c=os.path.join(ROOT,"cases",r["case_id"]); stop="conv" if os.path.exists(c+"/CONVERGED_STOP") else ("envelope" if os.path.exists(c+"/ENVELOPE_STOP") else "cap")
+            f=lambda k,d=3: ("%%.%dg"%d)%float(r[k]) if r.get(k) not in (None,"","nan","MISSING") else "n/a"
+            lines.append("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |"%(r["case_id"],r["fluid"],r["OR"],r["Re_ch"],r["P_sink_W"],r["iterations"],stop,"%.1f"%(float(r["T_wall_max_K"])-273.15),f("Phi_in"),f("Phi_out"),f("Nu"),f("R_th_K_W"),f("dp_field",4),f("energy_balance_pct",2),r["accepted"]))
+        open(os.path.join(ROOT,"results","summary_%s.md"%os.uname().nodename.split(".")[0]),"w").write("\n".join(lines)+"\n")
+    except Exception as e: log("running summary failed: %s"%e)
 def run_case(cid,a,endtime=None):
     d=os.path.join(ROOT,"cases",cid)
     if os.path.exists(os.path.join(d,"DONE")): log("%s skip (done)"%cid); return
