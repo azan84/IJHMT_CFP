@@ -1,0 +1,10 @@
+2026-09-04 23:33:15 environment: OpenFOAM v2406; mpirun mpirun (Open MPI) 4.1.6
+2026-09-04 23:33:15 resources: 8 physical cores, 16 logical, 15.6 GB available, load 1.4
+2026-09-04 23:33:19 using 8 cores: 1 concurrent cases x 8 ranks
+2026-09-04 23:34:37 checked 87 cases; 35 with differences
+2026-09-04 23:41:18 environment: OpenFOAM v2406; mpirun mpirun (Open MPI) 4.1.6
+2026-09-04 23:41:18 resources: 8 physical cores, 16 logical, 15.6 GB available, load 0.1
+2026-09-04 23:41:21 using 8 cores: 1 concurrent cases x 8 ranks
+2026-09-04 23:41:21 checked 87 cases; 0 with differences; 35 numeric-equivalent
+2026-09-04 23:41:21 C091 start
+2026-09-05 00:03:03 C091 done rc=0 4053 iterations, envelope stop, 1302 s
