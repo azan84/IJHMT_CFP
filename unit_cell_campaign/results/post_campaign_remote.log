@@ -1,8 +1,9 @@
-wrote /mnt/e/ijhmt-cfp/Paper-5/cfd/IJHMT_CFP_runner/unit_cell_campaign/results/ledger_remote.csv 9 rows
+wrote /mnt/e/ijhmt-cfp/Paper-5/cfd/IJHMT_CFP_runner/unit_cell_campaign/results/ledger_remote.csv 10 rows
 F001 OR 0.0 Re 40 | dp 305.5 Pa Phi_in 0.0000 Phi_mid 0.0000 | split 0% energy 0.0689% | Tbase max 35.71 C wall max 35.27 C | Nu 8.822 h 316.4 | R_base 0.01529 | it 1800 res_met True stat True acc True
 F002 OR 0.1930501930501931 Re 40 | dp 61.12 Pa Phi_in 0.4096 Phi_mid 0.8107 | split 1.18e-14% energy 0.0769% | Tbase max 45.90 C wall max 45.50 C | Nu 8.074 h 288.7 | R_base 0.02986 | it 10240 res_met True stat True acc True
 F003 OR 0.3236245954692557 Re 40 | dp 12.02 Pa Phi_in 0.6780 Phi_mid 0.9563 | split 1.96e-06% energy 10.1% | Tbase max 71.29 C wall max 70.91 C | Nu 7.261 h 257.3 | R_base 0.06613 | it 4008 res_met False stat False acc False
 F004 OR 0.4768460575719651 Re 40 | dp 2.975 Pa Phi_in 0.8426 Phi_mid 0.9921 | split 2.18e-07% energy 1.46% | Tbase max 103.83 C wall max 103.43 C | Nu 6.206 h 216.7 | R_base 0.11261 | it 4078 res_met False stat False acc False
+X009 OR 0.65 Re 125 | dp 5.083 Pa Phi_in 0.8856 Phi_mid 0.9998 | split 2.04e-06% energy 5.12% | Tbase max 103.26 C wall max 102.94 C | Nu 7.635 h 272.3 | R_base 0.11180 | it 4002 res_met False stat False acc False
 X010 OR 0.85 Re 15 | dp 4482 Pa Phi_in 0.5040 Phi_mid 0.9676 | split 335% energy 2.91e+04% | Tbase max 8353.38 C wall max 271590157726.85 C | Nu nan h nan | R_base 11.89769 | it 1875 res_met False stat False acc False
 X011 OR 0.85 Re 55 | dp 0.134 Pa Phi_in 0.9799 Phi_mid 0.9993 | split 2.1e-07% energy 16.7% | Tbase max 369.17 C wall max 368.74 C | Nu 2.170 h 83.4 | R_base 0.49168 | it 4028 res_met False stat True acc False
 X012 OR 0.85 Re 200 | dp 0.895 Pa Phi_in 0.9638 Phi_mid 0.9997 | split 4.73e-07% energy 4.94% | Tbase max 208.11 C wall max 207.72 C | Nu 5.615 h 215.7 | R_base 0.26158 | it 4032 res_met False stat False acc False
