@@ -1,6 +1,6 @@
-# Remote share: running summary (2026-09-05 03:34:19)
+# Remote share: running summary (2026-09-05 03:42:00)
 
-cases finished 16 of 87 | inside envelope 6 | converged 4 | accepted 4
+cases finished 17 of 87 | inside envelope 6 | converged 4 | accepted 4
 
 | case | fluid | OR | Re_ch | P [W] | it. | stop | wall max [C] | Phi_in | Phi_out | Nu | R_th [K/W] | dp [Pa] | energy [%] | accepted |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -8,6 +8,7 @@ cases finished 16 of 87 | inside envelope 6 | converged 4 | accepted 4
 | F002 | FC-40 | 0.1930501930501931 | 40 | 700.0 | 10240 | conv | 45.5 | 0.41 | 0.852 | 8.07 | 0.0359 | 61.12 | 0.077 | True |
 | F003 | FC-40 | 0.3236245954692557 | 40 | 700.0 | 4008 | envelope | 70.9 | 0.678 | 0.955 | 7.26 | 0.0721 | 12.02 | 10 | False |
 | F004 | FC-40 | 0.4768460575719651 | 40 | 700.0 | 4078 | envelope | 103.4 | 0.843 | 0.989 | 6.21 | 0.119 | 2.975 | 1.5 | False |
+| X001 | FC-40 | 0.15 | 7 | 700.0 | 4085 | envelope | 71.1 | 0.584 | 0.743 | 6.46 | 0.0724 | 4.853 | 2.4 | False |
 | X003 | FC-40 | 0.15 | 125 | 700.0 | 2073 | conv | 33.8 | 0.267 | 0.667 | 9.39 | 0.0191 | 436.5 | 0.075 | True |
 | X004 | FC-40 | 0.35 | 15 | 700.0 | 4052 | envelope | 110.5 | 0.792 | 0.971 | 5.89 | 0.129 | 1.595 | 2.1 | False |
 | X005 | FC-40 | 0.35 | 55 | 700.0 | 12000 | cap | 64.9 | 0.717 | 0.98 | 8.18 | 0.0636 | 18.18 | 0.036 | False |
