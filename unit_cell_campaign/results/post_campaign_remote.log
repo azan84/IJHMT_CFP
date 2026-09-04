@@ -1,10 +1,11 @@
-wrote /mnt/e/ijhmt-cfp/Paper-5/cfd/IJHMT_CFP_runner/unit_cell_campaign/results/ledger_remote.csv 15 rows
+wrote /mnt/e/ijhmt-cfp/Paper-5/cfd/IJHMT_CFP_runner/unit_cell_campaign/results/ledger_remote.csv 16 rows
 F001 OR 0.0 Re 40 | dp 305.5 Pa Phi_in 0.0000 Phi_mid 0.0000 | split 0% energy 0.0689% | Tbase max 35.71 C wall max 35.27 C | Nu 8.822 h 316.4 | R_base 0.01529 | it 1800 res_met True stat True acc True
 F002 OR 0.1930501930501931 Re 40 | dp 61.12 Pa Phi_in 0.4096 Phi_mid 0.8107 | split 1.18e-14% energy 0.0769% | Tbase max 45.90 C wall max 45.50 C | Nu 8.074 h 288.7 | R_base 0.02986 | it 10240 res_met True stat True acc True
 F003 OR 0.3236245954692557 Re 40 | dp 12.02 Pa Phi_in 0.6780 Phi_mid 0.9563 | split 1.96e-06% energy 10.1% | Tbase max 71.29 C wall max 70.91 C | Nu 7.261 h 257.3 | R_base 0.06613 | it 4008 res_met False stat False acc False
 F004 OR 0.4768460575719651 Re 40 | dp 2.975 Pa Phi_in 0.8426 Phi_mid 0.9921 | split 2.18e-07% energy 1.46% | Tbase max 103.83 C wall max 103.43 C | Nu 6.206 h 216.7 | R_base 0.11261 | it 4078 res_met False stat False acc False
 X003 OR 0.15 Re 125 | dp 436.5 Pa Phi_in 0.2672 Phi_mid 0.5633 | split 0% energy 0.0751% | Tbase max 34.19 C wall max 33.75 C | Nu 9.393 h 331.9 | R_base 0.01312 | it 2073 res_met True stat True acc True
 X004 OR 0.35 Re 15 | dp 1.595 Pa Phi_in 0.7921 Phi_mid 0.9739 | split 5.66e-07% energy 2.12% | Tbase max 110.83 C wall max 110.46 C | Nu 5.889 h 203.0 | R_base 0.12262 | it 4052 res_met False stat False acc False
+X005 OR 0.35 Re 55 | dp 18.18 Pa Phi_in 0.7171 Phi_mid 0.9663 | split 1.29e-07% energy 0.0361% | Tbase max 65.31 C wall max 64.94 C | Nu 8.180 h 288.4 | R_base 0.05758 | it 12000 res_met False stat True acc False
 X006 OR 0.35 Re 200 | dp 208.2 Pa Phi_in 0.5650 Phi_mid 0.8908 | split 1.77e-07% energy 0.0845% | Tbase max 37.52 C wall max 37.10 C | Nu 8.810 h 313.6 | R_base 0.01788 | it 7061 res_met True stat True acc True
 X007 OR 0.65 Re 7 | dp 0.05 Pa Phi_in 0.9696 Phi_mid 0.9987 | split 4.56e-07% energy 14.2% | Tbase max 511.72 C wall max 511.27 C | Nu 1.098 h 38.9 | R_base 0.69531 | it 4016 res_met False stat False acc False
 X008 OR 0.65 Re 85 | dp 1.979 Pa Phi_in 0.8929 Phi_mid 0.9996 | split 6e-07% energy 5.45% | Tbase max 121.31 C wall max 120.89 C | Nu 6.093 h 215.8 | R_base 0.13759 | it 4053 res_met False stat False acc False
