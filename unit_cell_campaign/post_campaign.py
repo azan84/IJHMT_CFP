@@ -61,7 +61,8 @@ def process(case):
     T_in=u.T_IN; out["T_in_K"]=T_in; out["T_out_bulk_K"]=last(Tout); out["T_wall_mean_K"]=last(Tw); out["T_wall_max_K"]=last(Twmax); out["T_base_mean_K"]=last(Tb); out["T_base_max_K"]=last(Tbmax)
     # post-hoc face-zone bulk temperatures and fluxes at the sink leading and trailing edges (posthoc_zone_T.py)
     pz=os.path.join(case,"posthoc_zoneT.json")
-    if not (os.path.exists(pz) and os.path.getmtime(pz)>os.path.getmtime(os.path.join(case,"DONE"))) and os.path.exists(os.path.join(case,"DONE")):
+    dn=os.path.join(case,"DONE")
+    if os.path.exists(dn) and not (os.path.exists(pz) and os.path.getmtime(pz)>os.path.getmtime(dn)):   # a case without DONE (running) keeps whatever extraction it has
         import posthoc_zone_T; posthoc_zone_T.process(case)
     Z=json.load(open(pz)) if os.path.exists(pz) else {}
     out["T_ch_in_K"]=Z.get("T_chanIn_K",float("nan")); out["T_ch_out_K"]=Z.get("T_chanOut_K",float("nan")); out["T_cl_out_K"]=Z.get("T_clearOut_K",float("nan"))
@@ -115,6 +116,7 @@ if __name__=="__main__":
     rows=[]
     for c in cases:
         if not os.path.exists(os.path.join(c,"case_meta.json")): continue
+        if len(sys.argv)<2 and not os.path.exists(os.path.join(c,"DONE")): continue   # the campaign ledger holds finished cases only
         r=process(c); r["partitions"]=parts.get(r["case_id"],"pilot"); rows.append(r)
     # ledger columns for the refit scripts
     for r in rows:
