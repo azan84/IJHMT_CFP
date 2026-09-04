@@ -53,6 +53,9 @@ throughput optimum was three concurrent cases (1.5 ranks per physical core). Pas
 
 ## Results
 
+After every case the runner also rewrites `results/ledger_remote.csv` (one post-processed row per finished remote
+case: bypass fractions, Nusselt number, thermal resistance, pressure drop, closures, acceptance) and
+`results/summary_remote.md` (a table of the same, readable on GitHub), and pushes them with the case.
 `results/<case>.tar.gz` holds `postProcessing/` (all monitors), the solver, mesh and watchdog logs, `DONE`
 (return code, wall time, iterations, host), the stop marker (`CONVERGED_STOP`, `ENVELOPE_STOP` or none = cap),
 `posthoc_zoneT.json`, `case_meta.json` and the dictionaries as run. On the originating machine

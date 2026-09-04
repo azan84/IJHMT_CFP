@@ -89,6 +89,23 @@ def push(msg,nopush):
             rc=sh(st,cwd=REPO,logfile=os.path.join(ROOT,"git_push.log"))
             if rc!=0: log("PUSH FAILED at '%s' (rc %d, see git_push.log); results stay in %s/results and are pushed with the next case"%(st.split()[1],rc,rel)); return False
     return True
+def running_ledger(a):
+    """Post-process every finished remote case into results/ledger_remote.csv and a short summary (pushed with the case)."""
+    done=[os.path.join(ROOT,"cases",c) for c in sorted(os.listdir(os.path.join(ROOT,"cases"))) if os.path.exists(os.path.join(ROOT,"cases",c,"DONE"))]
+    if not done: return
+    env=dict(os.environ,POST_OUT=os.path.join(ROOT,"results","ledger_remote.csv"))
+    rc=sh(PRE+"python3 post_campaign.py "+" ".join(done),cwd=ROOT,logfile=os.path.join(ROOT,"results","post_campaign_remote.log"),env=env)
+    try:
+        import csv; rows=list(csv.DictReader(open(os.path.join(ROOT,"results","ledger_remote.csv"))))
+        acc=sum(r.get("accepted")=="True" for r in rows); conv=sum(r.get("converged")=="True" for r in rows); env_=sum(r.get("passed_validity_envelope")=="y" for r in rows)
+        lines=["# Remote share: running summary (%s)"%time.strftime("%F %T"),"","cases finished %d of %d | inside envelope %d | converged %d | accepted %d"%(len(rows),len(ids_all),env_,conv,acc),"",
+               "| case | fluid | OR | Re_ch | P [W] | it. | stop | wall max [C] | Phi_in | Phi_out | Nu | R_th [K/W] | dp [Pa] | energy [%] | accepted |","|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+        for r in rows:
+            c=os.path.join(ROOT,"cases",r["case_id"]); stop="conv" if os.path.exists(c+"/CONVERGED_STOP") else ("envelope" if os.path.exists(c+"/ENVELOPE_STOP") else "cap")
+            f=lambda k,d=3: ("%%.%dg"%d)%float(r[k]) if r.get(k) not in (None,"","nan","MISSING") else "n/a"
+            lines.append("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |"%(r["case_id"],r["fluid"],r["OR"],r["Re_ch"],r["P_sink_W"],r["iterations"],stop,"%.1f"%(float(r["T_wall_max_K"])-273.15),f("Phi_in"),f("Phi_out"),f("Nu"),f("R_th_K_W"),f("dp_field",4),f("energy_balance_pct",2),r["accepted"]))
+        open(os.path.join(ROOT,"results","summary_remote.md"),"w").write("\n".join(lines)+"\n")
+    except Exception as e: log("running summary failed: %s"%e)
 def run_case(cid,a,endtime=None):
     d=os.path.join(ROOT,"cases",cid)
     if os.path.exists(os.path.join(d,"DONE")): log("%s skip (done)"%cid); return
@@ -106,7 +123,7 @@ def run_case(cid,a,endtime=None):
     sh(PRE+"python3 posthoc_zone_T.py %s"%d,cwd=ROOT,logfile=os.path.join(d,"log.posthoc"))
     stop="converged" if os.path.exists(os.path.join(d,"CONVERGED_STOP")) else ("envelope" if os.path.exists(os.path.join(d,"ENVELOPE_STOP")) else "cap")
     log("%s done rc=%s %s iterations, %s stop, %.0f s"%(cid,rc,its,stop,time.time()-t0))
-    pack(cid); push("results: %s (%s, %s iterations)"%(cid,stop,its),a.no_push)
+    pack(cid); running_ledger(a); push("results: %s (%s, %s iterations)"%(cid,stop,its),a.no_push)
 def run_all(ids,a,conc,endtime=None):
     import concurrent.futures as cf
     with cf.ThreadPoolExecutor(max_workers=conc) as ex: list(ex.map(lambda c: run_case(c,a,endtime),ids))
@@ -132,7 +149,7 @@ def continuation(a,conc):
         if os.path.exists(os.path.join(d,"CONTINUE")): os.remove(os.path.join(d,"CONTINUE"))
         sh(PRE+"python3 posthoc_zone_T.py %s"%d,cwd=ROOT,logfile=os.path.join(d,"log.posthoc"))
         stop="converged" if os.path.exists(os.path.join(d,"CONVERGED_STOP")) else "cap"
-        log("%s continued (pass %d): %s more iterations, %s stop, %.0f s"%(cid,n+1,its,stop,time.time()-t0)); pack(cid); push("results: %s continued pass %d (%s iterations, %s)"%(cid,n+1,its,stop),a.no_push)
+        log("%s continued (pass %d): %s more iterations, %s stop, %.0f s"%(cid,n+1,its,stop,time.time()-t0)); pack(cid); running_ledger(a); push("results: %s continued pass %d (%s iterations, %s)"%(cid,n+1,its,stop),a.no_push)
     import concurrent.futures as cf
     with cf.ThreadPoolExecutor(max_workers=conc) as ex: list(ex.map(cont,sel))
 # ---------- main ----------
@@ -140,7 +157,7 @@ if __name__=="__main__":
     ap=argparse.ArgumentParser(); ap.add_argument("--list",default=os.path.join(ROOT,"run_list_remote.txt")); ap.add_argument("--cores",type=int); ap.add_argument("--test-push",action="store_true",help="in --test mode also exercise the commit/push to origin")
     ap.add_argument("--no-push",action="store_true"); ap.add_argument("--test",action="store_true"); a=ap.parse_args()
     check_env(); phys,logical,free_gb,load=resources(); log("resources: %d physical cores, %d logical, %.1f GB available, load %.1f"%(phys,logical,free_gb,load))
-    ids=[l.strip() for l in open(a.list) if l.strip() and not l.startswith("#")]
+    ids=[l.strip() for l in open(a.list) if l.strip() and not l.startswith("#")]; ids_all=list(ids)
     if a.test: ids=ids[:1]; a.no_push=not a.test_push; log("TEST MODE: %s for 60 iterations, %s"%(ids[0],"push exercised" if a.test_push else "no push"))
     a.ranks=8   # fixed: system/decomposeParDict of every audited case has numberOfSubdomains 8
     if a.test and not a.cores: a.cores=8

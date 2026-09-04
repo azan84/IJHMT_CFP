@@ -121,7 +121,7 @@ if __name__=="__main__":
         r.update(dict(Re_recomputed_ch_Eq1_140mm=r["Re_ch"],Pr=r["Pr_inlet"],phi_field=r["Phi_in"],Nu_field=r["Nu"],Rth_field=r["R_th_K_W"],k=r["k_film"],D_h=r["D_h_m"],A_wetted=r["A_wetted_full_m2"],t_fin=u.TF,H_fin=r["H_fin_m"],
                       D_h_over_L=r["D_h_m"]/u.L,Re_label=r["Re_ch"],geometry_label="Plate-Fin",P_TDP=r["P_sink_W"],Tchip_field=r["T_chip_max_C"],dp_field=r["dp_sink_Pa"],Q_LPM=r["Q_full_sink_LPM"],
                       thermal_data_source="chtMultiRegionSimpleFoam unit cell (this campaign)"))
-    out=os.path.join(ROOT,"dataset_ledger_unitcell.csv") if len(sys.argv)<2 else os.path.join(ROOT,"pilot_results.csv")
+    out=os.environ.get("POST_OUT") or (os.path.join(ROOT,"dataset_ledger_unitcell.csv") if len(sys.argv)<2 else os.path.join(ROOT,"pilot_results.csv"))   # POST_OUT overrides the output path
     keys=sorted({k for r in rows for k in r},key=lambda k:(k!="case_id",k))
     with open(out,"w",newline="") as f:
         w=csv.DictWriter(f,fieldnames=keys); w.writeheader(); [w.writerow(r) for r in rows]
