@@ -1,10 +1,10 @@
-# Whole campaign: running summary (2026-09-04 23:50:52)
+# Whole campaign: running summary (2026-09-05 00:11:53)
 
-cases finished 90 of 177 | inside envelope 34 | converged 34 | accepted 34
+cases finished 91 of 177 | inside envelope 34 | converged 34 | accepted 34
 
 | partition | finished | inside envelope | converged | accepted |
 |---|---|---|---|---|
-| calibration | 90 | 34 | 34 | 34 |
+| calibration | 91 | 34 | 34 | 34 |
 
 Acceptance map of the FC-40 calibration grid (A accepted, n inside the envelope but not converged, h outside the envelope, . not yet run):
 
@@ -20,4 +20,4 @@ Acceptance map of the FC-40 calibration grid (A accepted, n inside the envelope 
 | 0.7 | h | h | h | h | h | h | h | h | h |
 | 0.8 | h | h | h | h | h | h | h | h | h |
 | 0.9 | h | h | h | h | h | h | h | h | h |
-| 1.0 | . | . | . | . | . | . | . | . | . |
+| 1.0 | h | . | . | . | . | . | . | . | . |
