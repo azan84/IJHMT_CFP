@@ -29,12 +29,21 @@ The remaining 90 cases run on the originating workstation.
 
 ## Run
 
+One file: copy `run_remote_share.py` (repository root) to the machine and run
+
+```bash
+python3 run_remote_share.py --test    # clones the repository, builds and runs the first case for 60 iterations
+python3 run_remote_share.py           # asks how many cores to use, builds and verifies the 87 cases, runs them,
+                                      # pushes results/<case>.tar.gz after every case, then the continuation pass
+```
+
+or by hand:
+
 ```bash
 git clone git@github.com:azan84/IJHMT_CFP.git
 cd IJHMT_CFP/unit_cell_campaign
-python3 remote_run.py --test          # builds and runs the first case for 60 iterations: checks the whole pipeline
-python3 remote_run.py                 # asks how many cores to use, builds and verifies the 87 cases, runs them,
-                                      # pushes results/<case>.tar.gz after every case, then the continuation pass
+python3 remote_run.py --test
+python3 remote_run.py
 ```
 
 `remote_run.py` detects physical cores, available RAM and the current load and proposes a default; each case uses
