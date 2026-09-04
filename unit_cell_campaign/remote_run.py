@@ -80,43 +80,37 @@ def pack(cid):
             p=k if os.path.isabs(k) else os.path.join(d,k)
             if os.path.exists(p): t.add(p,arcname=os.path.join(cid,os.path.relpath(p,d)))
     return tgz
+def git_repair():
+    """Leave no rebase or merge half done, and drop edits to the legacy tracked run log of earlier versions."""
+    sh("git rebase --abort >/dev/null 2>&1; git merge --abort >/dev/null 2>&1; git checkout -q -- unit_cell_campaign/remote_run.log >/dev/null 2>&1; true",cwd=REPO)
 def push(msg,nopush):
-    """Commit results/ and the run log and push to origin main; failures are logged and retried with the next case."""
+    """Snapshot this machine's run log into results/, commit results/, rebase on origin and push. The live log is not
+    tracked (it changes while git runs), so the working tree stays clean; if the rebase cannot apply, the local commits
+    are replayed as one commit on top of origin (result files are per case, so nothing conflicts). Failures are logged
+    and retried with the next case."""
     if nopush: return
-    rel=os.path.relpath(ROOT,REPO)
+    rel=os.path.relpath(ROOT,REPO); msg=msg.replace("'","")
     with PUSH_LOCK:
-        steps=["git add -A %s/results %s/%s"%(rel,rel,LOGNAME),"git diff --cached --quiet || git commit -q -m '%s'"%msg.replace("'",""),"git pull -q --rebase origin main","git push -q origin HEAD:main"]
+        git_repair(); LOG.flush(); shutil.copy(os.path.join(ROOT,LOGNAME),os.path.join(ROOT,"results",LOGNAME))
+        add="git add -A %s/results"%rel
+        steps=[add,"git diff --cached --quiet || git commit -q -m '%s'"%msg,"git fetch -q origin main",
+               "git rebase -q origin/main || (git rebase --abort; git reset -q --soft origin/main && %s && (git diff --cached --quiet || git commit -q -m '%s (replayed on origin)'))"%(add,msg),
+               "git push -q origin HEAD:main"]
         for st in steps:
             rc=sh(st,cwd=REPO,logfile=os.path.join(ROOT,"git_push.log"))
             if rc!=0: log("PUSH FAILED at '%s' (rc %d, see git_push.log); results stay in %s/results and are pushed with the next case"%(st.split()[1],rc,rel)); return False
     return True
-def running_ledger(a):
-    """Post-process every finished remote case into results/ledger_remote.csv and a short summary (pushed with the case)."""
-    done=[os.path.join(ROOT,"cases",c) for c in sorted(os.listdir(os.path.join(ROOT,"cases"))) if os.path.exists(os.path.join(ROOT,"cases",c,"DONE"))]
-    if not done: return
-    env=dict(os.environ,POST_OUT=os.path.join(ROOT,"results","ledger_remote.csv"))
-    rc=sh(PRE+"python3 post_campaign.py "+" ".join(done),cwd=ROOT,logfile=os.path.join(ROOT,"results","post_campaign_remote.log"),env=env)
-    try:
-        import csv; rows=list(csv.DictReader(open(os.path.join(ROOT,"results","ledger_remote.csv"))))
-        acc=sum(r.get("accepted")=="True" for r in rows); conv=sum(r.get("converged")=="True" for r in rows); env_=sum(r.get("passed_validity_envelope")=="y" for r in rows)
-        lines=["# Remote share: running summary (%s)"%time.strftime("%F %T"),"","cases finished %d of %d | inside envelope %d | converged %d | accepted %d"%(len(rows),len(ids_all),env_,conv,acc),"",
-               "| case | fluid | OR | Re_ch | P [W] | it. | stop | wall max [C] | Phi_in | Phi_out | Nu | R_th [K/W] | dp [Pa] | energy [%] | accepted |","|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
-        for r in rows:
-            c=os.path.join(ROOT,"cases",r["case_id"]); stop="conv" if os.path.exists(c+"/CONVERGED_STOP") else ("envelope" if os.path.exists(c+"/ENVELOPE_STOP") else "cap")
-            f=lambda k,d=3: ("%%.%dg"%d)%float(r[k]) if r.get(k) not in (None,"","nan","MISSING") else "n/a"
-            lines.append("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |"%(r["case_id"],r["fluid"],r["OR"],r["Re_ch"],r["P_sink_W"],r["iterations"],stop,"%.1f"%(float(r["T_wall_max_K"])-273.15),f("Phi_in"),f("Phi_out"),f("Nu"),f("R_th_K_W"),f("dp_field",4),f("energy_balance_pct",2),r["accepted"]))
-        open(os.path.join(ROOT,"results","summary_remote.md"),"w").write("\n".join(lines)+"\n")
-    except Exception as e: log("running summary failed: %s"%e)
 def done_elsewhere(cid,a):
     """True when another machine has already pushed results/<cid>.tar.gz (the list can be shared between machines running
-    it in opposite orders); a quick fetch keeps the check current. Never true in --test mode or with --no-push."""
+    it in opposite orders); a quick fetch keeps the check current. Never true with --no-push."""
     if a.no_push: return False
-    with PUSH_LOCK: sh("git pull -q --rebase origin main >/dev/null 2>&1 || git fetch -q origin main >/dev/null 2>&1",cwd=REPO)
+    with PUSH_LOCK:
+        git_repair(); sh("git fetch -q origin main >/dev/null 2>&1 && (git rebase -q origin/main >/dev/null 2>&1 || git rebase --abort >/dev/null 2>&1); true",cwd=REPO)
     return os.path.exists(os.path.join(ROOT,"results",cid+".tar.gz")) and not os.path.exists(os.path.join(ROOT,"cases",cid,"DONE"))
 def run_case(cid,a,endtime=None):
     d=os.path.join(ROOT,"cases",cid)
     if os.path.exists(os.path.join(d,"DONE")): log("%s skip (done)"%cid); return
-    if done_elsewhere(cid,a): log("%s skip (results already in the repository from another machine)"%cid); return
+    if not a.test and done_elsewhere(cid,a): log("%s skip (results already in the repository from another machine)"%cid); return
     if endtime:
         cd=os.path.join(d,"system/controlDict"); s=open(cd).read(); s=re.sub(r"endTime\s+\d+;","endTime %d;"%endtime,s,count=1); s=re.sub(r"writeInterval\s+\d+;","writeInterval %d;"%endtime,s,count=1); open(cd,"w").write(s)   # test mode: write the fields at the (short) end time
     t0=time.time(); log("%s start"%cid)
@@ -179,7 +173,7 @@ def continuation(a,conc):
 if __name__=="__main__":
     ap=argparse.ArgumentParser(); ap.add_argument("--list",default=os.path.join(ROOT,"run_list_remote.txt")); ap.add_argument("--cores",type=int); ap.add_argument("--test-push",action="store_true",help="in --test mode also exercise the commit/push to origin"); ap.add_argument("--reverse",action="store_true",help="run the list in reverse order (a second machine sharing the same list runs it forward; each skips cases the other has pushed)")
     ap.add_argument("--no-push",action="store_true"); ap.add_argument("--test",action="store_true"); a=ap.parse_args()
-    check_env(); phys,logical,free_gb,load=resources(); log("resources: %d physical cores, %d logical, %.1f GB available, load %.1f"%(phys,logical,free_gb,load))
+    git_repair(); check_env(); phys,logical,free_gb,load=resources(); log("resources: %d physical cores, %d logical, %.1f GB available, load %.1f"%(phys,logical,free_gb,load))
     ids=[l.strip() for l in open(a.list) if l.strip() and not l.startswith("#")]; ids_all=list(ids)
     if a.reverse: ids=ids[::-1]
     if a.test: ids=ids[:1]; a.no_push=not a.test_push; log("TEST MODE: %s for 60 iterations, %s"%(ids[0],"push exercised" if a.test_push else "no push"))

@@ -19,7 +19,10 @@ if not os.path.isdir(os.path.join(CLONE,".git")):
         if run("git clone --filter=blob:none --sparse %s %s"%(HTTPS,CLONE))!=0: sys.exit("clone failed")
     run("git sparse-checkout set unit_cell_campaign",cwd=CLONE)
 else:
-    run("git pull --rebase origin main",cwd=CLONE)
+    run("git rebase --abort >/dev/null 2>&1; git merge --abort >/dev/null 2>&1; git checkout -q -- unit_cell_campaign/remote_run.log >/dev/null 2>&1; true",cwd=CLONE)   # repair a half-done rebase or a dirty legacy log
+    if run("git pull -q --rebase origin main",cwd=CLONE)!=0:
+        print("pull --rebase failed; replaying local result commits on top of origin")
+        run("git rebase --abort >/dev/null 2>&1; git fetch -q origin main && git reset -q --soft origin/main && git add -A unit_cell_campaign/results && (git diff --cached --quiet || git commit -q -m 'results: replayed on origin') && git push -q origin HEAD:main",cwd=CLONE)
 run("git config user.name >/dev/null || git config user.name 'remote runner'; git config user.email >/dev/null || git config user.email 'remote-runner@localhost'",cwd=CLONE)
 script=os.path.join(CLONE,"unit_cell_campaign","remote_run.py")
 if not os.path.exists(script): sys.exit("unit_cell_campaign/remote_run.py not found after the clone")

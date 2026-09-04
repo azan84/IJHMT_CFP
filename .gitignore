@@ -22,4 +22,3 @@ unit_cell_campaign/build_list.txt
 unit_cell_campaign/run_list_continue.txt
 unit_cell_campaign/*.log
 !unit_cell_campaign/remote_run.log
-!unit_cell_campaign/remote_run_*.log
