@@ -25,18 +25,17 @@ def git_repair_and_update():
     if run("git rebase -q origin/main",cwd=CLONE)!=0:
         print("rebase could not apply; replaying the local result files on top of origin/main")
         run("git rebase --abort >/dev/null 2>&1; git reset -q --soft origin/main && git add -A %s && (git diff --cached --quiet || git commit -q -m 'results: replayed on origin by the launcher')"%RES,cwd=CLONE)
-    if run("git status --porcelain | grep -q . && echo dirty || true",cwd=CLONE,quiet=True)==0: pass
     run("git push -q origin HEAD:main || echo 'push failed (the runner retries after every case)'",cwd=CLONE)
 if not shutil.which("git"): sys.exit("git is required (apt install git)")
-if not os.path.isdir(os.path.join(CLONE,".git")):
+FRESH=not os.path.isdir(os.path.join(CLONE,".git"))
+if FRESH:
     rc=run("git clone --filter=blob:none --sparse %s %s"%(SSH,CLONE))
     if rc!=0:
         print("SSH clone failed (no key for GitHub on this machine?); cloning over HTTPS. Results can then be pushed only with a token; use --no-push otherwise.")
         if run("git clone --filter=blob:none --sparse %s %s"%(HTTPS,CLONE))!=0: sys.exit("clone failed")
     run("git sparse-checkout set unit_cell_campaign",cwd=CLONE)
-else:
-    git_repair_and_update()
 run("git config user.name >/dev/null || git config user.name 'remote runner'; git config user.email >/dev/null || git config user.email 'remote-runner@localhost'",cwd=CLONE,quiet=True)
+if os.path.isdir(os.path.join(CLONE,".git")) and not FRESH: git_repair_and_update()
 # self-update: the repository's launcher replaces this file when it differs (once per start; the re-executed copy skips this step)
 me=os.path.abspath(__file__); repo_copy=os.path.join(CLONE,"run_remote_share.py")
 if os.path.exists(repo_copy) and not filecmp.cmp(me,repo_copy,shallow=False) and os.environ.get("RUN_REMOTE_SHARE_UPDATED")!="1":
