@@ -71,8 +71,19 @@ def build(ids,workers):
     if rc!=0: sys.exit("the freshly built cases differ from the audited local build (verify_build.log); not running")
 # ---------- 3 run ----------
 PUSH_LOCK=threading.Lock()
+def other_hosts_result(cid):
+    """True when results/<cid>.tar.gz already holds a run of another machine (both machines solved the case where they
+    met); that result stays, this machine's copy is kept locally under results_duplicate/."""
+    tgz=os.path.join(ROOT,"results",cid+".tar.gz")
+    if not os.path.exists(tgz): return False
+    try:
+        with tarfile.open(tgz) as t:
+            n=[m for m in t.getnames() if m.endswith("/DONE")]; done=t.extractfile(n[0]).read().decode() if n else ""
+        return ("host=" in done) and ("host=%s"%os.uname().nodename not in done)
+    except Exception: return False
 def pack(cid,a=None):
     test=bool(a and a.test); d=os.path.join(ROOT,"cases_test" if test else "cases",cid); res="results_test" if test else "results"
+    if not test and other_hosts_result(cid): res="results_duplicate"; log("%s was also solved on another machine; its result stays in the repository, this one is kept locally under results_duplicate/"%cid)
     os.makedirs(os.path.join(ROOT,res),exist_ok=True); tgz=os.path.join(ROOT,res,cid+".tar.gz")
     keep=["postProcessing","case_meta.json","DONE","CONVERGED_STOP","ENVELOPE_STOP","CONTINUE","posthoc_zoneT.json","system","constant/regionProperties","constant/g",
           "constant/fluid/thermophysicalProperties","constant/solid/thermophysicalProperties"]+glob.glob(os.path.join(d,"log.*"))+glob.glob(os.path.join(d,"*_pass*"))
@@ -83,7 +94,7 @@ def pack(cid,a=None):
     return tgz
 def git_repair():
     """Leave no rebase or merge half done, and drop edits to the legacy tracked run log of earlier versions."""
-    sh("git rebase --abort >/dev/null 2>&1; git merge --abort >/dev/null 2>&1; git checkout -q -- unit_cell_campaign/remote_run.log >/dev/null 2>&1; true",cwd=REPO)
+    sh("git rebase --abort >/dev/null 2>&1; git merge --abort >/dev/null 2>&1; rm -f .git/index.lock; git checkout -q -- unit_cell_campaign/remote_run.log >/dev/null 2>&1; true",cwd=REPO)
 def push(msg,nopush):
     """Snapshot this machine's run log into results/, commit results/, rebase on origin and push. The live log is not
     tracked (it changes while git runs), so the working tree stays clean; if the rebase cannot apply, the local commits
