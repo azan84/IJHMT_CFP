@@ -19,11 +19,12 @@ def run(L,a):
     D=L[usable&(L.fluid==a.fluid)&(L.geometry_label==a.topology)&(np.isclose(L.P_TDP.astype(float),a.p_tdp))].copy()
     if D.empty: print("BLOCKED: no rows on the basis fluid=%s topology=%s P_TDP=%g W"%(a.fluid,a.topology,a.p_tdp)); return 2
     D["Wpump_W"]=D.Q_LPM.astype(float)/60000*D.dp_field.astype(float)
-    sealed=D[np.isclose(D.OR.astype(float),0.0)]
+    sealed=D[np.isclose(D.OR.astype(float),0.0)&(D.partitions.astype(str).str.contains("calibration") if "partitions" in D else True)]   # the sealed reference comes from the calibration partition (the fixed-fin sweep also has a sealed case at Re 40)
     dup=sealed.Re_label.duplicated(); 
     if dup.any(): print("BLOCKED: more than one sealed row for Re_label",sealed.Re_label[dup].tolist()); return 2
     D["Rth_sealed"]=D.Re_label.map(sealed.set_index("Re_label").Rth_field)
-    if D.Rth_sealed.isna().any(): print("BLOCKED: rows without a sealed reference at the same Re_label:",D[D.Rth_sealed.isna()].Re_label.unique().tolist()); return 2
+    if D.Rth_sealed.isna().any():
+        drop=D[D.Rth_sealed.isna()]; print("NOTE: %d rows without a sealed calibration reference at the same Re_label are outside the constrained problem and are dropped from the map (Re_label %s)"%(len(drop),sorted(drop.Re_label.unique().tolist()))); D=D[D.Rth_sealed.notna()].copy()
     D["c_rth"]=D.Rth_field.astype(float)/D.Rth_sealed.astype(float); D["c_T"]=D.Tchip_field.astype(float)
     acc=D.accepted.astype(str).str.lower().isin(["true","1","y","yes"]) if "accepted" in D else (D.passed_validity_envelope=="y")   # closure checks and envelope
     D["feasible"]=(D.c_rth<=1+a.tol)&(D.c_T<=a.t_max)&(D.passed_validity_envelope=="y")&acc

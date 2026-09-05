@@ -1,5 +1,6 @@
 # PDF Files
 *.pdf
+!analysis/figures/*.pdf
 
 # Python bytecode and caches
 __pycache__/

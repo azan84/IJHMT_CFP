@@ -22,5 +22,11 @@ cross-combination cases inside the envelope still short of the acceptance residu
 continuation pass had not run); `refit_stats.csv` and the tables therefore hold the calibration set only, and the
 holdout, grid-study and fixed-fin statistics are absent until the campaign resumes.
 
+Paths in the scripts: they were written for the originating project tree (ledger under `cfd/unit_cell_campaign/`,
+outputs under `audit/`, `figures/` and `manuscript/tables/`); each takes its input ledger on the command line
+(`--ledger`, or the first argument for the figure and table scripts) and the fitting and design scripts take `--out`,
+so they run on `dataset_ledger_unitcell.csv` from this directory with those options. The design script uses the
+calibration partition for its sealed reference at each Reynolds level.
+
 `MANIFEST_sha256.txt` lists the SHA-256 of every file under `analysis/`, `../unit_cell_campaign/results/` and
 `../unit_cell_campaign/results_local/` at the time of the push.

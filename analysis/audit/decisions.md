@@ -368,3 +368,30 @@ Addendum (5 September 2026, 14:10): round 4 of the Gemini 3.7 Flash audit PASS
 removes a stale index.lock; where both machines solve the same case, the result that reached the repository
 first stays and the second is kept locally under results_duplicate/). The launcher and package are cleared
 for the second machine.
+
+Addendum (5 September 2026, 20:20): the four cases the workstation pushed at the pause (L011, L013, L014,
+L017) were imported and the ledger regenerated (133 rows; all 99 calibration cases finished, 34 accepted;
+three cross-combination cases inside the envelope await their continuation pass). The analysis outputs,
+the audit trail, the 90 workstation case results (monitors, logs, extraction; fields excluded) and a
+checksum manifest were pushed to the public repository under `analysis/` and
+`unit_cell_campaign/results_local/` (commits 6d5b23b and after). The manuscript build of 02:30 states 93
+finished calibration cases; the next build regenerates every count from the complete ledger.
+
+Addendum (5 September 2026, 20:50): a byte-level comparison of every result tarball in the repository with the
+local case directories (all 133 present) showed that the workstation's post-processing had re-run the
+version-2 zone extraction on two imported cases (C091, C092: monitors only, no fields on this machine),
+overwriting their extraction with values from the initial fields. `post_campaign.py` now runs the
+extraction only when a written time directory with fluid fields exists locally; the two cases were restored
+from their tarballs and the ledger regenerated (their Nu is undefined at OR = 1 in any case, and both are
+outside the envelope). Pushed with the corrected ledger and summary.
+
+Addendum (5 September 2026, 21:30): the repository completeness check by Gemini 3.7 Flash
+(`audit/upload_check_gemini.md`, INCOMPLETE) found, beyond the two re-extracted cases already fixed: the
+same contamination on X010 (imported, diverged on the shared list, no fields here), now cleaned to its
+tarball state for every imported case; the vector PDFs of the figures excluded by the repository's old
+`*.pdf` rule (now un-ignored for `analysis/figures/`); the unit-cell figure script missing from
+`analysis/scripts/`; the decision log copied before its last addendum (it is copied last from now on); and
+the design script blocked by the fixed-fin sealed case at Re 40 and by the off-grid Reynolds numbers of the
+cross-combination cases (it now takes its sealed reference from the calibration partition and drops rows
+without one, with a note; 13 feasible rows). Non-blocking: the scripts' project-relative paths are
+documented in `analysis/README.md`.
