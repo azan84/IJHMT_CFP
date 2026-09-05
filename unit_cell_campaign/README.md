@@ -32,7 +32,7 @@ The remaining 90 cases run on the originating workstation.
 One file: copy `run_remote_share.py` (repository root) to the machine and run
 
 ```bash
-python3 run_remote_share.py --test    # clones the repository, builds and runs the first case for 60 iterations
+python3 run_remote_share.py --test    # clones the repository, builds the cases and runs the first one for 60 iterations on a copy
 python3 run_remote_share.py           # asks how many cores to use, builds and verifies the 87 cases, runs them,
                                       # pushes results/<case>.tar.gz after every case, then the continuation pass
 ```
@@ -55,9 +55,12 @@ throughput optimum was three concurrent cases (1.5 ranks per physical core). Pas
 
 ## Results
 
-After every case the runner also rewrites `results/ledger_remote.csv` (one post-processed row per finished remote
-case: bypass fractions, Nusselt number, thermal resistance, pressure drop, closures, acceptance) and
-`results/summary_remote.md` (a table of the same, readable on GitHub), and pushes them with the case.
+After every case the runner also rewrites `results/ledger_<host>.csv` (one post-processed row per case finished on
+that machine: bypass fractions, Nusselt number, thermal resistance, pressure drop, closures, acceptance),
+`results/summary_<host>.md` (a table of the same, readable on GitHub) and a snapshot of its run log
+`results/remote_run_<host>.log`, and pushes them with the case. `--test` works on a copy of the first case under
+`cases_test/` and packs into `results_test/`, so a test never enters `results/`. The file `remote_run.log` at the
+campaign root is a legacy of the first runner version and is kept tracked but no longer written.
 `results/<case>.tar.gz` holds `postProcessing/` (all monitors), the solver, mesh and watchdog logs, `DONE`
 (return code, wall time, iterations, host), the stop marker (`CONVERGED_STOP`, `ENVELOPE_STOP` or none = cap),
 `posthoc_zoneT.json`, `case_meta.json` and the dictionaries as run. On the originating machine

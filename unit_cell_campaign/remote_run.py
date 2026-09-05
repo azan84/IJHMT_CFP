@@ -11,8 +11,8 @@ results/<case>.tar.gz and push, 4 continuation pass for cases that stopped short
 before 1200 iterations, 5 final push. Resumable: finished cases (DONE) are skipped.
 
 Usage: python3 remote_run.py [--list run_list_remote.txt] [--cores N] [--no-push] [--test [--test-push]]
-  --test builds and runs the first listed case for 60 iterations only (pipeline check; results not pushed unless
-  --test-push). Each case uses 8 MPI ranks (fixed by the audited decomposeParDict)."""
+  --test builds the cases, then runs the first listed one for 60 iterations on a copy under cases_test/ (pipeline check;
+  the audited case files stay untouched, the test tarball goes to results_test/ and is pushed only with --test-push). Each case uses 8 MPI ranks (fixed by the audited decomposeParDict)."""
 import os, sys, re, json, time, shutil, argparse, subprocess, threading, tarfile, glob
 ROOT=os.path.dirname(os.path.abspath(__file__)); REPO=os.path.dirname(ROOT)
 LOGNAME="remote_run_%s.log"%os.uname().nodename.split(".")[0]   # one log per machine, so that two machines sharing the list never edit the same file
@@ -26,12 +26,12 @@ def sh(cmd,cwd=None,logfile=None,env=None):
 def out(cmd,cwd=None):
     return subprocess.run(["bash","-c",cmd],cwd=cwd,capture_output=True,text=True).stdout
 # ---------- 0 environment ----------
-OF_CANDIDATES=["/usr/lib/openfoam/openfoam2406/etc/bashrc","/opt/openfoam2406/etc/bashrc","/opt/OpenFOAM/OpenFOAM-v2406/etc/bashrc",
+OF_CANDIDATES=[os.environ.get("OPENFOAM_BASHRC",""),"/usr/lib/openfoam/openfoam2406/etc/bashrc","/opt/openfoam2406/etc/bashrc","/opt/OpenFOAM/OpenFOAM-v2406/etc/bashrc",
                os.path.expanduser("~/OpenFOAM/OpenFOAM-v2406/etc/bashrc"),"/usr/lib/openfoam/openfoam2412/etc/bashrc"]
 def find_openfoam():
     if shutil.which("chtMultiRegionSimpleFoam"): return ""   # already in the environment
     for b in OF_CANDIDATES:
-        if os.path.exists(b) and "chtMultiRegionSimpleFoam" in out("source %s >/dev/null 2>&1; which chtMultiRegionSimpleFoam"%b): return "source %s >/dev/null 2>&1; "%b
+        if b and os.path.exists(b) and "chtMultiRegionSimpleFoam" in out("source %s >/dev/null 2>&1; which chtMultiRegionSimpleFoam"%b): return "source %s >/dev/null 2>&1; "%b
     sys.exit("OpenFOAM v2406 not found: chtMultiRegionSimpleFoam is not in PATH and no etc/bashrc was found at %s. Source your OpenFOAM bashrc and rerun."%OF_CANDIDATES)
 OF=find_openfoam(); PRE=OF
 if OF: os.environ["OPENFOAM_BASHRC"]=OF.split()[1]   # the builder and the zone extraction source the same bashrc
@@ -71,8 +71,9 @@ def build(ids,workers):
     if rc!=0: sys.exit("the freshly built cases differ from the audited local build (verify_build.log); not running")
 # ---------- 3 run ----------
 PUSH_LOCK=threading.Lock()
-def pack(cid):
-    d=os.path.join(ROOT,"cases",cid); os.makedirs(os.path.join(ROOT,"results"),exist_ok=True); tgz=os.path.join(ROOT,"results",cid+".tar.gz")
+def pack(cid,a=None):
+    test=bool(a and a.test); d=os.path.join(ROOT,"cases_test" if test else "cases",cid); res="results_test" if test else "results"
+    os.makedirs(os.path.join(ROOT,res),exist_ok=True); tgz=os.path.join(ROOT,res,cid+".tar.gz")
     keep=["postProcessing","case_meta.json","DONE","CONVERGED_STOP","ENVELOPE_STOP","CONTINUE","posthoc_zoneT.json","system","constant/regionProperties","constant/g",
           "constant/fluid/thermophysicalProperties","constant/solid/thermophysicalProperties"]+glob.glob(os.path.join(d,"log.*"))+glob.glob(os.path.join(d,"*_pass*"))
     with tarfile.open(tgz,"w:gz") as t:
@@ -91,8 +92,8 @@ def push(msg,nopush):
     if nopush: return
     rel=os.path.relpath(ROOT,REPO); msg=msg.replace("'","")
     with PUSH_LOCK:
-        git_repair(); LOG.flush(); shutil.copy(os.path.join(ROOT,LOGNAME),os.path.join(ROOT,"results",LOGNAME))
-        add="git add -A %s/results"%rel
+        git_repair(); LOG.flush(); os.makedirs(os.path.join(ROOT,"results"),exist_ok=True); shutil.copy(os.path.join(ROOT,LOGNAME),os.path.join(ROOT,"results",LOGNAME))
+        add="git add -A %s/results"%rel+(" %s/results_test"%rel if os.path.isdir(os.path.join(ROOT,"results_test")) else "")
         steps=[add,"git diff --cached --quiet || git commit -q -m '%s'"%msg,"git fetch -q origin main",
                "git rebase -q origin/main || (git rebase --abort; git reset -q --soft origin/main && %s && (git diff --cached --quiet || git commit -q -m '%s (replayed on origin)'))"%(add,msg),
                "git push -q origin HEAD:main"]
@@ -125,8 +126,15 @@ def running_ledger(a):
             lines.append("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |"%(r["case_id"],r["fluid"],r["OR"],r["Re_ch"],r["P_sink_W"],r["iterations"],stop,"%.1f"%(float(r["T_wall_max_K"])-273.15),f("Phi_in"),f("Phi_out"),f("Nu"),f("R_th_K_W"),f("dp_field",4),f("energy_balance_pct",2),r["accepted"]))
         open(os.path.join(ROOT,"results","summary_%s.md"%os.uname().nodename.split(".")[0]),"w").write("\n".join(lines)+"\n")
     except Exception as e: log("running summary failed: %s"%e)
+def case_dir(cid,a):
+    """Production cases live in cases/; the --test run works on a copy under cases_test/ so that the audited case files
+    and the manifest check are never touched and the test result never enters results/."""
+    if not a.test: return os.path.join(ROOT,"cases",cid)
+    d=os.path.join(ROOT,"cases_test",cid)
+    if not os.path.exists(os.path.join(d,"case_meta.json")): shutil.copytree(os.path.join(ROOT,"cases",cid),d)
+    return d
 def run_case(cid,a,endtime=None):
-    d=os.path.join(ROOT,"cases",cid)
+    d=case_dir(cid,a)
     if os.path.exists(os.path.join(d,"DONE")): log("%s skip (done)"%cid); return
     if not a.test and done_elsewhere(cid,a): log("%s skip (results already in the repository from another machine)"%cid); return
     if endtime:
@@ -143,7 +151,9 @@ def run_case(cid,a,endtime=None):
     sh(PRE+"python3 posthoc_zone_T.py %s"%d,cwd=ROOT,logfile=os.path.join(d,"log.posthoc"))
     stop="converged" if os.path.exists(os.path.join(d,"CONVERGED_STOP")) else ("envelope" if os.path.exists(os.path.join(d,"ENVELOPE_STOP")) else "cap")
     log("%s done rc=%s %s iterations, %s stop, %.0f s"%(cid,rc,its,stop,time.time()-t0))
-    pack(cid); running_ledger(a); push("results: %s (%s, %s iterations)"%(cid,stop,its),a.no_push)
+    pack(cid,a)
+    if not a.test: running_ledger(a)
+    push("results: %s (%s, %s iterations)"%(cid,stop,its),a.no_push)
 def refresh_extraction(a):
     """Re-run the zone extraction for finished cases whose posthoc_zoneT.json predates the current extraction version, repack and push."""
     import json
@@ -205,6 +215,6 @@ if __name__=="__main__":
     run_all(ids,a,conc,endtime=60 if a.test else None)
     if not a.test: continuation(a,conc); refresh_extraction(a); push("results: continuation pass complete",a.no_push); log("REMOTE_LIST_COMPLETE")
     else:
-        d=os.path.join(ROOT,"cases",ids[0]); ok=os.path.exists(os.path.join(d,"posthoc_zoneT.json")) and os.path.exists(os.path.join(ROOT,"results",ids[0]+".tar.gz"))
-        log("TEST %s: build, verify, decompose, solve, reconstruct, zone extraction (%s) and packing (%s); inspect cases/%s and results/%s.tar.gz"%("PASSED" if ok else "FAILED","posthoc_zoneT.json present" if os.path.exists(os.path.join(d,"posthoc_zoneT.json")) else "posthoc_zoneT.json MISSING: see cases/%s/log.posthoc"%ids[0],"tar present" if os.path.exists(os.path.join(ROOT,"results",ids[0]+".tar.gz")) else "tar missing",ids[0],ids[0]))
+        d=os.path.join(ROOT,"cases_test",ids[0]); ok=os.path.exists(os.path.join(d,"posthoc_zoneT.json")) and os.path.exists(os.path.join(ROOT,"results_test",ids[0]+".tar.gz"))
+        log("TEST %s: build, verify, decompose, solve, reconstruct, zone extraction (%s) and packing (%s); inspect cases_test/%s and results_test/%s.tar.gz"%("PASSED" if ok else "FAILED","posthoc_zoneT.json present" if os.path.exists(os.path.join(d,"posthoc_zoneT.json")) else "posthoc_zoneT.json MISSING: see cases_test/%s/log.posthoc"%ids[0],"tar present" if os.path.exists(os.path.join(ROOT,"results_test",ids[0]+".tar.gz")) else "tar missing",ids[0],ids[0]))
         sys.exit(0 if ok else 1)

@@ -6,7 +6,7 @@ Per case, from the runtime monitors (postProcessing/*/<name>/<time>/*.dat, last 
   mass_split_closure_pct = |(chan + clear) - inlet| / inlet at x = 0                [manuscript Sec. 4.4, 0.5 %]
   energy_balance_pct     = |Q_in - (H_out - H_in)| / Q_in, Q_in = heated integral, H = sum(phi h)   [Sec. 3.5, 0.5 %]
   T_base_max/mean (heated patch), T_wall_max (fluid_to_solid max), T_out_bulk (mass-weighted)
-  Nu (ledger): length-averaged form from five streamwise interface bins (posthoc_zone_T.py version 2): h_m = q''_mean / dT_mean,
+  Nu (ledger; NaN by construction at OR = 1, where no fin channel exists): length-averaged form from five streamwise interface bins (posthoc_zone_T.py version 2): h_m = q''_mean / dT_mean,
   q''_mean = sum Q_i / sum A_i, dT_mean = area-weighted mean of (bin-mean interface T - mean channel bulk T at the bin ends,
   mass-flux weighted at the six stations); Nu = h_m D_h / k(T_film); Nu_B0..B4 local per bin; Phi_X0..X5 clearance share
   at the six stations. Also Nu_edge (leading/trailing-edge channel bulk, version 1), Nu_cell (cell-mixed bulk) and
@@ -63,7 +63,11 @@ def process(case):
     # post-hoc face-zone bulk temperatures and fluxes at the sink leading and trailing edges (posthoc_zone_T.py)
     pz=os.path.join(case,"posthoc_zoneT.json")
     dn=os.path.join(case,"DONE")
-    if os.path.exists(dn) and not (os.path.exists(pz) and os.path.getmtime(pz)>os.path.getmtime(dn)):   # a case without DONE (running) keeps whatever extraction it has
+    def _stale(pz):
+        if not os.path.exists(pz): return True
+        try: return json.load(open(pz)).get("version",1)<2   # version-1 extraction (edges only): the streamwise bins are needed
+        except Exception: return True
+    if os.path.exists(dn) and (_stale(pz) or os.path.getmtime(pz)<=os.path.getmtime(dn)):   # a case without DONE (running) keeps whatever extraction it has
         import posthoc_zone_T; posthoc_zone_T.process(case)
     Z=json.load(open(pz)) if os.path.exists(pz) else {}
     out["T_ch_in_K"]=Z.get("T_chanIn_K",float("nan")); out["T_ch_out_K"]=Z.get("T_chanOut_K",float("nan")); out["T_cl_out_K"]=Z.get("T_clearOut_K",float("nan"))

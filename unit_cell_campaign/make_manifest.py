@@ -11,7 +11,7 @@ FILES=["case_meta.json","system/controlDict","system/blockMeshDict","system/deco
        "constant/regionProperties","constant/g","constant/fluid/thermophysicalProperties","constant/fluid/turbulenceProperties",
        "constant/fluid/radiationProperties","constant/solid/thermophysicalProperties","constant/solid/radiationProperties",
        "0/fluid/U","0/fluid/T","0/fluid/p","0/fluid/p_rgh","0/solid/T","0/solid/p"]
-VOLATILE=re.compile(r"^(stopAt|endTime|startFrom)\s")   # controlDict lines that the watchdog or a continuation rewrites
+VOLATILE=re.compile(r"^(stopAt|endTime|startFrom|writeInterval)\s")   # controlDict lines that the watchdog or a continuation rewrites
 def digest(path,volatile=False):
     data=open(path,"rb").read()
     if volatile: data=b"\n".join(l for l in data.split(b"\n") if not VOLATILE.match(l.decode("latin1")))
