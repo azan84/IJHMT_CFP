@@ -1,0 +1,5 @@
+2026-09-05 23:18:45 environment: OpenFOAM v2406; mpirun mpirun (Open MPI) 4.1.6
+2026-09-05 23:18:45 resources: 8 physical cores, 16 logical, 15.6 GB available, load 0.2
+2026-09-05 23:18:55 using 8 cores: 1 concurrent cases x 8 ranks
+2026-09-05 23:18:56 checked 87 cases; 0 with differences; 32 numeric-equivalent
+2026-09-05 23:18:56 re-extracting 2 finished cases with the version-2 stations and bins
