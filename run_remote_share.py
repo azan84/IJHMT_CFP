@@ -21,6 +21,7 @@ def git_repair_and_update():
     run("git rebase --abort >/dev/null 2>&1; git merge --abort >/dev/null 2>&1; git cherry-pick --abort >/dev/null 2>&1; rm -f .git/index.lock; true",cwd=CLONE,quiet=True)
     run("git checkout -q -- unit_cell_campaign/remote_run.log >/dev/null 2>&1; true",cwd=CLONE,quiet=True)   # legacy tracked live log of earlier runner versions
     run("git add -A %s >/dev/null 2>&1; git diff --cached --quiet || git commit -q -m 'results: pending results committed by the launcher'"%RES,cwd=CLONE,quiet=True)
+    run("git sparse-checkout set unit_cell_campaign /run_remote_share.py /.gitignore /README.md >/dev/null 2>&1; true",cwd=CLONE,quiet=True)   # older clones lack the root files
     if run("git fetch -q origin main",cwd=CLONE)!=0: print("fetch failed (network?); continuing with the local copy"); return
     if run("git rebase -q origin/main",cwd=CLONE)!=0:
         print("rebase could not apply; replaying the local result files on top of origin/main")
@@ -33,7 +34,7 @@ if FRESH:
     if rc!=0:
         print("SSH clone failed (no key for GitHub on this machine?); cloning over HTTPS. Results can then be pushed only with a token; use --no-push otherwise.")
         if run("git clone --filter=blob:none --sparse %s %s"%(HTTPS,CLONE))!=0: sys.exit("clone failed")
-    run("git sparse-checkout set unit_cell_campaign",cwd=CLONE)
+    run("git sparse-checkout set unit_cell_campaign /run_remote_share.py /.gitignore /README.md",cwd=CLONE)   # the campaign directory plus the root files (this launcher, the ignore rules)
 run("git config user.name >/dev/null || git config user.name 'remote runner'; git config user.email >/dev/null || git config user.email 'remote-runner@localhost'",cwd=CLONE,quiet=True)
 if os.path.isdir(os.path.join(CLONE,".git")) and not FRESH: git_repair_and_update()
 # self-update: the repository's launcher replaces this file when it differs (once per start; the re-executed copy skips this step)
