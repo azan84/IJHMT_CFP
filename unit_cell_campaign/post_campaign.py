@@ -67,7 +67,10 @@ def process(case):
         if not os.path.exists(pz): return True
         try: return json.load(open(pz)).get("version",1)<2   # version-1 extraction (edges only): the streamwise bins are needed
         except Exception: return True
-    if os.path.exists(dn) and (_stale(pz) or os.path.getmtime(pz)<=os.path.getmtime(dn)):   # a case without DONE (running) keeps whatever extraction it has
+    def _has_fields():   # the extraction needs the final fields; an imported case (monitors only) keeps the json it came with
+        ts=[t for t in os.listdir(case) if t.replace(".","").isdigit() and float(t)>0 and os.path.exists(os.path.join(case,t,"fluid","T"))]
+        return bool(ts)
+    if os.path.exists(dn) and _has_fields() and (_stale(pz) or os.path.getmtime(pz)<=os.path.getmtime(dn)):   # a case without DONE (running) keeps whatever extraction it has
         import posthoc_zone_T; posthoc_zone_T.process(case)
     Z=json.load(open(pz)) if os.path.exists(pz) else {}
     out["T_ch_in_K"]=Z.get("T_chanIn_K",float("nan")); out["T_ch_out_K"]=Z.get("T_chanOut_K",float("nan")); out["T_cl_out_K"]=Z.get("T_clearOut_K",float("nan"))

@@ -1,4 +1,4 @@
-# Whole campaign: running summary (2026-09-05 20:14:53)
+# Whole campaign: running summary (2026-09-05 21:04:59)
 
 cases finished 133 of 177 | inside envelope 46 | converged 41 | accepted 41
 
