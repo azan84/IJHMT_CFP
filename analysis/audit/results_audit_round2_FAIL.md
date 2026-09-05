@@ -1,0 +1,26 @@
+# Results audit, round 2 (5 September 2026)
+
+Auditor: Claude Code, Sonnet model (re-check auditor and lead, read-only). The lead's report follows verbatim.
+
+# Lead Auditor Verdict — Results Audit, Round 3, Round 2
+
+I independently re-verified every item in the re-check auditor's report against the raw files (not trusting the JSON), and additionally re-derived the exact ledger snapshot the round-2 fixes were built from using `cfd/unit_cell_campaign/auto_sync.log` (which timestamps every ledger-row-count change). That log shows the ledger held exactly 93 rows continuously from 00:54:11 to 01:15:14 on 2026-09-05 — a window that contains both `tab_campaign_counts.tex`'s mtime (01:07:39) and `parametric_results.tex`'s own mtime (01:13:12). I reconstructed that exact 93-row snapshot (`C001`–`C093`) from the current ledger and recomputed the table cells from it: `93 34 49 7 3 34 34`, an exact match to the printed table, confirming which 93 cases the disclosure text is describing.
+
+Within that same 93-row snapshot, the three `OR=1` rows present are `C091` (Re=2), `C092` (Re=5), **and `C093` (Re=10)** — all `stop_type=envelope`, `accepted=False`, `T_wall_max_K=760.5` for C093. `parametric_results.tex:84-85` states: *"the six at OR = 1 with Re_ch >= 20 were still running on the second machine, and the two finished OR = 1 cases (Re_ch = 2 and 5) were stopped by the envelope rule."* This is wrong on two counts: (a) three OR=1 cases had finished, not two — C093 (Re=10) is omitted; (b) the sentence is internally self-contradictory even without the ledger: 9 designed OR=1 cases − 6 "still running" leaves 3 finished, not the 2 the sentence names. This sits inside the exact paragraph round 2 was supposed to have fixed (re-check item 2) and was not caught because the re-check verified only the aggregate counts, not this specific per-case enumeration.
+
+All four round-1 BLOCKING items and four NON-BLOCKING items were independently reverified and stand cleared as the re-check reported: (1) the "at cap" column recomputed exactly as `(stop_type=='cap') & ~converged` = 7 at the snapshot; (3) the third-pass-to-20,000 claim confirmed via `DONE`/`DONE_pass1`/`CONVERGED_STOP_pass1` files and `run_list_continue3.txt` for all five named cases (C023 total = 18,504 iterations, exact match; C042's pass1 hit `CONVERGED_STOP` at iteration 8488 per its own file, confirming the residual/closure nuance the re-check flagged as non-blocking); (4) only 8 provenance tokens remain traced to `doe_definition.json`, all legitimately in the "archived empty-duct runs" section (Re 25–1000 range, OR=0 design cases, 250-case total, 2.61 LPM design flow at Re=250) — none source a campaign result. Wording rules (forbidden words, em/en dashes) reconfirmed clean via direct grep across all seven changed files.
+
+```
+BLOCKING (a wrong number, an unsupported claim, a definition that does not match the code, or a rule violation):
+1. manuscript/sections/parametric_results.tex:84-85 states "the two finished OR = 1 cases (Re_ch = 2 and 5) were stopped by the envelope rule," but at the exact ledger snapshot this sentence and its accompanying table were generated from (93 rows, C001-C093; confirmed continuous from 00:54:11 to 01:15:14 via cfd/unit_cell_campaign/auto_sync.log, spanning both files' mtimes), three OR = 1 cases had finished -- C091 (Re=2), C092 (Re=5) and C093 (Re=10, T_wall_max_K=760.5), all envelope-stopped -- not two; C093 is omitted from the sentence's list. The sentence is also internally self-contradictory: it separately states "the six at OR = 1 with Re_ch >= 20 were still running," which arithmetically requires 9-6=3 already-finished OR=1 cases, not the 2 it names.
+
+NON-BLOCKING:
+1. manuscript/sections/numerical_method.tex:206-211 attributes all five third-pass-continued cases (C012, C022, C023, C034, C042) uniformly to being "short of the acceptance residuals at 12,000 iterations"; audit/decisions.md's own Addendum (22:50, 4 Sept 2026) and cfd/unit_cell_campaign/cases/C042/CONVERGED_STOP_pass1 (residuals met at iteration 8488) show C042 alone was short specifically on the energy-closure check (0.503% vs 0.5%), not a residual, and its first pass never reached 12,000 iterations (stopped at 8488-8490, then reached only 10,955 total after a second pass). No printed number is affected (5 cases, cap 20,000, max 18,504 all correct).
+2. manuscript/sections/verification_validation.tex:99-100's rejected-case energy-balance range/median (0.26-148%, median 5.4%) is accurate at the snapshot it was generated from (59 rejected rows) but has since drifted with the live campaign (61 rejected rows now, median 5.7%); expected live-import drift per the round-2 instructions, not a generation-time error.
+
+NOT VERIFIABLE: none — every number checked was pinned to a specific, reconstructible ledger snapshot via auto_sync.log and file mtimes.
+
+VERDICT: FAIL
+```
+
+Files opened for this round-2 lead review (beyond the re-check's list): `cfd/unit_cell_campaign/auto_sync.log`, `cfd/unit_cell_campaign/auto_sync.sh`, `cfd/unit_cell_campaign/campaign_design.json` (OR=1 case enumeration), `cfd/unit_cell_campaign/cases/{C012,C022,C023,C034,C042}/` (full `ls -la`, `DONE`, `DONE_pass1`, `CONVERGED_STOP_pass1`), plus fresh Python recomputation of the ledger at the reconstructed 93-row and current 95-row snapshots.

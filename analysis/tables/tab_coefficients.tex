@@ -1,0 +1,25 @@
+\begin{table}[htbp]
+\centering
+\caption{Coefficients of Eqs.~(\ref{eq:phi_bypass_closure}) and (\ref{eq:nu_composite}) fitted on the 34 accepted calibration cases by bounded non-linear least squares (objective: SSR  $\Phi$ 0.003081; SSR  $\Phi_{\mathrm{eff}}$ 0.03384; SSR  Nu 6.444; the Prandtl exponent $k$ was not included, Section~\ref{sec:fitting}). Standard errors and 95\% confidence intervals from the covariance of the fit. Source: \texttt{audit/refit\_stats.csv}, row \texttt{calibration}.}
+\label{tab:coefficients}
+\scriptsize
+\begin{tabular}{@{}lcccl@{}}
+\hline
+Coefficient & Value & SE & 95\% CI & Bounds \\
+\hline
+\multicolumn{5}{@{}l}{Eq.~(\ref{eq:phi_bypass_closure}), leading-edge bypass fraction $\Phi_{\mathrm{bypass}}$} \\
+$C_1$ & 0.2365 & 0.00502 & $\pm$0.0102 & [0.01, 20] \\
+$m$ & 1.358 & 0.0177 & $\pm$0.0361 & [0.05, 4] \\
+$n$ & 0.444 & 0.0112 & $\pm$0.0228 & [$-1$, 1] \\
+\multicolumn{5}{@{}l}{Same form fitted to the effective bypass fraction $\Phi_{\mathrm{eff}}$ of the caloric term} \\
+$C_1^{\mathrm{eff}}$ & 0.02535 & 0.00393 & $\pm$0.00801 & [0.01, 20] \\
+$m^{\mathrm{eff}}$ & 1.868 & 0.0853 & $\pm$0.174 & [0.05, 4] \\
+$n^{\mathrm{eff}}$ & 0.4142 & 0.0374 & $\pm$0.0764 & [$-1$, 1] \\
+\multicolumn{5}{@{}l}{Eq.~(\ref{eq:nu_composite}), Nusselt number} \\
+$C_2$ & 0.8751 & 0.171 & $\pm$0.348 & [0.05, 10] \\
+$p$ & 0.4651 & 0.0387 & $\pm$0.0788 & [0.05, 1] \\
+$\mathrm{Nu}_{\mathrm{fd}}$ & 7.85 & fixed & fixed & Shah-London H1, aspect ratio 0.024 \\
+$R_{\mathrm{fixed}} = R_{\mathrm{TIM}} + R_{\mathrm{spread}}$ [K W$^{-1}$] & 0.007766 & mean residual & & $\ge 0$ \\
+\hline
+\end{tabular}
+\end{table}

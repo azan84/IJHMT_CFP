@@ -1,0 +1,464 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _1653fa08-20260127 OPENFOAM=2406 patch=260127 version=2406
+Arch   : "LSB;label=32;scalar=64"
+Exec   : chtMultiRegionSimpleFoam -parallel
+Date   : Sep 05 2026
+Time   : 01:11:53
+Host   : Azan
+PID    : 1274202
+I/O    : uncollated
+Case   : /tmp/claude-1000/-mnt-e-ijhmt-cfp-Paper-5/044cae9e-647d-4a52-a5b4-4a0397a1a7fd/scratchpad/c095_test/C095
+nProcs : 8
+Hosts  :
+(
+    (Azan 8)
+)
+Pstream initialized with:
+    floatTransfer      : false
+    maxCommsSize       : 0
+    nProcsSimpleSum    : 0
+    nonBlockingExchange: 0 (tuning: 0)
+    exchange algorithm : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create fluid mesh for region fluid for time = 0
+
+Create solid mesh for region solid for time = 0
+
+*** Reading fluid mesh thermophysical properties for region fluid
+
+    Adding to thermoFluid
+
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       tabulated;
+    thermo          hTabulated;
+    equationOfState icoTabulated;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+--> FOAM Warning : 
+    From Foam::compressible::turbulentTemperatureCoupledBaffleMixedFvPatchScalarField::turbulentTemperatureCoupledBaffleMixedFvPatchScalarField(const Foam::fvPatch&, const Foam::DimensionedField<double, Foam::volMesh>&, const Foam::dictionary&)
+    in file derivedFvPatchFields/turbulentTemperatureCoupledBaffleMixed/turbulentTemperatureCoupledBaffleMixedFvPatchScalarField.C at line 119
+    This BC has been superseded by compressible::turbulentTemperatureRadCoupledMixed which has more functionalities and it can handle the assemble coupled option for energy. 
+    Adding to rhoFluid
+
+    Adding to UFluid
+
+    Adding to phiFluid
+
+    Adding to hRefFluid
+
+    Adding to ghFluid
+
+    Adding to ghfFluid
+
+    Adding to turbulence
+
+Selecting turbulence model type laminar
+Selecting laminar stress model Stokes
+Selecting radiationModel none
+    Adding MRF
+
+No MRF models present
+
+    Adding fvOptions
+
+*** Reading solid mesh thermophysical properties for region solid
+
+    Adding to thermos
+
+Selecting thermodynamics package 
+{
+    type            heSolidThermo;
+    mixture         pureMixture;
+    transport       constIso;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+--> FOAM Warning : 
+    From Foam::compressible::turbulentTemperatureCoupledBaffleMixedFvPatchScalarField::turbulentTemperatureCoupledBaffleMixedFvPatchScalarField(const Foam::fvPatch&, const Foam::DimensionedField<double, Foam::volMesh>&, const Foam::dictionary&)
+    in file derivedFvPatchFields/turbulentTemperatureCoupledBaffleMixed/turbulentTemperatureCoupledBaffleMixedFvPatchScalarField.C at line 119
+    This BC has been superseded by compressible::turbulentTemperatureRadCoupledMixed which has more functionalities and it can handle the assemble coupled option for energy. 
+    Adding to radiations
+
+Selecting radiationModel none
+    Adding fvOptions
+
+surfaceFieldValue inletP:
+    operation     = areaAverage
+
+
+surfaceFieldValue outletP:
+    operation     = areaAverage
+
+
+surfaceFieldValue inletPhi:
+    operation     = sum
+
+
+surfaceFieldValue outletPhi:
+    operation     = sum
+
+
+surfaceFieldValue inletH:
+    operation     = weightedSum
+    weight field  = (phi)
+
+
+surfaceFieldValue outletH:
+    operation     = weightedSum
+    weight field  = (phi)
+
+
+surfaceFieldValue outletTbulk:
+    operation     = weightedAverage
+    weight field  = (phi)
+
+
+surfaceFieldValue clearInPhi:
+    operation     = sum
+
+
+surfaceFieldValue clearMidPhi:
+    operation     = sum
+
+
+surfaceFieldValue ifaceT:
+    operation     = areaAverage
+
+
+surfaceFieldValue ifaceTmax:
+    operation     = max
+
+
+surfaceFieldValue heatedT:
+    operation     = areaAverage
+
+
+surfaceFieldValue heatedTmax:
+    operation     = max
+
+
+wallHeatFlux whfFluid:
+    processing (1) wall patches:
+        fluid_to_solid
+
+wallHeatFlux whfSolid:
+    processing (2) wall patches:
+        heated
+        solid_to_fluid
+
+Time = 1
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 1, Final residual = 0.041848754, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.99278193, Final residual = 0.0074536317, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.9555302, Final residual = 0.018056693, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.99990101, Final residual = 0.053124108, No Iterations 4
+Min/max T:298.15 298.15
+GAMG:  Solving for p_rgh, Initial residual = 0.99999243, Final residual = 0.11092527, No Iterations 200
+time step continuity errors : sum local = 0.020556817, global = -0.0014166267, cumulative = -0.0014166267
+Min/max rho:1854.996 1854.996
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 1, Final residual = 0.096228346, No Iterations 93
+Min/max T:298.15 622.15936
+ExecutionTime = 0.24 s  ClockTime = 0 s
+
+Time = 2
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.2846521, Final residual = 0.010946987, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.58959142, Final residual = 0.017499036, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.55904693, Final residual = 0.023383024, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 1, Final residual = 0.062431482, No Iterations 4
+Min/max T:298.15 621.6658
+GAMG:  Solving for p_rgh, Initial residual = 0.020671991, Final residual = 0.0013286639, No Iterations 200
+time step continuity errors : sum local = 0.018090465, global = -0.0012465925, cumulative = -0.0026632192
+Min/max rho:1779.396 3320.338
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.13858287, Final residual = 0.013084001, No Iterations 172
+Min/max T:510.06741 621.65726
+ExecutionTime = 0.41 s  ClockTime = 0 s
+
+Time = 3
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 1, Final residual = 1.0178148e-16, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.91389555, Final residual = 7.321607e-18, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.47394981, Final residual = 1.6685448e-18, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.15177768, Final residual = 0.0092313887, No Iterations 4
+Min/max T:298.14985 517.0803
+GAMG:  Solving for p_rgh, Initial residual = 0.28800735, Final residual = 0.0063809812, No Iterations 200
+time step continuity errors : sum local = 0.22203921, global = -0.012173985, cumulative = -0.014837204
+Min/max rho:1779.396 2753.6655
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.053883367, Final residual = 0.0050516216, No Iterations 162
+Min/max T:510.02951 553.84435
+ExecutionTime = 0.63 s  ClockTime = 1 s
+
+Time = 4
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.46793736, Final residual = 1.2054422e-181, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.64941092, Final residual = 3.7095983e-18, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.9985387, Final residual = 2.349312e-17, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.10734337, Final residual = 0.0057346895, No Iterations 4
+Min/max T:298.14989 553.41197
+GAMG:  Solving for p_rgh, Initial residual = 0.60997165, Final residual = 0.010444797, No Iterations 200
+time step continuity errors : sum local = 0.38550266, global = 0.020852436, cumulative = 0.0060152316
+Min/max rho:1779.396 2950.1958
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.015523528, Final residual = 0.00084574506, No Iterations 174
+Min/max T:538.54917 553.41198
+ExecutionTime = 0.82 s  ClockTime = 1 s
+
+Time = 5
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.35205146, Final residual = 7.0260564e-18, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.96985849, Final residual = 3.4969195e-17, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.62631869, Final residual = 1.4513067e-17, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.081053038, Final residual = 0.0037716311, No Iterations 4
+Min/max T:298.14996 543.27823
+GAMG:  Solving for p_rgh, Initial residual = 0.30434678, Final residual = 0.0040054321, No Iterations 200
+time step continuity errors : sum local = 0.5237197, global = 0.028327152, cumulative = 0.034342383
+Min/max rho:1779.396 2895.3902
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.0072208744, Final residual = 0.00049274209, No Iterations 174
+Min/max T:538.5054 549.12856
+ExecutionTime = 1.01 s  ClockTime = 1 s
+
+Time = 6
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.30750011, Final residual = 1.3223992e-17, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.76976235, Final residual = 1.9919199e-19, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.50019175, Final residual = 1.2396504e-19, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.075898697, Final residual = 0.0030497641, No Iterations 4
+Min/max T:298.04611 548.69953
+GAMG:  Solving for p_rgh, Initial residual = 0.26260298, Final residual = 0.0029901135, No Iterations 200
+time step continuity errors : sum local = 0.78380951, global = 0.042428291, cumulative = 0.076770674
+Min/max rho:1779.396 2924.7143
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.0024212206, Final residual = 0.00023772574, No Iterations 137
+Min/max T:544.7167 548.91829
+ExecutionTime = 1.18 s  ClockTime = 1 s
+
+Time = 7
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.28636771, Final residual = 1.8050058e-17, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.68634772, Final residual = 1.4915208e-17, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.44194748, Final residual = 2.7118228e-17, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.077972397, Final residual = 0.0028238097, No Iterations 4
+Min/max T:297.0928 548.48944
+GAMG:  Solving for p_rgh, Initial residual = 0.29908411, Final residual = 0.0029376342, No Iterations 198
+time step continuity errors : sum local = 1.4300851, global = 0.077026108, cumulative = 0.15379678
+Min/max rho:1779.396 2923.577
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.0026731815, Final residual = 0.0001748547, No Iterations 175
+Min/max T:545.0698 550.39213
+ExecutionTime = 1.34 s  ClockTime = 1 s
+
+Time = 8
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.27540673, Final residual = 1.0992647e-181, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.6532861, Final residual = 2.9340253e-17, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.41035818, Final residual = 7.6658969e-18, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.086423132, Final residual = 0.0029862035, No Iterations 4
+Min/max T:295.93573 549.9622
+GAMG:  Solving for p_rgh, Initial residual = 0.39516297, Final residual = 0.0039356412, No Iterations 179
+time step continuity errors : sum local = 3.9002793, global = -0.21088414, cumulative = -0.057087358
+Min/max rho:1779.396 2931.5306
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.002735189, Final residual = 0.00020700492, No Iterations 175
+Min/max T:547.29708 551.00666
+ExecutionTime = 1.5 s  ClockTime = 1 s
+
+Time = 9
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.26953819, Final residual = 5.1326919e-18, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.64443267, Final residual = 1.8708077e-17, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.39548385, Final residual = 4.1747585e-19, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.10165337, Final residual = 0.0035957439, No Iterations 4
+Min/max T:294.88374 550.57628
+GAMG:  Solving for p_rgh, Initial residual = 0.58486961, Final residual = 0.0057925982, No Iterations 142
+time step continuity errors : sum local = 15.675017, global = 0.8676075, cumulative = 0.81052014
+Min/max rho:1779.396 2934.846
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.0028921118, Final residual = 0.00026233412, No Iterations 174
+Min/max T:548.09153 551.59263
+ExecutionTime = 1.63 s  ClockTime = 2 s
+
+Time = 10
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.2664779, Final residual = 8.8596199e-18, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.65210193, Final residual = 1.7574005e-17, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.45746919, Final residual = 1.6835714e-18, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.10976568, Final residual = 0.0040067779, No Iterations 4
+Min/max T:294.54142 551.16182
+GAMG:  Solving for p_rgh, Initial residual = 0.78439144, Final residual = 0.0077867684, No Iterations 92
+time step continuity errors : sum local = 83.779338, global = -4.9756097, cumulative = -4.1650896
+Min/max rho:1779.396 2939.2912
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.0027969199, Final residual = 0.00016485486, No Iterations 174
+Min/max T:548.74709 551.73058
+ExecutionTime = 1.72 s  ClockTime = 2 s
+
+Time = 11
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.26536966, Final residual = 1.7063993e-17, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.65797247, Final residual = 2.0049089e-17, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.59301708, Final residual = 8.8440999e-19, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.10789733, Final residual = 0.0028219991, No Iterations 4
+Min/max T:292.90357 551.29968
+GAMG:  Solving for p_rgh, Initial residual = 0.90718728, Final residual = 0.0089264904, No Iterations 50
+time step continuity errors : sum local = 521.39453, global = -33.176534, cumulative = -37.341623
+Min/max rho:1779.396 2943.1418
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.0022512356, Final residual = 0.00018718961, No Iterations 172
+Min/max T:548.4009 551.29968
+ExecutionTime = 1.77 s  ClockTime = 2 s
+
+Time = 12
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.26651915, Final residual = 4.6105982e-18, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.66251519, Final residual = 2.0801788e-17, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.65698369, Final residual = 4.0067188e-18, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.19890824, Final residual = 0.0042956585, No Iterations 4
+Min/max T:292.50214 550.8318
+GAMG:  Solving for p_rgh, Initial residual = 0.95746177, Final residual = 0.0092228039, No Iterations 38
+time step continuity errors : sum local = 3520.6773, global = -64.035813, cumulative = -101.37744
+Min/max rho:1779.396 2942.0618
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.0026865394, Final residual = 0.00025261918, No Iterations 162
+Min/max T:546.50164 550.83286
+ExecutionTime = 1.82 s  ClockTime = 2 s
+
+Time = 13
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.27145998, Final residual = 5.3280541e-18, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.68244521, Final residual = 1.1899042e-17, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.67807152, Final residual = 2.8482424e-18, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.8937921, Final residual = 0.023698759, No Iterations 4
+Min/max T:117.57676 549.02278
+GAMG:  Solving for p_rgh, Initial residual = 0.98226457, Final residual = 0.009167165, No Iterations 44
+time step continuity errors : sum local = 24549.973, global = 1693.5547, cumulative = 1592.1773
+Min/max rho:1779.396 2930.053
+
+Solving for solid region solid
+DICPCG:  Solving for h, Initial residual = 0.0050864192, Final residual = 0.00042056274, No Iterations 176
+Min/max T:544.53529 549.02278
+ExecutionTime = 1.88 s  ClockTime = 2 s
+
+Time = 14
+
+
+Solving for fluid region fluid
+smoothSolver:  Solving for Ux, Initial residual = 0.072796679, Final residual = 0.0014283144, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.21682475, Final residual = 0.01550273, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.043585654, Final residual = 0.00050345483, No Iterations 2
+smoothSolver:  Solving for h, Initial residual = 0.93828249, Final residual = 0.021189396, No Iterations 4
+[7] 
+[7] 
+[7] --> FOAM FATAL ERROR: (openfoam-2406 patch=260127)
+[7] Maximum number of iterations exceeded: 100 when starting from T0:300.46109 old T:-168.36521 new T:-315.61545 f:-335650.44 p:1.0010024e+08 tol:0.030046109
+[7] 
+[7]     From Foam::scalar Foam::species::thermo<Thermo, Type>::T(Foam::scalar, Foam::scalar, Foam::scalar, Foam::scalar (Foam::species::thermo<Thermo, Type>::*)(Foam::scalar, Foam::scalar) const, Foam::scalar (Foam::species::thermo<Thermo, Type>::*)(Foam::scalar, Foam::scalar) const, Foam::scalar (Foam::species::thermo<Thermo, Type>::*)(Foam::scalar) const) const [with Thermo = Foam::hTabulatedThermo<Foam::icoTabulated<Foam::specie> >; Type = Foam::sensibleEnthalpy; Foam::scalar = double; Foam::species::thermo<Thermo, Type> = Foam::species::thermo<Foam::hTabulatedThermo<Foam::icoTabulated<Foam::specie> >, Foam::sensibleEnthalpy>]
+[7]     in file ./src/thermophysicalModels/specie/lnInclude/thermoI.H at line 76.
+[7] 
+FOAM parallel run aborting
+[7] 
+[6] 
+[6] 
+[6] --> FOAM FATAL ERROR: (openfoam-2406 patch=260127)
+[6] Maximum number of iterations exceeded: 100 when starting from T0:300.46109 old T:-251.21722 new T:-373.10233 f:-335650.44 p:1.0010024e+08 tol:0.030046109
+[6] 
+[6]     From Foam::scalar Foam::species::thermo<Thermo, Type>::T(Foam::scalar, Foam::scalar, Foam::scalar, Foam::scalar (Foam::species::thermo<Thermo, Type>::*)(Foam::scalar, Foam::scalar) const, Foam::scalar (Foam::species::thermo<Thermo, Type>::*)(Foam::scalar, Foam::scalar) const, Foam::scalar (Foam::species::thermo<Thermo, Type>::*)(Foam::scalar) const) const [with Thermo = Foam::hTabulatedThermo<Foam::icoTabulated<Foam::specie> >; Type = Foam::sensibleEnthalpy; Foam::scalar = double; Foam::species::thermo<Thermo, Type> = Foam::species::thermo<Foam::hTabulatedThermo<Foam::icoTabulated<Foam::specie> >, Foam::sensibleEnthalpy>]
+[6]     in file ./src/thermophysicalModels/specie/lnInclude/thermoI.H at line 76.
+[6] 
+FOAM parallel run aborting
+[6] 
+[7] [stack trace]
+[7] =============
+[6] [stack trace]
+[6] =============
+[7] #1  [6] #1  Foam::error::simpleExit(int, bool)Foam::error::simpleExit(int, bool) in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib/libOpenFOAM.so
+[7] #2  ? in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib/libOpenFOAM.so
+[6] #2  ? in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib/libfluidThermophysicalModels.so
+[7] #3  ? in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib/libfluidThermophysicalModels.so
+[6] #3  ? in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib/libfluidThermophysicalModels.so
+[7] #4  ? in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib/libfluidThermophysicalModels.so
+[6] #4  ? in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib/libfluidThermophysicalModels.so
+[7] #5   in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib/libfluidThermophysicalModels.so
+[6] #5  ?? in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/bin/chtMultiRegionSimpleFoam
+[7] #6  ? in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/bin/chtMultiRegionSimpleFoam
+[6] #6  ? in /lib/x86_64-linux-gnu/libc.so.6
+[6] #7  __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6
+[7] #7  __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6
+[6] #8   in /lib/x86_64-linux-gnu/libc.so.6
+[7] #8  ?? in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/bin/chtMultiRegionSimpleFoam
+[6] =============
+ in /usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/bin/chtMultiRegionSimpleFoam
+[7] =============
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 7 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[Azan:1274186] 1 more process has sent help message help-mpi-api.txt / mpi-abort
+[Azan:1274186] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages

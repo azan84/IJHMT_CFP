@@ -1,0 +1,2 @@
+OR_opt,Re_opt,P_TDP_W,Q_LPM,Rth_KW,Tchip_C,Wpump_W,feasible,status,reason
+0.0,2,700.0,0.6501092434627032,0.0609845814285714,67.68920700000002,8.515347573952108e-05,y,SOLVED,"minimum W_pump among 12 feasible of 91 basis rows (fluid FC-40, Plate-Fin, tol 0.10, T_max 85 C)"

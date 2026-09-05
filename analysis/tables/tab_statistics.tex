@@ -1,0 +1,25 @@
+\begin{table}[htbp]
+\centering
+\caption{Error statistics of the calibrated closure on the accepted cases of each partition and of the calibration subgroups (Section~\ref{sec:accuracy_evaluation}). $\Phi$ MAE in percentage points; $\Phi$ MAPE over $\mathrm{OR} \ge 0.1$; Nu MAPE; $R_{\mathrm{th}}$ MAPE, RMSE [K W$^{-1}$], maximum absolute error [K W$^{-1}$] and $R^2$ from the independent resistance network of Section~\ref{sec:fitting} with $R_{\mathrm{fixed}}$ fitted on the calibration set only. Computed by \texttt{figures/src/make\_campaign\_tables.py} from \texttt{dataset\_ledger\_unitcell.csv} with the coefficients of Table~\ref{tab:coefficients}. n/a: subgroup without $\mathrm{OR} \ge 0.1$ rows or without variance.}
+\label{tab:statistics}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lcccccccc@{}}
+\hline
+Set & $N$ & $\Phi$ MAE & $\Phi$ MAPE & Nu MAPE & $R_{\mathrm{th}}$ MAPE & $R_{\mathrm{th}}$ RMSE & $R_{\mathrm{th}}$ max. & $R^2$ \\
+\hline
+Calibration (FC-40, 700 W) & 34 & 0.645 & 2.57 & 3.57 & 4.51 & 0.00481 & 0.0259 & 0.914 \\
+EFL-1 & 0 & M & M & M & M & M & M & M \\
+Thermal load & 0 & M & M & M & M & M & M & M \\
+Cross-combinations & 0 & M & M & M & M & M & M & M \\
+\hline
+calibration, OR = 0 & 9 & 0.00338 & n/a & 5.39 & 1.81 & 0.0013 & 0.00377 & 0.991 \\
+calibration, 0 $<$ OR $\le$ 0.3 & 19 & 0.92 & 3.05 & 2.94 & 5.38 & 0.00607 & 0.0259 & 0.826 \\
+calibration, 0.3 $<$ OR $\le$ 0.7 & 6 & 0.738 & 1.06 & 2.84 & 5.83 & 0.00349 & 0.0056 & 0.95 \\
+calibration, 0.7 $<$ OR $\le$ 1 & 0 & M & M & M & M & M & M & M \\
+calibration, $\mathrm{Re}_{ch} \le 10$ & 5 & 0.307 & 1.81 & 3.74 & 11.5 & 0.0118 & 0.0259 & 0.232 \\
+calibration, 10 $<$ $\mathrm{Re}_{ch} \le$ 50 & 7 & 1.16 & 3.9 & 2.97 & 2.72 & 0.00118 & 0.00247 & 0.994 \\
+calibration, $\mathrm{Re}_{ch} >$ 50 & 22 & 0.558 & 2.29 & 3.72 & 3.49 & 0.00199 & 0.0056 & 0.983 \\
+\hline
+\end{tabular}
+\end{table}

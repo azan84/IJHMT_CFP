@@ -1,0 +1,13 @@
+\begin{table}[htbp]
+\centering
+\caption{Calibration campaign: cases finished at the time of this build, converged (residual targets, stationarity, mass-split and energy closures of Section~\ref{sec:vv-closure}), stopped by the envelope rule (maximum interface temperature above 70~$^{\circ}$C at 4000 iterations or later), stopped at the iteration cap without converging, diverged (solver exit code other than zero), inside the validity envelope, and accepted (converged and inside the envelope). Source: \texttt{cfd/unit\_cell\_campaign/dataset\_ledger\_unitcell.csv}, column \texttt{stop\_type}. Partitions overlap as stated in Section~\ref{sec:partitions}.}
+\label{tab:campaign_counts}
+\scriptsize
+\begin{tabular}{@{}lccccccc@{}}
+\hline
+Partition & finished & converged & envelope stop & at cap & diverged & in envelope & accepted \\
+\hline
+Calibration (FC-40, 700 W) & 93 & 34 & 49 & 7 & 3 & 34 & 34 \\
+\hline
+\end{tabular}
+\end{table}
