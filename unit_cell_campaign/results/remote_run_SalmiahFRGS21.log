@@ -39,3 +39,5 @@
 2026-09-06 00:29:34 E009 done rc=0 2827 iterations, converged stop, 381 s
 2026-09-06 00:29:46 E010 start
 2026-09-06 00:38:07 E010 done rc=0 4069 iterations, envelope stop, 501 s
+2026-09-06 00:38:20 E011 start
+2026-09-06 01:05:22 E011 done rc=0 12000 iterations, cap stop, 1622 s
