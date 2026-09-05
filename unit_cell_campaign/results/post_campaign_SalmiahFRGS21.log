@@ -1,4 +1,4 @@
-wrote /home/azan/Openfoam/IJHMT_CFP/unit_cell_campaign/results/ledger_SalmiahFRGS21.csv 23 rows
+wrote /home/azan/Openfoam/IJHMT_CFP/unit_cell_campaign/results/ledger_SalmiahFRGS21.csv 24 rows
 C091 OR 1.0 Re 2 | dp 0.019 Pa Phi_in 1.0000 Phi_mid 1.0000 | split 0% energy 9.07% | Tbase max 672.36 C wall max 671.97 C | Nu nan h nan | R_base 0.92480 | it 4053 res_met False stat True acc False
 C092 OR 1.0 Re 5 | dp 0.053 Pa Phi_in 1.0000 Phi_mid 1.0000 | split 0% energy 45.3% | Tbase max 530.79 C wall max 530.41 C | Nu nan h nan | R_base 0.72256 | it 4016 res_met False stat True acc False
 C093 OR 1.0 Re 10 | dp 0.124 Pa Phi_in 1.0000 Phi_mid 1.0000 | split 0% energy 27.9% | Tbase max 487.77 C wall max 487.38 C | Nu nan h nan | R_base 0.66110 | it 4057 res_met False stat True acc False
@@ -12,6 +12,7 @@ E001 OR 0.0 Re 10 | dp 109.5 Pa Phi_in 0.0000 Phi_mid 0.0000 | split 0% energy 0
 E002 OR 0.0 Re 40 | dp 475.1 Pa Phi_in 0.0000 Phi_mid 0.0000 | split 0% energy 0.000664% | Tbase max 33.91 C wall max 33.47 C | Nu 9.552 h 330.4 | R_base 0.01272 | it 2332 res_met True stat True acc True
 E003 OR 0.0 Re 150 | dp 1847 Pa Phi_in 0.0000 Phi_mid 0.0000 | split 0% energy 0.000324% | Tbase max 32.11 C wall max 31.67 C | Nu 12.987 h 447.6 | R_base 0.01016 | it 1213 res_met True stat True acc True
 E004 OR 0.1 Re 10 | dp 32.78 Pa Phi_in 0.3742 Phi_mid 0.6538 | split 2.09e-07% energy 0.0245% | Tbase max 46.31 C wall max 45.90 C | Nu nan h nan | R_base 0.03045 | it 11208 res_met False stat True acc False
+E005 OR 0.1 Re 40 | dp 219.3 Pa Phi_in 0.2317 Phi_mid 0.5440 | split 1.57e-07% energy 0.00555% | Tbase max 35.84 C wall max 35.41 C | Nu 8.734 h 303.9 | R_base 0.01549 | it 7077 res_met True stat True acc True
 E031 OR 1.0 Re 10 | dp 0.221 Pa Phi_in 1.0000 Phi_mid 1.0000 | split 0% energy 12.2% | Tbase max 435.38 C wall max 434.97 C | Nu nan h nan | R_base 0.58626 | it 4017 res_met False stat True acc False
 E032 OR 1.0 Re 40 | dp 1.308 Pa Phi_in 1.0000 Phi_mid 1.0000 | split 0% energy 16.3% | Tbase max 295.40 C wall max 294.98 C | Nu nan h nan | R_base 0.38629 | it 4051 res_met False stat True acc False
 E033 OR 1.0 Re 150 | dp 8.675 Pa Phi_in 1.0000 Phi_mid 1.0000 | split 0% energy 18.7% | Tbase max 238.83 C wall max 238.36 C | Nu nan h nan | R_base 0.30547 | it 2678 res_met True stat True acc False
