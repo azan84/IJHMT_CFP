@@ -3,3 +3,27 @@
 2026-09-05 23:18:55 using 8 cores: 1 concurrent cases x 8 ranks
 2026-09-05 23:18:56 checked 87 cases; 0 with differences; 32 numeric-equivalent
 2026-09-05 23:18:56 re-extracting 2 finished cases with the version-2 stations and bins
+2026-09-05 23:19:09 C091 skip (done)
+2026-09-05 23:19:09 C092 skip (done)
+2026-09-05 23:19:09 C093 skip (done)
+2026-09-05 23:19:09 C094 skip (done)
+2026-09-05 23:19:09 C095 skip (done)
+2026-09-05 23:19:09 C096 skip (done)
+2026-09-05 23:19:09 C097 skip (done)
+2026-09-05 23:19:09 C098 skip (done)
+2026-09-05 23:19:09 C099 skip (done)
+2026-09-05 23:19:09 E031 skip (done)
+2026-09-05 23:19:09 E032 skip (done)
+2026-09-05 23:19:09 E033 skip (done)
+2026-09-05 23:19:09 L005 skip (done)
+2026-09-05 23:19:09 L010 skip (done)
+2026-09-05 23:19:09 L015 skip (done)
+2026-09-05 23:19:09 L020 skip (done)
+2026-09-05 23:19:09 L025 skip (done)
+2026-09-05 23:19:09 G001 skip (done)
+2026-09-05 23:19:09 G002 skip (done)
+2026-09-05 23:19:09 E001 skip (done)
+2026-09-05 23:19:09 E002 skip (done)
+2026-09-05 23:19:09 E003 skip (done)
+2026-09-05 23:19:12 E004 start
+2026-09-05 23:19:14 E004 done rc=1 0 iterations, cap stop, 2 s
