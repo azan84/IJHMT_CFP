@@ -1,6 +1,6 @@
-# Remote share: running summary (2026-09-06 01:05:23, host SalmiahFRGS21)
+# Remote share: running summary (2026-09-06 01:23:58, host SalmiahFRGS21)
 
-cases finished on this machine 30 of the 87 listed | inside envelope 11 | converged 8 | accepted 8
+cases finished on this machine 31 of the 87 listed | inside envelope 12 | converged 9 | accepted 9
 
 | case | fluid | OR | Re_ch | P [W] | it. | stop | wall max [C] | Phi_in | Phi_out | Nu | R_th [K/W] | dp [Pa] | energy [%] | accepted |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -24,6 +24,7 @@ cases finished on this machine 30 of the 87 listed | inside envelope 11 | conver
 | E009 | EFL-1 | 0.2 | 150 | 700.0 | 2827 | conv | 33.5 | 0.353 | 0.782 | 9.85 | 0.0188 | 611.1 | 0.02 | True |
 | E010 | EFL-1 | 0.3 | 10 | 700.0 | 4069 | envelope | 109.7 | 0.782 | 0.978 | 4.48 | 0.128 | 2.139 | 1.4 | False |
 | E011 | EFL-1 | 0.3 | 40 | 700.0 | 12000 | cap | 58.3 | 0.692 | 0.973 | 8.3 | 0.0542 | 24.59 | 0.22 | False |
+| E012 | EFL-1 | 0.3 | 150 | 700.0 | 7530 | conv | 35.9 | 0.526 | 0.935 | 9.03 | 0.0222 | 284.6 | 0.027 | True |
 | E031 | EFL-1 | 1.0 | 10 | 700.0 | 4017 | envelope | 435.0 | 1 | 1 | n/a | 0.592 | 0.221 | 12 | False |
 | E032 | EFL-1 | 1.0 | 40 | 700.0 | 4051 | envelope | 295.0 | 1 | 1 | n/a | 0.392 | 1.308 | 16 | False |
 | E033 | EFL-1 | 1.0 | 150 | 700.0 | 2678 | conv | 238.4 | 1 | 1 | n/a | 0.311 | 8.675 | 19 | False |
