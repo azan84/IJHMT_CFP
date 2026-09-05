@@ -395,3 +395,9 @@ the design script blocked by the fixed-fin sealed case at Re 40 and by the off-g
 cross-combination cases (it now takes its sealed reference from the calibration partition and drops rows
 without one, with a note; 13 feasible rows). Non-blocking: the scripts' project-relative paths are
 documented in `analysis/README.md`.
+
+Addendum (5 September 2026, 22:30): round 2 of the repository completeness check by Gemini 3.7 Flash
+(`audit/upload_check_gemini_round2.md`): COMPLETE; every finished case's results and every analysis file are in
+the public repository, byte-identical to the local originals (also confirmed by an independent comparison of all
+7541 checksummed case files). The two remarks (script paths documented; the manifest listing its own hash) were
+taken: the manifest now excludes itself.
