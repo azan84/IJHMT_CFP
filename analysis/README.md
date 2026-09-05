@@ -4,7 +4,7 @@ Everything here is generated from the case results by the scripts in `scripts/`;
 
 | File | Content | Produced by |
 |---|---|---|
-| `dataset_ledger_unitcell.csv` | one row per finished case (133 rows at this date: the 90 workstation cases and the 43 imported from `../unit_cell_campaign/results/`): bypass fractions at the leading edge, mid-length and trailing edge, the effective fraction, the length-averaged and local Nusselt numbers, base and wall temperatures, thermal resistance, pressure drop, pumping power, closures, stop type, acceptance flags and the columns the fitting script reads | `../unit_cell_campaign/post_campaign.py` |
+| `dataset_ledger_unitcell.csv` | one row per finished case (133 rows at this date: the 90 workstation cases and the 43 imported from `../unit_cell_campaign/results/`; the last four of these, L011, L013, L014 and L017, were imported after the manuscript build of 5 September, so the manuscript's counts of that build precede them): bypass fractions at the leading edge, mid-length and trailing edge, the effective fraction, the length-averaged and local Nusselt numbers, base and wall temperatures, thermal resistance, pressure drop, pumping power, closures, stop type, acceptance flags and the columns the fitting script reads | `../unit_cell_campaign/post_campaign.py` |
 | `refit_stats.csv` | fitted coefficients of the bypass closure (leading-edge and effective), the Nusselt closure and the resistance sum, with standard errors, 95 % intervals and the error statistics on the accepted calibration cases | `scripts/refit_closures.py` |
 | `feasibility_map.csv`, `optimum.csv` | the constrained design problem (resistance within 10 % of the sealed sink, chip below 85 C) on the accepted cases | `scripts/solve_eq22.py` |
 | `campaign_results_summary.md` | every number quoted in the manuscript's results, with its source row: acceptance map, bypass split per case, Nusselt numbers, temperature budget, resistance ratios, network terms, feasibility per Reynolds level | `scripts/campaign_results_summary.py` |
@@ -17,8 +17,10 @@ Raw results: `../unit_cell_campaign/results/` holds the cases solved on the seco
 share of the common list (one tarball per case with all monitors, logs, the streamwise zone extraction and the
 dictionaries as run); `../unit_cell_campaign/results_local/` holds the same for the 90 cases of the workstation's
 own share. The final volume fields of every case (about 10 MB per case) stay on the machine that solved it and are
-not in the repository. The campaign was paused on 5 September 2026 with 44 cases of the common list still to run;
-the holdout, grid-study and fixed-fin statistics are therefore absent from `refit_stats.csv` and the tables.
+not in the repository. The campaign was paused on 5 September 2026 with 44 cases of the common list still to run and three
+cross-combination cases inside the envelope still short of the acceptance residuals at 12,000 iterations (their
+continuation pass had not run); `refit_stats.csv` and the tables therefore hold the calibration set only, and the
+holdout, grid-study and fixed-fin statistics are absent until the campaign resumes.
 
 `MANIFEST_sha256.txt` lists the SHA-256 of every file under `analysis/`, `../unit_cell_campaign/results/` and
 `../unit_cell_campaign/results_local/` at the time of the push.
