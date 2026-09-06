@@ -151,3 +151,6 @@
 2026-09-07 01:49:49 L008 done rc=0 4062 iterations, envelope stop, 581 s
 2026-09-07 01:50:00 L009 start
 2026-09-07 01:59:42 L009 done rc=0 4114 iterations, envelope stop, 581 s
+2026-09-07 01:59:53 L011 skip (results already in the repository from another machine)
+2026-09-07 01:59:56 L012 start
+2026-09-07 02:29:48 L012 done rc=0 12000 iterations, cap stop, 1792 s
