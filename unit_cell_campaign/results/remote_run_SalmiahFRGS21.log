@@ -77,3 +77,5 @@
 2026-09-06 17:10:48 E028 done rc=1 866 iterations, cap stop, 240 s
 2026-09-06 17:10:58 E029 start
 2026-09-06 17:12:51 E029 done rc=1 453 iterations, cap stop, 113 s
+2026-09-06 17:13:03 E030 start
+2026-09-06 17:28:24 E030 done rc=0 4023 iterations, envelope stop, 922 s
