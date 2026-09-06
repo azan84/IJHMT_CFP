@@ -1,14 +1,14 @@
-# Whole campaign: running summary (2026-09-05 21:16:11)
+# Whole campaign: running summary (2026-09-07 06:45:54)
 
-cases finished 133 of 177 | inside envelope 46 | converged 41 | accepted 41
+cases finished 162 of 177 | inside envelope 56 | converged 48 | accepted 48
 
 | partition | finished | inside envelope | converged | accepted |
 |---|---|---|---|---|
 | calibration | 99 | 34 | 34 | 34 |
 | cross_combinations | 14 | 5 | 2 | 2 |
 | fixed_fin_sweep | 4 | 2 | 2 | 2 |
-| holdout_EFL-1 | 5 | 1 | 0 | 0 |
-| holdout_thermal_load | 13 | 5 | 3 | 3 |
+| holdout_EFL-1 | 32 | 10 | 6 | 6 |
+| holdout_thermal_load | 15 | 6 | 4 | 4 |
 
 Acceptance map of the FC-40 calibration grid (A accepted, n inside the envelope but not converged, h outside the envelope, . not yet run):
 
