@@ -8,7 +8,9 @@ to use (asked interactively unless --cores is given), 2 build the listed cases a
 N at a time with 8 MPI ranks each (decomposePar, chtMultiRegionSimpleFoam with the convergence/envelope watchdog,
 reconstructPar of the latest time, post-hoc zone extraction), pack each finished case's monitors and logs into
 results/<case>.tar.gz and push, 4 continuation pass for cases that stopped short of the acceptance residuals or
-before 1200 iterations, 5 final push. Resumable: finished cases (DONE) are skipped.
+before 1200 iterations, 5 analysis of every result in the repository (all machines): ledger, closure fits, design map,
+verification, number summary, figures and tables into analysis/, pushed. Resumable: finished cases (DONE) are skipped.
+  --analyse runs step 5 alone (no OpenFOAM needed; python3 with numpy, scipy, pandas and, for the figures, matplotlib).
 
 Usage: python3 remote_run.py [--list run_list_remote.txt] [--cores N] [--no-push] [--test [--test-push]]
   --test builds the cases, then runs the first listed one for 60 iterations on a copy under cases_test/ (pipeline check;
@@ -208,11 +210,64 @@ def continuation(a,conc):
         log("%s continued (pass %d): %s more iterations, %s stop, %.0f s"%(cid,n+1,its,stop,time.time()-t0)); pack(cid); running_ledger(a); push("results: %s continued pass %d (%s iterations, %s)"%(cid,n+1,its,stop),a.no_push)
     import concurrent.futures as cf
     with cf.ThreadPoolExecutor(max_workers=conc) as ex: list(ex.map(cont,sel))
+# ---------- 5 analysis: every result in the repository -> ledger, fits, design map, summary, figures, tables -> pushed ----------
+def analyse(a):
+    """Unpack every result tarball of the repository (results/ and results_local/: all machines) into cases_all/, post-process
+    them into analysis/dataset_ledger_unitcell.csv, then run the fitting, design, verification, summary, figure and table
+    scripts of analysis/scripts/ in the repository layout, write the checksum manifest and push analysis/."""
+    import tarfile as _tar
+    with PUSH_LOCK: git_repair(); sh("git sparse-checkout add analysis >/dev/null 2>&1; git fetch -q origin main && (git rebase -q origin/main >/dev/null 2>&1 || git rebase --abort >/dev/null 2>&1); true",cwd=REPO)
+    AN=os.path.join(REPO,"analysis"); SC=os.path.join(AN,"scripts"); CA=os.path.join(ROOT,"cases_all")
+    if not os.path.isdir(SC): log("analysis/scripts not found in the repository; skipping the analysis stage"); return False
+    for d in glob.glob(os.path.join(CA,"*")): shutil.rmtree(d,ignore_errors=True)
+    os.makedirs(CA,exist_ok=True); n=0
+    for sub in ("results","results_local"):
+        for tgz in sorted(glob.glob(os.path.join(ROOT,sub,"*.tar.gz"))):
+            try:
+                with _tar.open(tgz) as t: t.extractall(CA,members=[m for m in t.getmembers() if ".." not in m.name and not m.name.startswith("/")]); n+=1
+            except Exception as e: log("could not unpack %s: %s"%(os.path.basename(tgz),e))
+    log("analysis: %d result tarballs unpacked into cases_all/"%n)
+    env=dict(os.environ,ANALYSIS_DIR=AN,CASES_DIR=CA,UNIT_CELL_DIR=ROOT,POST_OUT=os.path.join(AN,"dataset_ledger_unitcell.csv"),MPLBACKEND="Agg")
+    steps=[("post_campaign.py",[sys.executable,os.path.join(ROOT,"post_campaign.py")],ROOT),
+           ("refit_closures.py",[sys.executable,os.path.join(SC,"refit_closures.py"),"--ledger",os.path.join(AN,"dataset_ledger_unitcell.csv"),"--out",os.path.join(AN,"refit_stats.csv")],SC),
+           ("solve_eq22.py",[sys.executable,os.path.join(SC,"solve_eq22.py"),"--ledger",os.path.join(AN,"dataset_ledger_unitcell.csv"),"--out",os.path.join(AN,"optimum.csv"),"--map-out",os.path.join(AN,"feasibility_map.csv")],SC),
+           ("sealed_dp_check.py",[sys.executable,os.path.join(SC,"sealed_dp_check.py")],SC),
+           ("campaign_results_summary.py",[sys.executable,os.path.join(SC,"campaign_results_summary.py")],SC),
+           ("fig_campaign.py",[sys.executable,os.path.join(SC,"fig_campaign.py")],SC),
+           ("make_campaign_tables.py",[sys.executable,os.path.join(SC,"make_campaign_tables.py")],SC)]
+    ok=True
+    for name,cmd,cwd in steps:
+        with open(os.path.join(AN,"analysis_%s.log"%name.replace(".py","")),"w") as f: rc=subprocess.call(cmd,cwd=cwd,env=env,stdout=f,stderr=subprocess.STDOUT)
+        if rc!=0 and name in ("fig_campaign.py",): log("analysis: %s failed (rc %d; matplotlib missing?); figures skipped, see analysis/analysis_fig_campaign.log"%(name,rc)); continue
+        if rc!=0: log("analysis: %s failed (rc %d), see analysis/analysis_%s.log"%(name,rc,name.replace(".py",""))); ok=False; break
+        log("analysis: %s done"%name)
+    # checksum manifest over analysis/ and the result directories (the manifest excludes itself)
+    lines=[]
+    for base in (AN,os.path.join(ROOT,"results"),os.path.join(ROOT,"results_local")):
+        for root,dirs,files in os.walk(base):
+            for fn in sorted(files):
+                p=os.path.join(root,fn)
+                if fn=="MANIFEST_sha256.txt": continue
+                import hashlib; lines.append("%s  %s"%(hashlib.sha256(open(p,"rb").read()).hexdigest(),os.path.relpath(p,REPO)))
+    open(os.path.join(AN,"MANIFEST_sha256.txt"),"w").write("\n".join(sorted(lines,key=lambda l:l.split("  ",1)[1]))+"\n")
+    with PUSH_LOCK:
+        git_repair(); rel=os.path.relpath(ROOT,REPO); msg="analysis: regenerated on %s at %s from %d result tarballs (%s)"%(os.uname().nodename,time.strftime("%F %H:%M"),n,"complete" if ok else "incomplete, see logs")
+        for st in ["git add -A analysis %s/results %s/results_test"%(rel,rel) if os.path.isdir(os.path.join(ROOT,"results_test")) else "git add -A analysis %s/results"%rel,"git diff --cached --quiet || git commit -q -m '%s'"%msg,"git fetch -q origin main","git rebase -q origin/main || (git rebase --abort; git reset -q --soft origin/main && git add -A analysis %s/results && (git diff --cached --quiet || git commit -q -m '%s (replayed on origin)'))"%(rel,msg),"git push -q origin HEAD:main"]:
+            if not a.no_push and sh(st,cwd=REPO,logfile=os.path.join(ROOT,"git_push.log"))!=0: log("analysis push FAILED at '%s' (see git_push.log)"%st.split()[1]); return False
+    log("analysis: %s; outputs in analysis/ (%s)"%("complete" if ok else "incomplete","pushed" if not a.no_push else "not pushed"))
+    return ok
 # ---------- main ----------
 if __name__=="__main__":
-    ap=argparse.ArgumentParser(); ap.add_argument("--list",default=os.path.join(ROOT,"run_list_remote.txt")); ap.add_argument("--cores",type=int); ap.add_argument("--test-push",action="store_true",help="in --test mode also exercise the commit/push to origin"); ap.add_argument("--reverse",action="store_true",help="run the list in reverse order (a second machine sharing the same list runs it forward; each skips cases the other has pushed)")
+    ap=argparse.ArgumentParser(); ap.add_argument("--list",default=os.path.join(ROOT,"run_list_remote.txt")); ap.add_argument("--cores",type=int); ap.add_argument("--test-push",action="store_true",help="in --test mode also exercise the commit/push to origin"); ap.add_argument("--analyse","--analyze",dest="analyse",action="store_true",help="only the analysis stage: unpack every result tarball of the repository, post-process, fit, map, summarise, plot, tabulate, push analysis/ (no OpenFOAM needed)"); ap.add_argument("--reverse",action="store_true",help="run the list in reverse order (a second machine sharing the same list runs it forward; each skips cases the other has pushed)")
     ap.add_argument("--no-push",action="store_true"); ap.add_argument("--test",action="store_true"); a=ap.parse_args()
-    git_repair(); check_env(); phys,logical,free_gb,load=resources(); log("resources: %d physical cores, %d logical, %.1f GB available, load %.1f"%(phys,logical,free_gb,load))
+    git_repair()
+    if a.analyse:
+        for mod in ("numpy","scipy","pandas"):
+            try: __import__(mod)
+            except ImportError: sys.exit("python3 %s is required for the analysis stage (pip install numpy scipy pandas matplotlib)"%mod)
+        ids_all=[l.strip() for l in open(a.list) if l.strip() and not l.startswith("#")]
+        sys.exit(0 if analyse(a) else 1)
+    check_env(); phys,logical,free_gb,load=resources(); log("resources: %d physical cores, %d logical, %.1f GB available, load %.1f"%(phys,logical,free_gb,load))
     ids=[l.strip() for l in open(a.list) if l.strip() and not l.startswith("#")]; ids_all=list(ids)
     if a.reverse: ids=ids[::-1]
     if a.test: ids=ids[:1]; a.no_push=not a.test_push; log("TEST MODE: %s for 60 iterations, %s"%(ids[0],"push exercised" if a.test_push else "no push"))
@@ -224,7 +279,7 @@ if __name__=="__main__":
     build(ids,workers=min(8,max(1,conc)))
     if not a.test: refresh_extraction(a)
     run_all(ids,a,conc,endtime=60 if a.test else None)
-    if not a.test: continuation(a,conc); refresh_extraction(a); push("results: continuation pass complete",a.no_push); log("REMOTE_LIST_COMPLETE")
+    if not a.test: continuation(a,conc); refresh_extraction(a); push("results: continuation pass complete",a.no_push); analyse(a); log("REMOTE_LIST_COMPLETE")
     else:
         d=os.path.join(ROOT,"cases_test",ids[0]); ok=os.path.exists(os.path.join(d,"posthoc_zoneT.json")) and os.path.exists(os.path.join(ROOT,"results_test",ids[0]+".tar.gz"))
         log("TEST %s: build, verify, decompose, solve, reconstruct, zone extraction (%s) and packing (%s); inspect cases_test/%s and results_test/%s.tar.gz"%("PASSED" if ok else "FAILED","posthoc_zoneT.json present" if os.path.exists(os.path.join(d,"posthoc_zoneT.json")) else "posthoc_zoneT.json MISSING: see cases_test/%s/log.posthoc"%ids[0],"tar present" if os.path.exists(os.path.join(ROOT,"results_test",ids[0]+".tar.gz")) else "tar missing",ids[0],ids[0]))

@@ -8,15 +8,18 @@ fig_parity.(png|pdf), fig_dp_pump.(png|pdf), fig_grid.(png|pdf). Greyscale-reada
 import os, sys, numpy as np, pandas as pd, matplotlib
 matplotlib.use("Agg"); import matplotlib.pyplot as plt
 ROOT=os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-LED=sys.argv[1] if len(sys.argv)>1 else os.path.join(ROOT,"cfd/unit_cell_campaign/dataset_ledger_unitcell.csv")
-STATS=os.path.join(ROOT,"audit/refit_stats.csv"); FMAP=os.path.join(ROOT,"audit/feasibility_map.csv")
+A=os.environ.get("ANALYSIS_DIR")   # when set: ledger, statistics and figures live there (repository layout); otherwise the project layout
+LED=sys.argv[1] if len(sys.argv)>1 else (os.path.join(A,"dataset_ledger_unitcell.csv") if A else os.path.join(ROOT,"cfd/unit_cell_campaign/dataset_ledger_unitcell.csv"))
+STATS=os.path.join(A,"refit_stats.csv") if A else os.path.join(ROOT,"audit/refit_stats.csv"); FMAP=os.path.join(A,"feasibility_map.csv") if A else os.path.join(ROOT,"audit/feasibility_map.csv")
+FIGDIR=os.path.join(A,"figures") if A else os.path.join(ROOT,"figures"); os.makedirs(FIGDIR,exist_ok=True)
+HERE=os.path.dirname(os.path.abspath(__file__)); RC_PATH=os.path.join(HERE,"refit_closures.py") if os.path.exists(os.path.join(HERE,"refit_closures.py")) else os.path.join(ROOT,"figures/src/refit_closures.py")
 EPS=1e-4
 def phi_model(o,r,C1,m,n): return 1/(1+C1*((1-o)/(o+EPS))**m*(r/100)**n)
 plt.rcParams.update({"font.size":8,"axes.labelsize":8,"legend.fontsize":6.5,"xtick.labelsize":7,"ytick.labelsize":7})
 MK=["o","s","^","D","v","<",">","p","h","*","X"]
 def save(fig,name):
     fig.tight_layout()
-    for ext in ("png","pdf"): fig.savefig(os.path.join(ROOT,"figures",name+"."+ext),dpi=300)
+    for ext in ("png","pdf"): fig.savefig(os.path.join(FIGDIR,name+"."+ext),dpi=300)
     plt.close(fig); print("wrote",name)
 L=pd.read_csv(LED); L["acc"]=L.accepted.astype(str).str.lower().isin(["true","1","y","yes"])
 cal=L[L.partitions.astype(str).str.contains("calibration")&(L.fluid=="FC-40")]
@@ -44,7 +47,7 @@ ax.set_xlabel(r"recess ratio $\mathrm{OR}$ [-]"); ax.set_ylabel(r"$R_{\mathrm{th
 # Fig: parity of the closure against the field values (Phi, Nu, R_th), calibration and holdouts
 if fit is not None:
     import importlib.util, types
-    spec=importlib.util.spec_from_file_location("refit_closures",os.path.join(ROOT,"figures/src/refit_closures.py")); rc=importlib.util.module_from_spec(spec); spec.loader.exec_module(rc)
+    spec=importlib.util.spec_from_file_location("refit_closures",RC_PATH); rc=importlib.util.module_from_spec(spec); spec.loader.exec_module(rc)
     A_=types.SimpleNamespace(k_fin=387.6,nu_fd=float(fit.Nu_fd))
     def predict(S):
         phi_p=rc.phi_model((S.OR.values.astype(float),S.Re_recomputed_ch_Eq1_140mm.values.astype(float)),fit.C1,fit.m,fit.n)

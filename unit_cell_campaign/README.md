@@ -53,6 +53,18 @@ another machine has already pushed; run one of them with `--reverse` so that the
 throughput optimum was three concurrent cases (1.5 ranks per physical core). Pass `--cores N` to skip the prompt,
 `--no-push` to keep results local. The run is resumable: rerun the same command after an interruption.
 
+## Analysis stage (automatic after the list, or alone with `--analyse`)
+
+After its list and continuation pass, and whenever it is started with `python3 run_remote_share.py --analyse`, the
+runner unpacks every result tarball of the repository (`results/` and `results_local/`, all machines) into
+`cases_all/`, post-processes them into `../analysis/dataset_ledger_unitcell.csv` and runs the scripts of
+`../analysis/scripts/`: closure fits (`refit_stats.csv`), the constrained design map (`feasibility_map.csv`,
+`optimum.csv`), the sealed-channel verification (`sealed_dp_check.csv`), the number summary
+(`campaign_results_summary.md`), the figures (`figures/`, needs matplotlib) and the LaTeX tables (`tables/`),
+writes `MANIFEST_sha256.txt` and pushes `analysis/`. The analysis stage needs python3 with numpy, scipy and pandas
+(and matplotlib for the figures) but no OpenFOAM, so it can also be run on any machine with the repository. On the
+originating workstation, `git pull` then brings the complete analysis.
+
 ## Results
 
 After every case the runner also rewrites `results/ledger_<host>.csv` (one post-processed row per case finished on

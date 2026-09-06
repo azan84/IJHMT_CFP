@@ -150,7 +150,8 @@ def process(case):
     return out
 if __name__=="__main__":
     design=json.load(open(os.path.join(ROOT,"campaign_design.json")))
-    cases=[os.path.join(ROOT,"cases",c["case_id"]) for c in design["cases"]] if len(sys.argv)<2 else sys.argv[1:]
+    CASES=os.environ.get("CASES_DIR",os.path.join(ROOT,"cases"))   # CASES_DIR: a directory of unpacked result tarballs (analysis on another machine)
+    cases=[os.path.join(CASES,c["case_id"]) for c in design["cases"]] if len(sys.argv)<2 else sys.argv[1:]
     parts={c["case_id"]:";".join(c["partitions"]) for c in design["cases"]}
     rows=[]
     for c in cases:

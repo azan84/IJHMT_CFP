@@ -9,8 +9,10 @@ ledger with the coefficients of refit_stats.csv), tab_grid.tex (three-grid study
 in these tables traces to the ledger row or the refit_stats row named in the table caption."""
 import os, sys, numpy as np, pandas as pd
 ROOT=os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-LED=sys.argv[1] if len(sys.argv)>1 else os.path.join(ROOT,"cfd/unit_cell_campaign/dataset_ledger_unitcell.csv")
-OUT=os.path.join(ROOT,"manuscript/tables"); os.makedirs(OUT,exist_ok=True)
+A=os.environ.get("ANALYSIS_DIR")   # when set: ledger, statistics and tables live there (repository layout)
+LED=sys.argv[1] if len(sys.argv)>1 else (os.path.join(A,"dataset_ledger_unitcell.csv") if A else os.path.join(ROOT,"cfd/unit_cell_campaign/dataset_ledger_unitcell.csv"))
+OUT=os.path.join(A,"tables") if A else os.path.join(ROOT,"manuscript/tables"); os.makedirs(OUT,exist_ok=True)
+HERE=os.path.dirname(os.path.abspath(__file__)); RC_PATH=os.path.join(HERE,"refit_closures.py") if os.path.exists(os.path.join(HERE,"refit_closures.py")) else os.path.join(ROOT,"figures/src/refit_closures.py")
 EPS=1e-4; K_FIN=387.6
 L=pd.read_csv(LED); L["acc"]=L.accepted.astype(str).str.lower().isin(["true","1","y","yes"]); L["conv"]=L.converged.astype(str).str.lower().isin(["true","1","y","yes"])
 L["env"]=L.passed_validity_envelope.astype(str)=="y"; L["parts"]=L.partitions.astype(str)
@@ -42,7 +44,7 @@ Partition & finished & converged & envelope stop & at cap & diverged & in envelo
 \\end{table}
 """)
 # 2. coefficients
-ST=os.path.join(ROOT,"audit/refit_stats.csv")
+ST=os.path.join(A,"refit_stats.csv") if A else os.path.join(ROOT,"audit/refit_stats.csv")
 T=pd.read_csv(ST).set_index("partition") if os.path.exists(ST) else None
 if T is not None and "calibration" in T.index and str(T.loc["calibration","status"])=="FITTED":
     c=T.loc["calibration"]
@@ -76,7 +78,7 @@ Coefficient & Value & SE & 95\\%% CI & Bounds \\\\
 """)
     # 3. statistics per partition and band, recomputed here from the ledger with the fitted coefficients
     import importlib.util, types
-    spec=importlib.util.spec_from_file_location("refit_closures",os.path.join(ROOT,"figures/src/refit_closures.py")); rc=importlib.util.module_from_spec(spec); spec.loader.exec_module(rc)
+    spec=importlib.util.spec_from_file_location("refit_closures",RC_PATH); rc=importlib.util.module_from_spec(spec); spec.loader.exec_module(rc)
     A_=types.SimpleNamespace(k_fin=K_FIN,nu_fd=float(c.Nu_fd))
     def predict(S):
         phi_p=rc.phi_model((S.OR.values.astype(float),S.Re_recomputed_ch_Eq1_140mm.values.astype(float)),c.C1,c.m,c.n)

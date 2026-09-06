@@ -25,5 +25,6 @@ a.annotate("heated base, q'' on the underside",xy=(Lin+L/2,0),xytext=(Lin+L/2,-9
 a.text(Lin+L/2,Hb+(Hc-Hb)*0.25,"fin (solid)",ha="center",va="center",fontsize=6.5); a.text(Lin+L/2,Hb+(Hc-Hb)*0.78,"clearance c(OR)",ha="center",va="center",fontsize=6.5)
 a.set_xlim(0,Lin+L+Lout); a.set_ylim(0,Hc); a.set_xlabel("x [mm]",fontsize=7,labelpad=14); a.set_ylabel("z [mm]",fontsize=7); a.tick_params(labelsize=7); a.set_title("side view, OR = 0.5",fontsize=9)
 plt.tight_layout()
-for ext in ("png","pdf"): plt.savefig(os.path.join(ROOT,"figures/fig_unit_cell."+ext))
+A=os.environ.get("ANALYSIS_DIR"); FIGDIR=os.path.join(A,"figures") if A else os.path.join(ROOT,"figures"); os.makedirs(FIGDIR,exist_ok=True)
+for ext in ("png","pdf"): plt.savefig(os.path.join(FIGDIR,"fig_unit_cell."+ext))
 print("written")
