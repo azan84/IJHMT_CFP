@@ -1,6 +1,6 @@
-# Remote share: running summary (2026-09-07 00:12:21, host SalmiahFRGS21)
+# Remote share: running summary (2026-09-07 00:12:34, host SalmiahFRGS21)
 
-cases finished on this machine 50 of the 87 listed | inside envelope 15 | converged 12 | accepted 12
+cases finished on this machine 51 of the 87 listed | inside envelope 16 | converged 12 | accepted 12
 
 | case | fluid | OR | Re_ch | P [W] | it. | stop | wall max [C] | Phi_in | Phi_out | Nu | R_th [K/W] | dp [Pa] | energy [%] | accepted |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -49,6 +49,7 @@ cases finished on this machine 50 of the 87 listed | inside envelope 15 | conver
 | G001 | FC-40 | 0.1 | 250 | 700.0 | 1312 | conv | 32.0 | 0.146 | 0.385 | 12.4 | 0.0165 | 1299 | 0.14 | True |
 | G002 | FC-40 | 0.1 | 250 | 700.0 | 1204 | conv | 31.9 | 0.147 | 0.384 | 11.9 | 0.0165 | 1373 | 0.084 | True |
 | L001 | FC-40 | 0.0 | 40 | 300.0 | 2254 | conv | 28.9 | 0 | 0 | 8.88 | 0.0197 | 314.6 | 0.017 | True |
+| L002 | FC-40 | 0.25 | 40 | 300.0 | 470 | cap | 38.9 | 0.613 | n/a | n/a | 0.0529 | 23.28 | 12 | False |
 | L005 | FC-40 | 1.0 | 40 | 300.0 | 4066 | envelope | 175.0 | 1 | 1 | n/a | 0.507 | 0.816 | 5.4 | False |
 | L010 | FC-40 | 1.0 | 40 | 500.0 | 4008 | envelope | 248.8 | 1 | 1 | n/a | 0.454 | 0.822 | 15 | False |
 | L015 | FC-40 | 1.0 | 40 | 850.0 | 4020 | envelope | 369.9 | 1 | 1 | n/a | 0.412 | 0.813 | 36 | False |
