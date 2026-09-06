@@ -139,3 +139,5 @@
 2026-09-07 00:12:29 L001 skip (done)
 2026-09-07 00:12:32 L002 start
 2026-09-07 00:12:33 L002 done rc=1 0 iterations, cap stop, 1 s
+2026-09-07 00:12:43 L003 start
+2026-09-07 00:51:25 L003 done rc=0 12000 iterations, cap stop, 2322 s
