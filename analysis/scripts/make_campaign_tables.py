@@ -38,7 +38,7 @@ w("tab_campaign_counts.tex","""\\begin{table}[htbp]
 \\hline
 Partition & finished & converged & envelope stop & at cap & diverged & in envelope & accepted \\\\
 \\hline
-"""+"\\n".join(rows)+"""
+"""+"\n".join(rows)+"""
 \\hline
 \\end{tabular}
 \\end{table}

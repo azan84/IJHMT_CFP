@@ -1,6 +1,6 @@
-# Campaign results summary (162 finished cases in the ledger)
+# Campaign results summary (170 finished cases in the ledger)
 
-Source: analysis/dataset_ledger_unitcell.csv unless stated.
+Source: cfd/unit_cell_campaign/dataset_ledger_unitcell.csv unless stated.
 
 ## Calibration partition (FC-40, 700 W)
 finished 99 | inside envelope 34 | converged 34 | accepted 34 | at cap (12000 or more iterations, not converged) 0 | solver exit code != 0 4
@@ -238,3 +238,78 @@ status                                                       FITTED
 reason            fit on rows inside the envelope with thermal_d...
 
 ## Sealed pressure drop against Shah-London (audit/sealed_dp_check.csv): ratio at film viscosity [0.891, 0.968, 0.975, 0.978, 0.98, 0.983, 0.986, 0.99, 0.998]; at inlet viscosity [0.481, 0.785, 0.873, 0.915, 0.939, 0.952, 0.959, 0.968, 0.979]
+
+## Coolant comparison, OR = 0.1 (Sec. 8.2, Table bases; FC-40 calibration curve vs EFL-1 holdout)
+
+--- anchor: E005 (EFL-1, Re_ch label 40, accepted True) ---
+matched Re_ch (Re_ch = 40 both fluids): FC-40 C014 vs EFL-1 E005
+  Q_full_sink_LPM: FC-40 11.732 | EFL-1 14.24
+  m_full_kg_s: FC-40 0.36272 | EFL-1 0.44833
+  Re_ch: FC-40 40 | EFL-1 40
+  Pr_inlet: FC-40 67.543 | EFL-1 94.966
+  Phi_in: FC-40 0.229 | EFL-1 0.23175
+  R_th_K_W: FC-40 0.023068 | EFL-1 0.021488
+  dp_sink_Pa: FC-40 143.3 | EFL-1 219.34
+  W_pump_W: FC-40 0.02802 | EFL-1 0.052058
+  matched Q [[LPM]]: FC-40 (interpolated) Q 14.24 LPM, Re_ch 48.55, Phi 0.2157, R_th 0.02198 K/W, dp 183.97 Pa, W_pump 0.043664 W | EFL-1 Q 14.24 LPM, Re_ch 40, Phi 0.2317, R_th 0.02149 K/W, dp 219.34 Pa, W_pump 0.052058 W
+  matched W_pump [[W]]: FC-40 (interpolated) Q 15.377 LPM, Re_ch 52.43, Phi 0.2107, R_th 0.02156 K/W, dp 203.13 Pa, W_pump 0.052058 W | EFL-1 Q 14.24 LPM, Re_ch 40, Phi 0.2317, R_th 0.02149 K/W, dp 219.34 Pa, W_pump 0.052058 W
+
+--- anchor: E006 (EFL-1, Re_ch label 150, accepted True) ---
+matched Re_ch (Re_ch = 150 both fluids): FC-40 C017 vs EFL-1 E006
+  Q_full_sink_LPM: FC-40 43.996 | EFL-1 53.401
+  m_full_kg_s: FC-40 1.3602 | EFL-1 1.6812
+  Re_ch: FC-40 150 | EFL-1 150
+  Pr_inlet: FC-40 67.543 | EFL-1 94.966
+  Phi_in: FC-40 0.1606 | EFL-1 0.16178
+  R_th_K_W: FC-40 0.017722 | EFL-1 0.017115
+  dp_sink_Pa: FC-40 746.27 | EFL-1 1153.8
+  W_pump_W: FC-40 0.54721 | EFL-1 1.0269
+  matched Q [[LPM]]: FC-40 (interpolated) Q 53.401 LPM, Re_ch 182.1, Phi 0.1554, R_th 0.01728 K/W, dp 934.6 Pa, W_pump 0.83181 W | EFL-1 Q 53.401 LPM, Re_ch 150, Phi 0.1618, R_th 0.01712 K/W, dp 1153.8 Pa, W_pump 1.0269 W
+  matched W_pump [[W]]: FC-40 (interpolated) Q 58.868 LPM, Re_ch 200.7, Phi 0.1528, R_th 0.01706 K/W, dp 1046.6 Pa, W_pump 1.0269 W | EFL-1 Q 53.401 LPM, Re_ch 150, Phi 0.1618, R_th 0.01712 K/W, dp 1153.8 Pa, W_pump 1.0269 W
+
+## Withheld-load partition, OR = 0 (Sec. 7.1 item 3): T_chip,max RMSE and maximum error
+cases: ['L001', 'L006', 'L011', 'L016', 'L021'] (P = [300.0, 500.0, 850.0, 1000.0, 1200.0] W)
+T_chip,max field [C]: [30.9, 34.81, 41.61, 44.51, 48.35]
+T_chip,max predicted [C] (T_in + P x R_th_predicted): [np.float64(30.8), np.float64(34.67), np.float64(41.45), np.float64(44.35), np.float64(48.23)]
+RMSE 0.137 C | maximum error 0.163 C | mean error -0.135 C
+
+## Coolant comparison, OR = 0.1 (Sec. 8.2, Table bases; FC-40 calibration curve vs EFL-1 holdout)
+
+--- anchor: E005 (EFL-1, Re_ch label 40, accepted True) ---
+matched Re_ch (Re_ch = 40 both fluids): FC-40 C014 vs EFL-1 E005
+  Q_full_sink_LPM: FC-40 11.732 | EFL-1 14.24
+  m_full_kg_s: FC-40 0.36272 | EFL-1 0.44833
+  Re_ch: FC-40 40 | EFL-1 40
+  Pr_inlet: FC-40 67.543 | EFL-1 94.966
+  Phi_in: FC-40 0.229 | EFL-1 0.23175
+  R_th_K_W: FC-40 0.023068 | EFL-1 0.021488
+  dp_sink_Pa: FC-40 143.3 | EFL-1 219.34
+  W_pump_W: FC-40 0.02802 | EFL-1 0.052058
+  matched Q [[LPM]]: FC-40 (interpolated) Q 14.24 LPM, Re_ch 48.55, Phi 0.2157, R_th 0.02198 K/W, dp 183.97 Pa, W_pump 0.043664 W | EFL-1 Q 14.24 LPM, Re_ch 40, Phi 0.2317, R_th 0.02149 K/W, dp 219.34 Pa, W_pump 0.052058 W
+  matched W_pump [[W]]: FC-40 (interpolated) Q 15.377 LPM, Re_ch 52.43, Phi 0.2107, R_th 0.02156 K/W, dp 203.13 Pa, W_pump 0.052058 W | EFL-1 Q 14.24 LPM, Re_ch 40, Phi 0.2317, R_th 0.02149 K/W, dp 219.34 Pa, W_pump 0.052058 W
+
+--- anchor: E006 (EFL-1, Re_ch label 150, accepted True) ---
+matched Re_ch (Re_ch = 150 both fluids): FC-40 C017 vs EFL-1 E006
+  Q_full_sink_LPM: FC-40 43.996 | EFL-1 53.401
+  m_full_kg_s: FC-40 1.3602 | EFL-1 1.6812
+  Re_ch: FC-40 150 | EFL-1 150
+  Pr_inlet: FC-40 67.543 | EFL-1 94.966
+  Phi_in: FC-40 0.1606 | EFL-1 0.16178
+  R_th_K_W: FC-40 0.017722 | EFL-1 0.017115
+  dp_sink_Pa: FC-40 746.27 | EFL-1 1153.8
+  W_pump_W: FC-40 0.54721 | EFL-1 1.0269
+  matched Q [[LPM]]: FC-40 (interpolated) Q 53.401 LPM, Re_ch 182.1, Phi 0.1554, R_th 0.01728 K/W, dp 934.6 Pa, W_pump 0.83181 W | EFL-1 Q 53.401 LPM, Re_ch 150, Phi 0.1618, R_th 0.01712 K/W, dp 1153.8 Pa, W_pump 1.0269 W
+  matched W_pump [[W]]: FC-40 (interpolated) Q 58.868 LPM, Re_ch 200.7, Phi 0.1528, R_th 0.01706 K/W, dp 1046.6 Pa, W_pump 1.0269 W | EFL-1 Q 53.401 LPM, Re_ch 150, Phi 0.1618, R_th 0.01712 K/W, dp 1153.8 Pa, W_pump 1.0269 W
+
+## Withheld-load partition, OR = 0 (Sec. 7.1 item 3): T_chip,max RMSE and maximum error
+cases: ['L001', 'L006', 'L011', 'L016', 'L021'] (P = [300.0, 500.0, 850.0, 1000.0, 1200.0] W)
+T_chip,max field [C]: [30.9, 34.81, 41.61, 44.51, 48.35]
+T_chip,max predicted [C] (T_in + P x R_th_predicted): [np.float64(30.8), np.float64(34.67), np.float64(41.45), np.float64(44.35), np.float64(48.23)]
+RMSE 0.137 C | maximum error 0.163 C | mean error -0.135 C
+
+## Fixed-fin clearance sweep: closure prediction vs field (Sec. 8.1)
+F001: clearance 0.00 mm, OR(equivalent) 0.0000, Re_ch 40, accepted True | Phi field 0.0000 vs closure 0.0000 (+0.0 pp) | R_th field 0.02129 vs closure 0.02196 K/W (+3.1 %)
+F002: clearance 5.00 mm, OR(equivalent) 0.1931, Re_ch 40, accepted True | Phi field 0.4096 vs closure 0.4767 (+6.7 pp) | R_th field 0.03586 vs closure 0.03991 K/W (+11.3 %)
+F003: clearance 10.00 mm, OR(equivalent) 0.3236, Re_ch 40, accepted False | Phi field 0.6780 vs closure 0.7001 (+2.2 pp) | R_th field 0.07213 vs closure 0.08685 K/W (+20.4 %)
+F004: clearance 19.05 mm, OR(equivalent) 0.4768, Re_ch 40, accepted False | Phi field 0.8426 vs closure 0.8485 (+0.6 pp) | R_th field 0.11861 vs closure 0.23729 K/W (+100.1 %)
+(F003, F004 lie outside the validity envelope; their closure comparison is shown for context only, not part of the accepted-case statistic.)

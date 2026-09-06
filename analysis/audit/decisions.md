@@ -423,3 +423,63 @@ by direct inspection. The model is not used further for this role; the operator 
 GPT-6 Astra by Codex, whose invocation instead timed out after 3400 s producing nothing (`codex_report.md`
 absent); Gemini 3.7 Flash's independent audit of the same package (`audit/joint_audit_gemini.md`)
 remains the standing verdict for the launcher and runner.
+
+## Table-generation bug found and fixed (7 September 2026)
+
+`figures/src/make_campaign_tables.py`'s counts-table block joined its rows with the two-character
+string `\n` (a stray extra backslash in the source, `"\\n".join(rows)` instead of `"\n".join(rows)`)
+instead of an actual newline. This was invisible while the ledger held only the calibration
+partition (`rows` had length 1, so no separator was ever inserted), and manifested only now that
+five partitions have finished cases. Fixed; every table was regenerated and the LaTeX checked for
+a clean compile.
+
+## Campaign at 170 of 177 cases: cross-condition results compiled and the manuscript updated (7 September 2026)
+
+The second machine's shared list advanced from 162 to 170 finished cases since the previous entry
+(7 remain: E001-E003, G001, G002, L020, L025, the grid study and the last few withheld-load and
+withheld-coolant cases). `dataset_ledger_unitcell.csv` and every downstream file were regenerated
+from the fuller ledger; 49 cases are now accepted campaign-wide (34 calibration, unchanged; 6
+EFL-1; 5 thermal-load; 2 cross-combinations; 2 fixed-fin).
+
+New analysis this round, all in `audit/src/holdout_extra_stats.py` (appended to
+`campaign_results_summary.md`, written to `audit/coolant_comparison.csv`): (1) a three-basis
+coolant comparison (matched channel Reynolds number, matched flow rate, matched pumping power)
+between FC-40 and the EFL-1 holdout case E006 at OR = 0.1, the FC-40 side taken by log-log
+interpolation of its own nine-point OR = 0.1 curve; (2) the T_chip,max prediction check for the
+withheld-load partition (OR = 0, 300 to 1200 W): RMSE 0.137 C, maximum error 0.163 C; (3) a
+row-by-row field-versus-closure comparison for the fixed-fin sweep (F001-F004), quantifying that
+decoupling the clearance from the fin height over-predicts the resistance penalty by 11.3% at 5 mm
+clearance and by 100% at 19.05 mm. A format-string bug in the same script (a 13-specifier format
+string given a 12-element tuple) was found and fixed before these numbers were produced.
+
+Three new figures were produced by the Antigravity CLI (Gemini 3.7 Flash), per the operator's
+instruction to use it for figure work: `fig_coolant_comparison`, `fig_fixed_fin` and
+`fig_parity_all` (parity of all three closures across all 49 accepted cases, not just
+calibration). Each was checked against its source CSV before inclusion.
+
+The manuscript sections were updated to match: Sections 6.4, 6.9, 7 (partition statistics table
+narration, the T_chip,max check), 8 (the coolant-comparison table and figure, the design-guidance
+caveat for decoupled clearance), 9 and the abstract/highlights of `main.tex`. An inconsistency was
+caught and fixed during proofreading: the `fig_coolant_comparison` caption originally claimed the
+resistance gap was under 1% "on every basis", but the matched-Re_ch basis is actually 3.4%; only
+the matched-flow-rate and matched-pumping-power bases are under 1%.
+
+Codex (GPT-6 Astra) was dispatched in parallel as an independent numbers-only auditor of this
+round's new statistics, reproducing the fits, the coolant comparison, the T_chip,max check, the
+fixed-fin comparison and the campaign-count table from the raw ledger; its report and verdict are
+recorded separately once returned.
+
+`audit/provenance.csv` was extended with new rows (token_id 1317-1335) tracing every new manuscript
+number to its source file. The existing rule-based classifier (`audit/src/provenance_rules.py`,
+`audit/src/extract_numeric_tokens.py`) was not rerun: it predates the unit-cell campaign, is
+hardcoded to the withdrawn round-2 `parametric_campaign` dataset's file paths and line ranges, and
+its unconditional fallback rule for `parametric_results.tex`/`discussion.tex`/`conclusions.tex`
+would have mislabeled every new real-CFD number as `FORMULA_OUTPUT_NOT_CFD` sourced from that fake
+dataset. It needs rewriting for the unit-cell campaign before it can be safely rerun wholesale;
+the new rows were added by hand instead, at the granularity of one row per distinct new quantity
+rather than one row per token occurrence.
+
+`main.pdf` was recompiled (55 pages, no undefined references other than the still-outstanding
+grid-study table). The GitHub repository's `analysis/` mirror was refreshed to match (ledger,
+refit stats, the new coolant-comparison file, the three new figures and their scripts, the updated
+LaTeX tables, `decisions.md`, `README.md` and a fresh checksum manifest) and pushed.
