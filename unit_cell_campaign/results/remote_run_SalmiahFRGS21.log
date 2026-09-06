@@ -143,3 +143,5 @@
 2026-09-07 00:51:25 L003 done rc=0 12000 iterations, cap stop, 2322 s
 2026-09-07 00:51:37 L004 start
 2026-09-07 01:04:19 L004 done rc=0 4096 iterations, envelope stop, 762 s
+2026-09-07 01:04:30 L006 start
+2026-09-07 01:09:32 L006 done rc=0 2206 iterations, converged stop, 301 s
