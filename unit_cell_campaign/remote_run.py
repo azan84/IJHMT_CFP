@@ -247,12 +247,12 @@ def analyse(a):
         for root,dirs,files in os.walk(base):
             for fn in sorted(files):
                 p=os.path.join(root,fn)
-                if fn=="MANIFEST_sha256.txt": continue
+                if fn=="MANIFEST_sha256.txt" or "__pycache__" in root or fn.endswith((".pyc",".pyo")): continue   # ignored by git, so not in the manifest
                 import hashlib; lines.append("%s  %s"%(hashlib.sha256(open(p,"rb").read()).hexdigest(),os.path.relpath(p,REPO)))
     open(os.path.join(AN,"MANIFEST_sha256.txt"),"w").write("\n".join(sorted(lines,key=lambda l:l.split("  ",1)[1]))+"\n")
     with PUSH_LOCK:
         git_repair(); rel=os.path.relpath(ROOT,REPO); msg="analysis: regenerated on %s at %s from %d result tarballs (%s)"%(os.uname().nodename,time.strftime("%F %H:%M"),n,"complete" if ok else "incomplete, see logs")
-        for st in ["git add -A analysis %s/results %s/results_test"%(rel,rel) if os.path.isdir(os.path.join(ROOT,"results_test")) else "git add -A analysis %s/results"%rel,"git diff --cached --quiet || git commit -q -m '%s'"%msg,"git fetch -q origin main","git rebase -q origin/main || (git rebase --abort; git reset -q --soft origin/main && git add -A analysis %s/results && (git diff --cached --quiet || git commit -q -m '%s (replayed on origin)'))"%(rel,msg),"git push -q origin HEAD:main"]:
+        for st in ["git add -A analysis %s/results %s/results_test"%(rel,rel) if os.path.isdir(os.path.join(ROOT,"results_test")) else "git add -A analysis %s/results"%rel,"git diff --cached --quiet || git commit -q -m '%s'"%msg,"git fetch -q origin main","git rebase -q origin/main || (git rebase --abort; git reset -q --soft origin/main && git add -A analysis %s/results %s && (git diff --cached --quiet || git commit -q -m '%s (replayed on origin)'))"%(rel,("%s/results_test"%rel if os.path.isdir(os.path.join(ROOT,"results_test")) else ""),msg),"git push -q origin HEAD:main"]:
             if not a.no_push and sh(st,cwd=REPO,logfile=os.path.join(ROOT,"git_push.log"))!=0: log("analysis push FAILED at '%s' (see git_push.log)"%st.split()[1]); return False
     log("analysis: %s; outputs in analysis/ (%s)"%("complete" if ok else "incomplete","pushed" if not a.no_push else "not pushed"))
     return ok
