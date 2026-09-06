@@ -81,3 +81,9 @@
 2026-09-06 17:28:24 E030 done rc=0 4023 iterations, envelope stop, 922 s
 2026-09-06 17:28:36 L001 start
 2026-09-06 17:33:37 L001 done rc=0 2254 iterations, converged stop, 301 s
+2026-09-06 17:33:48 L002 start
+2026-09-07 00:12:15 environment: OpenFOAM v2406; mpirun mpirun (Open MPI) 4.1.6
+2026-09-07 00:12:15 resources: 8 physical cores, 16 logical, 15.5 GB available, load 0.0
+2026-09-07 00:12:18 using 8 cores: 1 concurrent cases x 8 ranks
+2026-09-07 00:12:19 checked 87 cases; 0 with differences; 32 numeric-equivalent
+2026-09-07 00:12:19 re-extracting 3 finished cases with the version-2 stations and bins
