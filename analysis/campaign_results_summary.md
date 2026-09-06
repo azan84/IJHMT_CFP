@@ -1,9 +1,9 @@
-# Campaign results summary (93 finished cases in the ledger)
+# Campaign results summary (162 finished cases in the ledger)
 
-Source: cfd/unit_cell_campaign/dataset_ledger_unitcell.csv unless stated.
+Source: analysis/dataset_ledger_unitcell.csv unless stated.
 
 ## Calibration partition (FC-40, 700 W)
-finished 93 | inside envelope 34 | converged 34 | accepted 34 | at cap (12000 or more iterations, not converged) 0 | solver exit code != 0 3
+finished 99 | inside envelope 34 | converged 34 | accepted 34 | at cap (12000 or more iterations, not converged) 0 | solver exit code != 0 4
 iterations of accepted cases: min 1201, median 5329, max 18504
 closures of accepted cases: mass split max 4.13e-07 %, energy balance max 0.277 %, stationarity max 9.34e-04
 wall temperature of accepted cases: 31.5 to 68.4 C; chip (base max + TIM): 36.1 to 73.0 C
@@ -17,7 +17,7 @@ OR 0.6: accepted at Re_ch []; outside the wall bound at [2, 5, 10, 20, 40, 70, 1
 OR 0.7: accepted at Re_ch []; outside the wall bound at [2, 5, 10, 20, 40, 70, 100, 150, 250]
 OR 0.8: accepted at Re_ch []; outside the wall bound at [2, 5, 10, 20, 40, 70, 100, 150, 250]
 OR 0.9: accepted at Re_ch []; outside the wall bound at [2, 5, 10, 20, 40, 70, 100, 150, 250]
-OR 1.0: accepted at Re_ch []; outside the wall bound at [2, 5, 10]
+OR 1.0: accepted at Re_ch []; outside the wall bound at [2, 5, 10, 20, 40, 70, 100, 150, 250]
 
 ## Bypass split (accepted cases)
 OR 0.0: Phi leading edge [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]; mid [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]; trailing edge [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]; Phi_eff [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] (Re_ch [2, 5, 10, 20, 40, 70, 100, 150, 250])
@@ -161,12 +161,12 @@ C045 OR 0.4 Re 250: rise 6.81 K | P/(m(1-Phi_in)cp) 1.11 | P/(m(1-Phi_eff)cp) 6.
 C053 OR 0.5 Re 150: rise 38.76 K | P/(m(1-Phi_in)cp) 3.79 | P/(m(1-Phi_eff)cp) 67.84 | error +29.08 K (+75.0 %) | underestimation 10.24
 C054 OR 0.5 Re 250: rise 21.54 K | P/(m(1-Phi_in)cp) 1.88 | P/(m(1-Phi_eff)cp) 27.63 | error +6.09 K (+28.3 %) | underestimation 11.44
 
-## Feasible operating map (audit/feasibility_map.csv; R_th <= 1.10 R_sealed(Re) and T_chip <= 85 C): 12 feasible of 91 rows
+## Feasible operating map (audit/feasibility_map.csv; R_th <= 1.10 R_sealed(Re) and T_chip <= 85 C): 13 feasible of 103 rows
 Re 2: feasible OR [0.0]; minimum W_pump at OR 0.0: 8.515e-05 W (sealed 8.515e-05 W, ratio 1.000), R_th ratio 1.000, T_chip 67.7 C
 Re 5: feasible OR [0.0]; minimum W_pump at OR 0.0: 0.0008681 W (sealed 0.0008681 W, ratio 1.000), R_th ratio 1.000, T_chip 49.8 C
 Re 10: feasible OR [0.0]; minimum W_pump at OR 0.0: 0.003862 W (sealed 0.003862 W, ratio 1.000), R_th ratio 1.000, T_chip 43.8 C
 Re 20: feasible OR [0.0]; minimum W_pump at OR 0.0: 0.01619 W (sealed 0.01619 W, ratio 1.000), R_th ratio 1.000, T_chip 40.5 C
-Re 40: feasible OR [0.0]; minimum W_pump at OR 0.0: 0.06642 W (sealed 0.06642 W, ratio 1.000), R_th ratio 1.000, T_chip 38.7 C
+Re 40: feasible OR [0.0, 0.0]; minimum W_pump at OR 0.0: 0.03537 W (sealed 0.06642 W, ratio 0.533), R_th ratio 1.088, T_chip 39.9 C
 Re 70: feasible OR [0.0]; minimum W_pump at OR 0.0: 0.2063 W (sealed 0.2063 W, ratio 1.000), R_th ratio 1.000, T_chip 37.7 C
 Re 100: feasible OR [0.0, 0.1]; minimum W_pump at OR 0.1: 0.2242 W (sealed 0.4243 W, ratio 0.529), R_th ratio 1.078, T_chip 38.2 C
 Re 150: feasible OR [0.0, 0.1]; minimum W_pump at OR 0.1: 0.5472 W (sealed 0.963 W, ratio 0.568), R_th ratio 1.061, T_chip 37.4 C

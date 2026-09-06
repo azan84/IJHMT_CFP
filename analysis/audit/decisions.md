@@ -401,3 +401,25 @@ Addendum (5 September 2026, 22:30): round 2 of the repository completeness check
 the public repository, byte-identical to the local originals (also confirmed by an independent comparison of all
 7541 checksummed case files). The two remarks (script paths documented; the manifest listing its own hash) were
 taken: the manifest now excludes itself.
+
+## Campaign resumed independently and analysis regenerated (6 September 2026)
+
+While this session pursued the joint tooling audit, the second machine continued the shared list on
+its own (the launcher is designed to resume unattended) and pushed 29 further case results without
+this session noticing at the time (routine `git pull --rebase` calls absorbed them silently). The
+repository's `analysis/` had therefore fallen behind: it still reflected the 133-case state of
+5 September. Regenerated now from all 162 finished-case tarballs in the repository (`results/` and
+`results_local/` together, unpacked and post-processed on fast local storage because the E-drive
+clone is too slow for hundreds of small files, then copied back): 48 of 162 cases accepted (34 of
+them the calibration set, unchanged; the fitted coefficients of Eq.~(23), Eq.~(24) and the
+resistance sum are therefore unchanged); the withheld-load, withheld-coolant, cross-combination and
+fixed-fin partitions now carry some accepted rows (`tab_statistics.tex`); the grid study (G001,
+G002) has not finished. Pushed with a fresh checksum manifest.
+
+This was found while investigating a GPT-OSS 120B audit report (`audit/gpt_oss_joint_audit_unreliable.md`)
+that turned out to be unusable: self-contradictory, citing a non-existent file path, and claiming a
+corrupt tarball (`L015.tar.gz`) and a missing extraction file (`C091`) that were both verified false
+by direct inspection. The model is not used further for this role; the operator asked instead for
+GPT-6 Astra by Codex, whose invocation instead timed out after 3400 s producing nothing (`codex_report.md`
+absent); Gemini 3.7 Flash's independent audit of the same package (`audit/joint_audit_gemini.md`)
+remains the standing verdict for the launcher and runner.
