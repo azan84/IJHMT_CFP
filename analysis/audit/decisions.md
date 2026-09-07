@@ -483,3 +483,21 @@ rather than one row per token occurrence.
 grid-study table). The GitHub repository's `analysis/` mirror was refreshed to match (ledger,
 refit stats, the new coolant-comparison file, the three new figures and their scripts, the updated
 LaTeX tables, `decisions.md`, `README.md` and a fresh checksum manifest) and pushed.
+
+Codex's independent numbers-only audit (`audit/codex_numbers_audit_round3_170case_PASS.md`) came
+back **PASS** with zero discrepancies, run with `gpt-5.6-sol` (the operator asked to use this model
+in place of `gpt-6-astra`, whose first attempt was killed before it produced output). It
+independently re-fitted Eq.~(23)/(24) on the 34 accepted calibration rows and reproduced every
+coefficient, SE and CI to the figures in `refit_stats.csv`; recomputed every partition's and
+calibration subgroup's error statistics; reproduced the C017/E006 coolant pairing and both
+log-log-interpolated bases; recomputed all five withheld-load T_chip,max predictions (RMSE 0.137 C,
+max 0.163 C, mean -0.135 C, matching to the last reported digit); reproduced all four fixed-fin
+rows' field-versus-closure percentages; confirmed all six campaign-count table rows and the exact
+seven missing case IDs against a fresh directory listing; confirmed all ten diverged cases'
+OR/Re/partition; and confirmed the row-joining fix and the five-row `tab_campaign_counts.tex`
+output. It additionally reproduced all 103 rows of `feasibility_map.csv` to within 4e-15. As a
+side note (not a discrepancy): `refit_stats.csv` also carries a `fixed_fin_sweep` row (N=2, Phi MAE
+3.36 pp, MAPE 16.39%, R_th MAPE 7.22%) that `make_campaign_tables.py` deliberately excludes from
+`tab_statistics.tex` (`PART[:4]`) because Section 6.9's own `tab_fixed_fin.tex` already covers that
+partition case-by-case; the aggregate numbers are consistent with the per-case ones already in the
+manuscript (F001 ~0 pp/+3.1%, F002 +6.7 pp/+11.3%).
