@@ -501,3 +501,79 @@ side note (not a discrepancy): `refit_stats.csv` also carries a `fixed_fin_sweep
 `tab_statistics.tex` (`PART[:4]`) because Section 6.9's own `tab_fixed_fin.tex` already covers that
 partition case-by-case; the aggregate numbers are consistent with the per-case ones already in the
 manuscript (F001 ~0 pp/+3.1%, F002 +6.7 pp/+11.3%).
+
+## New reference corpus screened for a validation source (7 September 2026)
+
+Cloned `https://github.com/azan84/CFD_references.git` into `CFD_references/` (39 unlabeled PDFs)
+on the operator's request and screened it for a reproducible external validation source, using the
+project's established five-item reproducibility rubric. 39 parallel Claude Code agents identified
+and coarse-filtered every PDF; 14 judged topically plausible got the full triage; the strongest
+candidate got an independent second read from Codex (gpt-5.6-sol) and a figure-verification pass
+from agy (Gemini 3.7 Flash, after two transient network failures on the eligibility check, third
+attempt succeeded). Full writeup: `validation/cfd_references_screening_2026-09-07.md` and
+`validation/moores-pinfin-tip-clearance_triage.md`.
+
+Result: 25 of 39 PDFs are off-topic (urban wind/pollutant-dispersion and building-microclimate
+studies — this batch reads as a general-purpose personal reference library, not one curated for
+this manuscript). Of the 14 plausible ones, all score SUPPORTING or worse because none has a
+bypass/tip-clearance flow path except one genuinely new find: Moores, Kim & Joshi (2009, IJHMT 52),
+an experimental shrouded pin-fin-array study with an adjustable tip-clearance gap directly
+analogous to our recess ratio OR. Classified SUPPORTING by all three independent reads (three
+PARTIALs on Geometry/BCs/Properties and one on the comparison-quantity basis mismatch — Codex's
+read was stricter than the initial one on Geometry/BCs and is adopted as the final score); not a
+quantitative anchor, but the strongest available qualitative check on the bypass mechanism itself,
+and a genuine experiment rather than another simulation. No manuscript change made — a quantitative
+use would require a fresh CFD reproduction of the paper's test section, which is new CFD work
+needing its own sign-off.
+
+Separately surfaced: Mei et al. (2014), already in the existing `references/` corpus and already
+triaged ANCHOR-ACQUIRABLE on 30 August, is currently cited only for Reynolds-range context and was
+never attempted as one of the six named benchmarks, despite outscoring two that were (Khoshvaght-
+Aliabadi and Jeng, neither of which was ever simulated). Flagged for the operator's consideration,
+independent of the new clone.
+
+## Grid study completed; Mei et al. (2014) reproduction probe (7 September 2026)
+
+Per the operator's "run all of them" instruction: launched the already-authorized, already-meshed
+grid study (G001 coarse 14,400 cells, G002 fine 254,870 cells; both had been meshed but never
+solved) via the standard `run_campaign.sh`. Both converged cleanly (G001: 1401 iterations, 294 s;
+G002: 1207 iterations, 1580 s) and are accepted. Campaign is now 172 of 177 designed cases finished
+(5 remain: E001-E003, L020, L025); 51 accepted campaign-wide including the two grid cases (the "49
+accepted" figure used throughout the manuscript for the closure-fitting/cross-condition partitions
+is unaffected -- it deliberately excludes the grid-study partition, which was already correct).
+
+Computed the grid convergence index (Roache/Eca-Hoekstra generalised procedure for non-constant
+refinement ratio; `audit/src/grid_gci.py`) on the three grids (coarse/medium C018/fine,
+r21=1.66, r32=1.57): fine-grid GCI of 1.1% (dp_sink), 1.0% (Nu), 1.2% (Phi_bypass) and 0.6%
+(T_chip_max), with apparent order near the solver's nominal second order for dp_sink and Nu (2.01,
+1.91) and a low apparent order for Phi_bypass and T_chip_max (0.62, 0.29) that reflects how little
+those two move across the three grids (0.07 pp and 0.03 C peak to peak) rather than poor
+discretisation behaviour. In the course of this, corrected a pre-existing placeholder in
+`verification_validation.tex`: the medium grid's cell count was stated as 51,800 (a pre-result
+guess) where the as-built mesh (case C018) actually has 66,080 cells. Updated
+`verification_validation.tex` (Sec. vv-grid), `conclusions.tex` and the `main.tex` abstract to
+report the real result in place of the "MISSING"/"outstanding" placeholders; `tab_grid.tex`
+regenerated automatically by `make_campaign_tables.py` now that G001/G002 exist. `main.pdf`
+recompiled clean (55 pages, no undefined references at all, including `tab:grid` for the first
+time).
+
+Also built a probe reproduction of Mei et al. (2014, IJHMT 70) at hc/hf = 1.2, Re = 104 (one case,
+not a full sweep -- see `cfd/mei2014_pinfin_validation/RESULTS.md` for full detail): a new
+snappyHexMesh-based meshing pipeline (this project's existing mesh generator only builds the
+rectangular plate-fin geometry; pin arrays need a genuinely different approach), spanwise-periodic
+half-pitch slice through one pin column, 15 of the paper's 50 rows, hydrodynamics solved with
+`simpleFoam` and temperature as a decoupled passive scalar (`scalarTransportFoam`) with a
+uniform-flux approximation on the wetted surfaces in place of the real conjugate aluminium pin.
+While reproducing the paper's own Eqs. (20) and (23), found and corrected a real transcription
+risk: plain-text PDF extraction had silently dropped the minus signs on both exponents, giving
+correlation predictions three orders of magnitude too large; rendering the source pages as images
+confirmed the true equations have negative exponents throughout, consistent with the paper's own
+prose and figure axis ranges. With the correction, the probe's friction factor matches to +8%
+(no boundary layers: +3%), well inside the paper's own 10.2% MAE -- a genuine, successful
+hydrodynamic validation. Nusselt number is 54% low, attributed to the uniform-flux simplification:
+a fin-efficiency check (tanh(mL)/mL = 0.94) confirms the real aluminium pin is nearly isothermal,
+and forcing uniform flux instead on a bluff body with a highly non-uniform local heat-transfer
+coefficient (crossflow separation) is a known mechanism for exactly this kind of Nu shortfall. A
+full conjugate reproduction would close this gap; not attempted here (out of scope for a probe).
+Moores et al. (2009) was not attempted: its housing/duct dimensions are not published at all,
+needing materially more invented geometry than Mei's case did for comparable or lower payoff.
